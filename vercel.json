@@ -1,10 +1,16 @@
 {
   "buildCommand": "echo 'No build required'",
-  "outputDirectory": "downloaded_site",
+  "outputDirectory": "downloaded_site/xn--o39a0n963awza76tu9hduc.com",
+  "cleanUrls": true,
+  "trailingSlash": false,
   "rewrites": [
     {
-      "source": "/(.*)",
-      "destination": "/xn--o39a0n963awza76tu9hduc.com/$1"
+      "source": "/:path*/index.html",
+      "destination": "/:path*/"
+    },
+    {
+      "source": "/:path*",
+      "destination": "/:path*.html"
     }
   ],
   "headers": [
