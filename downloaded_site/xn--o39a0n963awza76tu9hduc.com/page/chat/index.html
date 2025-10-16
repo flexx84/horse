@@ -54,11 +54,11 @@
 <!--Theme Color-->
 <link href="..\..\theme\krpro\assets\css\theme-color\default.css" id="theme-color" rel="stylesheet" type="text/css"/>
 <!--[if lte IE 8]>
-<script src="js/html5.js"></script>
+<script src="https://xn--o39a0n963awza76tu9hduc.com/js/html5.js"></script>
 <![endif]-->
 <script src="..\..\js\basic.js"></script>
 <script>
-set_basic_urlinfo('https://xn--o39a0n963awza76tu9hduc.com', 'bbs', '1', '', '', '', '', '', '');
+set_basic_urlinfo('https://xn--o39a0n963awza76tu9hduc.com', 'https://xn--o39a0n963awza76tu9hduc.com/bbs', '', '', '', '', '', '', '');
 </script>
 <script src="..\..\js\jquery-1.12.4.min.js"></script>
 <script src="..\..\js\jquery-ui-1.12.1.js"></script>
@@ -76,15 +76,19 @@ set_basic_urlinfo('https://xn--o39a0n963awza76tu9hduc.com', 'bbs', '1', '', '', 
 <!-- 팝업레이어 시작 { -->
 <div id="hd_pop">
 <h2>팝업레이어 알림</h2>
-<div class="main_pops" draggable="true" id="main_pops_notice" style="position:absolute; top:120px; left:128px; z-index:9;">
-<div class="main_pops_con" style="width:868px;height:771px;">
-<img src="..\..\img\popup\pop_20251001.png"/>
+<div class="main_pops" draggable="true" id="main_pops_510" style="position:absolute; top:120px; left:228px; z-index:9;">
+<div class="main_pops_con" style="width:586px;height:752px; cursor:move;">
+<a href="..\queue_50limit\index.html"><img src="..\..\img\popup\pop_50limit.png"/></a>
 </div>
 <div class="main_pops_footer" style="background-color:#000000;">
-<button class="main_pops_reject main_pops_notice 24" style="background-color:#000000; font-size:1.2em;"><input style="margin-top:-1px; zoom:1.6;" type="checkbox"/> <strong>1</strong>일 동안 열지 않기</button>
-<button class="main_pops_close main_pops_notice" style="background-color:#000000;">닫기 <i aria-hidden="true" class="fa fa-times"></i></button>
+<button class="main_pops_reject main_pops_510 48" style="background-color:#000000; font-size:1.2em;"><input style="margin-top:-1px; zoom:1.6;" type="checkbox"/> <strong>2</strong>일 동안 열지 않기</button>
+<button class="main_pops_close main_pops_510" style="background-color:#000000;">닫기 <i aria-hidden="true" class="fa fa-times"></i></button>
 </div>
 </div>
+<script>
+    // Make the DIV element draggable:
+    dragElement(document.getElementById("main_pops_510"));
+    </script>
 </div>
 <script>
 $(function() {
@@ -104,7 +108,7 @@ $(function() {
 </script>
 <!-- } 팝업레이어 끝 --></div>
 <div class="chat_outer">
-<div class="chat_inner" style="margin:0; padding-left:10px;">
+<div class="chat_inner">
 <!-- HEADER -->
 <header class="header header-2" id="header">
 <div class="top-bar-section top-bar-bg-color" id="top-bar">
@@ -143,30 +147,11 @@ $(function() {
 <div class="top-social-icon" style="padding-right:10px; height:50px; margin-top:15px; margin-right:10px; background:#ffffff; border-radius:5px;">
 <div class="" style="padding:5px;">
 <ul class="chat_hd_login">
+<li><a href="..\..\member\login\index.html">로그인</a></li>
 <li>
-<div style="margin-top:-18px; text-align:left;">
-<span style="font-size:0.9em;">마케터님 </span>
-<span style="font-size:0.9em;">2050년 12월 31일까지</span>
-</div>
-<div style="margin-top:14px;">
-<span style="padding: 0 7px; border:1px solid #000000; border-radius:7px; color:#6e6e6e; background:#ebebeb;">일반회원</span>
-<span style="padding: 0 7px; border:1px solid #000000; border-radius:7px; color:#ffffff; background:#ff0000;">가족회원</span>
-<span style="padding: 0 7px; border:1px solid #000000; border-radius:7px; color:#6e6e6e; background:#ebebeb;">분석가</span>
-<span>입니다</span>
-</div>
+<a href="..\..\member\join\index.html">무료회원가입</a>
+<!--<p class="help-tip">+5,000P</p>-->
 </li>
-<li>
-<a class="win_point" data-mb_point="408200" href="..\..\member\point\index.html" style="color:red;" target="_blank">408,200원</a>
-</li>
-<li>
-<a class="win_memo" href="..\..\bbs\memo\index.html" target="_blank">
-<img src="..\..\img\icon_memo.png" style="vertical-align:top;" width="18"/>
-</a>
-</li>
-<!--<li><a href="javascript:;" style="padding:0 5px; background:#ff0000; color:#ffffff;" onClick="goto_opener_href('member/mypage')">포인트구매</a></li>-->
-<li><a href="..\..\member\mypage\index.html" style="padding:0 5px; background:#ff0000; color:#ffffff;" target="_blank">포인트구매</a></li>
-<!--<li><a href="member/confirm?url=member/form">정보수정</a></li>-->
-<li><a href="..\..\member\logout\index.html">로그아웃</a></li>
 </ul>
 </div>
 </div>
@@ -181,77 +166,72 @@ $(function() {
 <div>
 <div class="about-block clearfix" style="margin-top:-10px; padding-right:5px; text-align:left;">
 <div class="local_ov01 local_ov" style="background:#ededed;">
-<a class="week_prev_page" href="index.html">이전</a>
-<a class="ov_listdate" href="index.html">2025-09-26 금</a>
-<a class="ov_listdate" href="index.html">2025-09-27 토</a>
-<a class="ov_listdate_on" href="index.html">2025-09-28 일</a>
-<input onchange="location.href='?rcDate=' + this.value.replace(/-/g, '');" style="width:110px; margin-top:-6px; margin-bottom:0; font-size:15px; font-weight:bold;" type="date" value=""/>
+<a class="ov_listdate_on" href="index.html">2025-10-17 금</a>
+<a class="ov_listdate" href="index.html">2025-10-18 토</a>
+<a class="ov_listdate" href="index.html">2025-10-19 일</a>
 <span style="margin-left:12px; font-size:16px; font-weight:bold; vertical-align:middle;">
-        [10:35] <span style="color:#ff0000;">1200M 국6등급</span> 별정A 일반    </span>
+        [11:00] <span style="color:#ff0000;">900M 제6등급</span> 별정A 일반    </span>
 </div>
 <div class="local_ov01 local_ov" style="width:100%; line-height:40px;">
-<a class="btn_rcNo"><span class="ov_txt1"><strong>서울</strong> </span></a> <div class="btn_rcNo01">
-<span class="ov_num ov_num_red blink_basic"><a href="index.html" style="color:#fff;font-weight:bold;">1R</a></span>
+<a class="btn_rcNo"><span class="ov_txt2"><strong>제주</strong> </span></a> <div class="btn_rcNo01">
+<span class="ov_num_on ov_num_red blink_basic"><a href="index.html" style="color:#fff;font-weight:bold;">1R</a></span>
 </div>
 <div class="btn_rcNo01">
-<span class="ov_num ov_num"><a href="index.html" style="font-weight:bold;">2R</a></span>
+<span class="ov_num_on ov_num"><a href="index.html" style="color:#fff;font-weight:bold;">2R</a></span>
 </div>
 <div class="btn_rcNo01">
-<span class="ov_num ov_num"><a href="index.html" style="font-weight:bold;">3R</a></span>
+<span class="ov_num_on ov_num"><a href="index.html" style="color:#fff;font-weight:bold;">3R</a></span>
 </div>
 <div class="btn_rcNo01">
-<span class="ov_num ov_num"><a href="index.html" style="font-weight:bold;">4R</a></span>
+<span class="ov_num_on ov_num"><a href="index.html" style="color:#fff;font-weight:bold;">4R</a></span>
 </div>
 <div class="btn_rcNo01">
-<span class="ov_num ov_num"><a href="index.html" style="font-weight:bold;">5R</a></span>
+<span class="ov_num_on ov_num"><a href="index.html" style="color:#fff;font-weight:bold;">5R</a></span>
 </div>
 <div class="btn_rcNo01">
-<span class="ov_num ov_num"><a href="index.html" style="font-weight:bold;">6R</a></span>
+<span class="ov_num_on ov_num"><a href="index.html" style="color:#fff;font-weight:bold;">6R</a></span>
 </div>
 <div class="btn_rcNo01">
-<span class="ov_num ov_num"><a href="index.html" style="font-weight:bold;">7R</a></span>
+<span class="ov_num_on ov_num"><a href="index.html" style="color:#fff;font-weight:bold;">7R</a></span>
 </div>
 <div class="btn_rcNo01">
-<span class="ov_num ov_num"><a href="index.html" style="font-weight:bold;">8R</a></span>
-</div>
-<div class="btn_rcNo01">
-<span class="ov_num ov_num"><a href="index.html" style="font-weight:bold;">9R</a></span>
-</div>
-<div class="btn_rcNo01">
-<span class="ov_num ov_num"><a href="index.html" style="font-weight:bold;">10R</a></span>
-</div>
-<div class="btn_rcNo01">
-<span class="ov_num ov_num"><a href="index.html" style="font-weight:bold;">11R</a></span>
+<span class="ov_num_on ov_num"><a href="index.html" style="color:#fff;font-weight:bold;">8R</a></span>
 </div>
 <br/><a class="btn_rcNo"><span class="ov_txt3"><strong>부산</strong> </span></a> <div class="btn_rcNo01">
-<span class="ov_num ov_num"><a href="index.html" style="font-weight:bold;">1R</a></span>
+<span class="ov_num_on ov_num"><a href="index.html" style="color:#fff;font-weight:bold;">1R</a></span>
 </div>
 <div class="btn_rcNo01">
-<span class="ov_num ov_num"><a href="index.html" style="font-weight:bold;">2R</a></span>
+<span class="ov_num_on ov_num"><a href="index.html" style="color:#fff;font-weight:bold;">2R</a></span>
 </div>
 <div class="btn_rcNo01">
-<span class="ov_num ov_num"><a href="index.html" style="font-weight:bold;">3R</a></span>
+<span class="ov_num_on ov_num"><a href="index.html" style="color:#fff;font-weight:bold;">3R</a></span>
 </div>
 <div class="btn_rcNo01">
-<span class="ov_num ov_num"><a href="index.html" style="font-weight:bold;">4R</a></span>
+<span class="ov_num_on ov_num"><a href="index.html" style="color:#fff;font-weight:bold;">4R</a></span>
 </div>
 <div class="btn_rcNo01">
-<span class="ov_num ov_num"><a href="index.html" style="font-weight:bold;">5R</a></span>
+<span class="ov_num_on ov_num"><a href="index.html" style="color:#fff;font-weight:bold;">5R</a></span>
 </div>
 <div class="btn_rcNo01">
-<span class="ov_num ov_num"><a href="index.html" style="font-weight:bold;">6R</a></span>
+<span class="ov_num_on ov_num"><a href="index.html" style="color:#fff;font-weight:bold;">6R</a></span>
+</div>
+<div class="btn_rcNo01">
+<span class="ov_num_on ov_num"><a href="index.html" style="color:#fff;font-weight:bold;">7R</a></span>
+</div>
+<div class="btn_rcNo01">
+<span class="ov_num_on ov_num"><a href="index.html" style="color:#fff;font-weight:bold;">8R</a></span>
 </div>
 <br/></div>
 <div style="position:relative;">
 <div class="btn_fixed_top" style="top:-130px !important;">
-<!--<a href="https://race.kra.co.kr/chulmainfo/ChulmaDetailInfoList.do?Act=02&Sub=1&meet=1" target="_blank" class="btn btn_01">한국마사회 바로가기</a>-->
-<a class="btn btn_02" href="https://race.kra.co.kr/raceScore/ScoretableScoreList.do?Act=04&amp;Sub=1&amp;meet=1" target="_blank">한국마사회 바로가기</a>
+<!--<a href="https://race.kra.co.kr/chulmainfo/ChulmaDetailInfoList.do?Act=02&Sub=1&meet=2" target="_blank" class="btn btn_01">한국마사회 바로가기</a>-->
+<a class="btn btn_02" href="https://race.kra.co.kr/raceScore/ScoretableScoreList.do?Act=04&amp;Sub=1&amp;meet=2" target="_blank">한국마사회 바로가기</a>
 </div>
 </div>
 <!--
             <div style="margin-top:-15px; padding-left:65px;">
                 정회원은 <span style="color:red;">Ai 추출5두마를 무료</span>로 보실 수 있습니다.
-                <a href="javascript:;" style="color:blue; font-weight:bold;" onClick="goto_opener_href('member/mypage')">[정회원 가입하기]</a>
+                <a href="javascript:;" style="color:blue; font-weight:bold;" onClick="goto_opener_href('https://xn--o39a0n963awza76tu9hduc.com/member/mypage')">[정회원 가입하기]</a>
             </div>
             -->
 <div style="margin-top:-10px; height:20px;">
@@ -262,7 +242,7 @@ $(function() {
 <div style="margin-top:20px;"></div>
 </div>
 </div>
-<div data-meet="서울" data-rcdate="20250928" data-rcno="1" data-type="data3_chatLive" style="margin-top:15px;">
+<div data-meet="제주" data-rcdate="20251017" data-rcno="1" data-type="data3_chatLive" style="margin-top:15px;">
 <div style="margin-top:15px; height:300px;">
 <div style="position:relative; width:100%; height:100%; border:1px solid #000000; background-color:#d6feb8; text-align:center;">
 <div style="margin-top:10px; font-size:1.5em; font-weight:bold;">[ 안 내 사 항 ]</div>
@@ -324,13 +304,13 @@ $(function() {
 <td>
 <div style="position:relative; margin-top:10px;">
 <div>
-<div style="width:100%; height:60px; line-height:55px; background-color:#ffff00; color:#000000; font-size:1.3em; font-weight:bold; border:1px solid #000000; border:1px solid #000000;"><span style="margin-left:90px; color:#0000ff;">"9월" 감사 이벤트</span> / <span style="color:#ff0000; font-size:1.1em;">총 상금 100만원 지급.!!</span></div>
+<div style="width:100%; height:60px; line-height:55px; background-color:#ffff00; color:#000000; font-size:1.3em; font-weight:bold; border:1px solid #000000; border:1px solid #000000;"><span style="margin-left:90px; color:#0000ff;">"10월" 감사 이벤트</span> / <span style="color:#ff0000; font-size:1.1em;">총 상금 100만원 지급.!!</span></div>
 <div style="float:right; margin-top:-46px; margin-right:10px; width:100px; background-color:#000000;">
 <button class="black_click_blue" onclick="window.open('https://www.youtube.com/watch?v=IrYXl-YRoYo')" style="width:100%; height:34px; line-height:34px; background-color:#000000; color:#ffffff; font-size:1.3em; cursor:pointer; text-align:center; border:1px solid #000000;">이벤트 안내</button>
 </div>
 </div>
 <div style="position:absolute; margin-top:-72px; left:-26px;"><img src="..\..\img\icon_wow_purple.gif" style="width:120px; transform:rotate(-30deg);"/></div>
-<!--<div style="position:absolute; margin-top:-80px; right:10px;"><img src="img/icon_wow_purple.gif" style="width:120px; transform:rotate(30deg);"></div>-->
+<!--<div style="position:absolute; margin-top:-80px; right:10px;"><img src="https://xn--o39a0n963awza76tu9hduc.com/img/icon_wow_purple.gif" style="width:120px; transform:rotate(30deg);"></div>-->
 </div>
 </td>
 <td></td>
@@ -397,7 +377,7 @@ $(function() {
 <div style="padding:8px; height:60px; line-height:20px; text-align:left; background-color:#ffffff; color:#ff0000; border:1px solid #000000;">
         당일 승부 마번 받고자 원하시는 분<br/>승부 마필은, 유튜브에서도 올려드리고 있습니다.
         <div style="float:right; margin-top:-24px; width:300px; background-color:#000000;">
-<button class="black_click_red" onclick="window.open('notice/1422', '', '')" style="width:100%; height:50px; line-height:40px; background-color:#000000; color:#ffffff; font-size:1.8em; cursor:pointer; text-align:center; border:1px solid #000000;">신청하기 (클릭)</button>
+<button class="black_click_red" onclick="window.open('https://xn--o39a0n963awza76tu9hduc.com/notice/1422', '', '')" style="width:100%; height:50px; line-height:40px; background-color:#000000; color:#ffffff; font-size:1.8em; cursor:pointer; text-align:center; border:1px solid #000000;">신청하기 (클릭)</button>
 </div>
 </div>
 </div>
@@ -408,7 +388,7 @@ $(function() {
 <div style="padding:8px; height:60px; line-height:20px; text-align:left; background-color:#ffffff; color:#000000; border:1px solid #000000;">
         경마 이기는 방법 / 1:1 특별 레슨합니다.<br/>월~목요일까지 레벨에 맞추어 진행하여 드리고 있습니다.
         <div style="float:right; margin-top:-24px; width:300px; background-color:#000000;">
-<button class="black_click_blue" onclick="window.open('notice/1421', '', '')" style="width:100%; height:50px; line-height:40px; background-color:#000000; color:#ffffff; font-size:1.8em; cursor:pointer; text-align:center; border:1px solid #000000;">신청하기 (클릭)</button>
+<button class="black_click_blue" onclick="window.open('https://xn--o39a0n963awza76tu9hduc.com/notice/1421', '', '')" style="width:100%; height:50px; line-height:40px; background-color:#000000; color:#ffffff; font-size:1.8em; cursor:pointer; text-align:center; border:1px solid #000000;">신청하기 (클릭)</button>
 </div>
 </div>
 </div>
@@ -467,8 +447,8 @@ $(function() {
 </div>
 <script>
 function get_chat_gosoo_list(gtype) {
-    var rcDate = "20250928";
-    var meet = "서울";
+    var rcDate = "20251017";
+    var meet = "제주";
     var rcNo = "1";
     var url = "./chat_gosoo.ajax.php";
 	$.ajax({
@@ -539,7 +519,7 @@ function get_chatLive_event_result(rcDate, eterm) {
 	$.ajax({
 		url: url,
 		type: 'POST',
-		data: {'rcDate':rcDate, 'meet':'서울', 'rcNo':'1', 'eterm':eterm},
+		data: {'rcDate':rcDate, 'meet':'제주', 'rcNo':'1', 'eterm':eterm},
 		dataType: 'html',
 		success: function(response) {
             if (eterm == "week") {
@@ -554,8 +534,7 @@ function get_chatLive_event_result(rcDate, eterm) {
 
 $(document).ready(function(){
         
-        //get_chatLive_event_result('20250928', 'week');
-    get_chatLive_event_result('20250928', 'month');
+        get_chatLive_event_result('20251017', 'month');
     });
 </script> </div>
 </div>
@@ -564,7 +543,7 @@ $(document).ready(function(){
 <td style="width:535px; height:950px; background:#eeeeee; vertical-align:top;">
 <div class="col-sm-12" style="padding:0;">
 <div class="about-block clearfix" style="padding:10px 5px 0 5px; height:100%;">
-<iframe framborder="0" id="ichatFrame" src="./chat_form.php?rcDate=20250928&amp;meet=서울&amp;rcNo=1" style="width:100%; height:1500px; border:none;"></iframe>
+<iframe framborder="0" id="ichatFrame" src="./chat_form.php?rcDate=20251017&amp;meet=제주&amp;rcNo=1" style="width:100%; height:1500px; border:none;"></iframe>
 </div>
 <div class="margin_zero_area" style="padding:5px;">
 <div style="float:left; width:100%;">
@@ -573,87 +552,9 @@ $(document).ready(function(){
 <tr>
 <td colspan="3" style="height:30px; vertical-align:top; font-size:1.0em;">(글쓰기) 비방, 비속어, 욕설은 임의 강퇴 되실 수 있습니다.</td>
 </tr>
-<tr>
-<td colspan="3">
-<!-- 첨부파일 업로드 input -->
-<input class="file_select" multiple="" name="uploadFiles" style="font-size:16px; color:#0000ff;" type="file"/>
-<script>
-$(".file_select").change(function(){
-	var fileName = []; // 파일 갯수를 배열에 누적하여 갯수 카운트 
-	var formData = new FormData(); // 전송할 formData
-	for(var i=0; i<$(this)[0].files.length;i++){ // 선택된 파일만큼 loop
-		formData.append("uploadFiles"+i, $(this)[0].files[i]);
-		fileName.push($(this)[0].files[i].name);
-	}
-	formData.append("cnt", fileName.length);
-    formData.append("act", "update");
-    formData.append("rcDate", "20250928");
-    formData.append("meet", "서울");
-    formData.append("rcNo", "1");
-	$.ajax({
-		type: "POST",
-		enctype: 'multipart/form-data',	// 필수
-		url: 'chat_test_upload.php',
-		data: formData,		// 필수
-		processData: false,	// 필수
-		contentType: false,	// 필수
-		cache: false,
-		success: function (result) {
-            //alert(result);
-			console.log(result);
-            $(".file_select").val("");
-        },
-			error: function (e) {
-		}
-	});
-});
-</script>
-</td>
-</tr>
 </table>
 </div>
 <div style="float:inline-end; height:10px;"></div>
-</div>
-</div>
-<div class="margin_zero_area" style="margin-top:10px; height:800px; padding:5px;">
-<div style="margin-top:67px; padding:1px; width:100%;">
-<div style="padding:7px; background-color:#ffffff; border-radius:7px;">
-<ul>
-<li style="background-color:#ccffcc; text-align:center; font-size:18px; font-weight:bold;">[ <span style="color:#0000ff;">마케터</span>님의 당일 적중 내역 ]</li>
-<li>※ 복승 / 맨 앞의 마번이 1착 또는 2착을 할 경우</li>
-<li>※ 삼쌍 / 순위 관계없이 3두마를 적중할 경우</li>
-</ul>
-</div>
-</div>
-<div style="margin-top:5px; width:100%;">
-<div class="tbl_head01 tbl_wrap">
-<table>
-<colgroup>
-<col style="width:20%;"/>
-<col style="width:15%;"/>
-<col style="width:20%;"/>
-<col style="width:5%;"/>
-<col style="width:20%;"/>
-<col style="width:20%;"/>
-</colgroup>
-<tbody>
-<tr>
-<th style="background-color:#fafafa;">경주</th>
-<th style="background-color:#fafafa;">복승</th>
-<th style="background-color:#fafafa;">누적배당</th>
-<th class="td_void"></th>
-<th style="background-color:#fafafa;">삼쌍승</th>
-<th style="background-color:#fafafa;">누적배당</th>
-</tr>
-</tbody>
-<tbody id="today_baedang">
-<tr>
-<td colspan="6">적중 내역이 없습니다</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div style="float:inline-end; height:50px;"></div>
 </div>
 </div>
 <!-- ie6,7에서 사이드뷰가 게시판 목록에서 아래 사이드뷰에 가려지는 현상 수정 -->
@@ -691,428 +592,6 @@ $(function() {
 
 
 
-<div style="position:absolute; top:140px; left:1504px; width:200px; height:1050px; background-color:#efefef; z-index:10;">
-<div style="height:30px; background-color:#ff0000;">
-<div style="float:left; padding:3px 10px;">
-<span style="color:#fff;">최근 입실자 50명</span>
-</div>
-<div style="float:right; margin-right:10px; margin-top:2px;">
-<span onclick="get_chatLive_users('20250928', '서울', '1')" style="color:#ffffff; cursor:pointer;"><i aria-hidden="true" class="fa fa-refresh"></i></span>
-</div>
-<div style="clear:both"></div>
-</div>
-<div style="padding:7px; height:1050px; background-color:#efefef; z-index:10; overflow-x:hidden; overflow-y:scroll; white-space:nowrap;">
-<table style="width:100%;">
-<colgroup>
-<col style="width: 14%"/>
-<col style="width: 40%"/>
-<col style="width: 46%"/>
-</colgroup>
-<tbody id="chatLive_users">
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">1</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        마케○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">2</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        영관○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">3</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        우두○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">4</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        초대○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">5</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        깡지○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">6</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        김수○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">7</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        보문○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">8</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        낙타○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">9</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        수학○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">10</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        계동○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">11</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        광현○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">12</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        대박○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">13</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        개굴○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">14</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        세월○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">15</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        행운○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">16</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        성호○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">17</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        네잎○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">18</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        리카○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">19</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        수원○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">20</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        오투○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">21</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        하얀○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">22</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        필마○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">23</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        꺼먼○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">24</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        진태○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">25</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        섭이○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">26</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        포뮬○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">27</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        승구○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">28</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        김성○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">29</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        영준○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">30</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        함성○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">31</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        찬란○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">32</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        스마○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">33</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        호진○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">34</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        명하○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">35</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        돈영○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">36</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        정박○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">37</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        소설○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">38</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        빈이○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">39</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        보배○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">40</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        한번○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">41</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        정겨○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">42</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        문스○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">43</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        나야○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">44</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        도치○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">45</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        청송○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">46</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        완국○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">47</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        국대○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">48</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        원피○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">49</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        염객○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:black; border-radius:5px; background:#ddd; text-align:center;">50</div></td>
-<td style="padding-left:5px; font-size:12px; line-height:18px; height:18px; color:;">
-<div>
-                        공사○○○                        </div>
-</td>
-<td style="font-size:11px; text-align:right; line-height:18px; height:18px;"></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
 <div class="modal_pop" id="modal_layer" style="width:500px;"></div>
 <div id="popWindow" style="display:none; width:300px; height:257px;">
 <div style="text-align:right;">
@@ -1125,24 +604,12 @@ $(function() {
 </div>
 <script>
 $(document).ready(function(){
+	modalExtend('modal_layer', '/modal/chat_login');
 });
 
 function fn_get_race_analysis_info() {
 }
 
-function get_chatLive_users(rcDate, meet, rcNo) {
-	$("#chatLive_users").html('');
-    var url = "./chat_users.ajax.php";
-	$.ajax({
-		url: url,
-		type: 'POST',
-		data: {'rcDate':rcDate, 'meet':meet, 'rcNo':rcNo},
-		dataType: 'html',
-		success: function(response) {
-			$("#chatLive_users").html(response);
-		}
-	});
-}
 
 function goto_opener_href(url) {
 	var $opener = window.opener;

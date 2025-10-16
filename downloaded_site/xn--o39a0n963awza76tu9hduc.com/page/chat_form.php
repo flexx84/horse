@@ -33,7 +33,7 @@
 <title>정수현의 경마코칭 | 정수현의 경마 분석 연구소</title>
 <link href="..\theme\krpro\css\default.css" rel="stylesheet"/>
 <link href="..\js\font-awesome\css\font-awesome.min.css" rel="stylesheet"/>
-<link 20251013"="" href="..\css\data.chat.css" rel="stylesheet"/>
+<link 20251017"="" href="..\css\data.chat.css" rel="stylesheet"/>
 <link href="..\..\fonts.googleapis.com\css2\index.html" rel="stylesheet"/>
 <link href="..\..\fonts.googleapis.com\css\index.html" rel="stylesheet" type="text/css"/>
 <!-- fontawesome -->
@@ -55,11 +55,11 @@
 <!--Theme Color-->
 <link href="..\theme\krpro\assets\css\theme-color\default.css" id="theme-color" rel="stylesheet" type="text/css"/>
 <!--[if lte IE 8]>
-<script src="js/html5.js"></script>
+<script src="https://xn--o39a0n963awza76tu9hduc.com/js/html5.js"></script>
 <![endif]-->
 <script src="..\js\basic.js"></script>
 <script>
-set_basic_urlinfo('https://xn--o39a0n963awza76tu9hduc.com', 'bbs', '1', '', '', '', '', '', '');
+set_basic_urlinfo('https://xn--o39a0n963awza76tu9hduc.com', 'https://xn--o39a0n963awza76tu9hduc.com/bbs', '', '', '', '', '', '', '');
 </script>
 <script src="..\js\jquery-1.12.4.min.js"></script>
 <script src="..\js\jquery-ui-1.12.1.js"></script>
@@ -69,9 +69,9 @@ set_basic_urlinfo('https://xn--o39a0n963awza76tu9hduc.com', 'bbs', '1', '', '', 
 <script src="..\js\wrest.js"></script>
 <script src="..\js\placeholders.min.js"></script>
 </meta></meta></head>
-<body>
+<body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
 <!--
-<link href="css/data.chat.css?ver=20251013" rel="stylesheet" type="text/css">
+<link href="https://xn--o39a0n963awza76tu9hduc.com/css/data.chat.css?ver=20251017" rel="stylesheet" type="text/css">
 -->
 <script src="..\js\data.js"></script>
 <div class="upload-btn-wrapper">
@@ -79,8 +79,8 @@ set_basic_urlinfo('https://xn--o39a0n963awza76tu9hduc.com', 'bbs', '1', '', '', 
 <!--<button class="upload-btn">파일선택</button>-->
 </div>
 <form enctype="multipart/form-data" id="uploadForm" method="post" name="uploadForm">
-<input name="rcDate" type="hidden" value="20250928"/>
-<input name="meet" type="hidden" value="20250928"/>
+<input name="rcDate" type="hidden" value="20251017"/>
+<input name="meet" type="hidden" value="20251017"/>
 <input name="rcNo" type="hidden" value="1"/>
 <input name="act" type="hidden" value="update"/>
 <!--
@@ -95,7 +95,7 @@ set_basic_urlinfo('https://xn--o39a0n963awza76tu9hduc.com', 'bbs', '1', '', '', 
 <div id="chat-header">
 <div>
 <div class="mo_tits">
-<span class="badge3" style="float:left; margin-top:-2px;">서울 1 <span id="raceEndTime"></span></span>
+<span class="badge3" style="float:left; margin-top:-2px;">제주 1 <span id="raceEndTime">마감 209분 전</span></span>
 <div id="next_race_button_div" style="float:left; margin-left:10px; margin-top:1px; display:none;">
 <button id="next_race_button" onclick="chat_race_next_race(this)" style="padding:0 10px; background-color:#ffffff; color:#000000; border-radius:7px; font-size:1.1em; font-weight:bold;" type="button">다음 경주</button>
 </div>
@@ -138,7 +138,7 @@ set_basic_urlinfo('https://xn--o39a0n963awza76tu9hduc.com', 'bbs', '1', '', '', 
 <table style="width:100%; height:42px;">
 <tbody id="chat_form_race5duma">
 <tr>
-<td style="width:*; text-align:left;"><button class="bttn btn_green" onclick="get_chat_coaching_support('20250928', '서울', '1')" style="width:80px; height:40px;">후원금</button></td>
+<td style="width:*; text-align:left;"><button class="bttn btn_green" onclick="get_chat_coaching_support('20251017', '제주', '1')" style="width:80px; height:40px;">후원금</button></td>
 <td style="width:255px; height:52px;">
 <table border="1">
 <tr>
@@ -152,7 +152,7 @@ set_basic_urlinfo('https://xn--o39a0n963awza76tu9hduc.com', 'bbs', '1', '', '', 
 </table>
 </td>
 <td style="width:70px;"><button class="bttn btn_blue" onclick="alert('삼쌍승 조합기 사용은, 정수현의\n\n코칭 정보 구매자에 한하여 이용 가능합니다.')" style="width:60px; height:40px;">저장</button></td>
-<td style="width:80px; text-align:right;"><button class="bttn btn_red" onclick="window.open('page/analysis_betting_vip?rcDate=20250928&amp;meet=서울&amp;rcNo=1', '', 'width=1000, height=2200, scrollbars=auto')" style="padding:0; width:80px; height:40px;"><span class="blink_basic_quick">레슨 경마방</span></button></td>
+<td style="width:80px; text-align:right;"><button class="bttn btn_red" onclick="window.open('https://xn--o39a0n963awza76tu9hduc.com/page/analysis_betting_vip?rcDate=20251017&amp;meet=제주&amp;rcNo=1', '', 'width=1000, height=2200, scrollbars=auto')" style="padding:0; width:80px; height:40px;"><span class="blink_basic_quick">레슨 경마방</span></button></td>
 </tr>
 <tr>
 <td colspan="4" style="height:42px; background-color:#ececec; line-height:20px;">축마는 본인 수정이 가능합니다.<br/>나머지 빈 칸에 마번을 채우시고 삼쌍 조합기를 사용하세요~</td>
@@ -161,234 +161,16 @@ set_basic_urlinfo('https://xn--o39a0n963awza76tu9hduc.com', 'bbs', '1', '', '', 
 </table>
 </div>
 <div>
-<div class="margin_zero_area">
-<div style="margin-top:12px;">
-<div style="padding:5px; border:1px solid #000000;">
-<table style="clear:none; width:100%;">
-<tr>
-<td style="width:244px;">
-<div class="tbl_head_streaming">
-<table>
-<colgroup>
-<col style="width:26px;"/>
-<col style="width:10px;"/>
-<col style="width:26px;"/>
-<col style="width:26px;"/>
-<col style="width:26px;"/>
-<col style="width:26px;"/>
-<col style="width:26px;"/>
-<col style="width:26px;"/>
-<col style="width:26px;"/>
-<col style="width:26px;"/>
-</colgroup>
-<tbody>
-<tr>
-<td class="analystBetNo1 betNumber fontcolor_red fontsize_18b" style="height:25px;"></td>
-<td class="td_void"></td>
-<td colspan="3" style="background:#ff0000; color:#ffffff;">축마 / 연승</td>
-<td class="td_void" colspan="5"></td>
-</tr>
-<tr class="trvoid"></tr>
-<tr>
-<td class="analystBetNo1 betNumber fontcolor_red fontsize_18b" style="height:25px;"></td>
-<td class="td_void"></td>
-<td class="analystBetNo2 betNumber fontcolor_blue fontsize_18b" style="background:#ccffcc; border-right:0;"></td>
-<td class="analystBetNo3 betNumber fontcolor_blue fontsize_18b" style="background:#ccffcc; border-left:0; border-right:0;"></td>
-<td class="analystBetNo4 betNumber fontcolor_blue fontsize_18b" style="background:#ccffcc; border-left:0;"></td>
-<!--<td class="td_void"></td>-->
-<td class="td_void" colspan="3">
-<div style="margin-left:10px; height:100%; background:#0000ff; color:#ffffff; border:1px solid #000000;">복승</div>
-</td>
-<td class="td_void" colspan="2"></td>
-</tr>
-<tr class="trvoid"></tr>
-<tr>
-<td class="analystBetNo1 betNumber fontcolor_red fontsize_18b" style="height:25px;"></td>
-<td class="td_void"></td>
-<td class="analystBetNo2 betNumber fontcolor_blue fontsize_18b"></td>
-<td class="td_void"></td>
-<td class="analystBetNo3 betNumber fontsize_17" style="background:#ccffcc; border-right:0;"></td>
-<td class="analystBetNo4 betNumber fontsize_17" style="background:#ccffcc; border-left:0; border-right:0;"></td>
-<td class="analystBetNo5 betNumber fontsize_17" style="background:#ccffcc; border-left:0;"></td>
-<!--<td class="td_void"></td>-->
-<td class="td_void" colspan="3">
-<div style="margin-left:10px; height:100%; background:#ff6600; color:#ffffff; border:1px solid #000000;">삼복승(1)</div>
-</td>
-</tr>
-<tr class="trvoid"></tr>
-<tr>
-<td class="analystBetNo1 betNumber fontcolor_red fontsize_18b" style="height:25px;"></td>
-<td class="td_void"></td>
-<td class="analystBetNo3 betNumber fontcolor_blue fontsize_18b"></td>
-<td class="td_void"></td>
-<td class="analystBetNo2 betNumber fontsize_17" style="background:#ccffcc; border-right:0;"></td>
-<td class="analystBetNo4 betNumber fontsize_17" style="background:#ccffcc; border-left:0; border-right:0;"></td>
-<td class="analystBetNo5 betNumber fontsize_17" style="background:#ccffcc; border-left:0;"></td>
-<!--<td class="td_void"></td>-->
-<td class="td_void" colspan="3">
-<div style="margin-left:10px; height:100%; background:#ff6600; color:#ffffff; border:1px solid #000000;">삼복승(2)</div>
-</td>
-</tr>
-</tbody>
-</table>
 </div>
-</td>
-<td class="td_void" style="width:10px;"></td>
-<td>
-<div class="tbl_head_streaming">
-<table>
-<colgroup>
-<col style="width:30px;"/>
-<col style="width:20px;"/><!--추가-->
-<col style="width:30px;"/>
-<col style="width:30px;"/>
-<col style="width:30px;"/>
-<col style="width:30px;"/>
-<col style="width:30px;"/><!--추가-->
-<col style="width:*;"/>
-</colgroup>
-<thead>
-<tr>
-<th colspan="8" onclick="alert('삼쌍승 조합기 사용은, 정수현의\n\n코칭 정보 구매자에 한하여 이용 가능합니다.')" style="padding:0; background-color:#000000; font-size:1.1em; cursor:pointer;">삼쌍승 (경우의 수 33구멍)</th>
-</tr>
-</thead>
-<tbody data-meet="서울" data-rcdate="20250928" data-rcno="1">
-<tr class="trvoid"></tr>
-<tr>
-<td style="font-size:14pt; font-weight:bold; background:#dddddd;">★</td>
-<td><input checked="checked" class="betInputCheckbox" onclick="fn_betting_hide(this, 12)" style="margin-top:-2px; zoom:1.5;" type="checkbox"/></td>
-<td class="analystBetNo1 betNumber fontcolor_black fontsize_18b"></td>
-<td class="analystBetNo2 betNumber fontcolor_black fontsize_18b" style="background:#ccffcc; border-right:0;"></td>
-<td class="analystBetNo3 betNumber fontcolor_black fontsize_18b" style="background:#ccffcc; border-left:0; border-right:0;"></td>
-<td class="analystBetNo4 betNumber fontsize_17" style="background:#ccffcc; border-left:0; border-right:0;"></td>
-<td class="analystBetNo5 betNumber fontsize_17" style="background:#ccffcc; border-left:0;"></td>
-</tr>
-<tr class="trvoid"></tr>
-<tr>
-<td rowspan="2" style="font-size:14pt; font-weight:bold; background:#dddddd;">◎</td>
-<td><input checked="checked" class="betInputCheckbox" onclick="fn_betting_hide(this, 3)" style="margin-top:-2px; zoom:1.5;" type="checkbox"/></td>
-<td class="analystBetNo2 betNumber fontcolor_red fontsize_18b" style="height:31px;"></td>
-<td class="analystBetNo1 betNumber fontcolor_red fontsize_18b"></td>
-<td class="analystBetNo3 betNumber fontsize_17" style="background:#ccffcc; border-right:0;"></td>
-<td class="analystBetNo4 betNumber fontsize_17" style="background:#ccffcc; border-left:0; border-right:0;"></td>
-<td class="analystBetNo5 betNumber fontsize_17" style="background:#ccffcc; border-left:0;"></td>
-</tr>
-<tr>
-<td><input checked="checked" class="betInputCheckbox" onclick="fn_betting_hide(this, 3)" style="margin-top:-2px; zoom:1.5;" type="checkbox"/></td>
-<td class="analystBetNo2 betNumber fontcolor_red fontsize_18b" style="height:31px;"></td>
-<td class="analystBetNo3 betNumber fontsize_17" style="background:#ccffcc; border-right:0;"></td>
-<td class="analystBetNo4 betNumber fontsize_17" style="background:#ccffcc; border-left:0; border-right:0;"></td>
-<td class="analystBetNo5 betNumber fontsize_17" style="background:#ccffcc; border-left:0;"></td>
-<td class="analystBetNo1 betNumber fontcolor_red fontsize_18b"></td>
-</tr>
-<tr class="trvoid"></tr>
-<tr>
-<td rowspan="2" style="font-size:14pt; font-weight:bold; background:#dddddd;">○</td>
-<td><input checked="checked" class="betInputCheckbox" onclick="fn_betting_hide(this, 3)" style="margin-top:-2px; zoom:1.5;" type="checkbox"/></td>
-<td class="analystBetNo3 betNumber fontcolor_red fontsize_18b" style="height:31px;"></td>
-<td class="analystBetNo1 betNumber fontcolor_red fontsize_18b"></td>
-<td class="analystBetNo2 betNumber fontsize_18b" style="background:#ccffcc; border-right:0; color:#0000ff;"></td>
-<td class="analystBetNo4 betNumber fontsize_17" style="background:#ccffcc; border-left:0; border-right:0;"></td>
-<td class="analystBetNo5 betNumber fontsize_17" style="background:#ccffcc; border-left:0;"></td>
-</tr>
-<tr>
-<td><input checked="checked" class="betInputCheckbox" onclick="fn_betting_hide(this, 3)" style="margin-top:-2px; zoom:1.5;" type="checkbox"/></td>
-<td class="analystBetNo3 betNumber fontcolor_red fontsize_18b" style="height:31px;"></td>
-<td class="analystBetNo2 betNumber fontsize_18b" style="background:#ccffcc; border-right:0; color:#0000ff;"></td>
-<td class="analystBetNo4 betNumber fontsize_17" style="background:#ccffcc; border-left:0; border-right:0;"></td>
-<td class="analystBetNo5 betNumber fontsize_17" style="background:#ccffcc; border-left:0;"></td>
-<td class="analystBetNo1 betNumber fontcolor_red fontsize_18b"></td>
-</tr>
-<tr class="trvoid"></tr>
-<tr>
-<td rowspan="2" style="font-size:14pt; font-weight:bold; background:#dddddd;">△</td>
-<td><input checked="checked" class="betInputCheckbox" onclick="fn_betting_hide(this, 3)" style="margin-top:-2px; zoom:1.5;" type="checkbox"/></td>
-<td class="analystBetNo4 betNumber fontcolor_red fontsize_18b" style="height:31px;"></td>
-<td class="analystBetNo1 betNumber fontcolor_red fontsize_18b"></td>
-<td class="analystBetNo2 betNumber fontsize_18b" style="background:#ccffcc; border-right:0; color:#0000ff;"></td>
-<td class="analystBetNo3 betNumber fontsize_17" style="background:#ccffcc; border-left:0; border-right:0;"></td>
-<td class="analystBetNo5 betNumber fontsize_17" style="background:#ccffcc; border-left:0;"></td>
-</tr>
-<tr>
-<td><input checked="checked" class="betInputCheckbox" onclick="fn_betting_hide(this, 3)" style="margin-top:-2px; zoom:1.5;" type="checkbox"/></td>
-<td class="analystBetNo4 betNumber fontcolor_red fontsize_18b" style="height:31px;"></td>
-<td class="analystBetNo2 betNumber fontsize_18b" style="background:#ccffcc; border-right:0; color:#0000ff;"></td>
-<td class="analystBetNo3 betNumber fontsize_17" style="background:#ccffcc; border-left:0; border-right:0;"></td>
-<td class="analystBetNo5 betNumber fontsize_17" style="background:#ccffcc; border-left:0;"></td>
-<td class="analystBetNo1 betNumber fontcolor_red fontsize_18b"></td>
-</tr>
-<tr class="trvoid"></tr>
-<tr>
-<td style="font-size:14pt; font-weight:bold; background:#dddddd;">※</td>
-<td><input checked="checked" class="betInputCheckbox" onclick="fn_betting_hide(this, 3)" style="margin-top:-2px; zoom:1.5;" type="checkbox"/></td>
-<td class="analystBetNo5 betNumber fontcolor_black fontsize_18b"></td>
-<td class="analystBetNo1 betNumber fontcolor_black fontsize_18b"></td>
-<td class="analystBetNo2 betNumber fontsize_18b" style="background:#ccffcc; border-right:0; color:#0000ff;"></td>
-<td class="analystBetNo3 betNumber fontsize_17" style="background:#ccffcc; border-left:0; border-right:0;"></td>
-<td class="analystBetNo4 betNumber fontsize_17" style="background:#ccffcc; border-left:0;"></td>
-</tr>
-</tbody>
-</table>
-</div>
-</td>
-</tr>
-<tr>
-<td colspan="3" style="height:10px;"></td>
-</tr>
-<tr>
-<td colspan="3" style="background-color:#ffff00; font-weight:bold;">&lt;배팅 키포인트&gt;</td>
-</tr>
-<tr>
-<td colspan="3" style="padding-left:10px; text-align:left;">
-<div style="font-size:13px;">1) 쌍머리가 안될 마번은 지우세요.</div>
-<div style="font-size:13px;">2) 강축마(저배당 인기도 1위 마번) 3착의 경우, 지웁니다.</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-<br/> </div>
 </div>
 </div>
 <div id="chat-body" style="margin-top:600px;">
 <table id="chat-list" style="width:100%; border-spacing:6px; border-collapse:separate; font-size:14px; line-height:15px;">
-<tr><td style="padding:5px; width:70px; vertical-align:top;"> <span style="background:#ffff00;">정수현</span> </td><td style="vertical-align:top;"><div style="margin-left:20%; padding:5px; background:#ffff00; border-radius:7px; word-break:break-all;">오늘은</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <span style="background:#ffff00;">정수현</span> </td><td style="vertical-align:top;"><div style="margin-left:20%; padding:5px; background:#ffff00; border-radius:7px; word-break:break-all;">경주별로 실시간 마번을 올려드립니다</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <span style="background:#ffff00;">정수현</span> </td><td style="vertical-align:top;"><div style="margin-left:20%; padding:5px; background:#ffff00; border-radius:7px; word-break:break-all;">혹시....</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <span style="background:#ffff00;">정수현</span> </td><td style="vertical-align:top;"><div style="margin-left:20%; padding:5px; background:#ffff00; border-radius:7px; word-break:break-all;">제 마번으로 예상하시는 일반 유튜버 예상가님이 계시면<br>
-그러지 말아주셔요</br></div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <span style="background:#ffff00;">정수현</span> </td><td style="vertical-align:top;"><div style="margin-left:20%; padding:5px; background:#ffff00; border-radius:7px; word-break:break-all;">그것은 고객 기만 행위입니다.</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <span style="background:#ffff00;">정수현</span> </td><td style="vertical-align:top;"><div style="margin-left:20%; padding:5px; background:#ffff00; border-radius:7px; word-break:break-all;">본인 공부하시고 마번을 제공 하셔야죠~</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <span style="background:#ffff00;">정수현</span> </td><td style="vertical-align:top;"><div style="margin-left:20%; padding:5px; background:#ffff00; border-radius:7px; word-break:break-all;">저희 회원님께서 어제 본장을 가셨다가<br>
-제 마번을 보면서 ARS 예상하는 예상가를 보았다고<br/>
-투고가 들어왔습니다<br/>
-<br/>
-이런 분은 회원으로 받지 않겠습니다<br/>
-하오니 나가주세요~<br/>
-<br/>
-본인 실력으로 하세요<br/>
-남의 마번으로 예상하지 마시구요</br></div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <span style="background:#ffff00;">정수현</span> </td><td style="vertical-align:top;"><div style="margin-left:20%; padding:5px; background:#ffff00; border-radius:7px; word-break:break-all;">그래서 오늘은 마번을 미리 올리지않고<br/>
-실시간으로 올려드리겠습니다</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <div>투투</div> </td><td style="vertical-align:top;"><div style="margin-right:20%; padding:5px; background:#fff; border-radius:7px; word-break:break-all;">헉...나쁜 사람들 같으니라고...</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <div>김민성</div> </td><td style="vertical-align:top;"><div style="margin-right:20%; padding:5px; background:#fff; border-radius:7px; word-break:break-all;">쓰레기네...남의 마번으로 </div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <div>김민성</div> </td><td style="vertical-align:top;"><div style="margin-right:20%; padding:5px; background:#fff; border-radius:7px; word-break:break-all;">이런 인간들은 없어져야. 그게 누군지 알고싶다</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <div>리카온</div> </td><td style="vertical-align:top;"><div style="margin-right:20%; padding:5px; background:#fff; border-radius:7px; word-break:break-all;">대표님 안녕하세요?</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <div>리카온</div> </td><td style="vertical-align:top;"><div style="margin-right:20%; padding:5px; background:#fff; border-radius:7px; word-break:break-all;">잠이 매일 부족 합니다</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <div>오장석</div> </td><td style="vertical-align:top;"><div style="margin-right:20%; padding:5px; background:#fff; border-radius:7px; word-break:break-all;">그러니 대표님이 올려주신 삼쌍승이 똥말이 들어와도<br/>
-몇백배밖에 안되는거죠<br/>
-마번을 퍼 가니까요...에휴::<br/>
-양심껏좀 하십시다<br/>
-양심이 있으면 나가쇼. 당장.</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <div>채니짱</div> </td><td style="vertical-align:top;"><div style="margin-right:20%; padding:5px; background:#fff; border-radius:7px; word-break:break-all;">안녕하세요~~  대표님 방가 ~</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <div>채니짱</div> </td><td style="vertical-align:top;"><div style="margin-right:20%; padding:5px; background:#fff; border-radius:7px; word-break:break-all;">리카오님 방가요~~</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <div>채니짱</div> </td><td style="vertical-align:top;"><div style="margin-right:20%; padding:5px; background:#fff; border-radius:7px; word-break:break-all;">대표님 그런일이 있었어요? ㅎ</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <div>짚세기신</div> </td><td style="vertical-align:top;"><div style="margin-right:20%; padding:5px; background:#fff; border-radius:7px; word-break:break-all;">안녕하세요</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <div>짚세기신</div> </td><td style="vertical-align:top;"><div style="margin-right:20%; padding:5px; background:#fff; border-radius:7px; word-break:break-all;">비가오네요</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <div>채니짱</div> </td><td style="vertical-align:top;"><div style="margin-right:20%; padding:5px; background:#fff; border-radius:7px; word-break:break-all;">짚세기님 안녕하세용~~ㅎ</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <div>짚세기신</div> </td><td style="vertical-align:top;"><div style="margin-right:20%; padding:5px; background:#fff; border-radius:7px; word-break:break-all;">체니님도안녕하세요</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <div>채니짱</div> </td><td style="vertical-align:top;"><div style="margin-right:20%; padding:5px; background:#fff; border-radius:7px; word-break:break-all;">네ㅎ  오늘 잘해보아요.  </div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <div>채니짱</div> </td><td style="vertical-align:top;"><div style="margin-right:20%; padding:5px; background:#fff; border-radius:7px; word-break:break-all;">비가 무지하게 오네..</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <div>짚세기신</div> </td><td style="vertical-align:top;"><div style="margin-right:20%; padding:5px; background:#fff; border-radius:7px; word-break:break-all;">그러게요</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <span style="background:#ffff00;">정수현</span> </td><td style="vertical-align:top;"><div style="margin-left:20%; padding:5px; background:#ffff00; border-radius:7px; word-break:break-all;">사람들이 양심이란걸 버리고 사네요....별별 사람들이 다있네..</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <span style="background:#ffff00;">정수현</span> </td><td style="vertical-align:top;"><div style="margin-left:20%; padding:5px; background:#ffff00; border-radius:7px; word-break:break-all;">선생님들 어서오세요~</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <div>강서히트</div> </td><td style="vertical-align:top;"><div style="margin-right:20%; padding:5px; background:#fff; border-radius:7px; word-break:break-all;">안녕하세요 </div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <div>채니짱</div> </td><td style="vertical-align:top;"><div style="margin-right:20%; padding:5px; background:#fff; border-radius:7px; word-break:break-all;">오늘 결승전일요일..  정말 열심히 햇습니다. 회원님들 대박나세요~</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <span style="background:#ffff00;">정수현</span> </td><td style="vertical-align:top;"><div style="margin-left:20%; padding:5px; background:#ffff00; border-radius:7px; word-break:break-all;">대박나세요~</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <div>채니짱</div> </td><td style="vertical-align:top;"><div style="margin-right:20%; padding:5px; background:#fff; border-radius:7px; word-break:break-all;">강서히트님 반갑습니다~</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <span style="background:#ffff00;">정수현</span> </td><td style="vertical-align:top;"><div style="margin-left:20%; padding:5px; background:#ffff00; border-radius:7px; word-break:break-all;">저는 커피 한 잔 하러~</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <div>채니짱</div> </td><td style="vertical-align:top;"><div style="margin-right:20%; padding:5px; background:#fff; border-radius:7px; word-break:break-all;">저도 ㅎ</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <div>채니짱</div> </td><td style="vertical-align:top;"><div style="margin-right:20%; padding:5px; background:#fff; border-radius:7px; word-break:break-all;">비오는날 따뜻한커피  ㅎ</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <div>강서히트</div> </td><td style="vertical-align:top;"><div style="margin-right:20%; padding:5px; background:#fff; border-radius:7px; word-break:break-all;">부산은 맑음요</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <div>강서히트</div> </td><td style="vertical-align:top;"><div style="margin-right:20%; padding:5px; background:#fff; border-radius:7px; word-break:break-all;">실시간으로 마번이 나오면 많이 바쁘겠네요 휴~</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <div>채니짱</div> </td><td style="vertical-align:top;"><div style="margin-right:20%; padding:5px; background:#fff; border-radius:7px; word-break:break-all;">저도  수정을 적극적으로 하겠습니다. 어제도  .. 분위기가 아닌것 같아서.. 수정하려다가  못해서  낭패를..</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <div>영우대박</div> </td><td style="vertical-align:top;"><div style="margin-right:20%; padding:5px; background:#fff; border-radius:7px; word-break:break-all;">대표님 안녕하세요~</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <div>영우대박</div> </td><td style="vertical-align:top;"><div style="margin-right:20%; padding:5px; background:#fff; border-radius:7px; word-break:break-all;">채니짱님 방가요~</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <div>채니짱</div> </td><td style="vertical-align:top;"><div style="margin-right:20%; padding:5px; background:#fff; border-radius:7px; word-break:break-all;">영우님 안뇽~~</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <div>보리맘</div> </td><td style="vertical-align:top;"><div style="margin-right:20%; padding:5px; background:#fff; border-radius:7px; word-break:break-all;">대표님 안녕하세요~</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <div>보리맘</div> </td><td style="vertical-align:top;"><div style="margin-right:20%; padding:5px; background:#fff; border-radius:7px; word-break:break-all;">리카온님두 안녕하세요~~</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <div>홍도</div> </td><td style="vertical-align:top;"><div style="margin-right:20%; padding:5px; background:#fff; border-radius:7px; word-break:break-all;">안녕하세요^^</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <div>리카온</div> </td><td style="vertical-align:top;"><div style="margin-right:20%; padding:5px; background:#fff; border-radius:7px; word-break:break-all;">안녕ㅇ사세요?</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <div>리카온</div> </td><td style="vertical-align:top;"><div style="margin-right:20%; padding:5px; background:#fff; border-radius:7px; word-break:break-all;">오늘도 바쁜 하루가 되겠네요</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <div>리카온</div> </td><td style="vertical-align:top;"><div style="margin-right:20%; padding:5px; background:#fff; border-radius:7px; word-break:break-all;">어 보리맘님 안녕하세요?</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <div>보리맘</div> </td><td style="vertical-align:top;"><div style="margin-right:20%; padding:5px; background:#fff; border-radius:7px; word-break:break-all;">안녕하세요 ㅎㅎ~~</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <div>보리맘</div> </td><td style="vertical-align:top;"><div style="margin-right:20%; padding:5px; background:#fff; border-radius:7px; word-break:break-all;">오늘두 화이팅입니다! </div></td></tr><tr><td colspan="2" style="vertical-align:top;"><div style="width:100%; height:40px; line-height:30px; padding:5px; background:#9900cc; color:#ffffff; border-radius:7px; font-size:1.1em; font-weight:bold; text-align:center;">코칭 마번 올려드렸습니다</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <div>국대박</div> </td><td style="vertical-align:top;"><div style="margin-right:20%; padding:5px; background:#fff; border-radius:7px; word-break:break-all;">처음 마번 뽑아봤는데 대표님 마번과 같네요 ㅎ </div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <span style="background:#ffff00;">정수현</span> </td><td style="vertical-align:top;"><div style="margin-left:20%; padding:5px; background:#ffff00; border-radius:7px; word-break:break-all;">1경주</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <span style="background:#ffff00;">정수현</span> </td><td style="vertical-align:top;"><div style="margin-left:20%; padding:5px; background:#ffff00; border-radius:7px; word-break:break-all;">아주 혼전으로</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <div>국대박</div> </td><td style="vertical-align:top;"><div style="margin-right:20%; padding:5px; background:#fff; border-radius:7px; word-break:break-all;">근데 축이 완전 다름 ㅠ</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <span style="background:#ffff00;">정수현</span> </td><td style="vertical-align:top;"><div style="margin-left:20%; padding:5px; background:#ffff00; border-radius:7px; word-break:break-all;">마번을 뽑기가 매우 힘들었습니다</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <span style="background:#ffff00;">정수현</span> </td><td style="vertical-align:top;"><div style="margin-left:20%; padding:5px; background:#ffff00; border-radius:7px; word-break:break-all;">소액하세요~</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <span style="background:#ffff00;">정수현</span> </td><td style="vertical-align:top;"><div style="margin-left:20%; padding:5px; background:#ffff00; border-radius:7px; word-break:break-all;">12번</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <span style="background:#ffff00;">정수현</span> </td><td style="vertical-align:top;"><div style="margin-left:20%; padding:5px; background:#ffff00; border-radius:7px; word-break:break-all;">외곽게이트에서 선행을 못나가는데...</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <span style="background:#ffff00;">정수현</span> </td><td style="vertical-align:top;"><div style="margin-left:20%; padding:5px; background:#ffff00; border-radius:7px; word-break:break-all;">안쪽에 선행마가 많아요</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <span style="background:#ffff00;">정수현</span> </td><td style="vertical-align:top;"><div style="margin-left:20%; padding:5px; background:#ffff00; border-radius:7px; word-break:break-all;">그래서</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <span style="background:#ffff00;">정수현</span> </td><td style="vertical-align:top;"><div style="margin-left:20%; padding:5px; background:#ffff00; border-radius:7px; word-break:break-all;">12가 어찌될지를 관건입니다</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <span style="background:#ffff00;">정수현</span> </td><td style="vertical-align:top;"><div style="margin-left:20%; padding:5px; background:#ffff00; border-radius:7px; word-break:break-all;">10번이 11번에게 선행을 내주면</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <span style="background:#ffff00;">정수현</span> </td><td style="vertical-align:top;"><div style="margin-left:20%; padding:5px; background:#ffff00; border-radius:7px; word-break:break-all;">10번도 위험하고</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <span style="background:#ffff00;">정수현</span> </td><td style="vertical-align:top;"><div style="margin-left:20%; padding:5px; background:#ffff00; border-radius:7px; word-break:break-all;">그렇다고 11버이 아주 쎈말도 아니고</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <span style="background:#ffff00;">정수현</span> </td><td style="vertical-align:top;"><div style="margin-left:20%; padding:5px; background:#ffff00; border-radius:7px; word-break:break-all;">그래서 안족에서 찾앗는데</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <span style="background:#ffff00;">정수현</span> </td><td style="vertical-align:top;"><div style="margin-left:20%; padding:5px; background:#ffff00; border-radius:7px; word-break:break-all;">이 경주는 전개상 혼전으로 여겼습니다</div></td></tr><tr><td colspan="2" style="vertical-align:top;"><div style="width:100%; height:70px; line-height:30px; padding:5px; background:#ffffff; color:#000000; border-radius:7px; font-size:1.1em; font-weight:bold; text-align:center;">
-<div style="position:relative; width:100%; background-color:#ffffff; color:#000000; font-weight:bold; text-align:center;">
-<div style="position:absolute; margin-left:40px;">
-<div style="float:left; margin-top:-1px; left:-1px;"><img src="..\img\emoticon\icon_mark_hit.png" style="width:30px; transform:rotate(-30deg);"/></div>
-<div style="float:left; margin-left:10px; font-size:20px;">현재 고수님들 마번을</div>
-<div class="blink2" style="float:left; margin-left:10px; font-size:20px; color:#ff0000;">30명 구매중</div>
-<div style="float:left; margin-left:5px; font-size:20px;">입니다.</div>
-</div>
-<div style="position:absolute; top:30px; margin-left:10px; color:#0000ff; font-size:15px;">고수님들 한명을 정했으면, 1경주부터 막경주까지 끝까지 따라가세요.!!!</div>
-</div></div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <div>채니짱</div> </td><td style="vertical-align:top;"><div style="margin-right:20%; padding:5px; background:#fff; border-radius:7px; word-break:break-all;">~~~~</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <div>채니짱</div> </td><td style="vertical-align:top;"><div style="margin-right:20%; padding:5px; background:#fff; border-radius:7px; word-break:break-all;">스타트 좋고.</div></td></tr><tr><td colspan="2" style="vertical-align:top;"><div style="width:100%; height:40px; line-height:30px; padding:5px; background:#ff0000; color:#ffffff; border-radius:7px; font-size:1.1em; font-weight:bold; text-align:center;">
-<div style="position:relative; width:100%; background-color:#ff0000; color:#ffffff; font-weight:bold; text-align:center;">
-<div style="position:absolute;">
-<div class="blink2" style="float:left; margin-top:-1px; left:-1px;"><img src="..\img\emoticon\icon_mark_hit.png" style="width:30px; transform:rotate(-30deg);"/></div>
-<div style="float:left; margin-left:10px; width:130px; background-color:#ffffff; color:#000000;">삼쌍 85배!!</div>
-<div class="blink2" style="float:left; margin-left:10px; width:80px; background-color:#ffffff; color:#0000ff;">32명.!!</div>
-<div style="float:left; margin-left:20px;">대박 적중을 축하드립니다.!!</div>
-</div>
-</div></div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <span style="background:#ffff00;">정수현</span> </td><td style="vertical-align:top;"><div style="margin-left:20%; padding:5px; background:#ffff00; border-radius:7px; word-break:break-all;">적중을 축하드립니다~</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <div>칼이쓰마</div> </td><td style="vertical-align:top;"><div style="margin-right:20%; padding:5px; background:#fff; border-radius:7px; word-break:break-all;">채니짱♡^^ 스탓굿</div></td></tr><tr><td colspan="2" style="vertical-align:top;"><div style="width:100%; height:40px; line-height:30px; padding:5px; background:#ff3300; color:#ffffff; border-radius:7px; font-size:1.1em; font-weight:bold; text-align:center;">다음 진행 경주로 이동합니다</div></td></tr><tr><td style="padding:5px; width:70px; vertical-align:top;"> <div>채니짱</div> </td><td style="vertical-align:top;"><div style="margin-right:20%; padding:5px; background:#fff; border-radius:7px; word-break:break-all;">헐 칼님 완전방가.ㅎ</div></td></tr> </table>
+</table>
 </div>
 <div id="chat-footer">
 <div class="chat_message_div">
-<textarea id="chat-message" name="cmt_text" placeholder="경주가 마감되었습니다"></textarea>
+<textarea id="chat-message" name="cmt_text" placeholder="로그인후 글쓰기가 가능합니다"></textarea>
 </div>
 <div class="chat_message_btn_div">
 <div id="btn-chat" title="보내기">
@@ -417,16 +199,16 @@ set_basic_urlinfo('https://xn--o39a0n963awza76tu9hduc.com', 'bbs', '1', '', '', 
 <script>
 var pos_id = "";
 var chkDate = "";
-var send_mb_id = "wsh123";
-var send_mb_level = "7";
-var rcDate = "20250928";
-var meet = "서울";
+var send_mb_id = "";
+var send_mb_level = "1";
+var rcDate = "20251017";
+var meet = "제주";
 var rcNo = "1";
-var max_id = "154711";
+var max_id = "";
 //var limit_record = "0";
 var limit_record = "";
 var from_record = "";
-var rc_start_time = -21541;
+var rc_start_time = 209;
 
 function chat_refresh() { 
 	
@@ -434,7 +216,7 @@ function chat_refresh() {
 
         type: "POST",
         data: {'act':'refresh', 'rcDate':rcDate, 'meet':meet, 'rcNo':rcNo, 'max_id':max_id},
-        url: 'page/chat_proc.ajax.php',
+        url: 'https://xn--o39a0n963awza76tu9hduc.com/page/chat_proc.ajax.php',
         success: function(data) {
 
             var html = ''; 
@@ -473,14 +255,14 @@ function chat_refresh() {
                         }
 
                         if($i.ch_memo == '파일첨부') {
-                            $i.ch_memo = '<a href="data' + $i.ch_dir + '/' + $i.ch_file + '" target="_blank"><img src="data' + $i.ch_dir + '/' + $i.ch_file + '" style="width:50%; height:200px;"></a><br>';
+                            $i.ch_memo = '<a href="https://xn--o39a0n963awza76tu9hduc.com/data' + $i.ch_dir + '/' + $i.ch_file + '" target="_blank"><img src="https://xn--o39a0n963awza76tu9hduc.com/data' + $i.ch_dir + '/' + $i.ch_file + '" style="width:50%; height:200px;"></a><br>';
                         }
 
                         if($i.ch_secret == '1') {
 
                             if (send_mb_level == "10") {
                                 html += $i.ch_memo;
-                                html += '<a href="page/chat_unlock.ajax.php?ch_id='+$i.ch_id+'&mb_id=wsh123"><img src="img/icon_secret.gif" style="margin-top:-3px;"></a>';
+                                html += '<a href="https://xn--o39a0n963awza76tu9hduc.com/page/chat_unlock.ajax.php?ch_id='+$i.ch_id+'&mb_id="><img src="https://xn--o39a0n963awza76tu9hduc.com/img/icon_secret.gif" style="margin-top:-3px;"></a>';
                             } else {
                                 html += '비밀글입니다';
                             }
@@ -546,43 +328,10 @@ function chat_refresh() {
 }
 
 $("#btn-chat").click(function() {
-
-    if ($("#chat-message").val() == "{{축포}}" || $("#chat-message").val() == "{{후원금}}") {
-        let send_msg = $("#chat-message").val();
-        $.ajax({
-            type: "POST",
-            data: {'act':'update', 'rcDate':rcDate, 'meet':meet, 'rcNo':rcNo, 'ch_memo':send_msg},
-            url: '/page/chat_proc.ajax.php',
-            success: function(data) {
-                if(data['error_msg'].length > 0) {
-                    alert(data['error_msg']);
-                    return false;
-                }
-                chat_refresh();
-            }
-        });
-        $("#chat-message").val('');
-    } else {
-                    alert('경주가 마감되었습니다.');
-            $("#chat-message").val('');
-            return false;
-            }
-});
-
-
-function send_message(msg) {
-			alert('경주가 마감되었습니다.');
-		return false;
-	}
-
-$(function() {
-    $('#chat-message').on('keydown', function(event) {
-        if (event.keyCode == 13)
-            if (!event.shiftKey){
-                event.preventDefault();
-                $('#btn-chat').trigger('click');
-            }
-    });
+    $("#chat-message").val('');
+	alert('로그인 후 글쓰기가 가능합니다.');
+	modalExtend('modal_layer', '/modal/chat_login');
+	return false;
 });
 
 
@@ -646,6 +395,32 @@ window.onload = function() {
     move_page();
         get_chat_form_raceInfo(rcDate, meet, rcNo);
     };
+
+
+function users_time_check() {
+    var rcDate = "20251017";
+    var meet = "제주";
+    var rcNo = "1";
+    var url = "./chat_users_time_check.ajax.php";
+	$.ajax({
+		url: url,
+		type: 'POST',
+		data: {'rcDate':rcDate, 'meet':meet, 'rcNo':rcNo},
+		dataType: 'html',
+		success: function(response) {
+			if (response == 0) {
+                clearInterval(chat_check);
+                clearInterval(rc_timer);
+                modalExtend('modal_layer', '/modal/membership?iframe=1');
+            }
+		}
+	});
+}
+
+
+var rcInfo_check = setInterval( function() {
+    get_chat_form_raceInfo(rcDate, meet, rcNo);
+}, 5000 ); //5초에 갱신
 
 </script>
 <div class="modal_pop" id="modal_layer"></div>

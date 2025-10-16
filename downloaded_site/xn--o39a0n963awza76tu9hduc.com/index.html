@@ -55,11 +55,11 @@
 <!--Theme Color-->
 <link href="theme\krpro\assets\css\theme-color\default.css" id="theme-color" rel="stylesheet" type="text/css"/>
 <!--[if lte IE 8]>
-<script src="js/html5.js"></script>
+<script src="https://xn--o39a0n963awza76tu9hduc.com/js/html5.js"></script>
 <![endif]-->
 <script src="js\basic.js"></script>
 <script>
-set_basic_urlinfo('https://xn--o39a0n963awza76tu9hduc.com', 'bbs', '1', '', '', '', '', '', '');
+set_basic_urlinfo('https://xn--o39a0n963awza76tu9hduc.com', 'https://xn--o39a0n963awza76tu9hduc.com/bbs', '', '', '', '', '', '', '');
 </script>
 <script src="js\jquery-1.12.4.min.js"></script>
 <script src="js\jquery-ui-1.12.1.js"></script>
@@ -116,28 +116,20 @@ set_basic_urlinfo('https://xn--o39a0n963awza76tu9hduc.com', 'bbs', '1', '', '', 
 <div class="icons-hover-black" style="position:absolute; right:12px; padding:8px 0;">
 <ul class="hd_login">
 <li>
-<div style="margin-top:-18px; text-align:left;">
-<span style="font-size:0.9em;">마케터님 </span>
-<span style="font-size:0.9em;">2050년 12월 31일까지</span>
-</div>
-<div style="margin-top:14px;">
-<span style="padding: 0 7px; border:1px solid #000000; border-radius:7px; color:#6e6e6e; background:#ebebeb;">일반회원</span>
-<span style="padding: 0 7px; border:1px solid #000000; border-radius:7px; color:#ffffff; background:#ff0000;">가족회원</span>
-<span style="padding: 0 7px; border:1px solid #000000; border-radius:7px; color:#6e6e6e; background:#ebebeb;">분석가</span>
-<span>입니다</span>
+<div style="margin-top:-8px;">
+<form autocomplete="off" method="post" name="foutlogin">
+<input id="login_url" name="url" type="hidden" value="/"/>
+<input id="login_auto_login" name="auto_login" type="hidden" value="1"/>
+<input class="outlogin_id frm_input required" id="login_id" maxlength="20" name="mb_id" placeholder="아이디" required="" style="margin-bottom:3px; width:120px; height:30px;" type="text"/>
+<input class="outlogin_pw frm_input required" id="login_pw" maxlength="20" name="mb_password" placeholder="비밀번호" required="" style="margin-bottom:3px; width:120px;  height:30px;" type="password"/>
+<button onclick="foutlogin_submit(this.form);" style="margin-bottom:3px; height:30px; padding:3px 10px; background:#000000; color:#ffffff; font-size:1.1em;" type="button">로그인</button>
+</form>
 </div>
 </li>
 <li>
-<a class="win_point" data-mb_point="408200" href="member\point\index.html" style="color:red;" target="_blank">408,200원</a>
+<a href="member\join\index.html" style="padding:3px 7px; background:#ff0000; color:#ffffff;">홈페이지 가입</a>
+<!--<p class="help-tip">+5,000P</p>-->
 </li>
-<li>
-<a class="win_memo" href="bbs\memo\index.html" target="_blank">
-<img src="img\icon_memo.png" style="vertical-align:top;" width="18"/>
-</a>
-</li>
-<li><a href="member\mypage\index.html" style="padding:0 5px; background:#ff0000; color:#ffffff;">포인트구매</a></li>
-<!--<li><a href="member/confirm?url=member/form">정보수정</a></li>-->
-<li><a href="member\logout\index.html" style="padding:0 5px; background:#000000; color:#ffffff;">로그아웃</a></li>
 </ul>
 </div>
 </div>
@@ -153,15 +145,15 @@ set_basic_urlinfo('https://xn--o39a0n963awza76tu9hduc.com', 'bbs', '1', '', '', 
 <a href="javascript:;" style="width:100%; height:59px; text-align:center; color:#ff0000; font-size:1.5em;" target="_self">Ai 분석 연구실</a>
 <span class="bg"><i class="ion-ios-plus-empty visible-xs"></i></span>
 <ul class="sub-nav" style="width:100%; text-align:center;">
-<li><a href="page\axial_analyst\index.html" style="font-size:13px !important;">오늘 승부마번 <span style="color:#ff0000;">(가족회원)</span></a></li>
-<li><a href="page\data3_all\index.html" style="font-size:13px !important;">Ai 빅데이터 <span style="color:#ff0000;">(가족회원)</span></a></li>
-<li><a href="page\data3\index.html" style="font-size:13px !important;">경주별 분석 <span style="color:#ff0000;">(가족회원)</span></a></li>
-<li><a href="page\data4_vip\index.html" style="font-size:13px !important;">축마 분석 <span style="color:#ff0000;">(가족회원)</span></a></li>
-<li><a href="page\data4\index.html" style="font-size:13px !important;">4두마 분석 <span style="color:#ff0000;">(가족회원)</span></a></li>
-<li><a href="page\data_total\index.html" style="font-size:13px !important;">토탈 분석 <span style="color:#ff0000;">(가족회원)</span></a></li>
-<li><a href="page\data3_2\index.html" style="font-size:13px !important;">대전수 분석 <span style="color:#ff0000;">(분석가)</span></a></li>
-<li><a href="page\data3_result\index.html" style="font-size:13px !important;">당일종합결과 <span style="color:#ff0000;">(분석가)</span></a></li>
-<li><a href="page\data9\index.html" style="font-size:13px !important;">단통분석 <span style="color:#ff0000;">(가족회원)</span></a></li>
+<li><a href="javascript:;" onclick="modal_alert_membership_family('1')" style="font-size:13px !important;">오늘 승부마번 <span style="color:#ff0000;">(가족회원)</span></a></li>
+<li><a href="javascript:;" onclick="modal_alert_membership_family('1')" style="font-size:13px !important;">Ai 빅데이터 <span style="color:#ff0000;">(가족회원)</span></a></li>
+<li><a href="javascript:;" onclick="modal_alert_membership_family('1')" style="font-size:13px !important;">경주별 분석 <span style="color:#ff0000;">(가족회원)</span></a></li>
+<li><a href="javascript:;" onclick="modal_alert_membership_family('1')" style="font-size:13px !important;">축마 분석 <span style="color:#ff0000;">(가족회원)</span></a></li>
+<li><a href="javascript:;" onclick="modal_alert_membership_family('1')" style="font-size:13px !important;">4두마 분석 <span style="color:#ff0000;">(가족회원)</span></a></li>
+<li><a href="javascript:;" onclick="modal_alert_membership_family('1')" style="font-size:13px !important;">토탈 분석 <span style="color:#ff0000;">(가족회원)</span></a></li>
+<li><a href="javascript:;" onclick="alert('분석가 전용입니다.')" style="font-size:13px !important;">대전수 분석 <span style="color:#ff0000;">(분석가)</span></a></li>
+<li><a href="javascript:;" onclick="alert('분석가 전용입니다.')" style="font-size:13px !important;">당일종합결과 <span style="color:#ff0000;">(분석가)</span></a></li>
+<li><a href="javascript:;" onclick="modal_alert_membership_family('1')" style="font-size:13px !important;">단통분석 <span style="color:#ff0000;">(가족회원)</span></a></li>
 </ul>
 </li>
 <li style="width:20%; border-right: 1px solid #dedddd;">
@@ -241,15 +233,19 @@ $(function() {
 <!-- } 팝업레이어 끝 --><!-- 팝업레이어 시작 { -->
 <div id="hd_pop">
 <h2>팝업레이어 알림</h2>
-<div class="main_pops" draggable="true" id="main_pops_notice" style="position:absolute; top:150px; left:205px; z-index:9;">
-<div class="main_pops_con" style="width:868px;height:771px;">
-<img src="img\popup\pop_20251001.png"/>
+<div class="main_pops" draggable="true" id="main_pops_510" style="position:absolute; top:150px; left:305px; z-index:9;">
+<div class="main_pops_con" style="width:586px;height:752px; cursor:move;">
+<a href="page\queue_50limit\index.html"><img src="img\popup\pop_50limit.png"/></a>
 </div>
 <div class="main_pops_footer" style="background-color:#000000;">
-<button class="main_pops_reject main_pops_notice 24" style="background-color:#000000; font-size:1.2em;"><input style="margin-top:-1px; zoom:1.6;" type="checkbox"/> <strong>1</strong>일 동안 열지 않기</button>
-<button class="main_pops_close main_pops_notice" style="background-color:#000000;">닫기 <i aria-hidden="true" class="fa fa-times"></i></button>
+<button class="main_pops_reject main_pops_510 48" style="background-color:#000000; font-size:1.2em;"><input style="margin-top:-1px; zoom:1.6;" type="checkbox"/> <strong>2</strong>일 동안 열지 않기</button>
+<button class="main_pops_close main_pops_510" style="background-color:#000000;">닫기 <i aria-hidden="true" class="fa fa-times"></i></button>
 </div>
 </div>
+<script>
+    // Make the DIV element draggable:
+    dragElement(document.getElementById("main_pops_510"));
+    </script>
 </div>
 <script>
 $(function() {
@@ -296,9 +292,9 @@ $(function() {
 <div style="width:1140px; margin:0 auto;">
 <img src="img\banner\main_visual_link.gif" usemap="#maplink"/>
 <map name="maplink">
-<area coords="63, 118, 689, 158" href="page/chat" shape="rect" style="cursor:pointer;" target="_self"/>
-<area coords="63, 178, 689, 214" href="notice/1421" shape="rect" target="_self"/>
-<area coords="63, 236, 689, 269" href="notice/1422" shape="rect" target="_self"/>
+<area coords="63, 118, 689, 158" href="https://xn--o39a0n963awza76tu9hduc.com/page/chat" shape="rect" style="cursor:pointer;" target="_self"/>
+<area coords="63, 178, 689, 214" href="https://xn--o39a0n963awza76tu9hduc.com/notice/1421" shape="rect" target="_self"/>
+<area coords="63, 236, 689, 269" href="https://xn--o39a0n963awza76tu9hduc.com/notice/1422" shape="rect" target="_self"/>
 </map>
 </div>
 <!-- 원 버튼, 이전 다음 버튼 동적 생성 -->
@@ -376,9 +372,9 @@ $(function() {
 <div class="item" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
 <meta content="4" itemprop="position">
 <a href="hello\796\index.html" itemprop="url">
-<img alt="삼쌍승 조합기 사용 방법" itemprop="image" src="img\banner\carousel_04.png">
+<img alt="삼쌍승 조합기 사용 방법" itemprop="image" src="img\banner\carousel_04.png"/>
 <span itemprop="name">삼쌍승 조합기 사용 방법</span>
-</img></a>
+</a>
 <meta content="삼쌍승 조합기 사용 방법을 설명합니다." itemprop="description">
 </meta></meta></div>
 <!-- 다섯 번째 아이템 -->
@@ -479,7 +475,7 @@ $(function() {
 <!--
                     <li style="float:left; width:20%;">
                         <div class="youtbe-title" style="padding:5px;">
-                            <a href="hello/986">
+                            <a href="https://xn--o39a0n963awza76tu9hduc.com/hello/986">
                                 <div style="height:155px;"><img class="youtube-thumbnail" src="https://img.youtube.com/vi/w6m6jnIWQUQ/sddefault.jpg"></div>
                                 <div style="">마번 구매방법 및, 1개월 + 1개월 추가 대박 이벤트 안내</div>
                             </a>
@@ -538,7 +534,7 @@ $(function() {
 <div style="margin-top:-40px">
 <div style="float:left; width:20%; padding:5px;">
 <div class="m_batting_title">
-<div onclick="location.href='notice'" style="width:100%; height:30px; background:#66ffff; border-radius:5px; border:1px solid #000000; cursor:pointer;">
+<div onclick="location.href='https://xn--o39a0n963awza76tu9hduc.com/notice'" style="width:100%; height:30px; background:#66ffff; border-radius:5px; border:1px solid #000000; cursor:pointer;">
 <h1><strong>공지사항</strong> (필독)</h1>
 </div>
 </div>
@@ -595,7 +591,7 @@ $(function() {
 </div>
 <div style="float:left; width:20%; padding:5px;">
 <div class="m_batting_title">
-<div onclick="location.href='review'" style="width:100%; height:30px; background:#ffff99; border-radius:5px; border:1px solid #000000; cursor:pointer;">
+<div onclick="location.href='https://xn--o39a0n963awza76tu9hduc.com/review'" style="width:100%; height:30px; background:#ffff99; border-radius:5px; border:1px solid #000000; cursor:pointer;">
 <h1 class="blink_quick"><strong style="color:#ff0000;">실시간 뉴스 / 적중 인증샷</strong></h1>
 </div>
 </div>
@@ -608,39 +604,31 @@ $(function() {
 <tbody>
 <tr>
 <td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:red; border-radius:5px; background:#ddd; text-align:center;">1</div></td>
-<td style="padding-left:5px; line-height:18px; height:18px;"><a href="review\1655\index.html">선생님~ 이번주 경마는 쉬어야</a></td>
+<td style="padding-left:5px; line-height:18px; height:18px;"><a href="review\1656\index.html">10월 17일 / 승부마 배당</a></td>
 </tr>
 <tr>
 <td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:blue; border-radius:5px; background:#ddd; text-align:center;">2</div></td>
-<td style="padding-left:5px; line-height:18px; height:18px;"><a href="hello\5531\index.html">9월 19,20,21일 코칭이</a></td>
+<td style="padding-left:5px; line-height:18px; height:18px;"><a href="greeting\4796\index.html">신규 가입 인사드립니다.</a></td>
 </tr>
 <tr>
 <td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:green; border-radius:5px; background:#ddd; text-align:center;">3</div></td>
-<td style="padding-left:5px; line-height:18px; height:18px;"><a href="review\1654\index.html">금요일 코칭 마번 경주 결과입</a></td>
+<td style="padding-left:5px; line-height:18px; height:18px;"><a href="greeting\4794\index.html">신규 가입 인사드립니다.</a></td>
 </tr>
 <tr>
 <td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:; border-radius:5px; background:#ddd; text-align:center;">4</div></td>
-<td style="padding-left:5px; line-height:18px; height:18px;"><a href="hello\5530\index.html">지난 주 코칭방 경주 성적 및</a></td>
+<td style="padding-left:5px; line-height:18px; height:18px;"><a href="review\1655\index.html">선생님~ 이번주 경마는 쉬어야</a></td>
 </tr>
 <tr>
 <td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:; border-radius:5px; background:#ddd; text-align:center;">5</div></td>
-<td style="padding-left:5px; line-height:18px; height:18px;"><a href="review\1653\index.html">저희는 고배당 전문 사이트입니</a></td>
+<td style="padding-left:5px; line-height:18px; height:18px;"><a href="hello\5531\index.html">9월 19,20,21일 코칭이</a></td>
 </tr>
 <tr>
 <td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:; border-radius:5px; background:#ddd; text-align:center;">6</div></td>
-<td style="padding-left:5px; line-height:18px; height:18px;"><a href="review\1652\index.html">경마 "통화 레슨" 해드리겠습</a></td>
+<td style="padding-left:5px; line-height:18px; height:18px;"><a href="review\1654\index.html">금요일 코칭 마번 경주 결과입</a></td>
 </tr>
 <tr>
 <td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:; border-radius:5px; background:#ddd; text-align:center;">7</div></td>
-<td style="padding-left:5px; line-height:18px; height:18px;"><a href="review\1651\index.html">9월 7일 / 일요일 승부마필</a></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:; border-radius:5px; background:#ddd; text-align:center;">8</div></td>
-<td style="padding-left:5px; line-height:18px; height:18px;"><a href="review\1650\index.html">대~~대박..!!!! 터졌습니</a></td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:; border-radius:5px; background:#ddd; text-align:center;">9</div></td>
-<td style="padding-left:5px; line-height:18px; height:18px;"><a href="review\1649\index.html">오늘 전경주 마번 무료 오픈해</a></td>
+<td style="padding-left:5px; line-height:18px; height:18px;"><a href="hello\5530\index.html">지난 주 코칭방 경주 성적 및</a></td>
 </tr>
 </tbody>
 </table>
@@ -648,7 +636,7 @@ $(function() {
 </div>
 <div style="float:left; width:20%; padding:5px;">
 <div class="m_batting_title">
-<div onclick="location.href='page/result'" style="width:100%; height:30px; background:#ededed; border-radius:5px; border:1px solid #000000; cursor:pointer;">
+<div onclick="location.href='https://xn--o39a0n963awza76tu9hduc.com/page/result'" style="width:100%; height:30px; background:#ededed; border-radius:5px; border:1px solid #000000; cursor:pointer;">
 <h1><strong>3두 적중률</strong> 지난주 순위</h1>
 </div>
 </div>
@@ -663,51 +651,51 @@ $(function() {
 <tr>
 <td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:#0000ff; border-radius:5px; background:#ddd; text-align:center;">Ai</div></td>
 <td style="padding-left:5px; line-height:18px; height:18px; color:#0000ff;font-size:0.9em;">Ai5두승부마번</td>
-<td style="text-align:right; line-height:18px; height:18px; color:#0000ff;">(경주 51) 24 개</td>
+<td style="text-align:right; line-height:18px; height:18px; color:#0000ff;">(경주 51) 21 개</td>
 </tr>
 <tr>
 <td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:red; border-radius:5px; background:#ddd; text-align:center;">1위</div></td>
-<td style="padding-left:5px; line-height:18px; height:18px; ">황소</td>
-<td style="text-align:right; line-height:18px; height:18px; ">(경주 51) 22 개</td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:blue; border-radius:5px; background:#ddd; text-align:center;">2위</div></td>
-<td style="padding-left:5px; line-height:18px; height:18px; ">마왕</td>
+<td style="padding-left:5px; line-height:18px; height:18px; ">두루미</td>
 <td style="text-align:right; line-height:18px; height:18px; ">(경주 51) 21 개</td>
 </tr>
 <tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:green; border-radius:5px; background:#ddd; text-align:center;">3위</div></td>
-<td style="padding-left:5px; line-height:18px; height:18px; ">바이올렛</td>
+<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:blue; border-radius:5px; background:#ddd; text-align:center;">2위</div></td>
+<td style="padding-left:5px; line-height:18px; height:18px; color:#ff0000;">Ai최종분석</td>
+<td style="text-align:right; line-height:18px; height:18px; color:#ff0000;">(경주 51) 20 개</td>
+</tr>
+<tr>
+<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:blue; border-radius:5px; background:#ddd; text-align:center;">2위</div></td>
+<td style="padding-left:5px; line-height:18px; height:18px; ">차민휘</td>
 <td style="text-align:right; line-height:18px; height:18px; ">(경주 51) 20 개</td>
 </tr>
 <tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:; border-radius:5px; background:#ddd; text-align:center;">4위</div></td>
-<td style="padding-left:5px; line-height:18px; height:18px; ">차민휘</td>
-<td style="text-align:right; line-height:18px; height:18px; ">(경주 51) 19 개</td>
+<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:blue; border-radius:5px; background:#ddd; text-align:center;">2위</div></td>
+<td style="padding-left:5px; line-height:18px; height:18px; ">김사부</td>
+<td style="text-align:right; line-height:18px; height:18px; ">(경주 51) 20 개</td>
 </tr>
 <tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:; border-radius:5px; background:#ddd; text-align:center;">4위</div></td>
+<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:; border-radius:5px; background:#ddd; text-align:center;">5위</div></td>
 <td style="padding-left:5px; line-height:18px; height:18px; ">코난</td>
 <td style="text-align:right; line-height:18px; height:18px; ">(경주 51) 19 개</td>
 </tr>
 <tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:; border-radius:5px; background:#ddd; text-align:center;">6위</div></td>
-<td style="padding-left:5px; line-height:18px; height:18px; color:#ff0000;">Ai최종분석</td>
-<td style="text-align:right; line-height:18px; height:18px; color:#ff0000;">(경주 51) 18 개</td>
+<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:; border-radius:5px; background:#ddd; text-align:center;">5위</div></td>
+<td style="padding-left:5px; line-height:18px; height:18px; ">마왕</td>
+<td style="text-align:right; line-height:18px; height:18px; ">(경주 51) 19 개</td>
 </tr>
 <tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:; border-radius:5px; background:#ddd; text-align:center;">6위</div></td>
+<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:; border-radius:5px; background:#ddd; text-align:center;">7위</div></td>
+<td style="padding-left:5px; line-height:18px; height:18px; ">바이올렛</td>
+<td style="text-align:right; line-height:18px; height:18px; ">(경주 51) 18 개</td>
+</tr>
+<tr>
+<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:; border-radius:5px; background:#ddd; text-align:center;">8위</div></td>
 <td style="padding-left:5px; line-height:18px; height:18px; ">신세기</td>
-<td style="text-align:right; line-height:18px; height:18px; ">(경주 51) 18 개</td>
+<td style="text-align:right; line-height:18px; height:18px; ">(경주 51) 17 개</td>
 </tr>
 <tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:; border-radius:5px; background:#ddd; text-align:center;">6위</div></td>
-<td style="padding-left:5px; line-height:18px; height:18px; ">상아벌</td>
-<td style="text-align:right; line-height:18px; height:18px; ">(경주 51) 18 개</td>
-</tr>
-<tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:; border-radius:5px; background:#ddd; text-align:center;">9위</div></td>
-<td style="padding-left:5px; line-height:18px; height:18px; ">마강타</td>
+<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:; border-radius:5px; background:#ddd; text-align:center;">8위</div></td>
+<td style="padding-left:5px; line-height:18px; height:18px; ">바운스</td>
 <td style="text-align:right; line-height:18px; height:18px; ">(경주 51) 17 개</td>
 </tr>
 </tbody>
@@ -716,7 +704,7 @@ $(function() {
 </div>
 <div style="float:left; width:20%; padding:5px;">
 <div class="m_batting_title">
-<div onclick="location.href='page/result'" style="width:100%; height:30px; background:#ededed; border-radius:5px; border:1px solid #000000; cursor:pointer;">
+<div onclick="location.href='https://xn--o39a0n963awza76tu9hduc.com/page/result'" style="width:100%; height:30px; background:#ededed; border-radius:5px; border:1px solid #000000; cursor:pointer;">
 <h1><strong>지난주</strong> 삼쌍 누적 순위 결과</h1>
 </div>
 </div>
@@ -730,53 +718,53 @@ $(function() {
 <tbody id="analyst_result1">
 <tr>
 <td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:red; border-radius:5px; background:#ddd; text-align:center;">1위</div></td>
-<td style="padding-left:5px; line-height:18px; height:18px;">프라하</td>
-<td style="text-align:right; line-height:18px; height:18px;">6,629.2 배</td>
+<td style="padding-left:5px; line-height:18px; height:18px;">두루미</td>
+<td style="text-align:right; line-height:18px; height:18px;">6,212.1 배</td>
 </tr>
 <tr>
 <td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:blue; border-radius:5px; background:#ddd; text-align:center;">2위</div></td>
-<td style="padding-left:5px; line-height:18px; height:18px;">록맨</td>
-<td style="text-align:right; line-height:18px; height:18px;">6,527.9 배</td>
+<td style="padding-left:5px; line-height:18px; height:18px;">하얀말</td>
+<td style="text-align:right; line-height:18px; height:18px;">4,473.7 배</td>
 </tr>
 <tr>
 <td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:green; border-radius:5px; background:#ddd; text-align:center;">3위</div></td>
-<td style="padding-left:5px; line-height:18px; height:18px;">김명국</td>
-<td style="text-align:right; line-height:18px; height:18px;">5,562.1 배</td>
+<td style="padding-left:5px; line-height:18px; height:18px;">리카온</td>
+<td style="text-align:right; line-height:18px; height:18px;">4,238.3 배</td>
 </tr>
 <tr>
 <td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:; border-radius:5px; background:#ddd; text-align:center;">4위</div></td>
-<td style="padding-left:5px; line-height:18px; height:18px;">금나라</td>
-<td style="text-align:right; line-height:18px; height:18px;">4,073.0 배</td>
+<td style="padding-left:5px; line-height:18px; height:18px;">영성</td>
+<td style="text-align:right; line-height:18px; height:18px;">3,790.7 배</td>
 </tr>
 <tr>
 <td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:; border-radius:5px; background:#ddd; text-align:center;">5위</div></td>
-<td style="padding-left:5px; line-height:18px; height:18px;">염객</td>
-<td style="text-align:right; line-height:18px; height:18px;">3,764.3 배</td>
+<td style="padding-left:5px; line-height:18px; height:18px;">김창진</td>
+<td style="text-align:right; line-height:18px; height:18px;">3,747.4 배</td>
 </tr>
 <tr>
 <td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:; border-radius:5px; background:#ddd; text-align:center;">6위</div></td>
-<td style="padding-left:5px; line-height:18px; height:18px;">선재</td>
-<td style="text-align:right; line-height:18px; height:18px;">3,374.5 배</td>
+<td style="padding-left:5px; line-height:18px; height:18px;">이현욱</td>
+<td style="text-align:right; line-height:18px; height:18px;">3,678.0 배</td>
 </tr>
 <tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:; border-radius:5px; background:#ddd; text-align:center;">7위</div></td>
-<td style="padding-left:5px; line-height:18px; height:18px;">황소</td>
-<td style="text-align:right; line-height:18px; height:18px;">3,148.7 배</td>
+<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:; border-radius:5px; background:#ddd; text-align:center;">6위</div></td>
+<td style="padding-left:5px; line-height:18px; height:18px;">욘코너</td>
+<td style="text-align:right; line-height:18px; height:18px;">3,678.0 배</td>
 </tr>
 <tr>
 <td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:; border-radius:5px; background:#ddd; text-align:center;">8위</div></td>
-<td style="padding-left:5px; line-height:18px; height:18px;">써머리</td>
-<td style="text-align:right; line-height:18px; height:18px;">2,884.6 배</td>
+<td style="padding-left:5px; line-height:18px; height:18px;">대구모터스</td>
+<td style="text-align:right; line-height:18px; height:18px;">3,448.2 배</td>
 </tr>
 <tr>
 <td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:; border-radius:5px; background:#ddd; text-align:center;">9위</div></td>
-<td style="padding-left:5px; line-height:18px; height:18px;">차세대</td>
-<td style="text-align:right; line-height:18px; height:18px;">2,838.1 배</td>
+<td style="padding-left:5px; line-height:18px; height:18px;">김민성</td>
+<td style="text-align:right; line-height:18px; height:18px;">3,309.6 배</td>
 </tr>
 <tr>
-<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:; border-radius:5px; background:#ddd; text-align:center;">9위</div></td>
-<td style="padding-left:5px; line-height:18px; height:18px;">다비켜</td>
-<td style="text-align:right; line-height:18px; height:18px;">2,838.1 배</td>
+<td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:; border-radius:5px; background:#ddd; text-align:center;">10위</div></td>
+<td style="padding-left:5px; line-height:18px; height:18px;">바이올렛</td>
+<td style="text-align:right; line-height:18px; height:18px;">3,213.7 배</td>
 </tr>
 </tbody>
 </table>
@@ -784,7 +772,7 @@ $(function() {
 </div>
 <div style="float:left; width:20%; padding:5px;">
 <div class="m_batting_title">
-<div onclick="location.href='greeting'" style="width:100%; height:30px; background:#ededed; border-radius:5px; border:1px solid #000000; cursor:pointer;">
+<div onclick="location.href='https://xn--o39a0n963awza76tu9hduc.com/greeting'" style="width:100%; height:30px; background:#ededed; border-radius:5px; border:1px solid #000000; cursor:pointer;">
 <h1><strong>신규 회원님</strong>을 환영합니다</h1>
 </div>
 </div>
@@ -798,53 +786,53 @@ $(function() {
 <tbody>
 <tr>
 <td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:red; border-radius:5px; background:#ddd; text-align:center;">1</div></td>
-<td style="padding-left:5px; line-height:18px; height:18px;">성호읏쌰 님</td>
-<td style="font-size:0.8em; color:#ababab; text-align:right; line-height:18px; height:18px;">2025-10-12</td>
+<td style="padding-left:5px; line-height:18px; height:18px;">김흥천 님</td>
+<td style="font-size:0.8em; color:#ababab; text-align:right; line-height:18px; height:18px;"></td>
 </tr>
 <tr>
 <td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:blue; border-radius:5px; background:#ddd; text-align:center;">2</div></td>
-<td style="padding-left:5px; line-height:18px; height:18px;">함성 님</td>
-<td style="font-size:0.8em; color:#ababab; text-align:right; line-height:18px; height:18px;">2025-10-12</td>
+<td style="padding-left:5px; line-height:18px; height:18px;">기돈이최고 님</td>
+<td style="font-size:0.8em; color:#ababab; text-align:right; line-height:18px; height:18px;"></td>
 </tr>
 <tr>
 <td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:green; border-radius:5px; background:#ddd; text-align:center;">3</div></td>
-<td style="padding-left:5px; line-height:18px; height:18px;">투준 님</td>
-<td style="font-size:0.8em; color:#ababab; text-align:right; line-height:18px; height:18px;">2025-10-12</td>
+<td style="padding-left:5px; line-height:18px; height:18px;">보물섬 님</td>
+<td style="font-size:0.8em; color:#ababab; text-align:right; line-height:18px; height:18px;"></td>
 </tr>
 <tr>
 <td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:; border-radius:5px; background:#ddd; text-align:center;">4</div></td>
-<td style="padding-left:5px; line-height:18px; height:18px;">수원드라이 님</td>
-<td style="font-size:0.8em; color:#ababab; text-align:right; line-height:18px; height:18px;">2025-10-12</td>
+<td style="padding-left:5px; line-height:18px; height:18px;">용우 님</td>
+<td style="font-size:0.8em; color:#ababab; text-align:right; line-height:18px; height:18px;"></td>
 </tr>
 <tr>
 <td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:; border-radius:5px; background:#ddd; text-align:center;">5</div></td>
-<td style="padding-left:5px; line-height:18px; height:18px;">포뮬러 님</td>
-<td style="font-size:0.8em; color:#ababab; text-align:right; line-height:18px; height:18px;">2025-10-11</td>
+<td style="padding-left:5px; line-height:18px; height:18px;">순국 님</td>
+<td style="font-size:0.8em; color:#ababab; text-align:right; line-height:18px; height:18px;"></td>
 </tr>
 <tr>
 <td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:; border-radius:5px; background:#ddd; text-align:center;">6</div></td>
-<td style="padding-left:5px; line-height:18px; height:18px;">몽달 님</td>
-<td style="font-size:0.8em; color:#ababab; text-align:right; line-height:18px; height:18px;">2025-10-11</td>
+<td style="padding-left:5px; line-height:18px; height:18px;">마파람 님</td>
+<td style="font-size:0.8em; color:#ababab; text-align:right; line-height:18px; height:18px;"></td>
 </tr>
 <tr>
 <td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:; border-radius:5px; background:#ddd; text-align:center;">7</div></td>
-<td style="padding-left:5px; line-height:18px; height:18px;">건봉 님</td>
-<td style="font-size:0.8em; color:#ababab; text-align:right; line-height:18px; height:18px;">2025-10-11</td>
+<td style="padding-left:5px; line-height:18px; height:18px;">감생이 님</td>
+<td style="font-size:0.8em; color:#ababab; text-align:right; line-height:18px; height:18px;"></td>
 </tr>
 <tr>
 <td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:; border-radius:5px; background:#ddd; text-align:center;">8</div></td>
-<td style="padding-left:5px; line-height:18px; height:18px;">나야비비 님</td>
-<td style="font-size:0.8em; color:#ababab; text-align:right; line-height:18px; height:18px;">2025-10-11</td>
+<td style="padding-left:5px; line-height:18px; height:18px;">남태령 님</td>
+<td style="font-size:0.8em; color:#ababab; text-align:right; line-height:18px; height:18px;"></td>
 </tr>
 <tr>
 <td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:; border-radius:5px; background:#ddd; text-align:center;">9</div></td>
-<td style="padding-left:5px; line-height:18px; height:18px;">마하반야 님</td>
-<td style="font-size:0.8em; color:#ababab; text-align:right; line-height:18px; height:18px;">2025-10-11</td>
+<td style="padding-left:5px; line-height:18px; height:18px;">봉갑홧팅 님</td>
+<td style="font-size:0.8em; color:#ababab; text-align:right; line-height:18px; height:18px;"></td>
 </tr>
 <tr>
 <td style="padding:1px; line-height:18px; height:18px;"><div style="font-size:11px; color:; border-radius:5px; background:#ddd; text-align:center;">10</div></td>
-<td style="padding-left:5px; line-height:18px; height:18px;">빈이아빠 님</td>
-<td style="font-size:0.8em; color:#ababab; text-align:right; line-height:18px; height:18px;">2025-10-11</td>
+<td style="padding-left:5px; line-height:18px; height:18px;">대바기 님</td>
+<td style="font-size:0.8em; color:#ababab; text-align:right; line-height:18px; height:18px;"></td>
 </tr>
 </tbody>
 </table>
@@ -877,92 +865,8 @@ $(function() {
 <div class="m_analyst clearboth">
 <div>
 <table style="width:100%;">
-<tr data-rcdate="20251013">
-<td class="main_analyst_view_off" onclick="alert('경주일이 아닙니다.');" style="position:relative;">
-<div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
-<div class="smb_me">
-<img alt="profile_image" src="data\member_image\mo\moneypak.gif"/> </div>
-<div class="main_analyst_profile">
-<h4>황소</h4>
-<span>정수현의 경마 아카데미 수료 / Ai 전문 분석가</span>
-</div>
-</td>
-</tr>
-<tr>
-<td class="tbl_analyst" style="padding-top:7px;">
-<table>
-<tr>
-<th style="background:#dbe9f3; width:22%;">TOTAL</th>
-<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">22개</span> 경주 적중</th>
-<th style="background:#dbe9f3; width:33%;">3두누적배당</th>
-</tr>
-<tr>
-<td>금요일</td>
-<td><span style="color:#ff0000;">9개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">1449.5</span>배</td>
-</tr>
-<tr>
-<td>토요일</td>
-<td><span style="color:#ff0000;">5개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">600.6</span>배</td>
-</tr>
-<tr>
-<td>일요일</td>
-<td><span style="color:#ff0000;">8개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">1067.2</span>배</td>
-</tr>
-</table>
-</td>
-</tr>
-</table>
-<br/>
-</div>
-<div>
-<table style="width:100%;">
-<tr data-rcdate="20251013">
-<td class="main_analyst_view_off" onclick="window.open('page/chat', '', 'width=1700, height=950')" style="position:relative;">
-<div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
-<div class="smb_me">
-<img alt="profile_image" src="data\member_image\xx\xx10.gif"/> </div>
-<div class="main_analyst_profile">
-<h4>바이올렛</h4>
-<span>정수현의 경마 아카데미 수료 / Ai 전문 분석가</span>
-</div>
-</td>
-</tr>
-<tr>
-<td class="tbl_analyst" style="padding-top:7px;">
-<table>
-<tr>
-<th style="background:#dbe9f3; width:22%;">TOTAL</th>
-<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">20개</span> 경주 적중</th>
-<th style="background:#dbe9f3; width:33%;">3두누적배당</th>
-</tr>
-<tr>
-<td>금요일</td>
-<td><span style="color:#ff0000;">8개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">819.7</span>배</td>
-</tr>
-<tr>
-<td>토요일</td>
-<td><span style="color:#ff0000;">6개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">1118.5</span>배</td>
-</tr>
-<tr>
-<td>일요일</td>
-<td><span style="color:#ff0000;">6개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">750.4</span>배</td>
-</tr>
-</table>
-</td>
-</tr>
-</table>
-<br/>
-</div>
-<div>
-<table style="width:100%;">
-<tr data-rcdate="20251013">
-<td class="main_analyst_view_off" onclick="alert('경주일이 아닙니다.');" style="position:relative;">
+<tr data-rcdate="20251017">
+<td class="main_analyst_view_on" onclick="alert('로그인 후 구매 가능합니다.');" style="position:relative;">
 <div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
 <div class="smb_me">
 <img alt="profile_image" src="data\member_image\co\conan.gif"/> </div>
@@ -982,18 +886,18 @@ $(function() {
 </tr>
 <tr>
 <td>금요일</td>
-<td><span style="color:#ff0000;">8개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">1185.0</span>배</td>
+<td><span style="color:#ff0000;">7개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">1141.2</span>배</td>
 </tr>
 <tr>
 <td>토요일</td>
 <td><span style="color:#ff0000;">5개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">600.6</span>배</td>
+<td><span style="color:#ff0000;">509.0</span>배</td>
 </tr>
 <tr>
 <td>일요일</td>
-<td><span style="color:#ff0000;">6개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">693.6</span>배</td>
+<td><span style="color:#ff0000;">7개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">688.8</span>배</td>
 </tr>
 </table>
 </td>
@@ -1003,8 +907,8 @@ $(function() {
 </div>
 <div>
 <table style="width:100%;">
-<tr data-rcdate="20251013">
-<td class="main_analyst_view_off" onclick="window.open('page/chat', '', 'width=1700, height=950')" style="position:relative;">
+<tr data-rcdate="20251017">
+<td class="main_analyst_view_on" onclick="alert('로그인 후 구매 가능합니다.');" style="position:relative;">
 <div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
 <div class="smb_me">
 <img alt="profile_image" src="data\member_image\rr\rrr.gif"/> </div>
@@ -1019,23 +923,107 @@ $(function() {
 <table>
 <tr>
 <th style="background:#dbe9f3; width:22%;">TOTAL</th>
-<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">15개</span> 경주 적중</th>
+<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">21개</span> 경주 적중</th>
 <th style="background:#dbe9f3; width:33%;">3두누적배당</th>
 </tr>
 <tr>
 <td>금요일</td>
 <td><span style="color:#ff0000;">10개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">1550.5</span>배</td>
+<td><span style="color:#ff0000;">3889.0</span>배</td>
 </tr>
 <tr>
 <td>토요일</td>
-<td><span style="color:#ff0000;">1개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">114.7</span>배</td>
+<td><span style="color:#ff0000;">7개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">979.1</span>배</td>
 </tr>
 <tr>
 <td>일요일</td>
 <td><span style="color:#ff0000;">4개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">434.7</span>배</td>
+<td><span style="color:#ff0000;">1379.0</span>배</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<br/>
+</div>
+<div>
+<table style="width:100%;">
+<tr data-rcdate="20251017">
+<td class="main_analyst_view_on" onclick="alert('로그인 후 구매 가능합니다.');" style="position:relative;">
+<div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
+<div class="smb_me">
+<img alt="profile_image" src="data\member_image\xx\xx10.gif"/> </div>
+<div class="main_analyst_profile">
+<h4>바이올렛</h4>
+<span>정수현의 경마 아카데미 수료 / Ai 전문 분석가</span>
+</div>
+</td>
+</tr>
+<tr>
+<td class="tbl_analyst" style="padding-top:7px;">
+<table>
+<tr>
+<th style="background:#dbe9f3; width:22%;">TOTAL</th>
+<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">18개</span> 경주 적중</th>
+<th style="background:#dbe9f3; width:33%;">3두누적배당</th>
+</tr>
+<tr>
+<td>금요일</td>
+<td><span style="color:#ff0000;">8개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">1863.5</span>배</td>
+</tr>
+<tr>
+<td>토요일</td>
+<td><span style="color:#ff0000;">6개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">859.4</span>배</td>
+</tr>
+<tr>
+<td>일요일</td>
+<td><span style="color:#ff0000;">4개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">490.8</span>배</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<br/>
+</div>
+<div>
+<table style="width:100%;">
+<tr data-rcdate="20251017">
+<td class="main_analyst_view_on" onclick="alert('로그인 후 구매 가능합니다.');" style="position:relative;">
+<div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
+<div class="smb_me">
+<img alt="profile_image" src="data\member_image\mo\moneypak.gif"/> </div>
+<div class="main_analyst_profile">
+<h4>황소</h4>
+<span>정수현의 경마 아카데미 수료 / Ai 전문 분석가</span>
+</div>
+</td>
+</tr>
+<tr>
+<td class="tbl_analyst" style="padding-top:7px;">
+<table>
+<tr>
+<th style="background:#dbe9f3; width:22%;">TOTAL</th>
+<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">15개</span> 경주 적중</th>
+<th style="background:#dbe9f3; width:33%;">3두누적배당</th>
+</tr>
+<tr>
+<td>금요일</td>
+<td><span style="color:#ff0000;">5개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">390.5</span>배</td>
+</tr>
+<tr>
+<td>토요일</td>
+<td><span style="color:#ff0000;">5개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">791.9</span>배</td>
+</tr>
+<tr>
+<td>일요일</td>
+<td><span style="color:#ff0000;">5개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">524.8</span>배</td>
 </tr>
 </table>
 </td>
@@ -1071,890 +1059,8 @@ $(function() {
 <div class="m_analyst clearboth" id="main_analyst_list">
 <div>
 <table style="width:100%;">
-<tr data-rcdate="20251013">
-<td class="main_analyst_view_off" onclick="alert('경주일이 아닙니다.');" style="position:relative;">
-<div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
-<div class="smb_me">
-<img alt="profile_image" src="data\member_image\kb\kbk0486.gif"/> </div>
-<div class="main_analyst_profile">
-<h4>마왕</h4>
-<span>정수현의 경마 아카데미 수료 / Ai 전문 분석가</span>
-</div>
-</td>
-</tr>
-<tr>
-<td class="tbl_analyst" style="padding-top:7px;">
-<table>
-<tr>
-<th style="background:#dbe9f3; width:22%;">TOTAL</th>
-<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">21개</span> 경주 적중</th>
-<th style="background:#dbe9f3; width:33%;">3두누적배당</th>
-</tr>
-<tr>
-<td>금요일</td>
-<td><span style="color:#ff0000;">9개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">1076.9</span>배</td>
-</tr>
-<tr>
-<td>토요일</td>
-<td><span style="color:#ff0000;">5개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">600.6</span>배</td>
-</tr>
-<tr>
-<td>일요일</td>
-<td><span style="color:#ff0000;">7개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">859.8</span>배</td>
-</tr>
-</table>
-</td>
-</tr>
-</table>
-<br/>
-</div>
-<div>
-<table style="width:100%;">
-<tr data-rcdate="20251013">
-<td class="main_analyst_view_off" onclick="alert('경주일이 아닙니다.');" style="position:relative;">
-<div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
-<div class="smb_me">
-<img alt="profile_image" src="data\member_image\mm\mm7.gif"/> </div>
-<div class="main_analyst_profile">
-<h4>차민휘</h4>
-<span>정수현의 경마 아카데미 수료 / Ai 전문 분석가</span>
-</div>
-</td>
-</tr>
-<tr>
-<td class="tbl_analyst" style="padding-top:7px;">
-<table>
-<tr>
-<th style="background:#dbe9f3; width:22%;">TOTAL</th>
-<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">19개</span> 경주 적중</th>
-<th style="background:#dbe9f3; width:33%;">3두누적배당</th>
-</tr>
-<tr>
-<td>금요일</td>
-<td><span style="color:#ff0000;">8개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">784.6</span>배</td>
-</tr>
-<tr>
-<td>토요일</td>
-<td><span style="color:#ff0000;">4개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">307.3</span>배</td>
-</tr>
-<tr>
-<td>일요일</td>
-<td><span style="color:#ff0000;">7개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">841.9</span>배</td>
-</tr>
-</table>
-</td>
-</tr>
-</table>
-<br/>
-</div>
-<div>
-<table style="width:100%;">
-<tr data-rcdate="20251013">
-<td class="main_analyst_view_off" onclick="alert('경주일이 아닙니다.');" style="position:relative;">
-<div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
-<div class="smb_me">
-<img alt="profile_image" src="data\member_image\mm\mm3.gif"/> </div>
-<div class="main_analyst_profile">
-<h4>신세기</h4>
-<span>Free / Ai 전문 분석위원</span>
-</div>
-</td>
-</tr>
-<tr>
-<td class="tbl_analyst" style="padding-top:7px;">
-<table>
-<tr>
-<th style="background:#dbe9f3; width:22%;">TOTAL</th>
-<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">18개</span> 경주 적중</th>
-<th style="background:#dbe9f3; width:33%;">3두누적배당</th>
-</tr>
-<tr>
-<td>금요일</td>
-<td><span style="color:#ff0000;">10개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">1036.8</span>배</td>
-</tr>
-<tr>
-<td>토요일</td>
-<td><span style="color:#ff0000;">4개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">687.0</span>배</td>
-</tr>
-<tr>
-<td>일요일</td>
-<td><span style="color:#ff0000;">4개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">461.8</span>배</td>
-</tr>
-</table>
-</td>
-</tr>
-</table>
-<br/>
-</div>
-<div>
-<table style="width:100%;">
-<tr data-rcdate="20251013">
-<td class="main_analyst_view_off" onclick="alert('경주일이 아닙니다.');" style="position:relative;">
-<div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
-<div class="smb_me">
-<img alt="profile_image" src="data\member_image\a5\a5549.gif"/> </div>
-<div class="main_analyst_profile">
-<h4>상아벌</h4>
-<span>Free / Ai 전문 분석위원</span>
-</div>
-</td>
-</tr>
-<tr>
-<td class="tbl_analyst" style="padding-top:7px;">
-<table>
-<tr>
-<th style="background:#dbe9f3; width:22%;">TOTAL</th>
-<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">18개</span> 경주 적중</th>
-<th style="background:#dbe9f3; width:33%;">3두누적배당</th>
-</tr>
-<tr>
-<td>금요일</td>
-<td><span style="color:#ff0000;">7개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">565.0</span>배</td>
-</tr>
-<tr>
-<td>토요일</td>
-<td><span style="color:#ff0000;">5개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">1445.1</span>배</td>
-</tr>
-<tr>
-<td>일요일</td>
-<td><span style="color:#ff0000;">6개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">724.9</span>배</td>
-</tr>
-</table>
-</td>
-</tr>
-</table>
-<br/>
-</div>
-<div>
-<table style="width:100%;">
-<tr data-rcdate="20251013">
-<td class="main_analyst_view_off" onclick="alert('경주일이 아닙니다.');" style="position:relative;">
-<div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
-<div class="smb_me">
-<img alt="profile_image" src="data\member_image\rg\rgio.gif"/> </div>
-<div class="main_analyst_profile">
-<h4>마강타</h4>
-<span>정수현의 경마 아카데미 수료 / Ai 전문 분석가</span>
-</div>
-</td>
-</tr>
-<tr>
-<td class="tbl_analyst" style="padding-top:7px;">
-<table>
-<tr>
-<th style="background:#dbe9f3; width:22%;">TOTAL</th>
-<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">17개</span> 경주 적중</th>
-<th style="background:#dbe9f3; width:33%;">3두누적배당</th>
-</tr>
-<tr>
-<td>금요일</td>
-<td><span style="color:#ff0000;">6개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">582.8</span>배</td>
-</tr>
-<tr>
-<td>토요일</td>
-<td><span style="color:#ff0000;">5개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">734.7</span>배</td>
-</tr>
-<tr>
-<td>일요일</td>
-<td><span style="color:#ff0000;">6개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">562.6</span>배</td>
-</tr>
-</table>
-</td>
-</tr>
-</table>
-<br/>
-</div>
-<div>
-<table style="width:100%;">
-<tr data-rcdate="20251013">
-<td class="main_analyst_view_off" onclick="alert('경주일이 아닙니다.');" style="position:relative;">
-<div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
-<div class="smb_me">
-<img alt="profile_image" src="data\member_image\xx\xx19.gif"/> </div>
-<div class="main_analyst_profile">
-<h4>바운스</h4>
-<span>Free / Ai 전문 분석위원</span>
-</div>
-</td>
-</tr>
-<tr>
-<td class="tbl_analyst" style="padding-top:7px;">
-<table>
-<tr>
-<th style="background:#dbe9f3; width:22%;">TOTAL</th>
-<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">16개</span> 경주 적중</th>
-<th style="background:#dbe9f3; width:33%;">3두누적배당</th>
-</tr>
-<tr>
-<td>금요일</td>
-<td><span style="color:#ff0000;">10개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">1078.6</span>배</td>
-</tr>
-<tr>
-<td>토요일</td>
-<td><span style="color:#ff0000;">2개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">278.2</span>배</td>
-</tr>
-<tr>
-<td>일요일</td>
-<td><span style="color:#ff0000;">4개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">310.0</span>배</td>
-</tr>
-</table>
-</td>
-</tr>
-</table>
-<br/>
-</div>
-<div>
-<table style="width:100%;">
-<tr data-rcdate="20251013">
-<td class="main_analyst_view_off" onclick="alert('경주일이 아닙니다.');" style="position:relative;">
-<div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
-<div class="smb_me">
-<img alt="profile_image" src="data\member_image\jb\jbjhell.gif"/> </div>
-<div class="main_analyst_profile">
-<h4>에이스범</h4>
-<span>정수현의 경마 아카데미 수료 / Ai 전문 분석가</span>
-</div>
-</td>
-</tr>
-<tr>
-<td class="tbl_analyst" style="padding-top:7px;">
-<table>
-<tr>
-<th style="background:#dbe9f3; width:22%;">TOTAL</th>
-<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">16개</span> 경주 적중</th>
-<th style="background:#dbe9f3; width:33%;">3두누적배당</th>
-</tr>
-<tr>
-<td>금요일</td>
-<td><span style="color:#ff0000;">7개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">376.3</span>배</td>
-</tr>
-<tr>
-<td>토요일</td>
-<td><span style="color:#ff0000;">3개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">506.9</span>배</td>
-</tr>
-<tr>
-<td>일요일</td>
-<td><span style="color:#ff0000;">6개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">937.3</span>배</td>
-</tr>
-</table>
-</td>
-</tr>
-</table>
-<br/>
-</div>
-<div>
-<table style="width:100%;">
-<tr data-rcdate="20251013">
-<td class="main_analyst_view_off" onclick="alert('경주일이 아닙니다.');" style="position:relative;">
-<div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
-<div class="smb_me">
-<img alt="profile_image" src="data\member_image\mm\mm2.gif"/> </div>
-<div class="main_analyst_profile">
-<h4>차세대</h4>
-<span>Free / Ai 전문 분석위원</span>
-</div>
-</td>
-</tr>
-<tr>
-<td class="tbl_analyst" style="padding-top:7px;">
-<table>
-<tr>
-<th style="background:#dbe9f3; width:22%;">TOTAL</th>
-<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">15개</span> 경주 적중</th>
-<th style="background:#dbe9f3; width:33%;">3두누적배당</th>
-</tr>
-<tr>
-<td>금요일</td>
-<td><span style="color:#ff0000;">9개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">1689.7</span>배</td>
-</tr>
-<tr>
-<td>토요일</td>
-<td><span style="color:#ff0000;">2개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">376.4</span>배</td>
-</tr>
-<tr>
-<td>일요일</td>
-<td><span style="color:#ff0000;">4개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">771.6</span>배</td>
-</tr>
-</table>
-</td>
-</tr>
-</table>
-<br/>
-</div>
-<div>
-<table style="width:100%;">
-<tr data-rcdate="20251013">
-<td class="main_analyst_view_off" onclick="alert('경주일이 아닙니다.');" style="position:relative;">
-<div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
-<div class="smb_me">
-<img alt="profile_image" src="data\member_image\xx\xx3.gif"/> </div>
-<div class="main_analyst_profile">
-<h4>다비켜</h4>
-<span>Free / Ai 전문 분석위원</span>
-</div>
-</td>
-</tr>
-<tr>
-<td class="tbl_analyst" style="padding-top:7px;">
-<table>
-<tr>
-<th style="background:#dbe9f3; width:22%;">TOTAL</th>
-<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">15개</span> 경주 적중</th>
-<th style="background:#dbe9f3; width:33%;">3두누적배당</th>
-</tr>
-<tr>
-<td>금요일</td>
-<td><span style="color:#ff0000;">9개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">1689.7</span>배</td>
-</tr>
-<tr>
-<td>토요일</td>
-<td><span style="color:#ff0000;">2개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">376.4</span>배</td>
-</tr>
-<tr>
-<td>일요일</td>
-<td><span style="color:#ff0000;">4개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">771.6</span>배</td>
-</tr>
-</table>
-</td>
-</tr>
-</table>
-<br/>
-</div>
-<div>
-<table style="width:100%;">
-<tr data-rcdate="20251013">
-<td class="main_analyst_view_off" onclick="alert('경주일이 아닙니다.');" style="position:relative;">
-<div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
-<div class="smb_me">
-<img alt="profile_image" src="data\member_image\po\po11.gif"/> </div>
-<div class="main_analyst_profile">
-<h4>선재</h4>
-<span>경마 레슨 수강중...</span>
-</div>
-</td>
-</tr>
-<tr>
-<td class="tbl_analyst" style="padding-top:7px;">
-<table>
-<tr>
-<th style="background:#dbe9f3; width:22%;">TOTAL</th>
-<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">14개</span> 경주 적중</th>
-<th style="background:#dbe9f3; width:33%;">3두누적배당</th>
-</tr>
-<tr>
-<td>금요일</td>
-<td><span style="color:#ff0000;">7개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">954.1</span>배</td>
-</tr>
-<tr>
-<td>토요일</td>
-<td><span style="color:#ff0000;">3개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">1685.4</span>배</td>
-</tr>
-<tr>
-<td>일요일</td>
-<td><span style="color:#ff0000;">4개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">734.9</span>배</td>
-</tr>
-</table>
-</td>
-</tr>
-</table>
-<br/>
-</div>
-<div>
-<table style="width:100%;">
-<tr data-rcdate="20251013">
-<td class="main_analyst_view_off" onclick="alert('경주일이 아닙니다.');" style="position:relative;">
-<div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
-<div class="smb_me">
-<img alt="profile_image" src="data\member_image\as\asdfjkl2918.gif"/> </div>
-<div class="main_analyst_profile">
-<h4>금나라</h4>
-<span>Free / Ai 전문 분석위원</span>
-</div>
-</td>
-</tr>
-<tr>
-<td class="tbl_analyst" style="padding-top:7px;">
-<table>
-<tr>
-<th style="background:#dbe9f3; width:22%;">TOTAL</th>
-<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">14개</span> 경주 적중</th>
-<th style="background:#dbe9f3; width:33%;">3두누적배당</th>
-</tr>
-<tr>
-<td>금요일</td>
-<td><span style="color:#ff0000;">5개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">280.7</span>배</td>
-</tr>
-<tr>
-<td>토요일</td>
-<td><span style="color:#ff0000;">6개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">3324.3</span>배</td>
-</tr>
-<tr>
-<td>일요일</td>
-<td><span style="color:#ff0000;">3개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">467.8</span>배</td>
-</tr>
-</table>
-</td>
-</tr>
-</table>
-<br/>
-</div>
-<div>
-<table style="width:100%;">
-<tr data-rcdate="20251013">
-<td class="main_analyst_view_off" onclick="alert('경주일이 아닙니다.');" style="position:relative;">
-<div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
-<div class="smb_me">
-<img alt="profile_image" src="data\member_image\mm\mm4.gif"/> </div>
-<div class="main_analyst_profile">
-<h4>이현욱</h4>
-<span>Free 경마 분석 예상가</span>
-</div>
-</td>
-</tr>
-<tr>
-<td class="tbl_analyst" style="padding-top:7px;">
-<table>
-<tr>
-<th style="background:#dbe9f3; width:22%;">TOTAL</th>
-<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">13개</span> 경주 적중</th>
-<th style="background:#dbe9f3; width:33%;">3두누적배당</th>
-</tr>
-<tr>
-<td>금요일</td>
-<td><span style="color:#ff0000;">8개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">1321.8</span>배</td>
-</tr>
-<tr>
-<td>토요일</td>
-<td><span style="color:#ff0000;">1개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">439.4</span>배</td>
-</tr>
-<tr>
-<td>일요일</td>
-<td><span style="color:#ff0000;">4개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">771.6</span>배</td>
-</tr>
-</table>
-</td>
-</tr>
-</table>
-<br/>
-</div>
-<div>
-<table style="width:100%;">
-<tr data-rcdate="20251013">
-<td class="main_analyst_view_off" onclick="alert('경주일이 아닙니다.');" style="position:relative;">
-<div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
-<div class="smb_me">
-<img alt="profile_image" src="data\member_image\mm\mm6.gif"/> </div>
-<div class="main_analyst_profile">
-<h4>욘코너</h4>
-<span>Free / Ai 전문 분석위원</span>
-</div>
-</td>
-</tr>
-<tr>
-<td class="tbl_analyst" style="padding-top:7px;">
-<table>
-<tr>
-<th style="background:#dbe9f3; width:22%;">TOTAL</th>
-<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">13개</span> 경주 적중</th>
-<th style="background:#dbe9f3; width:33%;">3두누적배당</th>
-</tr>
-<tr>
-<td>금요일</td>
-<td><span style="color:#ff0000;">8개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">1321.8</span>배</td>
-</tr>
-<tr>
-<td>토요일</td>
-<td><span style="color:#ff0000;">1개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">439.4</span>배</td>
-</tr>
-<tr>
-<td>일요일</td>
-<td><span style="color:#ff0000;">4개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">771.6</span>배</td>
-</tr>
-</table>
-</td>
-</tr>
-</table>
-<br/>
-</div>
-<div>
-<table style="width:100%;">
-<tr data-rcdate="20251013">
-<td class="main_analyst_view_off" onclick="alert('경주일이 아닙니다.');" style="position:relative;">
-<div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
-<div class="smb_me">
-<img alt="profile_image" src="data\member_image\mm\mm1.gif"/> </div>
-<div class="main_analyst_profile">
-<h4>쩐의전쟁</h4>
-<span>Free / Ai 전문 분석위원</span>
-</div>
-</td>
-</tr>
-<tr>
-<td class="tbl_analyst" style="padding-top:7px;">
-<table>
-<tr>
-<th style="background:#dbe9f3; width:22%;">TOTAL</th>
-<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">11개</span> 경주 적중</th>
-<th style="background:#dbe9f3; width:33%;">3두누적배당</th>
-</tr>
-<tr>
-<td>금요일</td>
-<td><span style="color:#ff0000;">4개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">717.4</span>배</td>
-</tr>
-<tr>
-<td>토요일</td>
-<td><span style="color:#ff0000;">5개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">841.4</span>배</td>
-</tr>
-<tr>
-<td>일요일</td>
-<td><span style="color:#ff0000;">2개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">149.8</span>배</td>
-</tr>
-</table>
-</td>
-</tr>
-</table>
-<br/>
-</div>
-<div>
-<table style="width:100%;">
-<tr data-rcdate="20251013">
-<td class="main_analyst_view_off" onclick="alert('경주일이 아닙니다.');" style="position:relative;">
-<div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
-<div class="smb_me">
-<img alt="profile_image" src="data\member_image\xx\xx7.gif"/> </div>
-<div class="main_analyst_profile">
-<h4>스틸</h4>
-<span>Free / Ai 전문 분석위원</span>
-</div>
-</td>
-</tr>
-<tr>
-<td class="tbl_analyst" style="padding-top:7px;">
-<table>
-<tr>
-<th style="background:#dbe9f3; width:22%;">TOTAL</th>
-<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">11개</span> 경주 적중</th>
-<th style="background:#dbe9f3; width:33%;">3두누적배당</th>
-</tr>
-<tr>
-<td>금요일</td>
-<td><span style="color:#ff0000;">4개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">717.4</span>배</td>
-</tr>
-<tr>
-<td>토요일</td>
-<td><span style="color:#ff0000;">5개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">841.4</span>배</td>
-</tr>
-<tr>
-<td>일요일</td>
-<td><span style="color:#ff0000;">2개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">149.8</span>배</td>
-</tr>
-</table>
-</td>
-</tr>
-</table>
-<br/>
-</div>
-<div>
-<table style="width:100%;">
-<tr data-rcdate="20251013">
-<td class="main_analyst_view_off" onclick="alert('경주일이 아닙니다.');" style="position:relative;">
-<div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
-<div class="smb_me">
-<img alt="profile_image" src="data\member_image\xx\xx17.gif"/> </div>
-<div class="main_analyst_profile">
-<h4>프라하</h4>
-<span>Free / Ai 전문 분석위원</span>
-</div>
-</td>
-</tr>
-<tr>
-<td class="tbl_analyst" style="padding-top:7px;">
-<table>
-<tr>
-<th style="background:#dbe9f3; width:22%;">TOTAL</th>
-<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">11개</span> 경주 적중</th>
-<th style="background:#dbe9f3; width:33%;">3두누적배당</th>
-</tr>
-<tr>
-<td>금요일</td>
-<td><span style="color:#ff0000;">1개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">409.7</span>배</td>
-</tr>
-<tr>
-<td>토요일</td>
-<td><span style="color:#ff0000;">8개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">2604.7</span>배</td>
-</tr>
-<tr>
-<td>일요일</td>
-<td><span style="color:#ff0000;">2개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">3574.1</span>배</td>
-</tr>
-</table>
-</td>
-</tr>
-</table>
-<br/>
-</div>
-<div>
-<table style="width:100%;">
-<tr data-rcdate="20251013">
-<td class="main_analyst_view_off" onclick="alert('경주일이 아닙니다.');" style="position:relative;">
-<div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
-<div class="smb_me">
-<img alt="profile_image" src="data\member_image\kj\kjkdy.gif"/> </div>
-<div class="main_analyst_profile">
-<h4>검은단추</h4>
-<span>정수현의 경마 아카데미 수료 / Ai 전문 분석가</span>
-</div>
-</td>
-</tr>
-<tr>
-<td class="tbl_analyst" style="padding-top:7px;">
-<table>
-<tr>
-<th style="background:#dbe9f3; width:22%;">TOTAL</th>
-<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">11개</span> 경주 적중</th>
-<th style="background:#dbe9f3; width:33%;">3두누적배당</th>
-</tr>
-<tr>
-<td>금요일</td>
-<td><span style="color:#ff0000;">7개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">659.8</span>배</td>
-</tr>
-<tr>
-<td>토요일</td>
-<td><span style="color:#ff0000;">4개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">423.1</span>배</td>
-</tr>
-<tr>
-<td>일요일</td>
-<td><span style="color:#ff0000;">0개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">0</span>배</td>
-</tr>
-</table>
-</td>
-</tr>
-</table>
-<br/>
-</div>
-<div>
-<table style="width:100%;">
-<tr data-rcdate="20251013">
-<td class="main_analyst_view_off" onclick="alert('경주일이 아닙니다.');" style="position:relative;">
-<div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
-<div class="smb_me">
-<img alt="profile_image" src="data\member_image\xx\xx15.gif"/> </div>
-<div class="main_analyst_profile">
-<h4>록맨</h4>
-<span>Free / Ai 전문 분석위원</span>
-</div>
-</td>
-</tr>
-<tr>
-<td class="tbl_analyst" style="padding-top:7px;">
-<table>
-<tr>
-<th style="background:#dbe9f3; width:22%;">TOTAL</th>
-<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">10개</span> 경주 적중</th>
-<th style="background:#dbe9f3; width:33%;">3두누적배당</th>
-</tr>
-<tr>
-<td>금요일</td>
-<td><span style="color:#ff0000;">2개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">652.9</span>배</td>
-</tr>
-<tr>
-<td>토요일</td>
-<td><span style="color:#ff0000;">5개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">2296.3</span>배</td>
-</tr>
-<tr>
-<td>일요일</td>
-<td><span style="color:#ff0000;">3개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">3568.5</span>배</td>
-</tr>
-</table>
-</td>
-</tr>
-</table>
-<br/>
-</div>
-<div>
-<table style="width:100%;">
-<tr data-rcdate="20251013">
-<td class="main_analyst_view_off" onclick="alert('경주일이 아닙니다.');" style="position:relative;">
-<div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
-<div class="smb_me">
-<img alt="profile_image" src="data\member_image\ki\king92926.gif"/> </div>
-<div class="main_analyst_profile">
-<h4>김사부</h4>
-<span>정수현의 경마 아카데미 수료 / Ai 전문 분석가</span>
-</div>
-</td>
-</tr>
-<tr>
-<td class="tbl_analyst" style="padding-top:7px;">
-<table>
-<tr>
-<th style="background:#dbe9f3; width:22%;">TOTAL</th>
-<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">10개</span> 경주 적중</th>
-<th style="background:#dbe9f3; width:33%;">3두누적배당</th>
-</tr>
-<tr>
-<td>금요일</td>
-<td><span style="color:#ff0000;">5개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">734.7</span>배</td>
-</tr>
-<tr>
-<td>토요일</td>
-<td><span style="color:#ff0000;">3개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">720.2</span>배</td>
-</tr>
-<tr>
-<td>일요일</td>
-<td><span style="color:#ff0000;">2개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">188.5</span>배</td>
-</tr>
-</table>
-</td>
-</tr>
-</table>
-<br/>
-</div>
-<div>
-<table style="width:100%;">
-<tr data-rcdate="20251013">
-<td class="main_analyst_view_off" onclick="alert('경주일이 아닙니다.');" style="position:relative;">
-<div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
-<div class="smb_me">
-<img alt="profile_image" src="data\member_image\bo\bongs.gif"/> </div>
-<div class="main_analyst_profile">
-<h4>네잎크로버</h4>
-<span>경마 레슨 5회 수료 / Ai 전문 분석위원</span>
-</div>
-</td>
-</tr>
-<tr>
-<td class="tbl_analyst" style="padding-top:7px;">
-<table>
-<tr>
-<th style="background:#dbe9f3; width:22%;">TOTAL</th>
-<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">10개</span> 경주 적중</th>
-<th style="background:#dbe9f3; width:33%;">3두누적배당</th>
-</tr>
-<tr>
-<td>금요일</td>
-<td><span style="color:#ff0000;">4개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">1038.5</span>배</td>
-</tr>
-<tr>
-<td>토요일</td>
-<td><span style="color:#ff0000;">2개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">254.3</span>배</td>
-</tr>
-<tr>
-<td>일요일</td>
-<td><span style="color:#ff0000;">4개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">597.6</span>배</td>
-</tr>
-</table>
-</td>
-</tr>
-</table>
-<br/>
-</div>
-<div>
-<table style="width:100%;">
-<tr data-rcdate="20251013">
-<td class="main_analyst_view_off" onclick="alert('경주일이 아닙니다.');" style="position:relative;">
-<div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
-<div class="smb_me">
-<img alt="profile_image" src="data\member_image\ly\lycaon.gif"/> </div>
-<div class="main_analyst_profile">
-<h4>리카온</h4>
-<span>경마 레슨 5회 수료 / Ai 전문 분석위원</span>
-</div>
-</td>
-</tr>
-<tr>
-<td class="tbl_analyst" style="padding-top:7px;">
-<table>
-<tr>
-<th style="background:#dbe9f3; width:22%;">TOTAL</th>
-<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">8개</span> 경주 적중</th>
-<th style="background:#dbe9f3; width:33%;">3두누적배당</th>
-</tr>
-<tr>
-<td>금요일</td>
-<td><span style="color:#ff0000;">3개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">163.2</span>배</td>
-</tr>
-<tr>
-<td>토요일</td>
-<td><span style="color:#ff0000;">3개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">659.7</span>배</td>
-</tr>
-<tr>
-<td>일요일</td>
-<td><span style="color:#ff0000;">2개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">160.2</span>배</td>
-</tr>
-</table>
-</td>
-</tr>
-</table>
-<br/>
-</div>
-<div>
-<table style="width:100%;">
-<tr data-rcdate="20251013">
-<td class="main_analyst_view_off" onclick="alert('경주일이 아닙니다.');" style="position:relative;">
+<tr data-rcdate="20251017">
+<td class="main_analyst_view_on" onclick="alert('로그인 후 구매 가능합니다.');" style="position:relative;">
 <div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
 <div class="smb_me">
 <img alt="profile_image" src="data\member_image\ch\chao.gif"/> </div>
@@ -1974,18 +1080,18 @@ $(function() {
 </tr>
 <tr>
 <td>금요일</td>
-<td><span style="color:#ff0000;">6개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">1067.6</span>배</td>
+<td><span style="color:#ff0000;">4개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">843.3</span>배</td>
 </tr>
 <tr>
 <td>토요일</td>
-<td><span style="color:#ff0000;">1개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">105.6</span>배</td>
+<td><span style="color:#ff0000;">2개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">508.7</span>배</td>
 </tr>
 <tr>
 <td>일요일</td>
-<td><span style="color:#ff0000;">0개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">0</span>배</td>
+<td><span style="color:#ff0000;">1개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">201.2</span>배</td>
 </tr>
 </table>
 </td>
@@ -1995,8 +1101,386 @@ $(function() {
 </div>
 <div>
 <table style="width:100%;">
-<tr data-rcdate="20251013">
-<td class="main_analyst_view_off" onclick="alert('경주일이 아닙니다.');" style="position:relative;">
+<tr data-rcdate="20251017">
+<td class="main_analyst_view_on" onclick="alert('로그인 후 구매 가능합니다.');" style="position:relative;">
+<div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
+<div class="smb_me">
+<img alt="profile_image" src="data\member_image\mm\mm1.gif"/> </div>
+<div class="main_analyst_profile">
+<h4>쩐의전쟁</h4>
+<span>Free / Ai 전문 분석위원</span>
+</div>
+</td>
+</tr>
+<tr>
+<td class="tbl_analyst" style="padding-top:7px;">
+<table>
+<tr>
+<th style="background:#dbe9f3; width:22%;">TOTAL</th>
+<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">9개</span> 경주 적중</th>
+<th style="background:#dbe9f3; width:33%;">3두누적배당</th>
+</tr>
+<tr>
+<td>금요일</td>
+<td><span style="color:#ff0000;">3개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">318.4</span>배</td>
+</tr>
+<tr>
+<td>토요일</td>
+<td><span style="color:#ff0000;">2개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">225.8</span>배</td>
+</tr>
+<tr>
+<td>일요일</td>
+<td><span style="color:#ff0000;">4개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">269.1</span>배</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<br/>
+</div>
+<div>
+<table style="width:100%;">
+<tr data-rcdate="20251017">
+<td class="main_analyst_view_on" onclick="alert('로그인 후 구매 가능합니다.');" style="position:relative;">
+<div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
+<div class="smb_me">
+<img alt="profile_image" src="data\member_image\mm\mm2.gif"/> </div>
+<div class="main_analyst_profile">
+<h4>차세대</h4>
+<span>Free / Ai 전문 분석위원</span>
+</div>
+</td>
+</tr>
+<tr>
+<td class="tbl_analyst" style="padding-top:7px;">
+<table>
+<tr>
+<th style="background:#dbe9f3; width:22%;">TOTAL</th>
+<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">14개</span> 경주 적중</th>
+<th style="background:#dbe9f3; width:33%;">3두누적배당</th>
+</tr>
+<tr>
+<td>금요일</td>
+<td><span style="color:#ff0000;">5개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">700.1</span>배</td>
+</tr>
+<tr>
+<td>토요일</td>
+<td><span style="color:#ff0000;">2개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">204.8</span>배</td>
+</tr>
+<tr>
+<td>일요일</td>
+<td><span style="color:#ff0000;">7개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">2099.3</span>배</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<br/>
+</div>
+<div>
+<table style="width:100%;">
+<tr data-rcdate="20251017">
+<td class="main_analyst_view_on" onclick="alert('로그인 후 구매 가능합니다.');" style="position:relative;">
+<div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
+<div class="smb_me">
+<img alt="profile_image" src="data\member_image\mm\mm3.gif"/> </div>
+<div class="main_analyst_profile">
+<h4>신세기</h4>
+<span>Free / Ai 전문 분석위원</span>
+</div>
+</td>
+</tr>
+<tr>
+<td class="tbl_analyst" style="padding-top:7px;">
+<table>
+<tr>
+<th style="background:#dbe9f3; width:22%;">TOTAL</th>
+<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">17개</span> 경주 적중</th>
+<th style="background:#dbe9f3; width:33%;">3두누적배당</th>
+</tr>
+<tr>
+<td>금요일</td>
+<td><span style="color:#ff0000;">7개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">767.4</span>배</td>
+</tr>
+<tr>
+<td>토요일</td>
+<td><span style="color:#ff0000;">6개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">672.6</span>배</td>
+</tr>
+<tr>
+<td>일요일</td>
+<td><span style="color:#ff0000;">4개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">326.8</span>배</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<br/>
+</div>
+<div>
+<table style="width:100%;">
+<tr data-rcdate="20251017">
+<td class="main_analyst_view_on" onclick="alert('로그인 후 구매 가능합니다.');" style="position:relative;">
+<div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
+<div class="smb_me">
+<img alt="profile_image" src="data\member_image\mm\mm4.gif"/> </div>
+<div class="main_analyst_profile">
+<h4>이현욱</h4>
+<span>Free 경마 분석 예상가</span>
+</div>
+</td>
+</tr>
+<tr>
+<td class="tbl_analyst" style="padding-top:7px;">
+<table>
+<tr>
+<th style="background:#dbe9f3; width:22%;">TOTAL</th>
+<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">12개</span> 경주 적중</th>
+<th style="background:#dbe9f3; width:33%;">3두누적배당</th>
+</tr>
+<tr>
+<td>금요일</td>
+<td><span style="color:#ff0000;">6개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">2304.6</span>배</td>
+</tr>
+<tr>
+<td>토요일</td>
+<td><span style="color:#ff0000;">2개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">430.7</span>배</td>
+</tr>
+<tr>
+<td>일요일</td>
+<td><span style="color:#ff0000;">4개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">693.6</span>배</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<br/>
+</div>
+<div>
+<table style="width:100%;">
+<tr data-rcdate="20251017">
+<td class="main_analyst_view_on" onclick="alert('로그인 후 구매 가능합니다.');" style="position:relative;">
+<div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
+<div class="smb_me">
+<img alt="profile_image" src="data\member_image\mm\mm6.gif"/> </div>
+<div class="main_analyst_profile">
+<h4>욘코너</h4>
+<span>Free / Ai 전문 분석위원</span>
+</div>
+</td>
+</tr>
+<tr>
+<td class="tbl_analyst" style="padding-top:7px;">
+<table>
+<tr>
+<th style="background:#dbe9f3; width:22%;">TOTAL</th>
+<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">12개</span> 경주 적중</th>
+<th style="background:#dbe9f3; width:33%;">3두누적배당</th>
+</tr>
+<tr>
+<td>금요일</td>
+<td><span style="color:#ff0000;">6개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">2304.6</span>배</td>
+</tr>
+<tr>
+<td>토요일</td>
+<td><span style="color:#ff0000;">2개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">430.7</span>배</td>
+</tr>
+<tr>
+<td>일요일</td>
+<td><span style="color:#ff0000;">4개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">693.6</span>배</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<br/>
+</div>
+<div>
+<table style="width:100%;">
+<tr data-rcdate="20251017">
+<td class="main_analyst_view_on" onclick="alert('로그인 후 구매 가능합니다.');" style="position:relative;">
+<div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
+<div class="smb_me">
+<img alt="profile_image" src="data\member_image\mm\mm7.gif"/> </div>
+<div class="main_analyst_profile">
+<h4>차민휘</h4>
+<span>정수현의 경마 아카데미 수료 / Ai 전문 분석가</span>
+</div>
+</td>
+</tr>
+<tr>
+<td class="tbl_analyst" style="padding-top:7px;">
+<table>
+<tr>
+<th style="background:#dbe9f3; width:22%;">TOTAL</th>
+<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">20개</span> 경주 적중</th>
+<th style="background:#dbe9f3; width:33%;">3두누적배당</th>
+</tr>
+<tr>
+<td>금요일</td>
+<td><span style="color:#ff0000;">7개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">1044.0</span>배</td>
+</tr>
+<tr>
+<td>토요일</td>
+<td><span style="color:#ff0000;">6개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">709.0</span>배</td>
+</tr>
+<tr>
+<td>일요일</td>
+<td><span style="color:#ff0000;">7개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">688.8</span>배</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<br/>
+</div>
+<div>
+<table style="width:100%;">
+<tr data-rcdate="20251017">
+<td class="main_analyst_view_on" onclick="alert('로그인 후 구매 가능합니다.');" style="position:relative;">
+<div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
+<div class="smb_me">
+<img alt="profile_image" src="data\member_image\po\po11.gif"/> </div>
+<div class="main_analyst_profile">
+<h4>선재</h4>
+<span>경마 레슨 수강중...</span>
+</div>
+</td>
+</tr>
+<tr>
+<td class="tbl_analyst" style="padding-top:7px;">
+<table>
+<tr>
+<th style="background:#dbe9f3; width:22%;">TOTAL</th>
+<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">15개</span> 경주 적중</th>
+<th style="background:#dbe9f3; width:33%;">3두누적배당</th>
+</tr>
+<tr>
+<td>금요일</td>
+<td><span style="color:#ff0000;">6개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">2024.9</span>배</td>
+</tr>
+<tr>
+<td>토요일</td>
+<td><span style="color:#ff0000;">5개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">447.2</span>배</td>
+</tr>
+<tr>
+<td>일요일</td>
+<td><span style="color:#ff0000;">4개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">452.6</span>배</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<br/>
+</div>
+<div>
+<table style="width:100%;">
+<tr data-rcdate="20251017">
+<td class="main_analyst_view_on" onclick="alert('로그인 후 구매 가능합니다.');" style="position:relative;">
+<div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
+<div class="smb_me">
+<img alt="profile_image" src="data\member_image\rg\rgio.gif"/> </div>
+<div class="main_analyst_profile">
+<h4>마강타</h4>
+<span>정수현의 경마 아카데미 수료 / Ai 전문 분석가</span>
+</div>
+</td>
+</tr>
+<tr>
+<td class="tbl_analyst" style="padding-top:7px;">
+<table>
+<tr>
+<th style="background:#dbe9f3; width:22%;">TOTAL</th>
+<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">13개</span> 경주 적중</th>
+<th style="background:#dbe9f3; width:33%;">3두누적배당</th>
+</tr>
+<tr>
+<td>금요일</td>
+<td><span style="color:#ff0000;">5개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">281.9</span>배</td>
+</tr>
+<tr>
+<td>토요일</td>
+<td><span style="color:#ff0000;">5개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">635.8</span>배</td>
+</tr>
+<tr>
+<td>일요일</td>
+<td><span style="color:#ff0000;">3개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">125.6</span>배</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<br/>
+</div>
+<div>
+<table style="width:100%;">
+<tr data-rcdate="20251017">
+<td class="main_analyst_view_on" onclick="alert('로그인 후 구매 가능합니다.');" style="position:relative;">
+<div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
+<div class="smb_me">
+<img alt="profile_image" src="data\member_image\kb\kbk0486.gif"/> </div>
+<div class="main_analyst_profile">
+<h4>마왕</h4>
+<span>정수현의 경마 아카데미 수료 / Ai 전문 분석가</span>
+</div>
+</td>
+</tr>
+<tr>
+<td class="tbl_analyst" style="padding-top:7px;">
+<table>
+<tr>
+<th style="background:#dbe9f3; width:22%;">TOTAL</th>
+<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">19개</span> 경주 적중</th>
+<th style="background:#dbe9f3; width:33%;">3두누적배당</th>
+</tr>
+<tr>
+<td>금요일</td>
+<td><span style="color:#ff0000;">7개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">1141.2</span>배</td>
+</tr>
+<tr>
+<td>토요일</td>
+<td><span style="color:#ff0000;">5개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">567.6</span>배</td>
+</tr>
+<tr>
+<td>일요일</td>
+<td><span style="color:#ff0000;">7개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">688.8</span>배</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<br/>
+</div>
+<div>
+<table style="width:100%;">
+<tr data-rcdate="20251017">
+<td class="main_analyst_view_on" onclick="alert('로그인 후 구매 가능합니다.');" style="position:relative;">
 <div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
 <div class="smb_me">
 <img alt="profile_image" src="data\member_image\jk\jkh512.gif"/> </div>
@@ -2011,18 +1495,18 @@ $(function() {
 <table>
 <tr>
 <th style="background:#dbe9f3; width:22%;">TOTAL</th>
-<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">4개</span> 경주 적중</th>
+<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">5개</span> 경주 적중</th>
 <th style="background:#dbe9f3; width:33%;">3두누적배당</th>
 </tr>
 <tr>
 <td>금요일</td>
-<td><span style="color:#ff0000;">3개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">317.2</span>배</td>
+<td><span style="color:#ff0000;">2개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">1646.1</span>배</td>
 </tr>
 <tr>
 <td>토요일</td>
-<td><span style="color:#ff0000;">1개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">644.9</span>배</td>
+<td><span style="color:#ff0000;">3개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">294.9</span>배</td>
 </tr>
 <tr>
 <td>일요일</td>
@@ -2037,8 +1521,176 @@ $(function() {
 </div>
 <div>
 <table style="width:100%;">
-<tr data-rcdate="20251013">
-<td class="main_analyst_view_off" onclick="alert('경주일이 아닙니다.');" style="position:relative;">
+<tr data-rcdate="20251017">
+<td class="main_analyst_view_on" onclick="alert('로그인 후 구매 가능합니다.');" style="position:relative;">
+<div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
+<div class="smb_me">
+<img alt="profile_image" src="data\member_image\xx\xx3.gif"/> </div>
+<div class="main_analyst_profile">
+<h4>다비켜</h4>
+<span>Free / Ai 전문 분석위원</span>
+</div>
+</td>
+</tr>
+<tr>
+<td class="tbl_analyst" style="padding-top:7px;">
+<table>
+<tr>
+<th style="background:#dbe9f3; width:22%;">TOTAL</th>
+<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">14개</span> 경주 적중</th>
+<th style="background:#dbe9f3; width:33%;">3두누적배당</th>
+</tr>
+<tr>
+<td>금요일</td>
+<td><span style="color:#ff0000;">5개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">700.1</span>배</td>
+</tr>
+<tr>
+<td>토요일</td>
+<td><span style="color:#ff0000;">2개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">204.8</span>배</td>
+</tr>
+<tr>
+<td>일요일</td>
+<td><span style="color:#ff0000;">7개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">2099.3</span>배</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<br/>
+</div>
+<div>
+<table style="width:100%;">
+<tr data-rcdate="20251017">
+<td class="main_analyst_view_on" onclick="alert('로그인 후 구매 가능합니다.');" style="position:relative;">
+<div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
+<div class="smb_me">
+<img alt="profile_image" src="data\member_image\xx\xx7.gif"/> </div>
+<div class="main_analyst_profile">
+<h4>스틸</h4>
+<span>Free / Ai 전문 분석위원</span>
+</div>
+</td>
+</tr>
+<tr>
+<td class="tbl_analyst" style="padding-top:7px;">
+<table>
+<tr>
+<th style="background:#dbe9f3; width:22%;">TOTAL</th>
+<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">9개</span> 경주 적중</th>
+<th style="background:#dbe9f3; width:33%;">3두누적배당</th>
+</tr>
+<tr>
+<td>금요일</td>
+<td><span style="color:#ff0000;">3개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">318.4</span>배</td>
+</tr>
+<tr>
+<td>토요일</td>
+<td><span style="color:#ff0000;">2개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">225.8</span>배</td>
+</tr>
+<tr>
+<td>일요일</td>
+<td><span style="color:#ff0000;">4개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">269.1</span>배</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<br/>
+</div>
+<div>
+<table style="width:100%;">
+<tr data-rcdate="20251017">
+<td class="main_analyst_view_on" onclick="alert('로그인 후 구매 가능합니다.');" style="position:relative;">
+<div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
+<div class="smb_me">
+<img alt="profile_image" src="data\member_image\xx\xx15.gif"/> </div>
+<div class="main_analyst_profile">
+<h4>록맨</h4>
+<span>Free / Ai 전문 분석위원</span>
+</div>
+</td>
+</tr>
+<tr>
+<td class="tbl_analyst" style="padding-top:7px;">
+<table>
+<tr>
+<th style="background:#dbe9f3; width:22%;">TOTAL</th>
+<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">9개</span> 경주 적중</th>
+<th style="background:#dbe9f3; width:33%;">3두누적배당</th>
+</tr>
+<tr>
+<td>금요일</td>
+<td><span style="color:#ff0000;">4개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">603.4</span>배</td>
+</tr>
+<tr>
+<td>토요일</td>
+<td><span style="color:#ff0000;">3개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">2277.6</span>배</td>
+</tr>
+<tr>
+<td>일요일</td>
+<td><span style="color:#ff0000;">2개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">187.2</span>배</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<br/>
+</div>
+<div>
+<table style="width:100%;">
+<tr data-rcdate="20251017">
+<td class="main_analyst_view_on" onclick="alert('로그인 후 구매 가능합니다.');" style="position:relative;">
+<div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
+<div class="smb_me">
+<img alt="profile_image" src="data\member_image\xx\xx17.gif"/> </div>
+<div class="main_analyst_profile">
+<h4>프라하</h4>
+<span>Free / Ai 전문 분석위원</span>
+</div>
+</td>
+</tr>
+<tr>
+<td class="tbl_analyst" style="padding-top:7px;">
+<table>
+<tr>
+<th style="background:#dbe9f3; width:22%;">TOTAL</th>
+<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">10개</span> 경주 적중</th>
+<th style="background:#dbe9f3; width:33%;">3두누적배당</th>
+</tr>
+<tr>
+<td>금요일</td>
+<td><span style="color:#ff0000;">2개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">304.1</span>배</td>
+</tr>
+<tr>
+<td>토요일</td>
+<td><span style="color:#ff0000;">2개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">2020.5</span>배</td>
+</tr>
+<tr>
+<td>일요일</td>
+<td><span style="color:#ff0000;">6개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">438.5</span>배</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<br/>
+</div>
+<div>
+<table style="width:100%;">
+<tr data-rcdate="20251017">
+<td class="main_analyst_view_on" onclick="alert('로그인 후 구매 가능합니다.');" style="position:relative;">
 <div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
 <div class="smb_me">
 <img alt="profile_image" src="data\member_image\xx\xx18.gif"/> </div>
@@ -2053,23 +1705,23 @@ $(function() {
 <table>
 <tr>
 <th style="background:#dbe9f3; width:22%;">TOTAL</th>
-<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">4개</span> 경주 적중</th>
+<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">9개</span> 경주 적중</th>
 <th style="background:#dbe9f3; width:33%;">3두누적배당</th>
 </tr>
 <tr>
 <td>금요일</td>
-<td><span style="color:#ff0000;">1개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">127.7</span>배</td>
+<td><span style="color:#ff0000;">4개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">2332.3</span>배</td>
 </tr>
 <tr>
 <td>토요일</td>
-<td><span style="color:#ff0000;">1개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">439.4</span>배</td>
+<td><span style="color:#ff0000;">3개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">553.9</span>배</td>
 </tr>
 <tr>
 <td>일요일</td>
 <td><span style="color:#ff0000;">2개</span> 경주 적중</td>
-<td><span style="color:#ff0000;">312.6</span>배</td>
+<td><span style="color:#ff0000;">221.7</span>배</td>
 </tr>
 </table>
 </td>
@@ -2079,8 +1731,176 @@ $(function() {
 </div>
 <div>
 <table style="width:100%;">
-<tr data-rcdate="20251013">
-<td class="main_analyst_view_off" onclick="alert('경주일이 아닙니다.');" style="position:relative;">
+<tr data-rcdate="20251017">
+<td class="main_analyst_view_on" onclick="alert('로그인 후 구매 가능합니다.');" style="position:relative;">
+<div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
+<div class="smb_me">
+<img alt="profile_image" src="data\member_image\xx\xx19.gif"/> </div>
+<div class="main_analyst_profile">
+<h4>바운스</h4>
+<span>Free / Ai 전문 분석위원</span>
+</div>
+</td>
+</tr>
+<tr>
+<td class="tbl_analyst" style="padding-top:7px;">
+<table>
+<tr>
+<th style="background:#dbe9f3; width:22%;">TOTAL</th>
+<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">17개</span> 경주 적중</th>
+<th style="background:#dbe9f3; width:33%;">3두누적배당</th>
+</tr>
+<tr>
+<td>금요일</td>
+<td><span style="color:#ff0000;">6개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">950.6</span>배</td>
+</tr>
+<tr>
+<td>토요일</td>
+<td><span style="color:#ff0000;">6개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">898.5</span>배</td>
+</tr>
+<tr>
+<td>일요일</td>
+<td><span style="color:#ff0000;">5개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">459.9</span>배</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<br/>
+</div>
+<div>
+<table style="width:100%;">
+<tr data-rcdate="20251017">
+<td class="main_analyst_view_on" onclick="alert('로그인 후 구매 가능합니다.');" style="position:relative;">
+<div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
+<div class="smb_me">
+<img alt="profile_image" src="data\member_image\ki\king92926.gif"/> </div>
+<div class="main_analyst_profile">
+<h4>김사부</h4>
+<span>정수현의 경마 아카데미 수료 / Ai 전문 분석가</span>
+</div>
+</td>
+</tr>
+<tr>
+<td class="tbl_analyst" style="padding-top:7px;">
+<table>
+<tr>
+<th style="background:#dbe9f3; width:22%;">TOTAL</th>
+<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">20개</span> 경주 적중</th>
+<th style="background:#dbe9f3; width:33%;">3두누적배당</th>
+</tr>
+<tr>
+<td>금요일</td>
+<td><span style="color:#ff0000;">7개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">865.3</span>배</td>
+</tr>
+<tr>
+<td>토요일</td>
+<td><span style="color:#ff0000;">7개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">1027.7</span>배</td>
+</tr>
+<tr>
+<td>일요일</td>
+<td><span style="color:#ff0000;">6개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">483.3</span>배</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<br/>
+</div>
+<div>
+<table style="width:100%;">
+<tr data-rcdate="20251017">
+<td class="main_analyst_view_on" onclick="alert('로그인 후 구매 가능합니다.');" style="position:relative;">
+<div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
+<div class="smb_me">
+<img alt="profile_image" src="data\member_image\kj\kjkdy.gif"/> </div>
+<div class="main_analyst_profile">
+<h4>검은단추</h4>
+<span>정수현의 경마 아카데미 수료 / Ai 전문 분석가</span>
+</div>
+</td>
+</tr>
+<tr>
+<td class="tbl_analyst" style="padding-top:7px;">
+<table>
+<tr>
+<th style="background:#dbe9f3; width:22%;">TOTAL</th>
+<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">15개</span> 경주 적중</th>
+<th style="background:#dbe9f3; width:33%;">3두누적배당</th>
+</tr>
+<tr>
+<td>금요일</td>
+<td><span style="color:#ff0000;">5개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">327.6</span>배</td>
+</tr>
+<tr>
+<td>토요일</td>
+<td><span style="color:#ff0000;">5개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">509.0</span>배</td>
+</tr>
+<tr>
+<td>일요일</td>
+<td><span style="color:#ff0000;">5개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">303.9</span>배</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<br/>
+</div>
+<div>
+<table style="width:100%;">
+<tr data-rcdate="20251017">
+<td class="main_analyst_view_on" onclick="alert('로그인 후 구매 가능합니다.');" style="position:relative;">
+<div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
+<div class="smb_me">
+<img alt="profile_image" src="data\member_image\as\asdfjkl2918.gif"/> </div>
+<div class="main_analyst_profile">
+<h4>금나라</h4>
+<span>Free / Ai 전문 분석위원</span>
+</div>
+</td>
+</tr>
+<tr>
+<td class="tbl_analyst" style="padding-top:7px;">
+<table>
+<tr>
+<th style="background:#dbe9f3; width:22%;">TOTAL</th>
+<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">17개</span> 경주 적중</th>
+<th style="background:#dbe9f3; width:33%;">3두누적배당</th>
+</tr>
+<tr>
+<td>금요일</td>
+<td><span style="color:#ff0000;">6개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">1011.1</span>배</td>
+</tr>
+<tr>
+<td>토요일</td>
+<td><span style="color:#ff0000;">6개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">704.8</span>배</td>
+</tr>
+<tr>
+<td>일요일</td>
+<td><span style="color:#ff0000;">5개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">364.5</span>배</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<br/>
+</div>
+<div>
+<table style="width:100%;">
+<tr data-rcdate="20251017">
+<td class="main_analyst_view_on" onclick="alert('로그인 후 구매 가능합니다.');" style="position:relative;">
 <div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
 <div class="smb_me">
 <img alt="profile_image" src="data\member_image\ki\kimcorea.gif"/> </div>
@@ -2112,6 +1932,174 @@ $(function() {
 <td>일요일</td>
 <td><span style="color:#ff0000;">0개</span> 경주 적중</td>
 <td><span style="color:#ff0000;">0</span>배</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<br/>
+</div>
+<div>
+<table style="width:100%;">
+<tr data-rcdate="20251017">
+<td class="main_analyst_view_on" onclick="alert('로그인 후 구매 가능합니다.');" style="position:relative;">
+<div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
+<div class="smb_me">
+<img alt="profile_image" src="data\member_image\a5\a5549.gif"/> </div>
+<div class="main_analyst_profile">
+<h4>상아벌</h4>
+<span>Free / Ai 전문 분석위원</span>
+</div>
+</td>
+</tr>
+<tr>
+<td class="tbl_analyst" style="padding-top:7px;">
+<table>
+<tr>
+<th style="background:#dbe9f3; width:22%;">TOTAL</th>
+<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">15개</span> 경주 적중</th>
+<th style="background:#dbe9f3; width:33%;">3두누적배당</th>
+</tr>
+<tr>
+<td>금요일</td>
+<td><span style="color:#ff0000;">4개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">223.1</span>배</td>
+</tr>
+<tr>
+<td>토요일</td>
+<td><span style="color:#ff0000;">5개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">543.3</span>배</td>
+</tr>
+<tr>
+<td>일요일</td>
+<td><span style="color:#ff0000;">6개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">529.6</span>배</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<br/>
+</div>
+<div>
+<table style="width:100%;">
+<tr data-rcdate="20251017">
+<td class="main_analyst_view_on" onclick="alert('로그인 후 구매 가능합니다.');" style="position:relative;">
+<div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
+<div class="smb_me">
+<img alt="profile_image" src="data\member_image\jb\jbjhell.gif"/> </div>
+<div class="main_analyst_profile">
+<h4>에이스범</h4>
+<span>정수현의 경마 아카데미 수료 / Ai 전문 분석가</span>
+</div>
+</td>
+</tr>
+<tr>
+<td class="tbl_analyst" style="padding-top:7px;">
+<table>
+<tr>
+<th style="background:#dbe9f3; width:22%;">TOTAL</th>
+<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">17개</span> 경주 적중</th>
+<th style="background:#dbe9f3; width:33%;">3두누적배당</th>
+</tr>
+<tr>
+<td>금요일</td>
+<td><span style="color:#ff0000;">4개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">154.2</span>배</td>
+</tr>
+<tr>
+<td>토요일</td>
+<td><span style="color:#ff0000;">5개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">469.4</span>배</td>
+</tr>
+<tr>
+<td>일요일</td>
+<td><span style="color:#ff0000;">8개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">669.1</span>배</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<br/>
+</div>
+<div>
+<table style="width:100%;">
+<tr data-rcdate="20251017">
+<td class="main_analyst_view_on" onclick="alert('로그인 후 구매 가능합니다.');" style="position:relative;">
+<div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
+<div class="smb_me">
+<img alt="profile_image" src="data\member_image\bo\bongs.gif"/> </div>
+<div class="main_analyst_profile">
+<h4>네잎크로버</h4>
+<span>경마 레슨 5회 수료 / Ai 전문 분석위원</span>
+</div>
+</td>
+</tr>
+<tr>
+<td class="tbl_analyst" style="padding-top:7px;">
+<table>
+<tr>
+<th style="background:#dbe9f3; width:22%;">TOTAL</th>
+<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">11개</span> 경주 적중</th>
+<th style="background:#dbe9f3; width:33%;">3두누적배당</th>
+</tr>
+<tr>
+<td>금요일</td>
+<td><span style="color:#ff0000;">2개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">33.0</span>배</td>
+</tr>
+<tr>
+<td>토요일</td>
+<td><span style="color:#ff0000;">5개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">447.2</span>배</td>
+</tr>
+<tr>
+<td>일요일</td>
+<td><span style="color:#ff0000;">4개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">1111.3</span>배</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<br/>
+</div>
+<div>
+<table style="width:100%;">
+<tr data-rcdate="20251017">
+<td class="main_analyst_view_on" onclick="alert('로그인 후 구매 가능합니다.');" style="position:relative;">
+<div style="position:absolute; margin-top:3px; left:207px; line-height:21px; background:#ababab; color:#fff; font-weight:bold; text-align:center; border:1px solid #000; border-radius:7px;">OFF</div>
+<div class="smb_me">
+<img alt="profile_image" src="data\member_image\ly\lycaon.gif"/> </div>
+<div class="main_analyst_profile">
+<h4>리카온</h4>
+<span>경마 레슨 5회 수료 / Ai 전문 분석위원</span>
+</div>
+</td>
+</tr>
+<tr>
+<td class="tbl_analyst" style="padding-top:7px;">
+<table>
+<tr>
+<th style="background:#dbe9f3; width:22%;">TOTAL</th>
+<th style="background:#dbe9f3; width:45%; font-size:1.1em;"><span style="color:#ff0000;">14개</span> 경주 적중</th>
+<th style="background:#dbe9f3; width:33%;">3두누적배당</th>
+</tr>
+<tr>
+<td>금요일</td>
+<td><span style="color:#ff0000;">4개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">2081.5</span>배</td>
+</tr>
+<tr>
+<td>토요일</td>
+<td><span style="color:#ff0000;">5개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">951.8</span>배</td>
+</tr>
+<tr>
+<td>일요일</td>
+<td><span style="color:#ff0000;">5개</span> 경주 적중</td>
+<td><span style="color:#ff0000;">975.6</span>배</td>
 </tr>
 </table>
 </td>
@@ -2236,8 +2224,6 @@ $(document).ready(function() {
 
 	}).scroll();
 
-        get_con_user();
-    get_point_user();
     
 });
 </script>

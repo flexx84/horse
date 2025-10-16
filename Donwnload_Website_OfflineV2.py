@@ -273,7 +273,7 @@ def get_all_links(html_content, base_url):
             if tag.has_attr(attr):
                 url_candidate = tag.get(attr)
                 if url_candidate:
-                    url_candidate = url_candidate.replace(" ", "%20")
+                    url_candidate = normalize_url(url_candidate)
                     full_url = urljoin(base_url, url_candidate)
                     if full_url.startswith("file://"):
                         links.add(full_url)
@@ -283,7 +283,8 @@ def get_all_links(html_content, base_url):
         content = meta.get("content", "")
         match = re.search(r'url=([\S]+)', content, re.IGNORECASE)
         if match:
-            url_candidate = match.group(1).strip().strip('\'"').replace(" ", "%20")
+            url_candidate = match.group(1).strip().strip('\'"')
+            url_candidate = normalize_url(url_candidate)
             full_url = urljoin(base_url, url_candidate)
             if full_url.startswith("file://"):
                 links.add(full_url)
@@ -291,7 +292,8 @@ def get_all_links(html_content, base_url):
                 links.add(full_url)
     css_urls = re.findall(r'url\(([^)]+)\)', html_content)
     for css_url in css_urls:
-        css_url = css_url.strip().strip('\'"').replace(" ", "%20")
+        css_url = css_url.strip().strip('\'"')
+        css_url = normalize_url(css_url)
         full_url = urljoin(base_url, css_url)
         if full_url.startswith("file://"):
             links.add(full_url)
@@ -299,7 +301,7 @@ def get_all_links(html_content, base_url):
             links.add(full_url)
     regex_pattern = r'https?://[^\s"\'<>]+'
     for match in re.findall(regex_pattern, html_content):
-        fixed_match = match.replace(" ", "%20")
+        fixed_match = normalize_url(match)
         full_url = urljoin(base_url, fixed_match)
         if full_url.startswith("file://"):
             links.add(full_url)
