@@ -37,7 +37,7 @@ def parse_args():
                         help="CSS selector for username input field")
     parser.add_argument("--password-selector", type=str, default="input[name='mb_password']", 
                         help="CSS selector for password input field")
-    parser.add_argument("--submit-selector", type=str, default="button[type='submit']", 
+    parser.add_argument("--submit-selector", type=str, default="button:has-text('로그인')", 
                         help="CSS selector for submit button")
     parser.add_argument("--headless", action="store_true", default=True, 
                         help="Run browser in headless mode (default: True)")
@@ -218,7 +218,8 @@ def process_assets(soup, page_url):
         local_path = url_to_local_path(asset_url)
         relative_path = os.path.relpath(local_path, os.path.dirname(url_to_local_path(page_url)))
         if download_file(asset_url, local_path):
-            tag["href"] = relative_path
+            # Windows 경로 구분자를 웹 경로 구분자로 변경
+            tag["href"] = relative_path.replace("\\", "/")
 
     # Process <script> tags (JavaScript)
     for tag in soup.find_all("script", src=True):
@@ -226,7 +227,8 @@ def process_assets(soup, page_url):
         local_path = url_to_local_path(asset_url)
         relative_path = os.path.relpath(local_path, os.path.dirname(url_to_local_path(page_url)))
         if download_file(asset_url, local_path):
-            tag["src"] = relative_path
+            # Windows 경로 구분자를 웹 경로 구분자로 변경
+            tag["src"] = relative_path.replace("\\", "/")
 
     # Process <img> tags
     for tag in soup.find_all("img", src=True):
@@ -234,7 +236,8 @@ def process_assets(soup, page_url):
         local_path = url_to_local_path(asset_url)
         relative_path = os.path.relpath(local_path, os.path.dirname(url_to_local_path(page_url)))
         if download_file(asset_url, local_path):
-            tag["src"] = relative_path
+            # Windows 경로 구분자를 웹 경로 구분자로 변경
+            tag["src"] = relative_path.replace("\\", "/")
 
 def process_links(soup, page_url):
     """
@@ -251,7 +254,8 @@ def process_links(soup, page_url):
         if is_valid(full_url) and urlparse(full_url).netloc == urlparse(page_url).netloc:
             local_path = url_to_local_path(full_url)
             relative_path = os.path.relpath(local_path, os.path.dirname(url_to_local_path(page_url)))
-            tag["href"] = relative_path
+            # Windows 경로 구분자를 웹 경로 구분자로 변경
+            tag["href"] = relative_path.replace("\\", "/")
 
 # --- Link Extraction ---
 

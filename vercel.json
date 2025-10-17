@@ -1,6 +1,6 @@
 {
   "buildCommand": "echo 'No build required'",
-  "outputDirectory": "downloaded_site/xn--o39a0n963awza76tu9hduc.com",
+  "outputDirectory": "downloaded_site_with_login/xn--o39a0n963awza76tu9hduc.com",
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
@@ -23,5 +23,10 @@
         }
       ]
     }
-  ]
+  ],
+  "functions": {
+    "page/chat_form.php": {
+      "runtime": "nodejs18.x"
+    }
+  }
 }

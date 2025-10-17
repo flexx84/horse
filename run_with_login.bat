@@ -6,8 +6,8 @@ echo ============================================================
 echo.
 
 REM 여기에 실제 로그인 정보를 입력하세요
-set USERNAME=your_id_here
-set PASSWORD=your_password_here
+set USERNAME=wsh123
+set PASSWORD=1234
 set WEBSITE=https://xn--o39a0n963awza76tu9hduc.com
 set DEPTH=10
 set OUTPUT=downloaded_site_with_login
