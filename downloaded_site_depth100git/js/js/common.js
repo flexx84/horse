@@ -559,48 +559,19 @@ var win_coupon = function(href) {
 }
 
 
-// 로그인 체크
+// 로그인 체크 - 오프라인 모드에서 비활성화
 var get_con_user = function() {
-	$.ajax({
-		type: "POST",
-		url: "/bbs/login_ip_check.php",
-		dataType: "html",
-		success: function(responseText) {
-
-			/**
-			if (responseText == 'login_fail') {
-				alert('로그인 후 이용해주세요.');
-				location.href = "/bbs/login.php";
-			}
-			**/
-			if (responseText == 'ip_fail') {
-				alert('중복 로그인 되어 로그아웃 되었습니다.\n\n타인에게 아이디와 비번이 노출되지 않도록 주의해 주세요.');
-				location.href = "/";
-			}
-			setTimeout(get_con_user, 8000); // 8초 후 다시 체크
-		},
-		error: function(responseText) {
-			return false;
-		}
-	});
+	// 오프라인에서는 로그인 체크 하지 않음
+	return true;
 };
 
-// 포인트 체크
+// 포인트 체크 - 오프라인 모드에서 가짜 포인트 표시
 var get_point_user = function() {
-	$.ajax({
-		type: "POST",
-		url: "/bbs/point_check.php",
-		dataType: "html",
-		success: function(response) {
-			//console.log(response);
-			$(".win_point").data("mb_point", response);
-			$(".win_point").text(number_format(response) + "원");
-			setTimeout(get_point_user, 7000); // 7초 후 다시 체크
-		},
-		error: function(responseText) {
-			return false;
-		}
-	});
+	// 오프라인에서는 무제한 포인트로 표시
+	var fakePoint = 999999999;
+	$(".win_point").data("mb_point", fakePoint);
+	$(".win_point").text(number_format(fakePoint) + "원");
+	return true;
 };
 
 
@@ -1080,13 +1051,8 @@ function roulette_point(coupon) {
 }
 
 function goto_vip() {
-	/**
-	if (confirm("VIP(AI분석)는 신청하신 분에 한하여\n\n오픈하여 드리고 있습니다.\n\n신청하시겠습니까?"))
-	{
-		location.href = "/lesson";
-	}
-	**/
-	alert("접근 권한이 없습니다.");
+	// 오프라인 모드에서는 모든 사용자가 VIP 접근 가능
+	location.href = "/lesson";
 }
 
 function numberofcases() {
@@ -1769,12 +1735,13 @@ function dragElement(elmnt) {
 }
 
 
-// 모달창
+// 모달창 - 개선된 닫기 기능
 function modal(id) {
 	var zIndex = 9999999;
 	var modal = $('#' + id);
 
 	var bg = $('<div>')
+		.addClass('modal-backdrop-offline')
 		.css({
 			position: 'fixed',
 			zIndex: zIndex,
@@ -1783,7 +1750,8 @@ function modal(id) {
 			width: '100%',
 			height: '100%',
 			overflow: 'auto',
-			backgroundColor: 'rgba(0,0,0,0.8)'
+			backgroundColor: 'rgba(0,0,0,0.8)',
+			cursor: 'pointer'
 		})
 		.appendTo('body');
 
@@ -1794,27 +1762,98 @@ function modal(id) {
 			zIndex: zIndex + 1,
 			boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
 		})
-		.show()
+		.show();
 
-		.find('.modal_close')
-		.on('click', function () {
-			bg.remove();
-			modal.hide();
-		});
+	// 닫기 함수
+	var closeModal = function() {
+		bg.remove();
+		modal.hide();
+	};
+
+	// 1. 기존 .modal_close 버튼 클릭
+	modal.find('.modal_close').on('click', closeModal);
+
+	// 2. 배경 클릭 시 닫기
+	bg.on('click', closeModal);
+
+	// 3. ESC 키로 닫기
+	$(document).on('keydown.modal', function(e) {
+		if (e.keyCode === 27) { // ESC key
+			closeModal();
+			$(document).off('keydown.modal');
+		}
+	});
 }
 
-// 모달창
+// 모달창 - 오프라인 모드 대응
 function modalExtend(id, url) {
 	var zIndex = 9999999;
 	var modal = $('#' + id);
 
+	// 오프라인 모드에서는 AJAX 대신 기본 모달 표시
+	var showOfflineModal = function() {
+		var bg = $('<div>')
+			.addClass('modal-backdrop-offline')
+			.css({
+				position: 'fixed',
+				zIndex: zIndex,
+				left: '0',
+				top: '0',
+				width: '100%',
+				height: '100%',
+				overflow: 'auto',
+				backgroundColor: 'rgba(0,0,0,0.8)',
+				cursor: 'pointer'
+			})
+			.appendTo('body');
+
+		var offlineContent = '<div class="modal-content-offline" style="padding:20px; background:#fff; max-width:600px; margin:100px auto; border-radius:8px;">' +
+			'<h3>오프라인 모드</h3>' +
+			'<p>이 기능은 오프라인 모드에서 사용할 수 없습니다.</p>' +
+			'<button class="modal_close" style="padding:10px 20px; background:#007bff; color:#fff; border:none; border-radius:4px; cursor:pointer;">닫기</button>' +
+			'</div>';
+
+		modal
+			.css({
+				position: 'fixed',
+				display: 'block',
+				zIndex: zIndex + 1,
+				boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
+			})
+			.append(offlineContent)
+			.show();
+
+		// 닫기 함수
+		var closeModal = function () {
+			bg.remove();
+			modal.empty();
+			modal.hide();
+			$(document).off('keydown.modalExtend');
+		};
+
+		// 1. .modal_close 버튼 클릭
+		modal.find('.modal_close').on('click', closeModal);
+
+		// 2. 배경 클릭 시 닫기
+		bg.on('click', closeModal);
+
+		// 3. ESC 키로 닫기
+		$(document).on('keydown.modalExtend', function(e) {
+			if (e.keyCode === 27) {
+				closeModal();
+			}
+		});
+	};
+
+	// 온라인 모드에서는 AJAX 시도, 실패 시 오프라인 모달 표시
 	$.ajax({
 		url: url,
 		type: 'get',
 		dataType: 'html',
+		timeout: 3000,
 		success: function (html) {
-			//console.log(html);
 			var bg = $('<div>')
+				.addClass('modal-backdrop-offline')
 				.css({
 					position: 'fixed',
 					zIndex: zIndex,
@@ -1823,7 +1862,8 @@ function modalExtend(id, url) {
 					width: '100%',
 					height: '100%',
 					overflow: 'auto',
-					backgroundColor: 'rgba(0,0,0,0.8)'
+					backgroundColor: 'rgba(0,0,0,0.8)',
+					cursor: 'pointer'
 				})
 				.appendTo('body');
 
@@ -1835,16 +1875,26 @@ function modalExtend(id, url) {
 					boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
 				})
 				.append(html)
-				.show()
-				.find('.modal_close')
-				.on('click', function () {
-					bg.remove();
-					modal.empty();
-					modal.hide();
-				});
+				.show();
+
+			var closeModal = function () {
+				bg.remove();
+				modal.empty();
+				modal.hide();
+				$(document).off('keydown.modalExtend');
+			};
+
+			modal.find('.modal_close').on('click', closeModal);
+			bg.on('click', closeModal);
+			$(document).on('keydown.modalExtend', function(e) {
+				if (e.keyCode === 27) {
+					closeModal();
+				}
+			});
 		},
 		error: function (req, stt, err) {
-			console.log(req, stt, err);
+			console.log('Modal AJAX failed, showing offline modal:', req, stt, err);
+			showOfflineModal();
 		}
 	});
 }
