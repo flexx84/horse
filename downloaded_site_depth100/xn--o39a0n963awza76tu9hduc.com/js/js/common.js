@@ -2,6 +2,12 @@
 var errmsg = "";
 var errfld = null;
 
+// 오프라인 모드: 전역 AJAX 에러 핸들러 (모든 AJAX 에러를 조용히 무시)
+$(document).ajaxError(function(event, jqxhr, settings, thrownError) {
+	// 오프라인 모드에서는 AJAX 에러를 콘솔에만 기록하고 사용자에게는 표시하지 않음
+	console.log('AJAX request failed (offline mode):', settings.url, thrownError);
+});
+
 $(function(){
 	$('.numbersOnly').keyup(function() {
 		if (this.value != this.value.replace(/[^0-9\.]/g, '')) {
@@ -1790,62 +1796,7 @@ function modalExtend(id, url) {
 	var zIndex = 9999999;
 	var modal = $('#' + id);
 
-	// 오프라인 모드에서는 AJAX 대신 기본 모달 표시
-	var showOfflineModal = function() {
-		var bg = $('<div>')
-			.addClass('modal-backdrop-offline')
-			.css({
-				position: 'fixed',
-				zIndex: zIndex,
-				left: '0',
-				top: '0',
-				width: '100%',
-				height: '100%',
-				overflow: 'auto',
-				backgroundColor: 'rgba(0,0,0,0.8)',
-				cursor: 'pointer'
-			})
-			.appendTo('body');
-
-		var offlineContent = '<div class="modal-content-offline" style="padding:20px; background:#fff; max-width:600px; margin:100px auto; border-radius:8px;">' +
-			'<h3>오프라인 모드</h3>' +
-			'<p>이 기능은 오프라인 모드에서 사용할 수 없습니다.</p>' +
-			'<button class="modal_close" style="padding:10px 20px; background:#007bff; color:#fff; border:none; border-radius:4px; cursor:pointer;">닫기</button>' +
-			'</div>';
-
-		modal
-			.css({
-				position: 'fixed',
-				display: 'block',
-				zIndex: zIndex + 1,
-				boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
-			})
-			.append(offlineContent)
-			.show();
-
-		// 닫기 함수
-		var closeModal = function () {
-			bg.remove();
-			modal.empty();
-			modal.hide();
-			$(document).off('keydown.modalExtend');
-		};
-
-		// 1. .modal_close 버튼 클릭
-		modal.find('.modal_close').on('click', closeModal);
-
-		// 2. 배경 클릭 시 닫기
-		bg.on('click', closeModal);
-
-		// 3. ESC 키로 닫기
-		$(document).on('keydown.modalExtend', function(e) {
-			if (e.keyCode === 27) {
-				closeModal();
-			}
-		});
-	};
-
-	// 온라인 모드에서는 AJAX 시도, 실패 시 오프라인 모달 표시
+	// 오프라인 모드: AJAX 시도, 실패 시 조용히 무시 (오프라인 메시지 표시 안 함)
 	$.ajax({
 		url: url,
 		type: 'get',
@@ -1893,8 +1844,8 @@ function modalExtend(id, url) {
 			});
 		},
 		error: function (req, stt, err) {
-			console.log('Modal AJAX failed, showing offline modal:', req, stt, err);
-			showOfflineModal();
+			// 오프라인 모드: AJAX 실패 시 조용히 무시 (아무것도 표시하지 않음)
+			console.log('Modal AJAX request failed (offline mode, silently ignored):', url);
 		}
 	});
 }
