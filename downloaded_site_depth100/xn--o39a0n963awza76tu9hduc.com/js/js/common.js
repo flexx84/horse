@@ -8,6 +8,92 @@ $(document).ajaxError(function(event, jqxhr, settings, thrownError) {
 	console.log('AJAX request failed (offline mode):', settings.url, thrownError);
 });
 
+// ==========================================
+// 오프라인 모드: 가짜 세션 관리 시스템
+// ==========================================
+
+// 오프라인 모드에서 사용할 기본 관리자 정보
+var OFFLINE_ADMIN_SESSION = {
+	mb_id: 'admin',
+	mb_name: '관리자',
+	mb_nick: '관리자',
+	mb_level: 10,
+	mb_point: 999999999,
+	mb_email: 'admin@offline.local',
+	is_admin: true,
+	is_logged_in: true,
+	login_time: new Date().toISOString()
+};
+
+// 세션 초기화: 페이지 로드 시 자동 로그인
+var initOfflineSession = function() {
+	// LocalStorage에 세션 정보 저장
+	try {
+		localStorage.setItem('offline_session', JSON.stringify(OFFLINE_ADMIN_SESSION));
+		localStorage.setItem('offline_logged_in', 'true');
+		console.log('Offline admin session initialized');
+	} catch(e) {
+		console.log('LocalStorage not available, using in-memory session');
+	}
+	return true;
+};
+
+// 세션 확인: 로그인 상태 체크
+var checkOfflineSession = function() {
+	try {
+		var session = localStorage.getItem('offline_session');
+		var isLoggedIn = localStorage.getItem('offline_logged_in');
+
+		if (session && isLoggedIn === 'true') {
+			return JSON.parse(session);
+		}
+	} catch(e) {
+		console.log('Error checking session:', e);
+	}
+
+	// 세션이 없으면 자동으로 생성
+	initOfflineSession();
+	return OFFLINE_ADMIN_SESSION;
+};
+
+// 세션 갱신: 포인트 업데이트 등
+var updateOfflineSession = function(updates) {
+	try {
+		var session = checkOfflineSession();
+		Object.assign(session, updates);
+		localStorage.setItem('offline_session', JSON.stringify(session));
+		return true;
+	} catch(e) {
+		console.log('Error updating session:', e);
+		return false;
+	}
+};
+
+// 페이지 로드 시 자동 로그인
+$(document).ready(function() {
+	// 오프라인 세션 초기화
+	initOfflineSession();
+
+	// 무제한 포인트 표시
+	var fakePoint = 999999999;
+	$(".win_point").data("mb_point", fakePoint);
+	$(".win_point").text(number_format(fakePoint) + "원");
+
+	console.log('Offline mode: Auto-login as admin');
+
+	// 메인 페이지 팝업 자동 닫기 (2초 후)
+	setTimeout(function() {
+		// modal_close 버튼 찾아서 클릭
+		if ($('.modal_close').length > 0) {
+			$('.modal_close').trigger('click');
+			console.log('Auto-closed main page popup');
+		}
+		// 배경 제거
+		$('.modal-backdrop-offline').remove();
+		$('div[style*="position: fixed"][style*="z-index: 9999999"]').remove();
+	}, 2000);
+});
+
 $(function(){
 	$('.numbersOnly').keyup(function() {
 		if (this.value != this.value.replace(/[^0-9\.]/g, '')) {
@@ -565,16 +651,22 @@ var win_coupon = function(href) {
 }
 
 
-// 로그인 체크 - 오프라인 모드에서 비활성화
+// 로그인 체크 - 오프라인 모드에서 세션 확인
 var get_con_user = function() {
-	// 오프라인에서는 로그인 체크 하지 않음
-	return true;
+	// 오프라인 세션 확인
+	var session = checkOfflineSession();
+	if (session && session.is_logged_in) {
+		return true;
+	}
+	return false;
 };
 
-// 포인트 체크 - 오프라인 모드에서 가짜 포인트 표시
+// 포인트 체크 - 오프라인 모드에서 세션의 포인트 표시
 var get_point_user = function() {
-	// 오프라인에서는 무제한 포인트로 표시
-	var fakePoint = 999999999;
+	// 오프라인 세션에서 포인트 가져오기
+	var session = checkOfflineSession();
+	var fakePoint = session.mb_point || 999999999;
+
 	$(".win_point").data("mb_point", fakePoint);
 	$(".win_point").text(number_format(fakePoint) + "원");
 	return true;
@@ -1152,21 +1244,11 @@ function foutlogin_submit(f) {
 		return false;
 	}
 
-	var url = g5_url + "/bbs/ajax.login_check.php";
-	$.ajax({
-		url: url,
-		type: 'POST',
-		data: {'mb_id':mb_id, 'mb_password':mb_pw},
-		dataType: 'html',
-		success: function(response) {
-			if (response == "OK") {
-				//document.location.reload();
-				location.href = re_url;
-			} else {
-				alert(response);
-			}
-		}
-	});
+	// 오프라인 모드: 자동 로그인 (아무 ID/PW나 허용)
+	initOfflineSession();
+	alert("오프라인 모드: 관리자로 자동 로그인되었습니다.");
+	location.reload();
+	return true;
 }
 
 function get_analyst_odds_ranking_from_result(e, meet) {
@@ -1673,22 +1755,11 @@ function popup_login(f)
 		return false;
 	}
 
-	var url = "../bbs/ajax.login_check.php";
-	$.ajax({
-		url: url,
-		type: 'POST',
-		data: {'mb_id':mb_id, 'mb_password':mb_pw},
-        cache: false,
-        async: false,
-		dataType: 'html',
-		success: function(response) {
-			if (response == "OK") {
-				document.location.reload();
-			} else {
-				alert(response);
-			}
-		}
-	});
+	// 오프라인 모드: 자동 로그인 (아무 ID/PW나 허용)
+	initOfflineSession();
+	alert("오프라인 모드: 관리자로 자동 로그인되었습니다.");
+	document.location.reload();
+	return true;
 }
 
 function sleep(ms)
