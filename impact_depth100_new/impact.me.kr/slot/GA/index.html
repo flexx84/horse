@@ -204,10 +204,40 @@
 </tr>
 </thead>
 <tbody>
-<tr>
-<td colspan="15" class="text-center py-5">
-<p class="text-muted">슬롯 데이터가 없습니다.</p>
-<p class="text-muted small">슬롯을 추가하려면 "일괄 수정" 또는 "엑셀 수정"을 사용하세요.</p>
+<tr data-slot-id="1">
+<td><input type="checkbox" name="slot_check" value="1"/></td>
+<td>1</td>
+<td>12345</td>
+<td>user1</td>
+<td>대행사A</td>
+<td>테스트 키워드</td>
+<td class="ranking-cell">
+<span class="rank-value">5</span>
+<button class="btn btn-sm btn-light btn-ranking ms-1" title="순위 수정">
+<i class="ti ti-edit"></i>
+</button>
+</td>
+<td>https://example.com</td>
+<td>5위</td>
+<td class="text-success">↑2</td>
+<td>2025-10-01</td>
+<td>2025-10-31</td>
+<td>3일</td>
+<td class="memo-cell">
+테스트 메모
+<button class="btn btn-sm btn-light btn-memo ms-1" title="메모 수정">
+<i class="ti ti-notes"></i>
+</button>
+</td>
+<td>
+<div class="btn-group btn-group-sm">
+<button class="btn btn-secondary btn-edit-slot" data-slot-id="1" title="수정">
+<i class="ti ti-edit"></i>
+</button>
+<button class="btn btn-info btn-hourly-ranking" data-slot-id="1" title="시간별 순위">
+<i class="ti ti-chart-line"></i>
+</button>
+</div>
 </td>
 </tr>
 </tbody>
@@ -245,5 +275,137 @@
 <script src="../../js/js/header.js"></script>
 <script src="../../js/assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
 <script src="../../js/assets/js/script.js"></script>
+<script src="../../js/assets/js/slot-manager.js"></script>
+
+<!-- Modals -->
+
+<!-- 일괄 수정 모달 -->
+<div class="modal fade" id="modalBatchEdit" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">일괄 수정</h5>
+<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+<div class="mb-3">
+<label class="form-label">키워드</label>
+<input type="text" class="form-control" id="batchKeyword"/>
+</div>
+<div class="mb-3">
+<label class="form-label">URL</label>
+<input type="text" class="form-control" id="batchUrl"/>
+</div>
+<div class="mb-3">
+<label class="form-label">메모</label>
+<textarea class="form-control" id="batchMemo" rows="3"></textarea>
+</div>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+<button type="button" class="btn btn-primary" id="btnSaveBatch">저장</button>
+</div>
+</div>
+</div>
+</div>
+
+<!-- 엑셀 업로드 모달 -->
+<div class="modal fade" id="modalExcelUpload" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">엑셀 수정</h5>
+<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+<div class="mb-3">
+<label class="form-label">엑셀 파일 선택</label>
+<input type="file" class="form-control" id="excelFile" accept=".xlsx,.xls"/>
+<small class="text-muted">xlsx 또는 xls 파일만 업로드 가능합니다.</small>
+</div>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+<button type="button" class="btn btn-primary" id="btnUploadExcel">업로드</button>
+</div>
+</div>
+</div>
+</div>
+
+<!-- 메모 편집 모달 -->
+<div class="modal fade" id="modalMemo" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">메모 편집</h5>
+<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+<textarea class="form-control" id="memoText" rows="5" placeholder="메모를 입력하세요..."></textarea>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+<button type="button" class="btn btn-primary" id="btnSaveMemo">저장</button>
+</div>
+</div>
+</div>
+</div>
+
+<!-- 시간별 순위 모달 -->
+<div class="modal fade" id="modalHourlyRanking" tabindex="-1">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">시간별 순위</h5>
+<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+<div id="hourlyChartContainer">
+<p class="text-muted">로딩 중...</p>
+</div>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+</div>
+</div>
+</div>
+</div>
+
+<!-- 슬롯 편집 모달 -->
+<div class="modal fade" id="modalEditSlot" tabindex="-1">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">슬롯 편집</h5>
+<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+<input type="hidden" id="editSlotId"/>
+<div class="row">
+<div class="col-md-6 mb-3">
+<label class="form-label">키워드</label>
+<input type="text" class="form-control" id="editKeyword"/>
+</div>
+<div class="col-md-6 mb-3">
+<label class="form-label">URL</label>
+<input type="text" class="form-control" id="editUrl"/>
+</div>
+<div class="col-md-6 mb-3">
+<label class="form-label">순위</label>
+<input type="number" class="form-control" id="editRanking"/>
+</div>
+<div class="col-md-6 mb-3">
+<label class="form-label">시작일</label>
+<input type="date" class="form-control" id="editStartDate"/>
+</div>
+</div>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+<button type="button" class="btn btn-primary" id="btnSaveEdit">저장</button>
+</div>
+</div>
+</div>
+</div>
 
 </body></html>
