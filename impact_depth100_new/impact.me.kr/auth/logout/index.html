@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="kr"><head>
+<meta charset="utf-8"/>
+<meta content="pS6G7GTFleRg7bIay1UPIBerTnXEgnP0J6obnTA8" name="csrf-token"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>IMPACT</title>
+<!--font-awesome-css-->
+<link href="../../css/assets/vendor/fontawesome/css/all.css" rel="stylesheet"/>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="../../assets/fonts.googleapis.com/css2" rel="stylesheet"/>
+<!-- iconoir icon css  -->
+<link href="../../css/assets/vendor/ionio-icon/css/iconoir.css" rel="stylesheet"/>
+<!-- tabler icons-->
+<link href="../../css/assets/vendor/tabler-icons/tabler-icons.css" rel="stylesheet" type="text/css"/>
+<!-- Bootstrap css-->
+<link href="../../css/assets/vendor/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<!-- App css-->
+<link href="../../css/assets/css/style.css" rel="stylesheet" type="text/css"/>
+<!-- Responsive css-->
+<link href="../../css/assets/css/responsive.css" rel="stylesheet" type="text/css"/>
+<!-- Modify css-->
+<link href="../../css/assets/css/modify.css" rel="stylesheet" type="text/css"/>
+<script defer="" src="../../js/js/favicon.js"></script>
+<style>
+        body {
+            background: #f2f6ff;
+        }
+
+        .app-wrapper {
+            padding: 0 !important;
+        }
+
+        main {
+            padding: 0 !important;
+        }
+    </style>
+<link href="../../img/images/impact_logo2.png" rel="icon" type="image/png"/></head>
+<body>
+<div class="app-wrapper d-block">
+<div class="">
+<!-- Body main section starts -->
+<main class="w-100 p-0">
+<!-- Login to your Account start -->
+<div class="container-fluid">
+<div class="row">
+<div class="col-12 p-0">
+<div class="login-form-container">
+<div class="form_container">
+<div aria-hidden="false" class="login-brand">
+<img class="login-brand__img" decoding="async" loading="lazy" src="../../img/images/impact_logo.png"/>
+</div>
+<form action="/auth/login" autocomplete="off" class="app-form rounded-control" id="formLogin" method="post" novalidate="">
+<input autocomplete="off" name="_token" type="hidden" value="pS6G7GTFleRg7bIay1UPIBerTnXEgnP0J6obnTA8"/> <div class="mb-3">
+<label class="form-label">아이디</label>
+<input class="form-control" id="user_id" name="user_id" type="text"/>
+</div>
+<div class="mb-3" style="position:relative">
+<label class="form-label">비밀번호</label>
+<input autocomplete="current-password" class="form-control" id="user_pw" name="user_pw" type="password"/>
+<button aria-label="비밀번호 표시 전환" aria-pressed="false" class="pw-toggle" type="button">
+<img alt="" class="pw-icon" src="../../img/images/login_toggle.png"/>
+</button>
+</div>
+<div class="mb-3 form-check">
+<input class="form-check-input" id="formCheck1" type="checkbox"/>
+<label class="form-check-label" for="formCheck1">자동 로그인</label>
+</div>
+<div>
+<a class="btn btn-light-primary w-100" id="btn_login" role="button">로그인</a>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Login to your Account end -->
+</main>
+<!-- Body main section ends -->
+</div>
+</div>
+<!-- latest jquery-->
+<script src="../../js/assets/js/jquery-3.6.3.min.js"></script>
+<!-- Bootstrap js-->
+<script src="../../js/assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+<script>
+        (function ($) {
+            "use strict";
+
+            $("#btn_login").on('click', function () {
+                $('#formLogin').submit();
+            });
+
+        }(jQuery));
+    </script>
+<!--비밀번호 토글-->
+<script>
+        (function () {
+            const input = document.getElementById('user_pw');
+            const btn = document.querySelector('.pw-toggle');
+            if (!input || !btn) return;
+
+            btn.addEventListener('mousedown', e => e.preventDefault());
+            btn.addEventListener('click', () => {
+                const show = input.type === 'password';
+                const pos = input.selectionStart;
+                input.type = show ? 'text' : 'password';    // 아이콘은 그대로
+                btn.setAttribute('aria-pressed', String(show));
+                try { input.setSelectionRange(pos, pos); } catch (_) { }
+                input.focus();
+            });
+        })();
+    </script>
+<script>
+</script>
+<script crossorigin="anonymous" data-cf-beacon='{"version":"2024.11.0","token":"78875702600644769663a42388ecf5c2","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' defer="" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" src="../../assets/static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015"></script>
+</body></html>

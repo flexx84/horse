@@ -1,0 +1,62 @@
+URL,Title,Depth,Has Form,Local Path
+https://impact.me.kr/slot/NA,IMPACT,0,Yes,impact_depth100_new\impact.me.kr\slot\NA\index.html
+https://impact.me.kr/slot/NA?type=EMPTY,IMPACT,1,Yes,impact_depth100_new\impact.me.kr\slot\NA\index.html
+https://impact.me.kr/slot/GA,IMPACT,2,Yes,impact_depth100_new\impact.me.kr\slot\GA\index.html
+https://impact.me.kr/slot/GA?type=DEL,Forbidden,3,No,impact_depth100_new\impact.me.kr\slot\GA\index.html
+https://impact.me.kr/slot/WS,IMPACT,3,Yes,impact_depth100_new\impact.me.kr\slot\WS\index.html
+https://impact.me.kr/slot/WS/export-selected,An Error Occurred: Method Not Allowed,4,No,impact_depth100_new\impact.me.kr\slot\WS\export-selected\index.html
+https://impact.me.kr/slot/WS?type=EMPTY,IMPACT,4,Yes,impact_depth100_new\impact.me.kr\slot\WS\index.html
+https://impact.me.kr/slot/WS?type=DEL,Forbidden,5,No,impact_depth100_new\impact.me.kr\slot\WS\index.html
+https://impact.me.kr/slot/WS?type=ALL,IMPACT,5,Yes,impact_depth100_new\impact.me.kr\slot\WS\index.html
+https://impact.me.kr/slot/WS?type=END,IMPACT,6,Yes,impact_depth100_new\impact.me.kr\slot\WS\index.html
+https://impact.me.kr/slot/CP,IMPACT,7,Yes,impact_depth100_new\impact.me.kr\slot\CP\index.html
+https://impact.me.kr/slot/CP?type=ING,IMPACT,8,Yes,impact_depth100_new\impact.me.kr\slot\CP\index.html
+https://impact.me.kr/slot/CP?type=LOW,IMPACT,9,Yes,impact_depth100_new\impact.me.kr\slot\CP\index.html
+https://impact.me.kr/slot/CP?type=END,IMPACT,10,Yes,impact_depth100_new\impact.me.kr\slot\CP\index.html
+https://impact.me.kr/slot/CP?type=EXPIRE,IMPACT,11,Yes,impact_depth100_new\impact.me.kr\slot\CP\index.html
+https://impact.me.kr/slot/YA,IMPACT,12,Yes,impact_depth100_new\impact.me.kr\slot\YA\index.html
+https://impact.me.kr/slot/YA?type=LOW,IMPACT,13,Yes,impact_depth100_new\impact.me.kr\slot\YA\index.html
+https://impact.me.kr/slot/YA?type=ING,IMPACT,14,Yes,impact_depth100_new\impact.me.kr\slot\YA\index.html
+https://impact.me.kr/slot/YA?type=END,IMPACT,15,Yes,impact_depth100_new\impact.me.kr\slot\YA\index.html
+https://impact.me.kr/slot/YA/export-selected,An Error Occurred: Method Not Allowed,16,No,impact_depth100_new\impact.me.kr\slot\YA\export-selected\index.html
+https://impact.me.kr/slot/YA?type=ALL,IMPACT,16,Yes,impact_depth100_new\impact.me.kr\slot\YA\index.html
+https://impact.me.kr/slot/YA?type=DEL,Forbidden,17,No,impact_depth100_new\impact.me.kr\slot\YA\index.html
+https://impact.me.kr/slot/YA?type=EMPTY,IMPACT,17,Yes,impact_depth100_new\impact.me.kr\slot\YA\index.html
+https://impact.me.kr/slot/NS,IMPACT,18,Yes,impact_depth100_new\impact.me.kr\slot\NS\index.html
+https://impact.me.kr/slot/NS/export-selected,An Error Occurred: Method Not Allowed,19,No,impact_depth100_new\impact.me.kr\slot\NS\export-selected\index.html
+https://impact.me.kr/slot/NS?type=EXPIRE,IMPACT,19,Yes,impact_depth100_new\impact.me.kr\slot\NS\index.html
+https://impact.me.kr/slot/NS?type=LOW,IMPACT,20,Yes,impact_depth100_new\impact.me.kr\slot\NS\index.html
+https://impact.me.kr/slot/NS?type=END,IMPACT,21,Yes,impact_depth100_new\impact.me.kr\slot\NS\index.html
+https://impact.me.kr/slot/NS?type=ALL,IMPACT,22,Yes,impact_depth100_new\impact.me.kr\slot\NS\index.html
+https://impact.me.kr/slot/NS?type=EMPTY,IMPACT,23,Yes,impact_depth100_new\impact.me.kr\slot\NS\index.html
+https://impact.me.kr/slot/NS?type=ING,IMPACT,24,Yes,impact_depth100_new\impact.me.kr\slot\NS\index.html
+https://impact.me.kr/slot/NS?type=DEL,Forbidden,25,No,impact_depth100_new\impact.me.kr\slot\NS\index.html
+https://impact.me.kr/slot/history,IMPACT,25,Yes,impact_depth100_new\impact.me.kr\slot\history\index.html
+https://impact.me.kr/slot/history?type=UNCHECK,IMPACT,26,Yes,impact_depth100_new\impact.me.kr\slot\history\index.html
+https://impact.me.kr/slot/history?type=DEL,Forbidden,27,No,impact_depth100_new\impact.me.kr\slot\history\index.html
+https://impact.me.kr/slot/history?type=CHECK,IMPACT,27,Yes,impact_depth100_new\impact.me.kr\slot\history\index.html
+https://impact.me.kr/slot/history?type=ALL,IMPACT,28,Yes,impact_depth100_new\impact.me.kr\slot\history\index.html
+https://impact.me.kr/auth/logout,IMPACT,29,Yes,impact_depth100_new\impact.me.kr\auth\logout\index.html
+https://impact.me.kr/auth/login,IMPACT,30,Yes,impact_depth100_new\impact.me.kr\auth\login\index.html
+https://impact.me.kr/slot/YA?type=EXPIRE,IMPACT,18,Yes,impact_depth100_new\impact.me.kr\slot\YA\index.html
+https://impact.me.kr/slot/CP?type=DEL,IMPACT,12,Yes,impact_depth100_new\impact.me.kr\slot\CP\index.html
+https://impact.me.kr/slot/CP?type=ALL,IMPACT,12,Yes,impact_depth100_new\impact.me.kr\slot\CP\index.html
+https://impact.me.kr/slot/CP?type=EMPTY,IMPACT,12,Yes,impact_depth100_new\impact.me.kr\slot\CP\index.html
+https://impact.me.kr/slot/CP/export-selected,An Error Occurred: Method Not Allowed,12,No,impact_depth100_new\impact.me.kr\slot\CP\export-selected\index.html
+https://impact.me.kr/slot/WS?type=ING,IMPACT,7,Yes,impact_depth100_new\impact.me.kr\slot\WS\index.html
+https://impact.me.kr/slot/WS?type=LOW,IMPACT,7,Yes,impact_depth100_new\impact.me.kr\slot\WS\index.html
+https://impact.me.kr/slot/WS?type=EXPIRE,IMPACT,7,Yes,impact_depth100_new\impact.me.kr\slot\WS\index.html
+https://impact.me.kr/slot/GA/export-selected,An Error Occurred: Method Not Allowed,3,No,impact_depth100_new\impact.me.kr\slot\GA\export-selected\index.html
+https://impact.me.kr/slot/GA?type=EXPIRE,IMPACT,3,Yes,impact_depth100_new\impact.me.kr\slot\GA\index.html
+https://impact.me.kr/slot/GA?type=ALL,IMPACT,3,Yes,impact_depth100_new\impact.me.kr\slot\GA\index.html
+https://impact.me.kr/slot/GA?type=ING,IMPACT,3,Yes,impact_depth100_new\impact.me.kr\slot\GA\index.html
+https://impact.me.kr/slot/GA?type=LOW,IMPACT,3,Yes,impact_depth100_new\impact.me.kr\slot\GA\index.html
+https://impact.me.kr/slot/GA?type=END,IMPACT,3,Yes,impact_depth100_new\impact.me.kr\slot\GA\index.html
+https://impact.me.kr/slot/GA?type=EMPTY,IMPACT,3,Yes,impact_depth100_new\impact.me.kr\slot\GA\index.html
+https://impact.me.kr/slot/NA?type=ING,IMPACT,2,Yes,impact_depth100_new\impact.me.kr\slot\NA\index.html
+https://impact.me.kr/slot/NA?type=ALL,IMPACT,2,Yes,impact_depth100_new\impact.me.kr\slot\NA\index.html
+https://impact.me.kr/slot/NA?type=LOW,IMPACT,2,Yes,impact_depth100_new\impact.me.kr\slot\NA\index.html
+https://impact.me.kr/slot/NA?type=END,IMPACT,2,Yes,impact_depth100_new\impact.me.kr\slot\NA\index.html
+https://impact.me.kr/slot/NA?type=DEL,IMPACT,2,Yes,impact_depth100_new\impact.me.kr\slot\NA\index.html
+https://impact.me.kr/slot/NA/export-selected,An Error Occurred: Method Not Allowed,2,No,impact_depth100_new\impact.me.kr\slot\NA\export-selected\index.html
+https://impact.me.kr/slot/NA?type=EXPIRE,IMPACT,2,Yes,impact_depth100_new\impact.me.kr\slot\NA\index.html

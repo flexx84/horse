@@ -1,0 +1,43 @@
+{
+  "base_url": "https://impact.me.kr/slot/NA",
+  "navigation_items": [
+    {
+      "text": "N자동완성",
+      "href": "https://impact.me.kr/slot/NA"
+    },
+    {
+      "text": "N웹트래픽",
+      "href": "https://impact.me.kr/slot/WS"
+    },
+    {
+      "text": "N쇼핑",
+      "href": "https://impact.me.kr/slot/NS"
+    },
+    {
+      "text": "C쇼핑",
+      "href": "https://impact.me.kr/slot/CP"
+    },
+    {
+      "text": "G자동완성",
+      "href": "https://impact.me.kr/slot/GA"
+    },
+    {
+      "text": "Y자동완성",
+      "href": "https://impact.me.kr/slot/YA"
+    },
+    {
+      "text": "정산",
+      "href": "https://impact.me.kr/slot/history"
+    },
+    {
+      "text": "로그아웃",
+      "href": "/auth/logout"
+    }
+  ],
+  "page_types": {
+    "general": 1
+  },
+  "total_forms": 7,
+  "external_domains": [],
+  "asset_categories": {}
+}

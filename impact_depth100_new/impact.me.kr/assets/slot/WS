@@ -1,0 +1,3700 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="csrf-token" content="LvTXFX3Oa5Mc04JkYh75fHwNnziB1WL5Qu7qcPC3">
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>IMPACT</title>
+
+    <link href="/assets/vendor/fontawesome/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+
+    <link href="/assets/vendor/ionio-icon/css/iconoir.css" rel="stylesheet">
+
+    <link href="/assets/vendor/tabler-icons/tabler-icons.css" rel="stylesheet" type="text/css">
+
+    <link href="/assets/vendor/animation/animate.min.css" rel="stylesheet">
+
+    <link href="/assets/vendor/flag-icons-master/flag-icon.css" rel="stylesheet" type="text/css">
+
+    <link href="/assets/vendor/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+    <link href="/assets/vendor/datatable/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
+
+    <link href="/assets/vendor/simplebar/simplebar.css" rel="stylesheet" type="text/css">
+
+    <link href="/assets/css/style.css?v=1761521715" rel="stylesheet" type="text/css">
+
+    <link href="/assets/css/responsive.css" rel="stylesheet" type="text/css">
+
+    <link href="/assets/css/modify.css?v=1761521715" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2-bootstrap4.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+
+    <style>
+        main {
+            padding: 20px;
+        }
+
+
+
+        .ui-autocomplete {
+            z-index: 9999 !important;
+        }
+
+        .edit_bx {
+            display: none;
+        }
+
+        .btn-modal-confirm {
+            display: none;
+        }
+
+        .btn-modal-cancel {
+            display: none;
+        }
+
+        .btn-primary {
+            height: 100%;
+        }
+
+        .selection-bar.is-hidden {
+            display: none;
+        }
+
+        .modal .modal-dialog {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 450px;
+            width: calc(100% - 24px);
+        }
+
+        #modal-slot-add .modal-body {
+            overflow: visible;
+        }
+
+        .mrx-table table {
+            table-layout: fixed;
+            width: 100%;
+        }
+
+        .mrx-table thead th,
+        .mrx-table tbody td {
+            font-size: 14px;
+            text-align: center;
+            vertical-align: middle;
+            white-space: nowrap;
+        }
+
+        .mrx-table tbody td {
+            padding: 20px 12px !important;
+        }
+
+        /* 줄 가능 셀만 좌측 정렬 */
+        .mrx-table .mrx-td--wrap,
+        .mrx-table .mrx-td .text_bx,
+        .mrx-table .mrx-td .edit_bx,
+        .mrx-table .mrx-td--url {
+            text-align: center;
+            white-space: normal;
+            word-break: break-word;
+        }
+
+        .mrx-table thead th:nth-child(3) {
+            width: 80px;
+        }
+
+        .mrx-table thead th:nth-child(4) {
+            width: 130px;
+        }
+
+        .mrx-table thead th:nth-child(5) {
+            width: 120px;
+        }
+
+        .mrx-table thead th:nth-child(3) {
+            width: 80px;
+        }
+
+        .mrx-table thead th:nth-child(6) {
+            width: 200px;
+        }
+
+        .mrx-table .mrx-td--num,
+        .mrx-table th.th-no,
+        .mrx-table th.th-check {
+            text-align: center;
+        }
+
+        .mrx-table col.col-check {
+            width: 44px;
+        }
+
+        .mrx-table .mrx-td--memo {
+            width: 80px;
+            min-width: 80px;
+            max-width: 80px;
+        }
+
+        .memo-cell {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            width: 100%;
+        }
+
+        .memo-preview {
+            font-size: 11px;
+            color: #666;
+            width: 100%;
+            max-width: 70px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            text-align: center;
+        }
+
+        .btn-memo {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-memo:hover {
+            opacity: 0.7;
+        }
+
+        .btn-hourly {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-hourly:hover {
+            opacity: 0.7;
+        }
+
+        /* 시간별 순위 모달 스타일 */
+        .hr {
+            padding: 0 0 12px 0;
+        }
+        .hr__head { padding: 16px 20px 8px; }
+        .hr__title { font-size: 18px; font-weight: 700; margin: 0; }
+        .hr__sub { color: #666; font-size: 12px; margin-top: 4px; }
+        .hr__legend { display:flex; gap:8px; align-items:center; padding: 0 20px 8px; }
+        .hr-legend__item { display:flex; gap:6px; align-items:center; color:#666; font-size:12px; }
+        .hr-legend__chip { width:8px; height:8px; border-radius:50%; display:inline-block; }
+        .hr-legend__chip--up { background:#27ae60; }
+        .hr-legend__chip--down { background:#e74c3c; }
+        .hr-legend__chip--flat { background:#95a5a6; }
+        .hr__body { padding: 0 20px 16px; }
+        .hr-list { max-height: 420px; overflow:auto; padding-right: 4px; }
+        .hr-item { display:grid; grid-template-columns: 64px 1fr 72px; align-items:center; gap:12px; padding:10px 12px; border:1px solid #eee; border-radius:8px; margin-bottom:8px; background:#fff; }
+        .hr-time { font-weight:600; color:#333; }
+        .hr-rank { font-weight:700; color:#2c3e50; }
+        .hr-delta { justify-self:end; font-size:12px; padding:2px 8px; border-radius:999px; }
+        .hr-delta--up { background:rgba(39,174,96,0.1); color:#27ae60; }
+        .hr-delta--down { background:rgba(231,76,60,0.1); color:#e74c3c; }
+        .hr-delta--flat { background:rgba(149,165,166,0.15); color:#7f8c8d; }
+
+        .mrx-table col.col-no {
+            width: 64px;
+        }
+
+        .mrx-table col.col-menu {
+            width: 72px;
+        }
+
+        .mrx-table col.col-rank {
+            width: 80px;
+        }
+
+        .mrx-table col.col-remain {
+            width: 80px;
+        }
+
+        .mrx-table col.col-rank-change {
+            width: 180px;
+        }
+
+        /* 순위변화 컬럼 스타일 */
+        .rank-change-container {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            width: 100%;
+        }
+
+        .rank-change-card {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            padding: 4px;
+            border-radius: 4px;
+            background-color: rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .rank-change-label {
+            font-size: 10px;
+            font-weight: 600;
+            color: #666;
+            text-align: center;
+            margin-bottom: 2px;
+        }
+
+        .rank-change {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4px 8px;
+            border-radius: 3px;
+            font-size: 11px;
+            font-weight: 600;
+            text-align: center;
+            white-space: nowrap;
+            line-height: 1.2;
+        }
+
+        .rank-change--rising {
+            background-color: rgba(39, 174, 96, 0.1);
+            color: #27ae60;
+            border: 1px solid rgba(39, 174, 96, 0.3);
+        }
+
+        .rank-change--falling {
+            background-color: rgba(231, 76, 60, 0.1);
+            color: #e74c3c;
+            border: 1px solid rgba(231, 76, 60, 0.3);
+        }
+
+        .rank-change--stable {
+            background-color: rgba(149, 165, 166, 0.1);
+            color: #7f8c8d;
+            border: 1px solid rgba(149, 165, 166, 0.3);
+        }
+
+        .rank-change--no-data {
+            background-color: rgba(149, 165, 166, 0.05);
+            color: #95a5a6;
+            border: 1px solid rgba(149, 165, 166, 0.2);
+        }
+
+        .rank-change--error {
+            background-color: rgba(231, 76, 60, 0.05);
+            color: #e74c3c;
+            border: 1px solid rgba(231, 76, 60, 0.2);
+        }
+
+        .rank-change--today-only {
+            background-color: rgba(52, 152, 219, 0.1);
+            color: #3498db;
+            border: 1px solid rgba(52, 152, 219, 0.3);
+        }
+
+        /* 모바일용 순위변화 스타일 */
+        .rank-change--mobile {
+            font-size: 13px;
+            padding: 8px 12px;
+            min-width: 120px;
+            text-align: center;
+        }
+
+        .mrx-table col.col-count {
+            width: 90px;
+        }
+
+        .mrx-table thead th>div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        @media (max-width: 575.98px) {
+            .btn-sm {
+                height: 40px !important;
+            }
+        }
+    </style>
+
+    <script src="/js/favicon.js" defer></script>
+</head>
+
+<body>
+    <div class="app-wrapper">
+
+        <div class="loader-wrapper">
+            <div class="app-loader">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <!-- Menu Navigation starts -->
+<nav aria-label="주요 메뉴">
+  <div class="app-nav" id="app-simple-bar">
+
+    <!-- 브랜드(모바일에서 닫기 버튼 노출) -->
+    <div class="nav-brand">
+      <img src="/images/impact_logo.png" class="nav-brand__img" loading="lazy" decoding="async">
+      <button type="button" class="nav-close" aria-label="메뉴 닫기">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+          <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="nav-scroll">
+      <ul class="main-nav px-3 mt-4">
+
+        <!-- ===== 관리 그룹 ===== -->
+        
+        <!-- ===== 슬롯 그룹(N/C/G/Y) ===== -->
+                                      <li class="group-hd">
+              <img class="brand-ico" src="/images/n.png" alt="네이버 로고"
+                   width="16" height="16" onerror="this.style.display='none'">
+              <span class="brand-txt">네이버</span>
+            </li>
+                                        <li class="no-sub">
+                <a href="https://impact.me.kr/slot/NA" aria-current="false">
+                  <span class="bullet" aria-hidden="true"></span><span>N자동완성</span>
+                </a>
+              </li>
+                                        <li class="no-sub">
+                <a href="https://impact.me.kr/slot/WS" aria-current="page">
+                  <span class="bullet" aria-hidden="true"></span><span>N웹트래픽</span>
+                </a>
+              </li>
+                                        <li class="no-sub">
+                <a href="https://impact.me.kr/slot/NS" aria-current="false">
+                  <span class="bullet" aria-hidden="true"></span><span>N쇼핑</span>
+                </a>
+              </li>
+                        <li class="divider" aria-hidden="true"></li>
+                                        <li class="group-hd">
+              <img class="brand-ico" src="/images/c.png" alt="쿠팡 로고"
+                   width="16" height="16" onerror="this.style.display='none'">
+              <span class="brand-txt">쿠팡</span>
+            </li>
+                                        <li class="no-sub">
+                <a href="https://impact.me.kr/slot/CP" aria-current="false">
+                  <span class="bullet" aria-hidden="true"></span><span>C쇼핑</span>
+                </a>
+              </li>
+                        <li class="divider" aria-hidden="true"></li>
+                                        <li class="group-hd">
+              <img class="brand-ico" src="/images/g.png" alt="구글 로고"
+                   width="16" height="16" onerror="this.style.display='none'">
+              <span class="brand-txt">구글</span>
+            </li>
+                                        <li class="no-sub">
+                <a href="https://impact.me.kr/slot/GA" aria-current="false">
+                  <span class="bullet" aria-hidden="true"></span><span>G자동완성</span>
+                </a>
+              </li>
+                                        <li class="no-sub">
+                <a href="https://impact.me.kr/slot/YA" aria-current="false">
+                  <span class="bullet" aria-hidden="true"></span><span>Y자동완성</span>
+                </a>
+              </li>
+                        <li class="divider" aria-hidden="true"></li>
+                                    
+        <!-- ===== 시스템 그룹 ===== -->
+        <li class="group-hd">
+          <img class="brand-ico" src="" alt="시스템 로고" width="16" height="16" onerror="this.style.display='none'">
+          <span class="brand-txt">시스템</span>
+        </li>
+
+                <li class="no-sub">
+          <a href="https://impact.me.kr/slot/history" aria-current="false">
+            <span class="bullet" aria-hidden="true"></span><span>정산</span>
+          </a>
+        </li>
+
+        
+        <li class="divider" aria-hidden="true"></li>
+
+        <!-- 로그아웃: PNG + 호버 애니메이션(유지) -->
+        <li class="no-sub mt-auto">
+          <a class="logout" href="/auth/logout">
+            <img class="item-ico" src="/images/sidenav_logout_icon.png" alt="" width="20" height="20" onerror="this.style.display='none'">
+            <span>로그아웃</span>
+          </a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- Menu Navigation ends -->
+
+
+
+<!-- 오프캔버스 백드롭 -->
+<div class="nav-backdrop" hidden></div>
+
+        <div class="app-content">
+            <div class="">
+
+                <!-- Header Section -->
+<header class="header-main" role="banner">
+  <div class="header-inner">
+    <div class="header-left">
+      <!-- 모바일 전용 햄버거 -->
+      <button type="button" class="header-toggle" aria-label="메뉴 열기/닫기" aria-controls="app-simple-bar">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+          <rect x="3" y="6"  width="18" height="2" rx="1"/>
+          <rect x="3" y="11" width="18" height="2" rx="1"/>
+          <rect x="3" y="16" width="18" height="2" rx="1"/>
+        </svg>
+      </button>
+
+      <h1 class="main-title">
+        N웹트래픽 슬롯
+      </h1>
+    </div>
+
+    <div class="header-right">
+            <div class="profile-chip" title="pcsmkt7 (장부장님)">
+        <span class="profile-avatar" aria-hidden="true">P</span>
+        <span class="profile-text">
+          <span class="profile-id">pcsmkt7</span>
+          <span class="profile-name">(장부장님)</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</header>
+
+                    <main>
+        <div class="container-fluid">
+
+
+
+            <div class="page-wrapper d-flex">
+                <div class="content-area">
+                    <div class="card">
+                        <div class="card-body pt-0">
+                            <div class="ui-toolbar" role="region" aria-label="슬롯 상태 필터">
+                                <div class="ui-toolbar__row">
+                                    <div class="ui-chips" aria-label="상태 선택">
+                                        
+                                                                                                                                <a href="/slot/WS?type=ALL" class="chip"
+                                                aria-current="false">
+                                                <span class="chip__label">전체</span>
+                                                <span class="chip__badge">0</span>
+                                            </a>
+                                                                                                                                <a href="/slot/WS?type=EMPTY" class="chip"
+                                                aria-current="false">
+                                                <span class="chip__label">빈슬롯</span>
+                                                <span class="chip__badge">0</span>
+                                            </a>
+                                                                                                                                <a href="/slot/WS?type=ING" class="chip"
+                                                aria-current="false">
+                                                <span class="chip__label">사용중</span>
+                                                <span class="chip__badge">0</span>
+                                            </a>
+                                                                                                                                <a href="/slot/WS?type=LOW" class="chip"
+                                                aria-current="false">
+                                                <span class="chip__label">오류</span>
+                                                <span class="chip__badge">0</span>
+                                            </a>
+                                                                                                                                <a href="/slot/WS?type=EXPIRE" class="chip"
+                                                aria-current="false">
+                                                <span class="chip__label">만료예정</span>
+                                                <span class="chip__badge">0</span>
+                                            </a>
+                                                                                                                                <a href="/slot/WS?type=END" class="chip is-active"
+                                                aria-current="true">
+                                                <span class="chip__label">기간종료</span>
+                                                <span class="chip__badge">0</span>
+                                            </a>
+                                                                                                                                <a href="/slot/WS?type=DEL" class="chip"
+                                                aria-current="false">
+                                                <span class="chip__label">최근삭제</span>
+                                                <span class="chip__badge">0</span>
+                                            </a>
+                                                                            </div>
+                                </div>
+                            </div>
+
+                            <section class="tools-basic" aria-label="기본 도구">
+                                <div class="tb-grid">
+                                    <div class="tb-actions">
+                                                                                <button type="button" id="btn-modal-edit-all" class="btn-outline btn-sm">일괄
+                                            수정</button>
+                                        <button type="button" id="btn-modal-excel" class="btn-outline btn-sm">엑셀 수정</button>
+                                    </div>
+
+                                    <form id="form-search" method="GET" class="tb-search">
+                                        <input type="hidden" name="type" value="END">
+                                        <input type="hidden" id="sort" name="sort" value="">
+                                        <input type="hidden" id="orderby" name="orderby" value="">
+                                        <input type="hidden" id="limit" name="limit" value="50">
+                                        <input class="ipt" name="search" placeholder="이름, 아이디, 메모 검색"
+                                            value="">
+                                        <button type="submit" id="button-search" class="btn-primary">검색</button>
+                                    </form>
+
+
+                                    <div class="ui-limit" id="uiLimit">
+                                        <div class="dht-select" id="dhtLimit">
+                                            <button type="button" class="dht-select__btn" id="dhtLimitBtn"
+                                                aria-haspopup="listbox" aria-expanded="false">
+                                                <span class="dht-select__label">50개씩 보기</span>
+                                                <i class="dht-select__caret" aria-hidden="true"></i>
+                                            </button>
+                                            <ul class="dht-select__list" id="dhtLimitList" role="listbox" tabindex="-1"
+                                                aria-labelledby="dhtLimitBtn"></ul>
+                                        </div>
+
+                                        <select id="select-limit" class="native-select" aria-hidden="true">
+                                            <option value="50" selected>50개씩 보기</option>
+                                            <option value="100" >100개씩 보기
+                                            </option>
+                                            <option value="300" >300개씩 보기
+                                            </option>
+                                            <option value="500" >500개씩 보기
+                                            </option>
+                                            <option value="1000" >1000개씩 보기
+                                            </option>
+                                        </select>
+                                    </div>
+
+
+                                </div>
+                            </section>
+
+                            <section id="selection-bar" class="selection-bar" aria-hidden="true">
+                                <div class="sb-surface" id="sbSurface">
+                                    <div class="sb-grid">
+                                        <div class="sb-left">
+                                            <span class="sb-count"><strong id="sbCount">0</strong>개 선택됨</span>
+                                        </div>
+
+                                        <div class="sb-actions">
+                                            <button type="button" id="sbClear" class="mxsb-btn mxsb-btn--sm">선택 해제</button>
+
+                                                                                                                                </div>
+                                    </div>
+                                </div>
+                            </section>
+
+
+                            <div class="table-responsive mrx-table">
+                                <table
+                                    class="table table-bottom-border table-hover table-striped table-fixed align-middle mb-0">
+
+                                    <thead>
+                                        <tr>
+                                            <th class="th-check">
+                                                <input id="select-all" type="checkbox">
+                                            </th>
+                                            <th class="th-no" style="white-space:nowrap;">
+                                                <div style="display:flex;align-items:center;gap:6px"><span>NO</span></div>
+                                            </th>
+                                            
+                                                                                                                                            <th style="white-space:nowrap; ">
+                                                    <div style="display:flex;align-items:center;gap:6px">
+                                                        <span>코드</span>
+
+                                                                                                                    <div
+                                                                style="display:flex;flex-direction:column;line-height:1;margin-left:4px">
+                                                                <a href="#" class="sort sort-asc" data-sort="s.ID"
+                                                                    data-orderby="asc" aria-label="오름차순"></a>
+                                                                <a href="#" class="sort sort-desc" data-sort="s.ID"
+                                                                    data-orderby="desc" aria-label="내림차순"></a>
+                                                            </div>
+                                                        
+                                                    </div>
+                                                </th>
+                                                                                                                                            <th style="white-space:nowrap; ">
+                                                    <div style="display:flex;align-items:center;gap:6px">
+                                                        <span>아이디</span>
+
+                                                                                                                    <div
+                                                                style="display:flex;flex-direction:column;line-height:1;margin-left:4px">
+                                                                <a href="#" class="sort sort-asc" data-sort="u.USER_ID"
+                                                                    data-orderby="asc" aria-label="오름차순"></a>
+                                                                <a href="#" class="sort sort-desc" data-sort="u.USER_ID"
+                                                                    data-orderby="desc" aria-label="내림차순"></a>
+                                                            </div>
+                                                        
+                                                    </div>
+                                                </th>
+                                                                                                                                            <th style="white-space:nowrap; ">
+                                                    <div style="display:flex;align-items:center;gap:6px">
+                                                        <span>대행사</span>
+
+                                                                                                                    <div
+                                                                style="display:flex;flex-direction:column;line-height:1;margin-left:4px">
+                                                                <a href="#" class="sort sort-asc" data-sort="a.USER_ID"
+                                                                    data-orderby="asc" aria-label="오름차순"></a>
+                                                                <a href="#" class="sort sort-desc" data-sort="a.USER_ID"
+                                                                    data-orderby="desc" aria-label="내림차순"></a>
+                                                            </div>
+                                                        
+                                                    </div>
+                                                </th>
+                                                                                                                                            <th style="white-space:nowrap; ">
+                                                    <div style="display:flex;align-items:center;gap:6px">
+                                                        <span>키워드</span>
+
+                                                                                                                    <div
+                                                                style="display:flex;flex-direction:column;line-height:1;margin-left:4px">
+                                                                <a href="#" class="sort sort-asc" data-sort="s.KEYWORD"
+                                                                    data-orderby="asc" aria-label="오름차순"></a>
+                                                                <a href="#" class="sort sort-desc" data-sort="s.KEYWORD"
+                                                                    data-orderby="desc" aria-label="내림차순"></a>
+                                                            </div>
+                                                        
+                                                    </div>
+                                                </th>
+                                                                                                                                            <th style="white-space:nowrap; ">
+                                                    <div style="display:flex;align-items:center;gap:6px">
+                                                        <span>순위<br />
+키워드</span>
+
+                                                                                                                    <div
+                                                                style="display:flex;flex-direction:column;line-height:1;margin-left:4px">
+                                                                <a href="#" class="sort sort-asc" data-sort="s.RANKKEYWORD"
+                                                                    data-orderby="asc" aria-label="오름차순"></a>
+                                                                <a href="#" class="sort sort-desc" data-sort="s.RANKKEYWORD"
+                                                                    data-orderby="desc" aria-label="내림차순"></a>
+                                                            </div>
+                                                        
+                                                    </div>
+                                                </th>
+                                                                                                                                            <th style="white-space:nowrap; ">
+                                                    <div style="display:flex;align-items:center;gap:6px">
+                                                        <span>URL</span>
+
+                                                                                                                    <div
+                                                                style="display:flex;flex-direction:column;line-height:1;margin-left:4px">
+                                                                <a href="#" class="sort sort-asc" data-sort="s.url"
+                                                                    data-orderby="asc" aria-label="오름차순"></a>
+                                                                <a href="#" class="sort sort-desc" data-sort="s.url"
+                                                                    data-orderby="desc" aria-label="내림차순"></a>
+                                                            </div>
+                                                        
+                                                    </div>
+                                                </th>
+                                                                                                                                            <th style="white-space:nowrap; ">
+                                                    <div style="display:flex;align-items:center;gap:6px">
+                                                        <span>순위</span>
+
+                                                        
+                                                    </div>
+                                                </th>
+                                                                                                                                            <th style="white-space:nowrap; width: 180px;">
+                                                    <div style="display:flex;align-items:center;gap:6px">
+                                                        <span>순위변화</span>
+
+                                                        
+                                                    </div>
+                                                </th>
+                                                                                                                                            <th style="white-space:nowrap; ">
+                                                    <div style="display:flex;align-items:center;gap:6px">
+                                                        <span>시작일</span>
+
+                                                                                                                    <div
+                                                                style="display:flex;flex-direction:column;line-height:1;margin-left:4px">
+                                                                <a href="#" class="sort sort-asc" data-sort="s.STARTDATE"
+                                                                    data-orderby="asc" aria-label="오름차순"></a>
+                                                                <a href="#" class="sort sort-desc" data-sort="s.STARTDATE"
+                                                                    data-orderby="desc" aria-label="내림차순"></a>
+                                                            </div>
+                                                        
+                                                    </div>
+                                                </th>
+                                                                                                                                            <th style="white-space:nowrap; ">
+                                                    <div style="display:flex;align-items:center;gap:6px">
+                                                        <span>마감일</span>
+
+                                                                                                                    <div
+                                                                style="display:flex;flex-direction:column;line-height:1;margin-left:4px">
+                                                                <a href="#" class="sort sort-asc" data-sort="s.ENDDATE"
+                                                                    data-orderby="asc" aria-label="오름차순"></a>
+                                                                <a href="#" class="sort sort-desc" data-sort="s.ENDDATE"
+                                                                    data-orderby="desc" aria-label="내림차순"></a>
+                                                            </div>
+                                                        
+                                                    </div>
+                                                </th>
+                                                                                                                                            <th style="white-space:nowrap; ">
+                                                    <div style="display:flex;align-items:center;gap:6px">
+                                                        <span>잔여일</span>
+
+                                                                                                                    <div
+                                                                style="display:flex;flex-direction:column;line-height:1;margin-left:4px">
+                                                                <a href="#" class="sort sort-asc" data-sort="s.ENDDATE"
+                                                                    data-orderby="asc" aria-label="오름차순"></a>
+                                                                <a href="#" class="sort sort-desc" data-sort="s.ENDDATE"
+                                                                    data-orderby="desc" aria-label="내림차순"></a>
+                                                            </div>
+                                                        
+                                                    </div>
+                                                </th>
+                                            
+                                            <th style="white-space:nowrap;">메모</th>
+                                            <th style="white-space:nowrap;">메뉴</th>
+                                        </tr>
+                                    </thead>
+
+
+                                    <tbody class="mrx-tbody">
+                                                                                                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="mxc-cards d-lg-none">
+                                <div class="mxc-list">
+                                                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-footer ">
+                        
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="mxsSlot" class="mxs-sheet" aria-hidden="true">
+            <div class="mxs-backdrop js-mxs-close"></div>
+            <div class="mxs-panel" role="dialog" aria-modal="true" aria-labelledby="mxsTitle">
+                <div class="mxs-handle"></div>
+                <div class="mxs-header">
+                    <div id="mxsTitle" class="mxs-title">코드</div>
+                    <div id="mxsSub" class="mxs-sub">대행사 · 잔여일</div>
+                </div>
+                <div class="mxs-body">
+                    <div class="mxs-kv">
+                        <div class="mxs-k">코드</div>
+                        <div class="mxs-v" id="mxvId"></div>
+                    </div>
+                    <div class="mxs-kv">
+                        <div class="mxs-k">대행사</div>
+                        <div class="mxs-v" id="mxvAgency"></div>
+                    </div>
+                    <div class="mxs-kv">
+                        <div class="mxs-k">잔여일</div>
+                        <div class="mxs-v" id="mxvRemain"></div>
+                    </div>
+
+                    <div class="mxs-kv">
+                        <div class="mxs-k">아이디</div>
+                        <div class="mxs-v" id="mxvUser"></div>
+                    </div>
+                    <div class="mxs-kv">
+                        <div class="mxs-k">이름</div>
+                        <div class="mxs-v" id="mxvUserName"></div>
+                    </div>
+                    <div class="mxs-kv">
+                        <div class="mxs-k">키워드</div>
+                        <div class="mxs-v" id="mxvKeyword"></div>
+                    </div>
+                    <div class="mxs-kv">
+                        <div class="mxs-k">순위키워드</div>
+                        <div class="mxs-v" id="mxvRankKeyword"></div>
+                    </div>
+                    <div class="mxs-kv">
+                        <div class="mxs-k">현재 순위</div>
+                        <div class="mxs-v">
+                            <span id="mxvRanking"></span>
+                            <button type="button" class="mxs-btn mxs-btn--link" id="mxvRankBtn" data-id="">자세히 보기</button>
+                        </div>
+                    </div>
+                                            <div class="mxs-kv">
+                            <div class="mxs-k">오늘순위변화</div>
+                            <div class="mxs-v">
+                                <div class="rank-change rank-change--mobile" id="mxvTodayRankChange">데이터 부족</div>
+                            </div>
+                        </div>
+                        <div class="mxs-kv">
+                            <div class="mxs-k">첫순위변화</div>
+                            <div class="mxs-v">
+                                <div class="rank-change rank-change--mobile" id="mxvFirstRankChange">데이터 부족</div>
+                            </div>
+                        </div>
+                                                                                    <div class="mxs-kv">
+                            <div class="mxs-k">URL</div>
+                            <div class="mxs-v"><a id="mxvUrlA" href="#" target="_blank" rel="noopener noreferrer"></a></div>
+                        </div>
+                                                                                                    <div class="mxs-kv">
+                        <div class="mxs-k">시작일</div>
+                        <div class="mxs-v" id="mxvStart"></div>
+                    </div>
+                    <div class="mxs-kv">
+                        <div class="mxs-k">마감일</div>
+                        <div class="mxs-v" id="mxvEnd"></div>
+                    </div>
+                                        <div class="mxs-kv">
+                        <div class="mxs-k">메모</div>
+                        <div class="mxs-v" id="mxvMemo"></div>
+                    </div>
+                </div>
+                <div class="mxs-actions">
+                    <button type="button" class="mxs-btn js-mxs-close">닫기</button>
+                    <button type="button" class="mxs-btn mxs-btn--primary js-mxs-edit">수정</button>
+                    <button type="button" class="mxs-btn js-mxs-cancel" hidden>취소</button>
+                    <button type="button" class="mxs-btn mxs-btn--primary js-mxs-confirm" hidden>확인</button>
+                                    </div>
+            </div>
+        </div>
+
+    </main>
+
+
+
+
+                <footer class="app-footer">
+  <div class="container-fluid app-footer__wrap">
+    <div class="app-footer__left">
+      <span class="app-footer__copy">
+        Copyright © <span id="copyYear">2025</span> kimsangmin
+      </span>
+    </div>
+
+    <ul class="app-footer__links">
+      <li>
+        <a href="https://instagram.com/smwtb_h" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Z" fill="none" stroke="currentColor" stroke-width="1.6"/>
+            <circle cx="12" cy="12" r="3.6" fill="none" stroke="currentColor" stroke-width="1.6"/>
+            <circle cx="17.5" cy="6.5" r="1.1" fill="currentColor"/>
+          </svg>
+        </a>
+      </li>
+    </ul>
+  </div>
+</footer>
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- 메모 모달 -->
+    <div aria-hidden="true" aria-labelledby="" class="modal fade" id="modal-memo" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <h1 class="modal-title fs-5 text-white" id="modal-memo-title">
+                        메모
+                    </h1>
+                    <button aria-label="Close" class="btn-close btn-close-white" data-bs-dismiss="modal" type="button"></button>
+                </div>
+                <div class="modal-body" style="padding: 1.5rem;">
+                    <form id="form-memo">
+                        <input type="hidden" name="_token" value="LvTXFX3Oa5Mc04JkYh75fHwNnziB1WL5Qu7qcPC3" autocomplete="off">                        <input type="hidden" id="memo-slot-id">
+                        <textarea class="form-control" id="memo-content" rows="6" placeholder="메모를 입력하세요" style="resize: vertical; min-height: 150px;"></textarea>
+                    </form>
+                </div>
+                <div class="modal-footer" style="padding: 1rem 1.5rem;">
+                    <button class="btn btn-light-secondary" data-bs-dismiss="modal" type="button">
+                        취소
+                    </button>
+                    <button class="btn btn-primary" type="button" id="btn-save-memo">
+                        저장
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 삭제 모달 -->
+    <div class="modal fade" id="modal-slot-delete" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content dlgA">
+                <input type="hidden" id="delete-slot-id">
+                <div class="dlgA__icon" aria-hidden="true">
+                    <!-- Lottie container -->
+                    <div id="delAnim" style="width:120px;height:120px;margin-bottom:12px;"></div>
+                </div>
+
+                <h2 class="dlgA__title">삭제하겠습니까?</h2>
+                <p class="dlgA__body">삭제 후 되돌릴 수 없습니다.</p>
+
+                <div class="dlgA__actions">
+                    <button type="button" class="btn btn-ghost" data-bs-dismiss="modal">취소</button>
+                    <button type="button" class="btn btn-primary" id="btn-slot-delete">삭제</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="modal-slot-delete-select" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content dlgA">
+                <div class="dlgA__icon" aria-hidden="true">
+                    <div id="delAnimMulti" style="width:120px;height:120px;margin-bottom:12px;"></div>
+                </div>
+
+                <h2 class="dlgA__title">
+                    선택한 슬롯 <span id="span-delete-select">0</span>건을 삭제하겠습니까?
+                </h2>
+                <p class="dlgA__body">삭제 후 되돌릴 수 없습니다.</p>
+
+                <div class="dlgA__actions">
+                    <button type="button" class="btn btn-ghost" data-bs-dismiss="modal">취소</button>
+                    <button type="button" class="btn btn-primary" id="btn-slot-delete-select">삭제</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div aria-hidden="true" aria-labelledby="" class="modal fade" id="modal-slot-view" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <h1 class="modal-title fs-5 text-white" id="modal-edit-title">
+                        슬롯 보기
+                    </h1>
+                    <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="ticket-form">
+                        <form id="form-slot-view">
+                            <input type="hidden" name="_token" value="LvTXFX3Oa5Mc04JkYh75fHwNnziB1WL5Qu7qcPC3" autocomplete="off">                            <input type="hidden" id="edit-slot-id">
+                            <div class="row">
+
+                                <div class="col-12">
+                                    <div class="mb-3">
+                                        <label class="form-label">아이디</label>
+                                        <input class="form-control" id="view-slot-userid" type="text" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="mb-3">
+                                        <label class="form-label">키워드</label>
+                                        <input class="form-control" id="view-slot-keyword" type="text" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="mb-3">
+                                        <label class="form-label">순위 키워드</label>
+                                        <input class="form-control" id="view-slot-rankkeyword" type="text" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="mb-3">
+                                        <label class="form-label">MID</label>
+                                        <input class="form-control" id="view-slot-mid" type="text" readonly>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="mb-3">
+                                        <label class="form-label">슬롯 시작 일시</label>
+                                        <input class="form-control" id="view-slot-startdate" type="date" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="mb-3">
+                                        <label class="form-label">슬롯 마감 일시</label>
+                                        <input class="form-control" id="view-slot-enddate" type="date" readonly>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="mb-3">
+                                        <label class="form-label">메모</label>
+                                        <input class="form-control" id="view-slot-memo" type="text" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="button" data-bs-dismiss="modal">
+                        확인
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    
+
+
+
+
+    <div aria-hidden="true" aria-labelledby="" class="modal fade" id="modal-slot-edit" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <h1 class="modal-title fs-5 text-white" id="modal-edit-title">
+                        슬롯 수정
+                    </h1>
+                    <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="ticket-form">
+                        <form id="form-slot-edit">
+                            <input type="hidden" name="_token" value="LvTXFX3Oa5Mc04JkYh75fHwNnziB1WL5Qu7qcPC3" autocomplete="off">                            <input type="hidden" id="edit-slot-id">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="mb-3">
+                                        <label class="form-label">메뉴</label>
+                                        <select class="form-select" id="edit-slot-type">
+                                            <option value="NS" selected="">N쇼핑 (NS)</option>
+                                            <option value="NP">N플레이스 (NP)</option>
+                                            <option value="NPS">N플레이스 저장 (NP)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="mb-3">
+                                        <label class="form-label">아이디</label>
+                                        <input class="form-control" id="edit-slot-userid" type="text" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="mb-3">
+                                        <label class="form-label">키워드</label>
+                                        <input class="form-control" id="edit-slot-keyword" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="mb-3">
+                                        <label class="form-label">순위 키워드</label>
+                                        <input class="form-control" id="edit-slot-rankkeyword" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="mb-3">
+                                        <label class="form-label">MID</label>
+                                        <input class="form-control" id="edit-slot-mid" type="text">
+                                    </div>
+                                </div>
+                                                                <div class="col-12">
+                                    <div class="mb-3">
+                                        <label class="form-label">메모</label>
+                                        <input class="form-control" id="edit-slot-memo" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-light-secondary" data-bs-dismiss="modal" type="button">
+                        취소
+                    </button>
+                    <button class="btn btn-primary" type="button" id="btn-edit-slot">
+                        수정
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div aria-hidden="true" aria-labelledby="" class="modal fade" id="modal-slot-all" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <h1 class="modal-title fs-5 text-white" id="modal-edit-title">
+                        슬롯 일괄 수정
+                    </h1>
+                </div>
+                <div class="modal-body">
+                    <div class="ticket-form">
+                        <form id="form-slot-all">
+                            <input type="hidden" name="_token" value="LvTXFX3Oa5Mc04JkYh75fHwNnziB1WL5Qu7qcPC3" autocomplete="off">                            <input type="hidden" id="all-slot-id">
+                            <div class="row">
+
+                                <div class="col-12">
+                                    <div class="mb-3">
+                                        <label class="form-label">키워드</label>
+                                        <input class="form-control" id="all-slot-keyword" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="mb-3">
+                                        <label class="form-label">순위 키워드</label>
+                                        <input class="form-control" id="all-slot-rankkeyword" type="text">
+                                    </div>
+                                </div>
+                                                                                                                                    <div class="col-12">
+                                        <div class="mb-3">
+                                            <label class="form-label">URL</label>
+                                            <input class="form-control" id="all-slot-url" type="text">
+                                        </div>
+                                    </div>
+                                                                <div class="col-12">
+                                    <div class="mb-3">
+                                        <label class="form-label">메모</label>
+                                        <input class="form-control" id="all-slot-memo" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-light-secondary" data-bs-dismiss="modal" type="button">
+                        취소
+                    </button>
+                    <button class="btn btn-primary" type="button" id="btn-all-slot">
+                        일괄 수정
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div aria-hidden="true" aria-labelledby="" class="modal fade" id="modal-excel" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <h1 class="modal-title fs-5 text-white" id="modal-edit-title">
+                        슬롯 엑셀 수정
+                    </h1>
+                </div>
+                <div class="modal-body">
+                    <div class="ticket-form">
+                        <form id="form-export-selected"
+                            action="https://impact.me.kr/slot/WS/export-selected" method="POST"
+                            class="d-none">
+                            <input type="hidden" name="_token" value="LvTXFX3Oa5Mc04JkYh75fHwNnziB1WL5Qu7qcPC3" autocomplete="off">                            <div id="export-selected-ids"></div>
+                        </form>
+                        <form id="form-slot-excel">
+                            <input type="hidden" name="_token" value="LvTXFX3Oa5Mc04JkYh75fHwNnziB1WL5Qu7qcPC3" autocomplete="off">                            <input type="hidden" id="excel-slot-type" value="WS">
+                            <div class="row">
+
+                                <div class="col-12">
+                                    <div class="mb-3">
+                                        <label class="form-label">다운로드</label>
+                                        <a class="btn btn-sm btn-secondary w-100 mb-2" id="btn-export-selected">
+                                            엑셀파일 다운로드
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class=" col-12">
+                                    <div class="mb-3">
+                                        <label class="form-label">업로드</label>
+                                        <input type="file" id="ex_filename" name="file" class="form-control"
+                                            accept="*/xls,*/xlsx">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-light-secondary" data-bs-dismiss="modal" type="button">
+                        취소
+                    </button>
+                    <button class="btn btn-primary" type="button" id="btn-excel-upload">
+                        일괄 수정하기
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    
+    
+    <div class="modal fade" id="modal-rank-history" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-md">
+            <div class="modal-content rh">
+                <div class="rh__head">
+                    <h2 class="rh__title" id="rhKeyword">-</h2>
+                </div>
+
+                <div class="rh__body">
+                    <section class="rh-memo">
+                        <input type="hidden" id="memo-keyword-id" value="0">
+                        <label for="memo-keyword-memo" class="rh-memo__label">메모</label>
+                        <textarea id="memo-keyword-memo" class="form-control" rows="3" placeholder="메모"></textarea>
+                        <div class="text-end mt-2">
+                            <button type="button" class="btn btn-primary" id="btn-update-memo">수정</button>
+                        </div>
+                    </section>
+
+                    <hr class="rh__div">
+
+                    <h5 class="rh__subtitle">최근 순위 히스토리</h5>
+                    <div id="rhList" class="rh-list"></div> <!-- 카드들이 여기 렌더링 -->
+                </div>
+
+                <div class="rh__actions">
+                    <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">닫기</button>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="modal fade" id="modal-hourly-rank" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-md">
+            <div class="modal-content hr">
+                <div class="hr__head">
+                    <h2 class="hr__title" id="hrKeyword">시간별 순위</h2>
+                    <div class="hr__sub">오늘의 시간대별 순위 변화</div>
+                </div>
+                <div class="hr__legend">
+                    <div class="hr-legend__item"><span class="hr-legend__chip hr-legend__chip--up"></span>상승</div>
+                    <div class="hr-legend__item"><span class="hr-legend__chip hr-legend__chip--down"></span>하락</div>
+                    <div class="hr-legend__item"><span class="hr-legend__chip hr-legend__chip--flat"></span>변화 없음</div>
+                </div>
+                <div class="hr__body">
+                    <div id="hrList" class="hr-list"></div>
+                </div>
+                <div class="rh__actions" style="padding: 0 20px 16px;">
+                    <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">닫기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--
+                                                            -->
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        function getLocalStorageItem(key) {
+            return window.localStorage.getItem(key);
+        }
+    </script>
+    <script src="/assets/vendor/simplebar/simplebar.js"></script>
+
+    <script src="/js/header.js"></script>
+
+    <script src="/assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/script.js?v=1"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const modal = document.getElementById('modalDeleteMember');
+            const host = document.getElementById('delAnim');
+
+            // 없으면 바로 종료
+            if (!modal || !host || !window.lottie) return;
+
+            const anim = lottie.loadAnimation({
+                container: host,
+                renderer: 'svg',
+                loop: false,
+                autoplay: false,
+                path: '/images/jKRVRZValr.json'
+            });
+
+            modal.addEventListener('shown.bs.modal', () => anim.goToAndPlay(0, true));
+            modal.addEventListener('hide.bs.modal', () => anim.stop());
+        });
+    </script>
+
+    
+
+
+
+
+    <script>
+                    </script>
+        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+        function getModal(id) { const el = document.getElementById(id); return el ? new bootstrap.Modal(el) : null; }
+
+
+                                            const modalSlotEdit = getModal('modal-slot-edit');
+        const modalRank = new bootstrap.Modal(document.getElementById('modal-rank-history'));
+        const modalSlotAll = getModal('modal-slot-all');
+        const modalSlotView = getModal('modal-slot-view');
+        const modalSlotDelete = getModal('modal-slot-delete');
+        const modalExcel = getModal('modal-excel');
+        const modalMemo = getModal('modal-memo');
+        const modalHourly = new bootstrap.Modal(document.getElementById('modal-hourly-rank'));
+                                            const modalSlotDeleteSelect = getModal('modal-slot-delete-select');
+
+
+        $('.sort').on('click', function (e) {
+            e.preventDefault();
+
+            const sort = $(this).data('sort');
+            const orderby = $(this).data('orderby');
+
+
+            $('#sort').val(sort);
+            $('#orderby').val(orderby);
+
+            $('#form-search').submit();
+        });
+
+        // 공통: 화면에 보이는 체크박스만 수집
+        function getVisibleCheckedIds() {
+            return $('input[name="check-slot-list[]"]:visible:checked').map(function () { return this.value; }).get();
+        }
+
+        $('#btn-export-selected').on('click', function () {
+            const checkedSlots = $('input[name="check-slot-list[]"]:visible:checked')
+                .map(function () { return this.value; })
+                .get();
+
+            if (checkedSlots.length < 1) {
+                alert('엑셀로 내보낼 슬롯을 선택하세요.');
+                return;
+            }
+
+            const checkedExtends = $('input[name="extend[]"]:checked')
+                .map(function () { return this.value; })
+                .get();
+
+            const $container = $('#export-selected-ids');
+            $container.empty();
+
+            $.each(checkedSlots, function (_, id) {
+                $('<input>', { type: 'hidden', name: 'ids[]', value: id }).appendTo($container);
+            });
+
+            $.each(checkedExtends, function (_, val) {
+                $('<input>', { type: 'hidden', name: 'extend[]', value: val }).appendTo($container);
+            });
+
+            $('#form-export-selected').trigger('submit');
+        });
+
+
+        $('#btn-update-memo').on('click', function () {
+            const id = $('#memo-keyword-id').val();
+            const memo = $('#memo-keyword-memo').val();
+
+            var formData = {
+                id: id,
+                memo: memo,
+            };
+
+            console.log(formData);
+
+
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url: '/slot/memo',
+                method: 'POST',
+                dataType: 'JSON',
+                data: formData,
+                success: function (response) {
+                    alert(response.message);
+
+                    if (response.result == 'success') {
+
+                    } else {
+
+                    }
+
+                },
+                error: function (xhr) {
+                    alert('수정 실패했습니다');
+                    console.log(xhr);
+                }
+            });
+        });
+
+        $('#button-search').on('click', function () {
+            $('#form-search').submit();
+        });
+        $('#select-limit').on('change', function () {
+            $('#limit').val($('#select-limit').val());
+            $('#form-search').submit();
+        });
+
+
+
+        $('#btn-modal-excel').on('click', function () {
+
+            modalExcel.show();
+        });
+
+        $('#btn-excel-upload').on('click', function () {
+            const fileInput = document.getElementById('ex_filename');
+            const file = fileInput.files[0];
+            const slotId = document.getElementById('extend-slot-id').value;
+
+            if (!file) {
+                alert('파일을 선택하세요.');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('file', file);
+            formData.append('slot_type', $('#excel-slot-type').val());
+
+            $.ajax({
+                url: '/slot/upload',
+                method: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function (response) {
+                    alert("처리되었습니다.");
+                    location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error('업로드 에러:', xhr.responseText);
+                }
+            });
+
+        });
+
+        $('.btn-modal-confirm').on('click', function () {
+            const id = $(this).data('id');
+            console.log(id);
+
+            const btn = $(this);
+
+            var formData = {
+                slot_id: id,
+                slot_keyword: $('#tr-slot-keyword-' + id).val(),
+                slot_rankkeyword: $('#tr-slot-rankkeyword-' + id).val(),
+                                    slot_url: $('#tr-slot-url-' + id).val(),
+                                                        };
+
+        console.log(formData);
+
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            url: '/slot/set-inline',
+            method: 'POST',
+            dataType: 'JSON',
+            data: formData,
+            success: function (response) {
+
+
+                if (response.result == 'success') {
+
+                    $('#tr-slot-keyword-text-' + id).text(formData.slot_keyword);
+                    $('#tr-slot-rankkeyword-text-' + id).text(formData.slot_rankkeyword);
+                                            $('#tr-slot-url-text-' + id).text(formData.slot_url);
+                    
+                    btn.hide();
+                    btn.closest('tr').find('.btn-modal-view').css('display', 'inline-block');
+                    btn.closest('tr').find('.btn-modal-edit').css('display', 'inline-block');
+                    btn.closest('tr').find('.btn-modal-delete').css('display', 'inline-block');
+                    btn.closest('tr').find('.btn-modal-confirm').css('display', 'none');
+                    btn.closest('tr').find('.btn-modal-cancel').css('display', 'none');
+                    btn.closest('tr').find('.text_bx').show();
+                    btn.closest('tr').find('.edit_bx').hide();
+
+                    if (window.MRXKebab) MRXKebab.close();
+                } else {
+                    alert(response.message);
+                }
+
+            },
+            error: function (xhr) {
+                alert('실패했습니다');
+                console.log(xhr);
+            }
+        });
+                                    });
+
+        $('#btn-edit-slot').on('click', function () {
+            if (confirm('슬롯을 설정겠습니까?')) {
+
+                var formData = {
+                    slot_id: $('#edit-slot-id').val(),
+                    slot_type: $("#edit-slot-type").val(),
+                    slot_userid: $('#edit-slot-userid').val(),
+                    slot_keyword: $('#edit-slot-keyword').val(),
+                    slot_rankkeyword: $('#edit-slot-rankkeyword').val(),
+                    slot_mid: $('#edit-slot-mid').val(),
+                                    slot_memo: $("#edit-slot-memo").val(),
+                                            };
+
+            console.log(formData);
+
+
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url: '/slot/set',
+                method: 'POST',
+                dataType: 'JSON',
+                data: formData,
+                success: function (response) {
+                    alert(response.message);
+
+                    if (response.result == 'success') {
+                        location.reload();
+                    }
+
+                },
+                error: function (xhr) {
+                    alert('실패했습니다');
+                    console.log(xhr);
+                }
+            });
+
+
+        }
+                                    });
+
+        $('.btn-modal-cancel').on('click', function () {
+            $(this).hide();
+            $(this).closest('tr').find('.btn-modal-view').css('display', 'inline-block');
+            $(this).closest('tr').find('.btn-modal-edit').css('display', 'inline-block');
+            $(this).closest('tr').find('.btn-modal-delete').css('display', 'inline-block');
+            $(this).closest('tr').find('.btn-modal-confirm').css('display', 'none');
+            $(this).closest('tr').find('.btn-modal-cancel').css('display', 'none');
+            $(this).closest('tr').find('.text_bx').show();
+            $(this).closest('tr').find('.edit_bx').hide();
+        });
+
+        $('.btn-modal-edit').on('click', function () {
+            $('#form-slot-edit')[0].reset();
+
+            const id = $(this).data('id');
+
+            $(this).hide();
+            $(this).closest('tr').find('.btn-modal-view').css('display', 'none');
+            $(this).closest('tr').find('.btn-modal-edit').css('display', 'none');
+            $(this).closest('tr').find('.btn-modal-delete').css('display', 'none');
+            $(this).closest('tr').find('.btn-modal-confirm').css('display', 'inline-block');
+            $(this).closest('tr').find('.btn-modal-cancel').css('display', 'inline-block');
+            $(this).closest('tr').find('.text_bx').hide();
+            $(this).closest('tr').find('.edit_bx').show();
+
+            /*
+            $.ajax({
+                url: '/slot/detail/'+id,
+                method: 'GET',
+                success: function (response) {
+                    console.log(response);
+
+                    if(response.result === 'success') {
+
+                        const data = response.data;
+                        $('#edit-slot-id').val(data.ID);
+                        $('#edit-slot-type').val(data.KEYWORD_TYPE);
+                        $('#edit-slot-userid').val(data.USER_ID);
+                        $('#edit-slot-keyword').val(data.KEYWORD);
+                        $('#edit-slot-rankkeyword').val(data.RANKKEYWORD);
+                        $('#edit-slot-mid').val(data.MID);
+                        $('#edit-slot-limit').val(data.SETTING_COUNT);
+                        $('#edit-slot-startdate').val(data.STARTDATE.split(' ')[0]);
+                        $('#edit-slot-enddate').val(data.ENDDATE.split(' ')[0]);
+                        $('#edit-slot-memo').val(data.COMMENT);
+
+
+                        modalSlotEdit.show();
+                    }
+
+                },
+                error: function (xhr) {
+                    alert('실패했습니다');
+                    console.log(xhr);
+                }
+            });
+            */
+
+
+        });
+
+
+        $('#btn-modal-edit-all').on('click', function () {
+            $('#form-slot-all')[0].reset();
+
+            const checkedValues = getVisibleCheckedIds();
+
+            $('#all-slot-id').val(checkedValues);
+
+            modalSlotAll.show();
+        });
+
+        $('#btn-all-slot').on('click', function () {
+            if (confirm('슬롯을 일괄 설정겠습니까?')) {
+
+                var formData = {
+                    slot_id: $('#all-slot-id').val(),
+                    slot_keyword: $('#all-slot-keyword').val(),
+                    slot_rankkeyword: $('#all-slot-rankkeyword').val(),
+                                              slot_url: $('#all-slot-url').val(),
+                                      slot_memo: $("#all-slot-memo").val(),
+                                           };
+
+            console.log(formData);
+
+
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url: '/slot/set-all',
+                method: 'POST',
+                dataType: 'JSON',
+                data: formData,
+                success: function (response) {
+                    alert(response.message);
+
+                    if (response.result == 'success') {
+                        location.reload();
+                    }
+
+                },
+                error: function (xhr) {
+                    alert('실패했습니다');
+                    console.log(xhr);
+                }
+            });
+
+
+        }
+                                    });
+
+        $('.btn-modal-view').on('click', function () {
+            $('#form-slot-view')[0].reset();
+
+            const id = $(this).data('id');
+
+            $.ajax({
+                url: '/slot/detail/' + id,
+                method: 'GET',
+                success: function (response) {
+                    console.log(response);
+
+                    if (response.result === 'success') {
+
+                        const data = response.data;
+                        $('#view-slot-userid').val(data.USER_ID);
+                        $('#view-slot-keyword').val(data.KEYWORD);
+                        $('#view-slot-rankkeyword').val(data.RANKKEYWORD);
+                        $('#view-slot-mid').val(data.MID);
+                        $('#view-slot-startdate').val(data.STARTDATE.split(' ')[0]);
+                        $('#view-slot-enddate').val(data.ENDDATE.split(' ')[0]);
+                        $('#view-slot-memo').val(data.COMMENT);
+
+
+                        modalSlotView.show();
+                    }
+
+                },
+                error: function (xhr) {
+                    alert('실패했습니다');
+                    console.log(xhr);
+                }
+            });
+
+        });
+
+        $('.btn-modal-delete').on('click', function () {
+            const id = $(this).data('id');
+            $("#delete-slot-id").val(id);
+            modalSlotDelete.show();
+        });
+
+        $('#btn-slot-delete').on('click', function () {
+
+            var formData = {
+                slot_id: $('#delete-slot-id').val(),
+            };
+
+            console.log(formData);
+
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url: '/slot/delete',
+                method: 'POST',
+                dataType: 'JSON',
+                data: formData,
+                success: function (response) {
+                    alert(response.message);
+
+                    if (response.result == 'success') {
+                        location.reload();
+                    }
+
+                },
+                error: function (xhr) {
+                    alert('실패했습니다');
+                    console.log(xhr);
+                }
+            });
+
+
+        });
+
+        $('#btn-remain-deduct').on('click', function () {
+            const checkedValues = getVisibleCheckedIds();
+
+            if (checkedValues.length < 1) {
+                alert('슬롯을 선택해주세요.');
+                return;
+            }
+            $('#extend-slot-id').val(checkedValues);
+            $('#span-extend-text').text(checkedValues.length);
+
+            if (confirm("선택한 슬롯 " + checkedValues.length + "건의 잔여일을 차감하겠습니까?")) {
+                var formData = {
+                    slot_id: $('#extend-slot-id').val(),
+                };
+
+                console.log(formData);
+
+
+                $.ajax({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    url: '/slot/remain-deduct',
+                    method: 'POST',
+                    dataType: 'JSON',
+                    data: formData,
+                    success: function (response) {
+                        alert(response.message);
+
+                        if (response.result == 'success') {
+                            location.reload();
+                        }
+
+                    },
+                    error: function (xhr) {
+                        alert('실패했습니다');
+                        console.log(xhr);
+                    }
+                });
+            }
+        });
+
+        //기간 일괄 연장
+        $('#btn-modal-extend').on('click', function () {
+            const checkedValues = getVisibleCheckedIds();
+
+            if (checkedValues.length < 1) {
+                alert('슬롯을 선택해주세요.');
+                return;
+            }
+            $('#extend-slot-id').val(checkedValues);
+            $('#span-extend-text').text(checkedValues.length);
+
+            modalExtend.show();
+        });
+
+        $('#btn-extend').on('click', function () {
+            const checkedValues = getVisibleCheckedIds();
+
+            if (checkedValues.length < 1) {
+                alert('슬롯을 선택해주세요.');
+                return;
+            }
+
+            const extend_day = $('#extend-day').val();
+
+            if (extend_day.length < 1) {
+                alert('연장할 일수를 입력해주세요.');
+                return;
+            }
+
+            if (confirm("선택한 슬롯 " + checkedValues.length + "건의 기간을 " + extend_day + "일 연장하겠습니까?")) {
+
+
+                var formData = {
+                    slot_id: $('#extend-slot-id').val(),
+                    extend_day: extend_day,
+                };
+
+                console.log(formData);
+
+
+                $.ajax({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    url: '/slot/extend',
+                    method: 'POST',
+                    dataType: 'JSON',
+                    data: formData,
+                    success: function (response) {
+                        alert(response.message);
+
+                        if (response.result == 'success') {
+                            location.reload();
+                        }
+
+                    },
+                    error: function (xhr) {
+                        alert('실패했습니다');
+                        console.log(xhr);
+                    }
+                });
+            }
+        });
+
+        //클릭수 제한 조정
+        $('#btn-modal-max-click').on = ''; // noop guard to keep diff readable
+        $('#btn-modal-max-click').on('click', function () {
+            const checkedValues = getVisibleCheckedIds();
+
+            if (checkedValues.length < 1) {
+                alert('슬롯을 선택해주세요.');
+                return;
+            }
+            $('#max-click-slot-id').val(checkedValues);
+            $('#span-max-click-text').text(checkedValues.length);
+
+            modalMaxClick.show();
+        });
+
+        $('#btn-max-click').on('click', function () {
+            const checkedValues = getVisibleCheckedIds();
+
+            if (checkedValues.length < 1) {
+                alert('슬롯을 선택해주세요.');
+                return;
+            }
+
+            const max_click = $('#max-click').val();
+
+            if (max_click.length < 1) {
+                alert('조정할 클릭수를 입력해주세요.');
+                return;
+            }
+
+            if (confirm("선택한 슬롯 " + checkedValues.length + "건의 일최대 클릭수를 조정하겠습니까?")) {
+
+
+                var formData = {
+                    slot_id: $('#max-click-slot-id').val(),
+                    max_click: max_click,
+                };
+
+                console.log(formData);
+
+
+                $.ajax({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    url: '/slot/max-click',
+                    method: 'POST',
+                    dataType: 'JSON',
+                    data: formData,
+                    success: function (response) {
+                        alert(response.message);
+
+                        if (response.result == 'success') {
+                            location.reload();
+                        }
+
+                    },
+                    error: function (xhr) {
+                        alert('실패했습니다');
+                        console.log(xhr);
+                    }
+                });
+            }
+        });
+
+        //클릭수 조정
+        $('#btn-modal-setting-count').on('click', function () {
+            const checkedValues = getVisibleCheckedIds();
+
+            if (checkedValues.length < 1) {
+                alert('슬롯을 선택해주세요.');
+                return;
+            }
+            $('#setting-count-slot-id').val(checkedValues);
+            $('#span-setting-count-text').text(checkedValues.length);
+
+            modalSettingCount.show();
+        });
+
+        $('#btn-setting-count').on('click', function () {
+            const checkedValues = getVisibleCheckedIds();
+
+            if (checkedValues.length < 1) {
+                alert('슬롯을 선택해주세요.');
+                return;
+            }
+
+            const setting_count = $('#setting-count').val();
+
+            if (setting_count.length < 1) {
+                alert('조정할 클릭수를 입력해주세요.');
+                return;
+            }
+
+            if (confirm("선택한 슬롯 " + checkedValues.length + "건의 클릭수를 조정하겠습니까?")) {
+
+
+                var formData = {
+                    slot_id: $('#setting-count-slot-id').val(),
+                    setting_count: setting_count,
+                };
+
+                console.log(formData);
+
+
+                $.ajax({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    url: '/slot/setting-count',
+                    method: 'POST',
+                    dataType: 'JSON',
+                    data: formData,
+                    success: function (response) {
+                        alert(response.message);
+
+                        if (response.result == 'success') {
+                            location.reload();
+                        }
+
+                    },
+                    error: function (xhr) {
+                        alert('실패했습니다');
+                        console.log(xhr);
+                    }
+                });
+            }
+        });
+
+        //초기화
+        $('#btn-modal-init').on('click', function () {
+            const checkedValues = getVisibleCheckedIds();
+
+            if (checkedValues.length < 1) {
+                alert('슬롯을 선택해주세요.');
+                return;
+            }
+            $('#init-slot-id').val(checkedValues);
+            $('#span-init-slot-text').text(checkedValues.length);
+
+            modalInitSlot.show();
+        });
+
+        $('#btn-init-slot').on('click', function () {
+            const checkedValues = getVisibleCheckedIds();
+
+            if (checkedValues.length < 1) {
+                alert('슬롯을 선택해주세요.');
+                return;
+            }
+
+
+            if (confirm("선택한 슬롯 " + checkedValues.length + "건을 초기화하겠습니까?")) {
+
+                var formData = {
+                    slot_id: $('#init-slot-id').val(),
+                };
+
+                console.log(formData);
+
+
+                $.ajax({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    url: '/slot/init-slot',
+                    method: 'POST',
+                    dataType: 'JSON',
+                    data: formData,
+                    success: function (response) {
+                        alert(response.message);
+
+                        if (response.result == 'success') {
+                            location.reload();
+                        }
+
+                    },
+                    error: function (xhr) {
+                        alert('실패했습니다');
+                        console.log(xhr);
+                    }
+                });
+            }
+        });
+
+        //삭제
+        $('#btn-modal-delete-select').on('click', function () {
+            const checkedValues = getVisibleCheckedIds();
+
+            if (checkedValues.length < 1) {
+                alert('슬롯을 선택해주세요.');
+                return;
+            }
+            $('#delete-slot-id').val(checkedValues);
+            $('#span-delete-select').text(checkedValues.length);
+
+            modalSlotDeleteSelect.show();
+        });
+
+        $('#btn-slot-delete-select').on('click', function () {
+            const checkedValues = getVisibleCheckedIds();
+
+            if (checkedValues.length < 1) {
+                alert('슬롯을 선택해주세요.');
+                return;
+            }
+
+            if (confirm("선택한 슬롯 " + checkedValues.length + "건의 삭제하겠습니까?")) {
+
+
+                var formData = {
+                    slot_id: $('#delete-slot-id').val(),
+                };
+
+                console.log(formData);
+
+
+                $.ajax({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    url: '/slot/delete-select',
+                    method: 'POST',
+                    dataType: 'JSON',
+                    data: formData,
+                    success: function (response) {
+                        alert(response.message);
+
+                        if (response.result == 'success') {
+                            location.reload();
+                        }
+
+                    },
+                    error: function (xhr) {
+                        alert('실패했습니다');
+                        console.log(xhr);
+                    }
+                });
+            }
+        });
+
+        //팝업
+        function setCookie(name, value, expiredays) {
+            var today = new Date();
+            today.setDate(today.getDate() + expiredays);
+            document.cookie = name + '=' + escape(value) + '; expires=' + today.toGMTString() + '; path=/';
+        }
+
+        function getCookie(name) {
+            var cookie = document.cookie;
+            if (cookie !== "") {
+                var cookie_array = cookie.split("; ");
+                for (var i = 0; i < cookie_array.length; i++) {
+                    var cookie_name = cookie_array[i].split("=");
+                    if (cookie_name[0] === name) {
+                        return cookie_name[1];
+                    }
+                }
+            }
+            return null;
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            var modalElement = document.getElementById("myModal");
+            var myModal = new bootstrap.Modal(modalElement);
+
+            document.getElementById("modal-today-close").addEventListener("click", function () {
+                myModal.hide();
+                setCookie("mycookie", "popupEnd", 1);
+            });
+
+            var checkCookie = getCookie("mycookie");
+            if (checkCookie === "popupEnd") {
+            } else {
+                myModal.show();
+            }
+        });
+
+
+    </script>
+
+
+
+    <script>
+        (() => {
+            const bar = document.getElementById('selection-bar');
+            const surf = document.getElementById('sbSurface');
+            const countEl = document.getElementById('sbCount');
+            const clearBtn = document.getElementById('sbClear');
+            const master = document.getElementById('select-all');
+            const rowSel = 'input[type="checkbox"][name="check-slot-list[]"]';
+            if (!bar || !surf || !countEl) return;
+
+            const header = document.querySelector('.main-header, header.navbar, .app-header, .page-header') || null;
+            function setHdrH() {
+                const h = header ? header.getBoundingClientRect().height : 80;
+                document.documentElement.style.setProperty('--hdr-h', `${Math.round(h)}px`);
+            }
+            setHdrH();
+            new ResizeObserver(setHdrH).observe(document.documentElement);
+            header && new ResizeObserver(setHdrH).observe(header);
+
+            function setSbH() {
+                const h = surf.scrollHeight;
+                const gap = 12;
+                document.documentElement.style.setProperty('--sb-h', `${Math.ceil(h + gap)}px`);
+            }
+            new ResizeObserver(setSbH).observe(surf);
+            window.addEventListener('resize', setSbH);
+
+            const sentry = document.createElement('div');
+            sentry.style.position = 'absolute';
+            sentry.style.top = '0'; sentry.style.height = '1px';
+            bar.prepend(sentry);
+            new IntersectionObserver(([e]) => {
+                bar.classList.toggle('is-stuck', !e.isIntersecting);
+            }, { rootMargin: `-${getComputedStyle(document.documentElement).getPropertyValue('--hdr-h')} 0px 0px 0px`, threshold: 1 })
+                .observe(sentry);
+
+            const actionBtnIds = ['btn-modal-extend', 'btn-modal-max-click', 'btn-modal-setting-count', 'btn-modal-init', 'btn-modal-delete-select'];
+            const actionBtns = actionBtnIds.map(id => document.getElementById(id)).filter(Boolean);
+            const selected = new Set();
+            const getRows = () => Array.from(document.querySelectorAll(rowSel));
+
+            function setOpen(open) {
+                bar.classList.toggle('is-open', open);
+                bar.setAttribute('aria-hidden', open ? 'false' : 'true');
+                if (open) { setSbH(); ensureVisible(); }
+            }
+
+            function ensureVisible() {
+                const r = bar.getBoundingClientRect();
+                const hdrH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--hdr-h')) || 56;
+                const above = r.top < hdrH || r.bottom < hdrH;
+                const below = r.top > window.innerHeight;
+                if (above || below) { bar.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+            }
+
+            function render() {
+                const n = selected.size;
+                countEl.textContent = n;
+                setOpen(n > 0);
+                actionBtns.forEach(b => b.disabled = n === 0);
+
+                if (master) {
+                    const rows = getRows();
+                    const checked = rows.filter(c => c.checked).length;
+                    master.checked = rows.length > 0 && checked === rows.length;
+                    master.indeterminate = checked > 0 && checked < rows.length;
+                }
+            }
+
+            function syncFromDOM() {
+                selected.clear();
+                getRows().forEach(c => { if (c.checked) selected.add(c.value); });
+                render();
+            }
+
+            document.readyState === 'loading'
+                ? document.addEventListener('DOMContentLoaded', syncFromDOM)
+                : syncFromDOM();
+
+            document.addEventListener('change', (e) => {
+                const t = e.target;
+                if (!(t instanceof HTMLInputElement)) return;
+
+                if (t === master) {
+                    const on = !!t.checked;
+                    getRows().forEach(c => { c.checked = on; on ? selected.add(c.value) : selected.delete(c.value); });
+                    render();
+                    return;
+                }
+                if (t.matches(rowSel)) {
+                    t.checked ? selected.add(t.value) : selected.delete(t.value);
+                    render();
+                }
+            });
+
+            clearBtn?.addEventListener('click', () => {
+                selected.clear();
+                getRows().forEach(c => c.checked = false);
+                render();
+            });
+
+            window.getSelectedSlotIds = () => Array.from(selected);
+        })();
+    </script>
+
+
+    <script>
+        (() => {
+            const native = document.getElementById('select-limit');
+            const wrap = document.getElementById('dhtLimit');
+            if (!native || !wrap) return;
+
+            const btn = document.getElementById('dhtLimitBtn');
+            const list = document.getElementById('dhtLimitList');
+            const label = wrap.querySelector('.dht-select__label');
+            const hiddenLimit = document.getElementById('limit');
+            const form = document.getElementById('form-search');
+
+            const opts = Array.from(native.options).map(o => ({ val: o.value, text: o.text, sel: o.selected }));
+            list.innerHTML = opts.map(o => `<li role="option" class="dht-select__opt" data-val="${o.val}" aria-selected="${o.sel ? 'true' : 'false'}">${o.text}</li>`).join('');
+            const items = Array.from(list.querySelectorAll('.dht-select__opt'));
+            const cur = opts.find(o => o.sel) || opts[0];
+            label.textContent = cur.text;
+
+            function open() { wrap.classList.add('is-open'); btn.setAttribute('aria-expanded', 'true'); setActive(indexOfSel()); list.focus(); bindDoc(); }
+            function close() { wrap.classList.remove('is-open'); btn.setAttribute('aria-expanded', 'false'); items.forEach(i => i.classList.remove('is-active')); unbindDoc(); }
+            function toggle() { wrap.classList.contains('is-open') ? close() : open(); }
+            function indexOfSel() { return items.findIndex(el => el.getAttribute('aria-selected') === 'true'); }
+            function setActive(i) { const idx = Math.max(0, Math.min(items.length - 1, i)); items.forEach(x => x.classList.remove('is-active')); items[idx]?.classList.add('is-active'); items[idx]?.scrollIntoView({ block: 'nearest' }); }
+
+            function choose(el) {
+                const val = el.dataset.val, txt = el.textContent.trim();
+                items.forEach(i => i.setAttribute('aria-selected', i === el ? 'true' : 'false'));
+                label.textContent = txt;
+                native.value = val;
+                if (hiddenLimit) hiddenLimit.value = val;
+                if (form) form.submit();
+            }
+
+            function onDoc(e) { if (!wrap.contains(e.target)) close(); }
+            function onKey(e) {
+                if (!wrap.classList.contains('is-open')) return;
+                const idx = items.findIndex(x => x.classList.contains('is-active'));
+                if (e.key === 'ArrowDown') { e.preventDefault(); setActive(Math.min(items.length - 1, idx + 1)); }
+                else if (e.key === 'ArrowUp') { e.preventDefault(); setActive(Math.max(0, idx - 1)); }
+                else if (e.key === 'Home') { e.preventDefault(); setActive(0); }
+                else if (e.key === 'End') { e.preventDefault(); setActive(items.length - 1); }
+                else if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); const el = items.find(x => x.classList.contains('is-active')) || items[0]; if (el) { choose(el); close(); btn.focus(); } }
+                else if (e.key === 'Escape') { e.preventDefault(); close(); btn.focus(); }
+            }
+            function bindDoc() { document.addEventListener('click', onDoc); document.addEventListener('keydown', onKey); }
+            function unbindDoc() { document.removeEventListener('click', onDoc); document.removeEventListener('keydown', onKey); }
+
+            // 이벤트
+            btn.addEventListener('click', toggle);
+            btn.addEventListener('keydown', e => {
+                if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowDown') { e.preventDefault(); open(); }
+            });
+            items.forEach((el, i) => {
+                el.addEventListener('mousemove', () => setActive(i));
+                el.addEventListener('click', () => { choose(el); close(); btn.focus(); });
+            });
+
+            // 네이티브 변경과도 동기화(방어)
+            native.addEventListener('change', () => {
+                const o = native.options[native.selectedIndex]; if (!o) return;
+                const el = items.find(x => x.dataset.val === o.value); if (el) choose(el);
+            });
+        })();
+    </script>
+
+
+    <script>
+        (function ($) {
+            let $openCell = null, $menu = null, anchorBtn = null, locked = false;
+            const Z = 1035;
+
+            function mountKebab() {
+                $('.mrx-td--menu').each(function () {
+                    const $cell = $(this);
+                    if ($cell.data('kebab-init')) return;
+                    $cell.data('kebab-init', 1);
+                    if ($cell.find('button.mrx-kebab').length === 0) {
+                        $cell.append('<button type="button" class="mrx-kebab" aria-label="메뉴"></button>');
+                    }
+                    if (!$cell.data('menu')) {
+                        $cell.data('menu', $('<div class="mrx-menu" role="menu" aria-hidden="true"></div>'));
+                    }
+                });
+            }
+
+            function positionMenu(btn) {
+                const r = btn.getBoundingClientRect();
+                $menu.css({ left: Math.round(r.left + (r.width / 2) - ($menu.outerWidth() / 2)), top: Math.round(r.bottom + 8) });
+            }
+
+            function openMenu($cell, btn) {
+                $menu = $cell.data('menu');
+                // 현재 locked 상태에 맞춰 즉시 렌더
+                renderMenu($cell);
+
+                $menu.appendTo(document.body)
+                    .attr('data-portal', '1')
+                    .css({ position: 'fixed', display: 'block', visibility: 'hidden', zIndex: Z });
+                anchorBtn = btn;
+                positionMenu(btn);
+                $menu.css({ visibility: 'visible' });
+                $openCell = $cell;
+            }
+
+            function closeMenu(force) {
+                if (!$menu) return;
+                if (locked && !force) return;
+                $menu.hide().removeAttr('data-portal').appendTo($openCell);
+                $menu = null; $openCell = null; anchorBtn = null;
+            }
+
+            function renderMenu($cell) {
+                const isThisLocked = locked && $openCell && $openCell[0] === $cell[0];
+                const html = isThisLocked
+                    ? '<button type="button" class="mrx-menu__item js-act" data-act="confirm">확인</button>\
+                     <button type="button" class="mrx-menu__item js-act" data-act="cancel">취소</button>'
+                    : '<button type="button" class="mrx-menu__item js-act" data-act="edit">수정</button>'
+                    + ($cell.find('.btn-modal-delete').length ? '<button type="button" class="mrx-menu__item js-act" data-act="delete">삭제</button>' : '');
+                $cell.data('menu').html(html);
+            }
+
+            // 케밥 토글
+            $(document).on('click', '.mrx-td--menu .mrx-kebab', function (e) {
+                e.stopPropagation();
+                const $cell = $(this).closest('.mrx-td--menu');
+                if (locked) return;
+                if ($openCell && $openCell[0] === $cell[0]) { closeMenu(true); return; }
+                closeMenu(true);
+                openMenu($cell, this);
+            });
+
+            // 메뉴 동작
+            $(document).on('click', '.mrx-menu[data-portal="1"] .js-act', function (e) {
+                e.preventDefault(); e.stopPropagation();
+                if (!$openCell) return;
+                const act = $(this).data('act');
+
+                if (act === 'edit') {
+                    // 1) 먼저 상태 고정
+                    locked = true;
+                    // 2) 드롭다운을 즉시 확인/취소로 교체
+                    renderMenu($openCell);
+                    positionMenu(anchorBtn);
+                    // 3) 기존 "수정" 버튼 로직 호출
+                    $openCell.find('.btn-modal-edit').trigger('click');
+                    return;
+                }
+                if (act === 'confirm') {
+                    window.__mrxPending = 'confirm';
+                    // 잠깐 비활성화(중복 클릭 방지)
+                    $(this).prop('disabled', true);
+                    $openCell.find('.btn-modal-confirm').trigger('click');
+                    // 닫지 않음. 결과는 ajaxComplete에서 판단
+                    return;
+                }
+                if (act === 'cancel') {
+                    $openCell.find('.btn-modal-cancel').trigger('click');
+                    locked = false; closeMenu(true); return;
+                }
+                if (act === 'delete') {
+                    $openCell.find('.btn-modal-delete').trigger('click');
+                    closeMenu(true); return;
+                }
+            });
+
+            // 외부 클릭/모달/스크롤
+            $(document).on('click', function () { closeMenu(false); });
+            $(document).on('click', '.mrx-menu[data-portal="1"]', function (e) { e.stopPropagation(); });
+            $(document).on('show.bs.modal shown.bs.offcanvas', function () { closeMenu(true); });
+
+            let raf = null;
+            function onScrollResize() {
+                if (!$openCell) return;
+                if (locked) {
+                    if (!raf) raf = requestAnimationFrame(() => { raf = null; positionMenu(anchorBtn); });
+                } else {
+                    closeMenu(true);
+                }
+            }
+            $(window).on('scroll resize', onScrollResize);
+
+            // Ajax 확인 성공 후 필요 시 외부에서 닫기
+            window.MRXKebab = { close: () => { locked = false; closeMenu(true); } };
+
+            $(function () { mountKebab(); });
+        })(jQuery);
+
+    </script>
+
+
+    <script>
+        (function () {
+            function outsideCloseFactory(wrap, close) { return (e) => { if (!wrap.contains(e.target)) close(); }; }
+            function setNativeValue(el, val) {
+                if (!el) return;
+                el.value = val;
+                const ev = new Event('change', { bubbles: true });
+                el.dispatchEvent(ev);
+            }
+
+            const userWrap = document.getElementById('ui-slot-user');
+            if (userWrap) {
+                const native = document.getElementById(userWrap.dataset.target);
+                const btn = userWrap.querySelector('.dht-select__btn');
+                const label = userWrap.querySelector('.dht-select__label');
+                const panel = userWrap.querySelector('.dht-select__panel');
+                const ipt = userWrap.querySelector('.dht-select__input');
+                const list = userWrap.querySelector('.dht-select__list');
+
+                function setLabel(txt) { label.textContent = txt || '회원 검색'; }
+                function open() { userWrap.classList.add('is-open'); btn.setAttribute('aria-expanded', 'true'); ipt.focus(); }
+                function close() { userWrap.classList.remove('is-open'); btn.setAttribute('aria-expanded', 'false'); }
+                const onDocUser = outsideCloseFactory(userWrap, close);
+
+                btn.addEventListener('click', (e) => { e.preventDefault(); userWrap.classList.contains('is-open') ? close() : open(); });
+                document.addEventListener('click', onDocUser);
+
+                async function fetchUsers(q) {
+                    const r = await fetch(`/member/search?q=${encodeURIComponent(q || '')}`);
+                    const data = await r.json();
+                    return Array.isArray(data) ? data : (data.items || data.results || []);
+                }
+
+                let curIdx = -1, items = [];
+                function render(rows) {
+                    list.innerHTML = rows.map(o => `<li class="dht-select__opt" role="option" data-val="${o.id}">${o.text}</li>`).join('');
+                    items = Array.from(list.children);
+                    curIdx = items.length ? 0 : -1;
+                    if (curIdx >= 0) items[curIdx].classList.add('is-active');
+                }
+
+                let t = null;
+                ipt.addEventListener('input', () => {
+                    clearTimeout(t);
+                    t = setTimeout(async () => {
+                        const rows = await fetchUsers(ipt.value.trim());
+                        render(rows);
+                    }, 120);
+                });
+
+                function setActive(i) {
+                    if (i < 0 || i >= items.length) return;
+                    items[curIdx]?.classList.remove('is-active');
+                    curIdx = i; items[curIdx].classList.add('is-active');
+                    items[curIdx].scrollIntoView({ block: 'nearest' });
+                }
+                function move(d) { if (items.length) setActive(Math.max(0, Math.min(items.length - 1, curIdx + d))); }
+
+                function choose(li) {
+                    if (!li) return;
+                    const val = li.dataset.val, txt = li.textContent.trim();
+                    // 선택한 값의 option이 없으면 추가
+                    const existingOption = Array.from(native.options).find(opt => opt.value === val);
+                    if (!existingOption) {
+                        const newOption = document.createElement('option');
+                        newOption.value = val;
+                        newOption.text = txt;
+                        native.appendChild(newOption);
+                    }
+                    setNativeValue(native, val);
+                    setLabel(txt); close(); btn.focus();
+                }
+
+                list.addEventListener('click', (e) => {
+                    const li = e.target.closest('.dht-select__opt'); if (li) choose(li);
+                });
+                [list, ipt].forEach(el => el.addEventListener('keydown', (e) => {
+                    if (!userWrap.classList.contains('is-open')) return;
+                    if (e.key === 'ArrowDown') { e.preventDefault(); move(1); }
+                    else if (e.key === 'ArrowUp') { e.preventDefault(); move(-1); }
+                    else if (e.key === 'Home') { e.preventDefault(); setActive(0); }
+                    else if (e.key === 'End') { e.preventDefault(); setActive(items.length - 1); }
+                    else if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); choose(items[curIdx]); }
+                    else if (e.key === 'Escape') { e.preventDefault(); close(); btn.focus(); }
+                }));
+
+                (async () => {
+                    setLabel(native.options[native.selectedIndex]?.text || '회원 검색');
+                    const rows = await fetchUsers('');
+                    render(rows);
+                })();
+            }
+
+            const daysWrap = document.getElementById('ui-slot-days');
+            if (daysWrap) {
+                const native = document.getElementById(daysWrap.dataset.target); // #add-slot-date
+                const btn = daysWrap.querySelector('.dht-select__btn');
+                const label = daysWrap.querySelector('.dht-select__label');
+                const panel = daysWrap.querySelector('.dht-select__panel');
+                const opts = Array.from(daysWrap.querySelectorAll('.dht-select__opt'));
+                const directIpt = document.getElementById('add-slot-date2');
+
+                function open() { daysWrap.classList.add('is-open'); btn.setAttribute('aria-expanded', 'true'); }
+                function close() { daysWrap.classList.remove('is-open'); btn.setAttribute('aria-expanded', 'false'); }
+                const onDocDays = outsideCloseFactory(daysWrap, close);
+
+                function choose(el) {
+                    const val = el.dataset.val, txt = el.textContent.trim();
+                    label.textContent = txt;
+                    opts.forEach(o => o.setAttribute('aria-selected', o === el ? 'true' : 'false'));
+                    setNativeValue(native, val);
+                    const direct = val === '0';
+                    directIpt.disabled = !direct;
+                    if (!direct) directIpt.value = '';
+                    close();
+                }
+
+                btn.addEventListener('click', (e) => { e.preventDefault(); daysWrap.classList.contains('is-open') ? close() : open(); });
+                document.addEventListener('click', onDocDays);
+                opts.forEach(o => o.addEventListener('click', () => choose(o)));
+
+                const init = opts.find(o => o.dataset.val === native.value) || opts[0];
+                if (init) choose(init);
+            }
+
+            (() => {
+                const chk = document.getElementById('add-slot-today');
+                if (!chk) return;
+                const box = chk.parentElement.querySelector('.dht-roundcheck__box');
+                if (box) {
+                    chk.parentElement.addEventListener('click', (e) => {
+                        if (e.target === chk) return;
+                        e.preventDefault();
+                        chk.checked = !chk.checked;
+                    });
+                }
+            })();
+
+            window.addEventListener('DOMContentLoaded', () => {
+                const openBtn = document.getElementById('btn-modal-add');
+                const form = document.getElementById('form-slot-add');
+                if (openBtn) {
+                    openBtn.addEventListener('click', () => {
+                        form && form.reset();
+                        setNativeValue(document.getElementById('add-slot-date'), '10');
+                        const lbl = document.querySelector('#ui-slot-days .dht-select__label');
+                        if (lbl) lbl.textContent = '10일';
+                        const ipt = document.getElementById('add-slot-date2');
+                        if (ipt) { ipt.value = ''; ipt.disabled = true; }
+                        const ulab = document.querySelector('#ui-slot-user .dht-select__label');
+                        if (ulab) ulab.textContent = '회원 검색';
+                    });
+                }
+            });
+        })();
+    </script>
+
+
+    <script>
+        $(document).on('click', '#btn-modal-add', function () {
+            const $f = $('#form-slot-add');
+            $f[0]?.reset();
+
+            $('#add-slot-date').val('10').trigger('change');
+            $('#add-slot-date2').val('').prop('disabled', true);
+
+            // 사용자 선택 초기화 - 동적으로 추가된 option 제거
+            const $userid = $('#add-slot-userid');
+            $userid.find('option:not(:first)').remove(); // 첫 번째 기본 option만 남기고 제거
+            $userid.val('').trigger('change');
+
+            modalSlotAdd && modalSlotAdd.show();
+        });
+
+        // 슬롯 생성 버튼 클릭 이벤트
+        $(document).on('click', '#btn-add-slot', function() {
+            if(confirm('슬롯을 생성하겠습니까?')) {
+
+                var formData = {
+                    slot_userid: $('#add-slot-userid').val(),
+                    slot_count: $("#add-slot-count").val(),
+                    slot_limit: $("#add-slot-limit").val(),
+                    slot_type: $('#add-slot-type').val(),
+                    slot_end_date: $("#add-slot-date").val(),
+                    slot_today: $('#add-slot-today').is(':checked') ? 1 : 0
+                };
+
+                console.log(formData);
+
+                $.ajax({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    url: '/slot/add',
+                    method: 'POST',
+                    dataType: 'JSON',
+                    data: formData,
+                    success: function (response) {
+                        alert(response.message);
+
+                        if (response.result == 'success') {
+                            location.reload();
+                        }
+
+                    },
+                    error: function (xhr) {
+                        alert('생성 실패했습니다');
+                        console.log(xhr);
+                    }
+                });
+
+            }
+        });
+    </script>
+
+
+    <script>
+        (() => {
+            const modal = document.getElementById('modal-slot-delete');
+            let anim = null;
+
+            modal.addEventListener('shown.bs.modal', () => {
+                if (anim) return;
+                anim = lottie.loadAnimation({
+                    container: document.getElementById('delAnim'),
+                    renderer: 'svg',
+                    loop: true,
+                    autoplay: true,
+                    path: '/images/jKRVRZValr.json' // ← JSON 경로만 교체
+                });
+            });
+
+            modal.addEventListener('hide.bs.modal', () => {
+                if (!anim) return;
+                anim.destroy();
+                anim = null;
+            });
+        })();
+    </script>
+
+    <script>
+        (() => {
+            const modal = document.getElementById('modal-slot-delete-select');
+            let anim = null;
+
+            modal.addEventListener('shown.bs.modal', () => {
+                if (anim) return;
+                anim = lottie.loadAnimation({
+                    container: document.getElementById('delAnimMulti'),
+                    renderer: 'svg',
+                    loop: true,
+                    autoplay: true,
+                    path: '/images/jKRVRZValr.json' // 사용 중인 JSON 경로
+                });
+            });
+
+            modal.addEventListener('hide.bs.modal', () => {
+                if (!anim) return;
+                anim.destroy();
+                anim = null;
+            });
+        })();
+    </script>
+
+
+
+    <script>
+        // === 기존 관련 바인딩 전부 해제(중복 방지) ===
+        $('.btn-rank-chart').off();
+        $('#btn-update-memo').off();
+        $(document).off('.rhist');
+        $('#modal-rank-history').off('.rhist');
+
+        // === 순위 모달 오픈 + 데이터 렌더 ===
+        $(document).on('click.rhist', '.btn-rank-chart', function () {
+            const id = $(this).data('id');
+            const $dlg = $('#modal-rank-history');
+            const $tit = $dlg.find('#rhKeyword, #offcanvas-keyword'); // 둘 중 있는 것
+            const $memoI = $dlg.find('#memo-keyword-id');
+            const $memoT = $dlg.find('#memo-keyword-memo');
+            const $tb = $dlg.find('.rh-table tbody');
+
+            // 초기화
+            $tit.text('…');
+            $memoI.val(id);
+            if (!$memoT.is(':focus')) $memoT.val('');
+            $tb.empty();
+
+            // 먼저 모달 띄움(애니메이션 끊김 방지)
+            modalRank.show();
+
+            // 데이터 로드
+            $.ajax({ url: '/slot/detail-history/' + id, method: 'GET', dataType: 'json' })
+                .done(function (r) {
+                    const ok = String(r?.result || '').toLowerCase() === 'success';
+                    const slot = r?.slot || {};
+                    const list = Array.isArray(r?.history) ? r.history : [];
+
+                    // 타이틀, 메모 기본값
+                    $tit.text([slot.KEYWORD, slot.MID].filter(Boolean).join(' / ') || '-');
+                    $memoI.val(slot.ID || id);
+                    if (!$memoT.is(':focus')) $memoT.val(slot.COMMENT || '');
+
+                    if (!ok) { $tb.html('<tr><td class="text-danger">데이터 없음</td><td></td></tr>'); return; }
+
+                    // 행 렌더
+                    const html = list.length ? list.map(it => {
+                        const d = it.history_date_txt || '';
+                        const rank = it.ranking_txt ?? it.ranking ?? '';
+                        const diff = Number(it.ranking_change || 0);
+                        const sign = diff > 0 ? `+${diff}` : diff < 0 ? `${diff}` : '';
+                        const cls = diff > 0 ? 'text-success' : diff < 0 ? 'text-danger' : 'text-muted';
+                        return `
+                      <tr class="rh-row">
+                        <td class="rh-left">
+                          <div class="rh-date">${d}</div>
+                          <div class="rh-rank"><strong>${rank}</strong></div>
+                        </td>
+                        <td class="rh-right ${cls}">${sign}</td>
+                      </tr>`;
+                    }).join('') : '<tr><td class="text-muted">기록 없음</td><td></td></tr>';
+
+                    $tb.html(html);
+                })
+                .fail(function () {
+                    $tb.html('<tr><td class="text-danger">요청 실패</td><td></td></tr>');
+                });
+        });
+
+        // 시간별 순위 버튼 핸들러
+        $(document).on('click', '.btn-hourly', function () {
+            const id = $(this).data('id');
+            const $dlg = $('#modal-hourly-rank');
+            const $list = $dlg.find('#hrList');
+            $dlg.find('#hrKeyword').text('시간별 순위');
+            $list.empty();
+            modalHourly && modalHourly.show();
+
+            $.getJSON('/slot/detail-hourly/' + id)
+                .done(function (res) {
+                    const data = res && res.data ? res.data : { items: [] };
+                    if (data.keyword) {
+                        $dlg.find('#hrKeyword').text(data.keyword + ' - 시간별 순위');
+                    }
+                    if (!data.items || !data.items.length) {
+                        $list.html('<div class="text-muted">데이터가 없습니다.</div>');
+                        return;
+                    }
+                    // 최신이 상단이므로, 상승/하락은 바로 다음(더 오래된) 항목과 비교
+                    const items = data.items.slice(); // newest-first
+                    const frag = document.createDocumentFragment();
+                    for (let i = 0; i < items.length; i++) {
+                        const cur = items[i];
+                        const next = items[i + 1]; // older
+                        const hourTxt = cur.time_txt || '--:--';
+                        const rankNum = (cur.ranking && cur.ranking > 0) ? cur.ranking : null;
+                        const rankTxt = (typeof cur.ranking_txt === 'string' && cur.ranking_txt.length)
+                            ? cur.ranking_txt
+                            : (rankNum ? (rankNum + '위') : '-');
+
+                        let deltaClass = 'hr-delta--flat';
+                        let deltaTxt = '변화없음';
+                        if (next && rankNum !== null) {
+                            const nextRank = (next.ranking && next.ranking > 0) ? next.ranking : null;
+                            if (nextRank !== null) {
+                                const diff = nextRank - rankNum; // 양수면 상승(+)
+                                if (diff > 0) { deltaClass = 'hr-delta--up'; deltaTxt = '+' + diff; }
+                                else if (diff < 0) { deltaClass = 'hr-delta--down'; deltaTxt = String(diff); }
+                                else { deltaClass = 'hr-delta--flat'; deltaTxt = '변화없음'; }
+                            } else {
+                                deltaClass = 'hr-delta--flat';
+                                deltaTxt = '-';
+                            }
+                        } else if (!next) {
+                            // 가장 오래된 항목은 비교 대상 없음
+                            deltaClass = 'hr-delta--flat';
+                            deltaTxt = '-';
+                        }
+
+                        const div = document.createElement('div');
+                        div.className = 'hr-item';
+                        div.innerHTML = '<div class="hr-time">' + hourTxt + '</div>' +
+                                        '<div class="hr-rank">' + rankTxt + '</div>' +
+                                        '<div class="hr-delta ' + deltaClass + '">' + deltaTxt + '</div>';
+                        frag.appendChild(div);
+                    }
+                    $list[0].appendChild(frag);
+                })
+                .fail(function () {
+                    $list.html('<div class="text-danger">불러오기에 실패했습니다.</div>');
+                });
+        });
+
+        // === 메모 저장(중복 알림 차단) ===
+        $(document).on('click.rhist', '#btn-update-memo', function (e) {
+            e.preventDefault();
+            e.stopImmediatePropagation(); // 혹시 남아있는 다른 바인딩 차단
+
+            const $dlg = $('#modal-rank-history');
+            const id = $dlg.find('#memo-keyword-id').val();
+            const memo = $dlg.find('#memo-keyword-memo').val();
+
+            $.ajax({
+                headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                url: '/slot/memo', method: 'POST', dataType: 'json',
+                // 백엔드가 어떤 키를 읽어도 되도록 모두 전송
+                data: { id, memo, slot_id: id, comment: memo }
+            })
+                .done(function (r) {
+                    const ok = String(r?.result || '').toLowerCase() === 'success' || r?.success === true || r?.code === 0;
+                    alert(ok ? (r?.message || '메모가 저장되었습니다.') : (r?.message || '메모 저장 실패'));
+                })
+                .fail(function () { alert('요청 실패'); });
+        });
+    </script>
+
+
+
+
+
+
+
+    <script>
+        $(document).off('.rhist');
+        $('#modal-rank-history').removeClass('is-ready');
+
+        $(document).on('click.rhist', '.btn-rank-chart', function () {
+            const id = $(this).data('id');
+            const $dlg = $('#modal-rank-history');
+
+            $dlg.removeClass('is-ready');
+            $dlg.find('#rhKeyword').text('—');
+            $dlg.find('#memo-keyword-id').val(id);
+            $dlg.find('#memo-keyword-memo').val('');
+
+            modalRank.show();
+
+            $.getJSON('/slot/detail-history/' + id)
+                .done(res => {
+                    const slot = res?.slot || {};
+                    const list = Array.isArray(res?.history) ? res.history : [];
+
+                    $dlg.find('#rhKeyword').text(
+                        [slot.KEYWORD, slot.MID].filter(Boolean).join(' / ') || '-'
+                    );
+                    $dlg.find('#memo-keyword-id').val(slot.ID || id);
+
+                    const $ta = $dlg.find('#memo-keyword-memo');
+                    if (!$ta.is(':focus')) $ta.val(slot.COMMENT || '');
+
+                    const html = (list.length ? list : [{ history_date_txt: '-', ranking_txt: '-', ranking_change: 0, ranking_class: '' }])
+                        .map(it => {
+                            const delta = Math.abs(Number(it.ranking_change) || 0);
+                            const dir = String(it.ranking_class || '').toLowerCase();
+                            const cls = dir === 'rising' ? 'up' : dir === 'falling' ? 'down' : 'same';
+                            const mark = dir === 'rising' ? '▲' : dir === 'falling' ? '▼' : '—';
+                            const right = delta ? `${mark} ${delta}` : '—';
+                            return `
+                        <div class="rh-card">
+                          <div>
+                            <div class="rh-card__date">${it.history_date_txt || ''}</div>
+                            <div class="rh-card__rank">${it.ranking_txt || it.ranking || ''}</div>
+                          </div>
+                          <div class="rh-card__chg ${cls}">${right}</div>
+                        </div>`;
+                        }).join('');
+
+                    $dlg.find('#rhList').html(html);
+                    requestAnimationFrame(() => $dlg.addClass('is-ready'));
+                })
+                .fail(() => {
+                    $dlg.find('#rhList').html(
+                        `<div class="rh-card"><div class="rh-card__date text-danger">불러오기 실패</div></div>`
+                    );
+                    requestAnimationFrame(() => $dlg.addClass('is-ready'));
+                });
+        });
+
+        $(document).on('click.rhist', '#btn-update-memo', function (e) {
+            e.preventDefault();
+            const $btn = $(this);
+            if ($btn.prop('disabled')) return;
+
+            const $dlg = $('#modal-rank-history');
+            const id = Number($dlg.find('#memo-keyword-id').val() || 0);
+            const memo = ($dlg.find('#memo-keyword-memo').val() || '').trim();
+            if (!id) { alert('ID 누락'); return; }
+
+            $btn.prop('disabled', true);
+
+            $.ajax({
+                headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                url: '/slot/memo',
+                method: 'POST',
+                dataType: 'json',
+                data: { id, memo, slot_id: id, comment: memo }
+            })
+                .done(r => {
+                    const ok = /^(success|ok|done)$/i.test(String(r?.result)) || r?.success === true || r?.code === 0;
+                    alert(ok ? (r?.message || '메모가 저장되었습니다.') : (r?.message || '메모 저장 실패'));
+                })
+                .fail(() => alert('요청 실패'))
+                .always(() => $btn.prop('disabled', false));
+        });
+    </script>
+
+
+
+    <script>
+        (() => {
+            const SHEET_ID = 'mxsSlot', BLOCKER_ID = 'mxsBlocker', SHEET_Z = 125000, BLOCKER_Z = 124999;
+
+            const $sheet = $('#' + SHEET_ID); if (!$sheet.length) return;
+            const $panel = $sheet.find('.mxs-panel'), $body = $sheet.find('.mxs-body'), $header = $sheet.find('.mxs-header, .mxs-handle');
+
+            /* ===== 스크롤 락 + 워치독 ===== */
+            let LOCK = false, frozenY = 0, watchdog = null;
+            const inPanel = t => !!(t && t.closest && t.closest('#' + SHEET_ID + ' .mxs-panel'));
+            const inBody = t => !!(t && t.closest && t.closest('#' + SHEET_ID + ' .mxs-body'));
+
+            function ensureBlocker() {
+                let b = document.getElementById(BLOCKER_ID);
+                if (!b) {
+                    b = document.createElement('div'); b.id = BLOCKER_ID; b.setAttribute('aria-hidden', 'true');
+                    const stop = e => { if (inPanel(e.target) && inBody(e.target)) return; e.preventDefault(); };
+                    b.addEventListener('wheel', stop, { passive: false, capture: true });
+                    b.addEventListener('touchmove', stop, { passive: false, capture: true });
+                    document.body.appendChild(b);
+                }
+                Object.assign(b.style, { position: 'fixed', inset: '0', zIndex: String(BLOCKER_Z), pointerEvents: 'auto', background: 'transparent' });
+                return b;
+            }
+            function preventKeys(e) {
+                if (!LOCK) return;
+                const t = e.target;
+                if ((t.tagName && /input|textarea|select/i.test(t.tagName)) || t.isContentEditable) return;
+                if (inPanel(t)) return;
+                if (['Space', 'PageUp', 'PageDown', 'ArrowUp', 'ArrowDown', 'Home', 'End'].includes(e.code)
+                    || [32, 33, 34, 35, 36, 38, 40].includes(e.keyCode)) e.preventDefault();
+            }
+            function stick() { if (LOCK) window.scrollTo(0, frozenY); }
+
+            function lockScroll() {
+                if (LOCK) return;
+                LOCK = true; frozenY = window.pageYOffset || window.scrollY || 0;
+                ensureBlocker(); document.addEventListener('keydown', preventKeys, { capture: true });
+                window.addEventListener('scroll', stick, { passive: false });
+            }
+            function unlockScroll() {
+                if (!LOCK) return;
+                LOCK = false; const b = document.getElementById(BLOCKER_ID); if (b && b.parentNode) b.parentNode.removeChild(b);
+                document.removeEventListener('keydown', preventKeys, { capture: true });
+                window.removeEventListener('scroll', stick, { passive: false });
+                window.scrollTo(0, frozenY);
+            }
+
+            function watch() {
+                clearInterval(watchdog);
+                watchdog = setInterval(() => {
+                    const open = $sheet.hasClass('is-open'); const has = !!document.getElementById(BLOCKER_ID);
+                    if (open && !LOCK) lockScroll();
+                    if (!open && LOCK) unlockScroll();
+                    if (open && !has) ensureBlocker();
+                }, 250);
+            }
+            new MutationObserver(() => { const open = $sheet.hasClass('is-open'); open ? lockScroll() : unlockScroll(); })
+                .observe($sheet[0], { attributes: true, attributeFilter: ['class'] });
+            watch();
+
+            function fill(d) {
+                $('#mxsTitle').text('코드 ' + (d.id || '-'));
+                $('#mxsSub').text((d.agency || '-') + ' · D-' + (d.remaining || '-'));
+
+                $('#mxvId').text(d.id || '-');
+                $('#mxvAgency').text(d.agency || '-');
+                $('#mxvRemain').text(d.remaining || '-');
+                $('#mxvUser').text(d.user || '-');
+                $('#mxvUserName').text(d.username || '-');
+
+                $('#mxvKeyword').text(d.keyword || '-');
+                $('#mxvRankKeyword').text(d.rankkeyword || '-');
+                $('#mxvRanking').text(d.ranking || '-');
+
+                const $rb = $('#mxvRankBtn');
+                if ($rb.length) {
+                    const hasId = !!(d.id && String(d.id).trim());
+                    $rb.attr('data-id', hasId ? d.id : '').toggle(hasId);
+                }
+
+                // 오늘순위변화 업데이트
+                const $trc = $('#mxvTodayRankChange');
+                if ($trc.length) {
+                    const todayRankChangeText = d.todayRankChange || '데이터 부족';
+                    const todayRankChangeClass = d.todayRankChangeClass || 'rank-change--no-data';
+                    $trc.text(todayRankChangeText).removeClass().addClass('rank-change rank-change--mobile ' + todayRankChangeClass);
+                }
+
+                // 첫순위변화 업데이트
+                const $frc = $('#mxvFirstRankChange');
+                if ($frc.length) {
+                    const firstRankChangeText = d.firstRankChange || '데이터 부족';
+                    const firstRankChangeClass = d.firstRankChangeClass || 'rank-change--no-data';
+                    $frc.text(firstRankChangeText).removeClass().addClass('rank-change rank-change--mobile ' + firstRankChangeClass);
+                }
+
+                // 시간별 순위 버튼 data-id 설정
+                const $hb = $('.btn-hourly-mobile');
+                if ($hb.length) {
+                    const hasId = !!(d.id && String(d.id).trim());
+                    $hb.attr('data-id', hasId ? d.id : '').toggle(hasId);
+                }
+
+                if ($('#mxvUrlA').length) {
+                    const u = d.url || '';
+                    $('#mxvUrlA').text(u || '-')
+                        .attr('href', u ? (/^https?:\/\//.test(u) ? u : 'https://' + u) : '#');
+                }
+
+                $('#mxvMid').length && $('#mxvMid').text(d.mid || '-');
+                $('#mxvMid2').length && $('#mxvMid2').text(d.mid2 || '-');
+                $('#mxvRankingStatus').length && $('#mxvRankingStatus').text(d.rankingStatus || '-');
+
+                $('#mxvStart').text(d.start || '-');
+                $('#mxvEnd').text(d.end || '-');
+
+                $('#mxvCount').length && $('#mxvCount').text(d.count || '-');
+                $('#mxvLastCount').length && $('#mxvLastCount').text(d.lastCount || '-');
+                $('#mxvSettingCount').length && $('#mxvSettingCount').text(d.settingCount || '-');
+                $('#mxvSettingCount2').length && $('#mxvSettingCount2').text(d.settingCount2 || '-');
+
+                $('#mxvMemo').text(d.memo || '-');
+
+                $('#mxsSlot').data('id', d.id || '');
+            }
+
+
+
+
+
+            /* ===== 열기/닫기 ===== */
+            function openSheet(d) { fill(d); lockScroll(); $sheet.removeClass('is-closing').attr('aria-hidden', 'false'); requestAnimationFrame(() => $sheet.addClass('is-open')); }
+            function closeSheet() {
+                if (!$sheet.hasClass('is-open') || $sheet.hasClass('is-closing')) return;
+                $sheet.addClass('is-closing').removeClass('is-open');
+                const done = () => { $sheet.removeClass('is-closing').attr('aria-hidden', 'true'); unlockScroll(); };
+                $panel.one('transitionend.mxs webkitTransitionEnd.mxs', e => { if (e.target === $panel[0]) done(); });
+                setTimeout(done, 350);
+            }
+
+
+            // 시트 열기
+            $(document).off('click.mxsOpen').on('click.mxsOpen', '.mxc-card .js-mxc-open', function () {
+                const el = this.closest('.mxc-card'); if (!el) return;
+                const A = (n) => el.getAttribute(n) ?? '';
+
+                const d = {
+                    id: A('data-id'),
+                    agency: A('data-agency'),
+                    remaining: A('data-remaining'),
+                    user: A('data-user'),
+                    username: A('data-username'),
+                    keyword: A('data-keyword'),
+                    rankkeyword: A('data-rankkeyword'),
+                    url: A('data-url'),
+                    ranking: A('data-ranking'),
+                    mid: A('data-mid'),
+                    mid2: A('data-mid2'),
+                    rankingStatus: A('data-ranking-status'),
+                    start: A('data-start'),
+                    end: A('data-end'),
+                    count: A('data-count'),
+                    lastCount: A('data-last-count'),
+                    settingCount: A('data-setting-count'),
+                    settingCount2: A('data-setting-count'),
+                    memo: A('data-memo'),
+                    todayRankChange: A('data-today-rank-change'),
+                    todayRankChangeClass: A('data-today-rank-change-class'),
+                    firstRankChange: A('data-first-rank-change'),
+                    firstRankChangeClass: A('data-first-rank-change-class'),
+                };
+                console.log('sheet d =', d);
+
+                // 1차 렌더
+                openSheet(d);
+                // 어떤 코드가 덮어쓰면 2차로 다시 강제 렌더
+                queueMicrotask(() => fill(d));
+                requestAnimationFrame(() => fill(d));
+            });
+
+            // fill은 그대로 두되, 가드 제거하고 로그 추가
+            function fill(d) {
+                const $k = $('#mxvKeyword');
+                const $rk = $('#mxvRankKeyword');
+                const $r = $('#mxvRanking');
+
+                $('#mxsTitle').text('코드 ' + (d.id || '-'));
+                $('#mxsSub').text((d.agency || '-') + ' · D-' + (d.remaining || '-'));
+
+                $('#mxvId').text(d.id || '-');
+                $('#mxvAgency').text(d.agency || '-');
+                $('#mxvRemain').text(d.remaining || '-');
+                $('#mxvUser').text(d.user || '-');
+                $('#mxvUserName').text(d.username || '-');
+
+                $k.text(d.keyword || '-');
+                $rk.text(d.rankkeyword || '-');
+                $r.text(d.ranking || '-');
+
+                if ($('#mxvUrlA').length) {
+                    const u = d.url || '';
+                    $('#mxvUrlA').text(u || '-').attr('href', u ? (/^https?:\/\//.test(u) ? u : 'https://' + u) : '#');
+                }
+                if ($('#mxvMid').length) $('#mxvMid').text(d.mid || '-');
+                if ($('#mxvMid2').length) $('#mxvMid2').text(d.mid2 || '-');
+                if ($('#mxvRankingStatus').length) $('#mxvRankingStatus').text(d.rankingStatus || '-');
+
+                // 오늘순위변화 업데이트
+                const $trc = $('#mxvTodayRankChange');
+                if ($trc && $trc.length) {
+                    const todayRankChangeText = d.todayRankChange || '데이터 부족';
+                    const todayRankChangeClass = d.todayRankChangeClass || 'rank-change--no-data';
+                    $trc.text(todayRankChangeText).removeClass().addClass('rank-change rank-change--mobile ' + todayRankChangeClass);
+                }
+
+                // 첫순위변화 업데이트
+                const $frc = $('#mxvFirstRankChange');
+                if ($frc && $frc.length) {
+                    const firstRankChangeText = d.firstRankChange || '데이터 부족';
+                    const firstRankChangeClass = d.firstRankChangeClass || 'rank-change--no-data';
+                    $frc.text(firstRankChangeText).removeClass().addClass('rank-change rank-change--mobile ' + firstRankChangeClass);
+                }
+
+                $('#mxvStart').text(d.start || '-');
+                $('#mxvEnd').text(d.end || '-');
+
+                if ($('#mxvCount').length) $('#mxvCount').text(d.count || '-');
+                if ($('#mxvLastCount').length) $('#mxvLastCount').text(d.lastCount || '-');
+                if ($('#mxvSettingCount').length) $('#mxvSettingCount').text(d.settingCount || '-');
+                if ($('#mxvSettingCount2').length) $('#mxvSettingCount2').text(d.settingCount2 || '-');
+
+                $('#mxvMemo').text(d.memo || '-');
+
+                $('#mxsSlot').data('id', d.id || '');
+
+                // 덮어쓰는 주체 추적용
+                console.log('after fill:',
+                    { kw: $k.text(), rkw: $rk.text(), rank: $r.text() });
+            }
+
+
+
+
+
+            $(document).off('click.mxsClose').on('click.mxsClose', '.mxs-backdrop, .js-mxs-close', closeSheet);
+            $(document).off('keydown.mxsEsc').on('keydown.mxsEsc', e => { if (e.key === 'Escape' && $sheet.hasClass('is-open')) closeSheet(); });
+
+            /* ===== 드래그 닫기: 액션바/버튼 제외 + 8px 임계 ===== */
+            let dragging = false, active = false, startY = 0, curY = 0, allowDrag = false;
+            const THRESH = 8;
+
+            const hasInnerScroll = () => { const el = $body[0]; return el && el.scrollHeight > el.clientHeight; };
+            const isInteractive = (t) => {
+                if (!t) return false;
+                if (t.closest('.mxs-actions')) return true;          // 하단 버튼 영역
+                if (t.closest('.dht-sheet__actions')) return true;   // 혹시 공용 클래스
+                const tag = t.tagName;
+                return /BUTTON|A|INPUT|TEXTAREA|SELECT|LABEL/.test(tag);
+            };
+
+            function onStart(e) {
+                const oe = e.originalEvent || e;
+                const target = e.target;
+
+                // 액션바·버튼 클릭은 드래그 금지
+                if (isInteractive(target)) { dragging = false; active = false; return; }
+
+                const startedOnHeader = $header.is(target) || $header.has(target).length > 0;
+                allowDrag = hasInnerScroll() ? startedOnHeader : true;
+                if (!allowDrag) return;
+
+                dragging = true; active = false;
+                startY = (oe.touches ? oe.touches[0].clientY : oe.clientY);
+                curY = 0;
+                $panel.css('transition', 'none');
+                document.documentElement.classList.add('no-select');
+            }
+
+            function onMoveNative(e) {
+                if (!dragging) return;
+                const oe = e.originalEvent || e;
+
+                const y = (oe.touches ? oe.touches[0].clientY : oe.clientY) - startY;
+                if (!active) {
+                    // 수직 이동이 임계 넘을 때부터 드래그로 간주
+                    if (y > THRESH) active = true;
+                    else return; // 아직 클릭 제스처로 간주
+                }
+
+                // 활성 드래그 상태에서는 페이지 스크롤 차단
+                if (oe.cancelable) oe.preventDefault();
+
+                if (y > 0) {
+                    curY = y;
+                    $panel.css('transform', `translateY(${y}px)`);
+                }
+            }
+
+            function onEnd() {
+                if (!dragging) return;
+                dragging = false;
+
+                // 활성 드래그 아니면 클릭으로 처리(액션 버튼 동작 보장)
+                if (!active) {
+                    document.documentElement.classList.remove('no-select');
+                    $panel.attr('style', ''); // transition 초기화
+                    return;
+                }
+
+                active = false;
+                const h = $panel.outerHeight();
+                if (curY > h * 0.2 || curY > 100) { $panel.attr('style', ''); closeSheet(); }
+                else {
+                    $panel.css('transition', 'transform .2s ease').css('transform', 'translateY(0)');
+                    setTimeout(() => $panel.attr('style', ''), 220);
+                }
+                document.documentElement.classList.remove('no-select');
+            }
+
+            // 바인딩(네이티브 + passive:false)
+            $panel.off('mousedown.mxs touchstart.mxs').on('mousedown.mxs touchstart.mxs', onStart);
+            window.removeEventListener('touchmove', onMoveNative, { passive: false });
+            window.removeEventListener('mousemove', onMoveNative);
+            window.addEventListener('touchmove', onMoveNative, { passive: false });
+            window.addEventListener('mousemove', onMoveNative);
+            $(window).off('mouseup.mxs touchend.mxs touchcancel.mxs').on('mouseup.mxs touchend.mxs touchcancel.mxs', onEnd);
+
+        })();
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        (() => {
+            const $sheet = $('#mxsSlot');
+            const $panel = $sheet.find('.mxs-panel');
+            const $actions = $sheet.find('.mxs-actions');
+
+            // 표시용 요소 캐시
+            const $v = {
+                id: $('#mxvId'),
+                keyword: $('#mxvKeyword'),
+                rankkw: $('#mxvRankKeyword'),
+                urlA: $('#mxvUrlA'),
+                mid: $('#mxvMid'),
+                mid2: $('#mxvMid2'),
+                memo: $('#mxvMemo'),
+            };
+
+            // 편집용 입력 동적 생성(최초 1회)
+            let inited = false;
+            function ensureEditors() {
+                if (inited) return; inited = true;
+
+                function mkInput(afterEl, id, type = 'text') {
+                    if (!afterEl?.length) return null;
+                    const $ipt = $(`<input type="${type}" id="${id}" class="form-control mxs-edit mrx-input" hidden>`);
+                    afterEl.after($ipt);
+                    return $ipt;
+                }
+
+                function mkTextarea(afterEl, id) {
+                    if (!afterEl?.length) return null;
+                    const $textarea = $(`<textarea id="${id}" class="form-control mxs-edit mrx-input" rows="4" style="resize: vertical; min-height: 100px;" hidden></textarea>`);
+                    afterEl.after($textarea);
+                    return $textarea;
+                }
+
+                // 표시 요소 바로 뒤에 대응 입력 생성
+                mkInput($v.keyword, 'mxeKeyword');
+                mkInput($v.rankkw, 'mxeRankKeyword');
+                if ($v.urlA.length) mkInput($v.urlA.closest('.mxs-v'), 'mxeUrl'); // 링크는 a 대신 div에 입력 생성
+                if ($v.mid.length) mkInput($v.mid, 'mxeMid');
+                if ($v.mid2.length) mkInput($v.mid2, 'mxeMid2');
+                if ($v.memo.length) mkTextarea($v.memo, 'mxeMemo');
+            }
+
+            // 편집모드 토글
+            let EDIT = false;
+            function setMode(edit) {
+                EDIT = edit;
+                ensureEditors();
+
+                // 버튼 토글
+                $actions.find('.js-mxs-close, .js-mxs-delete, .js-mxs-edit').prop('hidden', edit);
+                $actions.find('.js-mxs-confirm, .js-mxs-cancel').prop('hidden', !edit);
+
+                // 표시/입력 토글 + 값 동기화
+                function showPair($view, iptId, valGetter, valSetter) {
+                    if (!$view?.length || !document.getElementById(iptId)) return;
+                    const $ipt = $('#' + iptId);
+                    if (edit) {
+                        const cur = (valGetter && valGetter()) ?? $view.text().trim();
+                        $ipt.val(cur).prop('hidden', false);
+                        $view.prop('hidden', true);
+                    } else {
+                        const nv = $ipt.val().trim();
+                        if (valSetter) valSetter(nv); else $view.text(nv || '-');
+                        $ipt.prop('hidden', true);
+                        $view.prop('hidden', false);
+                    }
+                }
+
+                // 키워드
+                showPair($v.keyword, 'mxeKeyword');
+                // 순위키워드
+                showPair($v.rankkw, 'mxeRankKeyword');
+                // URL(a 링크)
+                if ($v.urlA.length) {
+                    const $urlWrap = $v.urlA.closest('.mxs-v');
+                    showPair($urlWrap, 'mxeUrl',
+                        () => $v.urlA.text().trim(),
+                        (nv) => {
+                            const u = nv ? (/^https?:\/\//.test(nv) ? nv : 'https://' + nv) : '#';
+                            $v.urlA.text(nv || '-').attr('href', u);
+                        });
+                }
+                // MID/MID2
+                if ($v.mid.length) showPair($v.mid, 'mxeMid');
+                if ($v.mid2.length) showPair($v.mid2, 'mxeMid2');
+                // 메모
+                if ($v.memo.length) showPair($v.memo, 'mxeMemo');
+            }
+
+            // 편집 시작
+            $(document).off('click.mxsEdit').on('click.mxsEdit', '.js-mxs-edit', function () {
+                setMode(true);
+            });
+
+            // 시트 닫힌 후 모달 오픈
+            $(document).off('click.mxsDelOpen')
+                .on('click.mxsDelOpen', '#mxsSlot .js-mxs-delete', async function (e) {
+                    e.preventDefault(); e.stopPropagation();
+
+                    const id = ($sheet.data('id') || '').toString();
+                    if (!id) { alert('ID 누락'); return; }
+                    $('#delete-slot-id').val(id);
+
+                    // 바텀시트 닫힘 완료 대기
+                    await new Promise((resolve) => {
+                        if (!$sheet.hasClass('is-open')) return resolve();
+                        const done = () => {
+                            $sheet.attr('aria-hidden', 'true').removeClass('is-closing');
+                            resolve();
+                        };
+                        $sheet.addClass('is-closing').removeClass('is-open');
+                        $panel.one('transitionend.mxsDel webkitTransitionEnd.mxsDel', (ev) => {
+                            if (ev.target === $panel[0]) done();
+                        });
+                        setTimeout(done, 450); // 폴백
+                    });
+
+                    // 모달 열기
+                    if (typeof bootstrap !== 'undefined' && bootstrap.Modal) {
+                        $('#modal-slot-delete').modal('show');
+                    } else {
+                        document.getElementById('modal-slot-delete')?.classList.add('show');
+                    }
+                });
+
+
+
+            // 취소
+            $(document).off('click.mxsCancel').on('click.mxsCancel', '.js-mxs-cancel', function () {
+                setMode(false); // 뷰로 되돌림(입력값은 적용 안 함)
+            });
+
+            // 확인 → 서버 반영
+            $(document).off('click.mxsConfirm').on('click.mxsConfirm', '.js-mxs-confirm', function () {
+                const id = ($sheet.data('id') || '').toString().trim();
+                if (!id) { alert('ID 누락'); return; }
+
+                // 기존 인라인 API 규격 재사용
+                const data = {
+                    slot_id: id,
+                    slot_keyword: $('#mxeKeyword').val()?.trim(),
+                    slot_rankkeyword: $('#mxeRankKeyword').val()?.trim()
+                };
+
+                // 메뉴별 필드 존재 시만 포함
+                const $mxeUrl = $('#mxeUrl'); if ($mxeUrl.length) data.slot_url = $mxeUrl.val()?.trim();
+                const $mxeMid = $('#mxeMid'); if ($mxeMid.length) data.slot_mid = $mxeMid.val()?.trim();
+                const $mxeMid2 = $('#mxeMid2'); if ($mxeMid2.length) data.slot_mid2 = $mxeMid2.val()?.trim();
+                const $mxeMemo = $('#mxeMemo'); if ($mxeMemo.length) data.slot_memo = $mxeMemo.val()?.trim();
+
+                $.ajax({
+                    headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                    url: '/slot/set-inline', method: 'POST', dataType: 'json', data
+                })
+                    .done(r => {
+                        const ok = String(r?.result || '').toLowerCase() === 'success';
+                        if (!ok) { alert(r?.message || '저장 실패'); return; }
+
+                        // 시트 뷰 갱신(입력→표시로 반영)
+                        setMode(false);
+
+                        // 목록 카드 데이터도 동기화(열려있는 카드만)
+                        const $card = $(`.mxc-card[data-id="${id}"]`);
+                        if ($card.length) {
+                            if (data.slot_keyword) $card.attr('data-keyword', data.slot_keyword);
+                            if (data.slot_rankkeyword) $card.attr('data-rankkeyword', data.slot_rankkeyword);
+                            if (data.slot_url) $card.attr('data-url', data.slot_url);
+                            if (data.slot_mid) $card.attr('data-mid', data.slot_mid);
+                            if (data.slot_mid2) $card.attr('data-mid2', data.slot_mid2);
+                            if (data.slot_memo !== undefined) $card.attr('data-memo', data.slot_memo);
+                            // 카드 타이틀도 최신값으로
+                            const title = data.slot_rankkeyword || data.slot_keyword;
+                            if (title) $card.find('.mxc-title').text(title);
+                        }
+
+                        alert(r?.message || '저장되었습니다.');
+                    })
+                    .fail(() => alert('요청 실패'));
+            });
+
+            // 바텀시트 열릴 때는 항상 보기 모드로
+            $(document).off('mxsOpenGuard').on('click.mxsOpenGuard', '.mxc-card .js-mxc-open', () => setMode(false));
+            $(document).off('click.mxsDel').on('click.mxsDel', '.js-mxs-delete', () => setMode(false));
+        })();
+    </script>
+
+
+    <script>
+        // 시트 닫힌 뒤 콜백 실행
+        function afterSheetClose(cb) {
+            const $sheet = $('#mxsSlot'), $panel = $sheet.find('.mxs-panel');
+            if (!$sheet.hasClass('is-open')) { cb(); return; }
+            const done = () => { $panel.off('.mxsAfter'); cb(); };
+            $panel.on('transitionend.mxsAfter webkitTransitionEnd.mxsAfter', e => {
+                if (e.target === $panel[0]) done();
+            });
+            $sheet.removeClass('is-open').addClass('is-closing');
+            setTimeout(() => { $sheet.removeClass('is-closing').attr('aria-hidden', 'true'); }, 360);
+        }
+
+        // 랭크 모달 로더(PC와 동일 처리)
+        function openRankModal(id) {
+            if (!id) { alert('ID 누락'); return; }
+            const $dlg = $('#modal-rank-history');
+            // 즉시 열기
+            if (typeof modalRank !== 'undefined') modalRank.show();
+            else $dlg.modal && $dlg.modal('show');
+
+            // 초기화
+            $dlg.removeClass('is-ready');
+            $dlg.find('#rhKeyword').text('—');
+            $dlg.find('#memo-keyword-id').val(id);
+            const $ta = $dlg.find('#memo-keyword-memo'); if (!$ta.is(':focus')) $ta.val('');
+            $dlg.find('#rhList').html('');
+
+            // 데이터
+            $.getJSON('/slot/detail-history/' + id)
+                .done(res => {
+                    const slot = res?.slot || {};
+                    const list = Array.isArray(res?.history) ? res.history : [];
+                    $dlg.find('#rhKeyword').text([slot.KEYWORD, slot.MID].filter(Boolean).join(' / ') || '-');
+                    $dlg.find('#memo-keyword-id').val(slot.ID || id);
+                    if (!$ta.is(':focus')) $ta.val(slot.COMMENT || '');
+
+                    const html = (list.length ? list : []).map(it => {
+                        const delta = Math.abs(Number(it.ranking_change) || 0);
+                        const dir = String(it.ranking_class || '').toLowerCase();
+                        const mark = dir === 'rising' ? '▲' : dir === 'falling' ? '▼' : '—';
+                        const right = delta ? `${mark} ${delta}` : '—';
+                        return `
+              <div class="rh-card">
+                <div>
+                  <div class="rh-card__date">${it.history_date_txt || ''}</div>
+                  <div class="rh-card__rank">${it.ranking_txt || it.ranking || ''}</div>
+                </div>
+                <div class="rh-card__chg ${dir}">${right}</div>
+              </div>`;
+                    }).join('') || `<div class="rh-card"><div class="rh-card__date text-muted">기록 없음</div></div>`;
+                    $dlg.find('#rhList').html(html);
+                    requestAnimationFrame(() => $dlg.addClass('is-ready'));
+                })
+                .fail(() => {
+                    $dlg.find('#rhList').html('<div class="rh-card"><div class="rh-card__date text-danger">불러오기 실패</div></div>');
+                    requestAnimationFrame(() => $dlg.addClass('is-ready'));
+                });
+        }
+
+        // 바텀시트 내부 "자세히 보기" 클릭 → 시트 닫힌 뒤 모달 열기
+        $(document).off('click.mxsRank').on('click.mxsRank', '#mxvRankBtn', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const id = $(this).attr('data-id') || $('#mxsSlot').data('id');
+            afterSheetClose(() => openRankModal(id));
+        });
+
+        // 바텀시트 내부 "시간별 순위" 클릭 → 시트 닫힌 뒤 시간별 순위 모달 열기
+        $(document).off('click.mxsHourly').on('click.mxsHourly', '.btn-hourly-mobile', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const id = $(this).attr('data-id') || $('#mxsSlot').data('id');
+            afterSheetClose(() => {
+                const $dlg = $('#modal-hourly-rank');
+                const $list = $dlg.find('#hrList');
+                $dlg.find('#hrKeyword').text('시간별 순위');
+                $list.empty();
+                modalHourly && modalHourly.show();
+
+                $.getJSON('/slot/detail-hourly/' + id)
+                    .done(function (res) {
+                        const data = res && res.data ? res.data : { items: [] };
+                        if (data.keyword) {
+                            $dlg.find('#hrKeyword').text(data.keyword + ' - 시간별 순위');
+                        }
+                        if (!data.items || !data.items.length) {
+                            $list.html('<div class="text-muted">데이터가 없습니다.</div>');
+                            return;
+                        }
+                        // 최신이 상단이므로, 상승/하락은 바로 다음(더 오래된) 항목과 비교
+                        const items = data.items.slice(); // newest-first
+                        const frag = document.createDocumentFragment();
+                        for (let i = 0; i < items.length; i++) {
+                            const cur = items[i];
+                            const next = items[i + 1]; // older
+                            const hourTxt = cur.time_txt || '--:--';
+                            const rankNum = (cur.ranking && cur.ranking > 0) ? cur.ranking : null;
+                            const rankTxt = (typeof cur.ranking_txt === 'string' && cur.ranking_txt.length)
+                                ? cur.ranking_txt
+                                : (rankNum ? (rankNum + '위') : '-');
+
+                            let deltaClass = 'hr-delta--flat';
+                            let deltaTxt = '변화없음';
+                            if (next && rankNum !== null) {
+                                const nextRank = (next.ranking && next.ranking > 0) ? next.ranking : null;
+                                if (nextRank !== null) {
+                                    const diff = nextRank - rankNum; // 양수면 상승(+)
+                                    if (diff > 0) { deltaClass = 'hr-delta--up'; deltaTxt = '+' + diff; }
+                                    else if (diff < 0) { deltaClass = 'hr-delta--down'; deltaTxt = String(diff); }
+                                    else { deltaClass = 'hr-delta--flat'; deltaTxt = '변화없음'; }
+                                } else {
+                                    deltaClass = 'hr-delta--flat';
+                                    deltaTxt = '-';
+                                }
+                            } else if (!next) {
+                                // 가장 오래된 항목은 비교 대상 없음
+                                deltaClass = 'hr-delta--flat';
+                                deltaTxt = '-';
+                            }
+
+                            const div = document.createElement('div');
+                            div.className = 'hr-item';
+                            div.innerHTML = '<div class="hr-time">' + hourTxt + '</div>' +
+                                            '<div class="hr-rank">' + rankTxt + '</div>' +
+                                            '<div class="hr-delta ' + deltaClass + '">' + deltaTxt + '</div>';
+                            frag.appendChild(div);
+                        }
+                        $list[0].appendChild(frag);
+                    })
+                    .fail(function () {
+                        $list.html('<div class="text-danger">불러오기에 실패했습니다.</div>');
+                    });
+            });
+        });
+
+    </script>
+
+    <script>
+        // 메모 버튼 클릭 이벤트
+        $(document).on('click', '.btn-memo', function() {
+            const slotId = $(this).data('id');
+            const memo = $(this).data('memo') || '';
+            
+            $('#memo-slot-id').val(slotId);
+            $('#memo-content').val(memo);
+            
+            if (modalMemo) {
+                modalMemo.show();
+            }
+        });
+
+        // 메모 모달이 열릴 때 textarea에 포커스
+        $('#modal-memo').on('shown.bs.modal', function () {
+            $('#memo-content').focus();
+        });
+
+        // 메모 저장 버튼 클릭 이벤트
+        $(document).on('click', '#btn-save-memo', function() {
+            const slotId = $('#memo-slot-id').val();
+            const memo = $('#memo-content').val();
+
+            if (!slotId) {
+                alert('슬롯 ID가 없습니다.');
+                return;
+            }
+
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url: '/slot/memo',
+                method: 'POST',
+                dataType: 'json',
+                data: {
+                    id: slotId,
+                    memo: memo
+                },
+                success: function(response) {
+                    if (response.result === 'success') {
+                        alert(response.message);
+                        
+                        // 모달 닫기
+                        if (modalMemo) {
+                            modalMemo.hide();
+                        }
+                        
+                        // 페이지 새로고침
+                        location.reload();
+                    } else {
+                        alert(response.message || '메모 저장에 실패했습니다.');
+                    }
+                },
+                error: function(xhr) {
+                    alert('메모 저장에 실패했습니다.');
+                    console.log(xhr);
+                }
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>

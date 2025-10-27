@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="csrf-token" content="LvTXFX3Oa5Mc04JkYh75fHwNnziB1WL5Qu7qcPC3">
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>IMPACT</title>
+
+    <link href="/assets/vendor/fontawesome/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+
+    <link href="/assets/vendor/ionio-icon/css/iconoir.css" rel="stylesheet">
+
+    <link href="/assets/vendor/tabler-icons/tabler-icons.css" rel="stylesheet" type="text/css">
+
+    <link href="/assets/vendor/animation/animate.min.css" rel="stylesheet">
+
+    <link href="/assets/vendor/flag-icons-master/flag-icon.css" rel="stylesheet" type="text/css">
+
+    <link href="/assets/vendor/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+    <link href="/assets/vendor/datatable/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
+
+    <link href="/assets/vendor/simplebar/simplebar.css" rel="stylesheet" type="text/css">
+
+    <link href="/assets/css/style.css?v=1761521791" rel="stylesheet" type="text/css">
+
+    <link href="/assets/css/responsive.css" rel="stylesheet" type="text/css">
+
+    <link href="/assets/css/modify.css?v=1761521791" rel="stylesheet" type="text/css">
+        <link href="/assets/vendor/datepikar/flatpickr.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <style>
+        .ui-autocomplete {
+            z-index: 9999 !important
+        }
+
+        .edit_bx {
+            display: none
+        }
+
+        .btn-modal-confirm,
+        .btn-modal-cancel {
+            display: none
+        }
+
+        /* 레이아웃 */
+        main {
+            padding: 20px
+        }
+
+        .history-cards {
+            display: none
+        }
+
+        @media (max-width:991.98px) {
+            .table-wrap {
+                display: none
+            }
+
+            .history-cards {
+                display: block
+            }
+        }
+
+        /* 모바일 카드 */
+        .agc-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px
+        }
+
+        .agc-card {
+            display: flex;
+            gap: 10px;
+            align-items: stretch;
+            padding: 14px;
+            border: 1px solid #e7eaf0;
+            border-radius: 14px;
+            background: #fff
+        }
+
+        .agc-card__check-wrap {
+            flex: none;
+            display: flex;
+            align-items: center
+        }
+
+        .agc-card__body {
+            flex: 1;
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+            cursor: pointer
+        }
+
+        .agc-title {
+            font-weight: 700
+        }
+
+        .agc-meta {
+            font-size: 12px;
+            color: #6b7280
+        }
+
+        .agc-right {
+            display: flex;
+            align-items: center;
+            gap: 8px
+        }
+
+        .agc-chip {
+            font-size: 12px;
+            line-height: 20px;
+            padding: 0 8px;
+            border-radius: 10px;
+            background: #eef3f9;
+            color: #4a5568
+        }
+
+        .table input[type="checkbox"]#select-all,
+        .table input[type="checkbox"][name="CHK_ID"] {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 9999px;
+            border: 2px solid #cfd6e4;
+            background: #fff;
+            cursor: pointer;
+            position: relative;
+            margin: 0;
+            transition: border-color .18s, box-shadow .18s, transform .18s
+        }
+
+        .table input[type="checkbox"]#select-all::before,
+        .table input[type="checkbox"][name="CHK_ID"]::before {
+            content: "";
+            position: absolute;
+            inset: -2px;
+            border-radius: 9999px;
+            border: 2px solid #41a7f2;
+            opacity: 0;
+            transform: scale(.9);
+            transition: opacity .2s, transform .2s
+        }
+
+        .table input[type="checkbox"]#select-all::after,
+        .table input[type="checkbox"][name="CHK_ID"]::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 8px;
+            height: 8px;
+            border-radius: 9999px;
+            background: #41a7f2;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform .22s cubic-bezier(.2, .7, .2, 1)
+        }
+
+        .table input[type="checkbox"]#select-all:checked,
+        .table input[type="checkbox"][name="CHK_ID"]:checked {
+            border-color: transparent;
+            box-shadow: 0 0 0 6px rgba(65, 167, 242, .08), 0 2px 8px rgba(17, 24, 39, .08);
+            transform: translateY(-.2px)
+        }
+
+        .table input[type="checkbox"]#select-all:checked::before,
+        .table input[type="checkbox"][name="CHK_ID"]:checked::before {
+            opacity: 1;
+            transform: scale(1)
+        }
+
+        .table input[type="checkbox"]#select-all:checked::after,
+        .table input[type="checkbox"][name="CHK_ID"]:checked::after {
+            transform: translate(-50%, -50%) scale(1)
+        }
+
+        .table input[type="checkbox"]#select-all:hover,
+        .table input[type="checkbox"][name="CHK_ID"]:hover {
+            box-shadow: 0 0 0 6px rgba(65, 167, 242, .06)
+        }
+
+        .table input[type="checkbox"]#select-all:focus-visible,
+        .table input[type="checkbox"][name="CHK_ID"]:focus-visible {
+            outline: 0;
+            box-shadow: 0 0 0 3px rgba(65, 167, 242, .24)
+        }
+
+        .table input[type="checkbox"]#select-all:indeterminate {
+            border-color: #41a7f2;
+            box-shadow: 0 0 0 6px rgba(65, 167, 242, .06)
+        }
+
+        .table input[type="checkbox"]#select-all:indeterminate::before {
+            opacity: 1;
+            transform: scale(1)
+        }
+
+        .table input[type="checkbox"]#select-all:indeterminate::after {
+            width: 10px;
+            height: 2px;
+            background: #41a7f2;
+            transform: translate(-50%, -50%) scale(1)
+        }
+
+        /* 모바일 카드 체크박스도 원형으로 */
+        .history-cards .agc-card__check-wrap input[type="checkbox"] {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 9999px;
+            border: 2px solid #cfd6e4;
+            background: #fff;
+            cursor: pointer;
+            position: relative;
+            margin: 0
+        }
+
+        .history-cards .agc-card__check-wrap input[type="checkbox"]::before {
+            content: "";
+            position: absolute;
+            inset: -2px;
+            border-radius: 9999px;
+            border: 2px solid #41a7f2;
+            opacity: 0;
+            transform: scale(.9);
+            transition: opacity .2s, transform .2s
+        }
+
+        .history-cards .agc-card__check-wrap input[type="checkbox"]::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 8px;
+            height: 8px;
+            border-radius: 9999px;
+            background: #41a7f2;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform .22s cubic-bezier(.2, .7, .2, 1)
+        }
+
+        .history-cards .agc-card__check-wrap input[type="checkbox"]:checked {
+            border-color: transparent;
+            box-shadow: 0 0 0 6px rgba(65, 167, 242, .08), 0 2px 8px rgba(17, 24, 39, .08)
+        }
+
+        .history-cards .agc-card__check-wrap input[type="checkbox"]:checked::before {
+            opacity: 1;
+            transform: scale(1)
+        }
+
+        .history-cards .agc-card__check-wrap input[type="checkbox"]:checked::after {
+            transform: translate(-50%, -50%) scale(1)
+        }
+
+
+
+
+        .ui-searchbar__grid {
+            display: grid;
+            gap: 10px;
+            align-items: start;
+            margin: 12px 0;
+            grid-template-columns: 1fr 220px;
+            grid-template-areas:
+                "search  search"
+                "actions limit";
+        }
+
+        .ui-search {
+            grid-area: search;
+            min-width: 0;
+        }
+
+        .ui-actions {
+            grid-area: actions;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .ui-limit {
+            grid-area: limit;
+            justify-self: end;
+            align-self: start;
+        }
+
+
+        .ui-search {
+            display: grid;
+            gap: 8px;
+            align-items: center;
+            min-width: 0;
+            grid-template-columns: 220px 220px 220px 220px 1fr max-content;
+        }
+
+        @media (max-width:1199.98px) {
+            .ui-search {
+                grid-template-columns: 220px 220px 220px 1fr max-content;
+            }
+        }
+
+        .ui-search .dht-select[data-target="sjtype"] {
+            grid-column: 1;
+        }
+
+        .ui-search .dht-select[data-target="sagency"] {
+            grid-column: 2;
+        }
+
+        .ui-search .ipt.picker-range[name="sstart"] {
+            grid-column: 3;
+        }
+
+        .ui-search .ipt.picker-range[name="send"] {
+            grid-column: 4;
+        }
+
+        .ui-search .ipt[name="sval"] {
+            grid-column: 5;
+        }
+
+        .ui-search #button-search {
+            grid-column: 6;
+            justify-self: end;
+            width: auto;
+        }
+
+        .ui-search .dht-select,
+        .ui-search .ipt {
+            width: 100%;
+        }
+
+        @media (max-width:991.98px) {
+            .ui-searchbar__grid {
+                grid-template-columns: 1fr;
+                grid-template-areas:
+                    "search"
+                    "actions"
+                    "limit";
+                gap: 8px;
+            }
+
+            .ui-search {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .ui-search .dht-select[data-target="sjtype"],
+            .ui-search .dht-select[data-target="sagency"],
+            .ui-search .ipt.picker-range[name="sstart"],
+            .ui-search .ipt.picker-range[name="send"],
+            .ui-search .ipt[name="sval"],
+            .ui-search #button-search {
+                grid-column: 1;
+            }
+
+            .ui-search #button-search {
+                justify-self: stretch;
+                width: 100%;
+            }
+
+            .ui-actions {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 8px;
+            }
+
+            .ui-actions>* {
+                width: 100%;
+            }
+
+            .ui-limit {
+                justify-self: stretch;
+            }
+
+            .ui-search .dht-select {
+                min-width: 0;
+            }
+
+            .ui-search .dht-select .dht-select__btn {
+                width: 100%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+
+
+
+        .ui-search #button-search {
+            height: 40px;
+        }
+
+        .dht-sel-portal {
+            position: fixed;
+            z-index: 9999;
+            overflow: auto;
+            /* min-height: 없음 */
+        }
+    </style>
+
+    <script src="/js/favicon.js" defer></script>
+</head>
+
+<body>
+    <div class="app-wrapper">
+
+        <div class="loader-wrapper">
+            <div class="app-loader">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <!-- Menu Navigation starts -->
+<nav aria-label="주요 메뉴">
+  <div class="app-nav" id="app-simple-bar">
+
+    <!-- 브랜드(모바일에서 닫기 버튼 노출) -->
+    <div class="nav-brand">
+      <img src="/images/impact_logo.png" class="nav-brand__img" loading="lazy" decoding="async">
+      <button type="button" class="nav-close" aria-label="메뉴 닫기">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+          <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="nav-scroll">
+      <ul class="main-nav px-3 mt-4">
+
+        <!-- ===== 관리 그룹 ===== -->
+        
+        <!-- ===== 슬롯 그룹(N/C/G/Y) ===== -->
+                                      <li class="group-hd">
+              <img class="brand-ico" src="/images/n.png" alt="네이버 로고"
+                   width="16" height="16" onerror="this.style.display='none'">
+              <span class="brand-txt">네이버</span>
+            </li>
+                                        <li class="no-sub">
+                <a href="https://impact.me.kr/slot/NA" aria-current="false">
+                  <span class="bullet" aria-hidden="true"></span><span>N자동완성</span>
+                </a>
+              </li>
+                                        <li class="no-sub">
+                <a href="https://impact.me.kr/slot/WS" aria-current="false">
+                  <span class="bullet" aria-hidden="true"></span><span>N웹트래픽</span>
+                </a>
+              </li>
+                                        <li class="no-sub">
+                <a href="https://impact.me.kr/slot/NS" aria-current="false">
+                  <span class="bullet" aria-hidden="true"></span><span>N쇼핑</span>
+                </a>
+              </li>
+                        <li class="divider" aria-hidden="true"></li>
+                                        <li class="group-hd">
+              <img class="brand-ico" src="/images/c.png" alt="쿠팡 로고"
+                   width="16" height="16" onerror="this.style.display='none'">
+              <span class="brand-txt">쿠팡</span>
+            </li>
+                                        <li class="no-sub">
+                <a href="https://impact.me.kr/slot/CP" aria-current="false">
+                  <span class="bullet" aria-hidden="true"></span><span>C쇼핑</span>
+                </a>
+              </li>
+                        <li class="divider" aria-hidden="true"></li>
+                                        <li class="group-hd">
+              <img class="brand-ico" src="/images/g.png" alt="구글 로고"
+                   width="16" height="16" onerror="this.style.display='none'">
+              <span class="brand-txt">구글</span>
+            </li>
+                                        <li class="no-sub">
+                <a href="https://impact.me.kr/slot/GA" aria-current="false">
+                  <span class="bullet" aria-hidden="true"></span><span>G자동완성</span>
+                </a>
+              </li>
+                                        <li class="no-sub">
+                <a href="https://impact.me.kr/slot/YA" aria-current="false">
+                  <span class="bullet" aria-hidden="true"></span><span>Y자동완성</span>
+                </a>
+              </li>
+                        <li class="divider" aria-hidden="true"></li>
+                                    
+        <!-- ===== 시스템 그룹 ===== -->
+        <li class="group-hd">
+          <img class="brand-ico" src="" alt="시스템 로고" width="16" height="16" onerror="this.style.display='none'">
+          <span class="brand-txt">시스템</span>
+        </li>
+
+                <li class="no-sub">
+          <a href="https://impact.me.kr/slot/history" aria-current="page">
+            <span class="bullet" aria-hidden="true"></span><span>정산</span>
+          </a>
+        </li>
+
+        
+        <li class="divider" aria-hidden="true"></li>
+
+        <!-- 로그아웃: PNG + 호버 애니메이션(유지) -->
+        <li class="no-sub mt-auto">
+          <a class="logout" href="/auth/logout">
+            <img class="item-ico" src="/images/sidenav_logout_icon.png" alt="" width="20" height="20" onerror="this.style.display='none'">
+            <span>로그아웃</span>
+          </a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- Menu Navigation ends -->
+
+
+
+<!-- 오프캔버스 백드롭 -->
+<div class="nav-backdrop" hidden></div>
+
+        <div class="app-content">
+            <div class="">
+
+                <!-- Header Section -->
+<header class="header-main" role="banner">
+  <div class="header-inner">
+    <div class="header-left">
+      <!-- 모바일 전용 햄버거 -->
+      <button type="button" class="header-toggle" aria-label="메뉴 열기/닫기" aria-controls="app-simple-bar">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+          <rect x="3" y="6"  width="18" height="2" rx="1"/>
+          <rect x="3" y="11" width="18" height="2" rx="1"/>
+          <rect x="3" y="16" width="18" height="2" rx="1"/>
+        </svg>
+      </button>
+
+      <h1 class="main-title">
+        정산
+      </h1>
+    </div>
+
+    <div class="header-right">
+            <div class="profile-chip" title="pcsmkt7 (장부장님)">
+        <span class="profile-avatar" aria-hidden="true">P</span>
+        <span class="profile-text">
+          <span class="profile-id">pcsmkt7</span>
+          <span class="profile-name">(장부장님)</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</header>
+
+                    <main>
+        <div class="container-fluid">
+                        <div class="ui-toolbar">
+                <div class="ui-toolbar__row">
+                    <div class="ui-chips">
+                                                    <a href="https://impact.me.kr/slot/history?type=ALL"
+                                class="chip is-active">
+                                전체 <span class="chip__badge">5</span>
+                            </a>
+                                                    <a href="https://impact.me.kr/slot/history?type=CHECK"
+                                class="chip ">
+                                확인 <span class="chip__badge">0</span>
+                            </a>
+                                                    <a href="https://impact.me.kr/slot/history?type=UNCHECK"
+                                class="chip ">
+                                미확인 <span class="chip__badge">5</span>
+                            </a>
+                                                    <a href="https://impact.me.kr/slot/history?type=DEL"
+                                class="chip ">
+                                최근삭제 <span class="chip__badge">0</span>
+                            </a>
+                                            </div>
+                </div>
+            </div>
+
+            
+            <form id="form-search" method="GET" class="ui-searchbar histbar">
+                <input type="hidden" id="ssort" name="ssort" value="a.ID">
+                <input type="hidden" id="sorder" name="sorder" value="desc">
+                <input type="hidden" id="type" name="type" value="ALL">
+                <input type="hidden" id="limit" name="limit" value="100">
+
+                <div class="ui-searchbar__grid">
+                    
+                    <div class="ui-actions">
+                                                                    </div>
+
+                    
+                    <div class="ui-search">
+                        
+                        <select id="sjtype" name="sjtype" class="native-select">
+                            <option value="" selected>전체</option>
+                            <option value="N" >슬롯생성</option>
+                            <option value="E" >기간연장</option>
+                            <option value="W" >슬롯철회</option>
+                        </select>
+                        <div class="dht-select" data-target="sjtype"></div>
+
+                        
+                        <select id="sagency" name="sagency" class="native-select">
+                            <option value="" selected>전체 대행사</option>
+                                                    </select>
+                        <div class="dht-select" data-target="sagency"></div>
+
+                        
+                        <input class="ipt picker-range" type="text" name="sstart" placeholder="시작일" value="">
+                        <input class="ipt picker-range" type="text" name="send" placeholder="종료일" value="">
+
+                        
+                        <input class="ipt" type="text" name="sval" placeholder="코드, 키워드, 아이디, 대행사명…" value="">
+
+                        <button class="btn-primary" id="button-search" type="submit">검색</button>
+                    </div>
+
+                    
+                    <div class="ui-limit">
+                        <select id="select-limit" name="limit" class="native-select">
+                                                            <option value="100" selected>100개씩 보기</option>
+                                                            <option value="300" >300개씩 보기</option>
+                                                            <option value="500" >500개씩 보기</option>
+                                                            <option value="1000" >1000개씩 보기</option>
+                                                    </select>
+                        <div class="dht-select" data-target="select-limit"></div>
+                    </div>
+                </div>
+            </form>
+
+
+
+            
+            <div class="table agency-table">
+                <table class="table table-bottom-border table-hover table-striped align-middle mb-0">
+                    <thead>
+                        <tr>
+                            <th>
+                                <label class="check-box">
+                                    <input id="select-all" type="checkbox"><span
+                                        class="checkmark outline-light ms-2"></span>
+                                </label>
+                            </th>
+                                                                                        <th>
+                                    <div style="display:flex;align-items:center;gap:6px">
+                                        <span>일시</span>
+                                        <div style="display:flex;flex-direction:column;line-height:1;margin-left:4px">
+                                            <a href="#" class="sort sort-asc" data-ssort="a.CREATEDATE" data-sorder="asc"
+                                                aria-label="오름차순"></a>
+                                            <a href="#" class="sort sort-desc" data-ssort="a.CREATEDATE" data-sorder="desc"
+                                                aria-label="내림차순"></a>
+                                        </div>
+                                    </div>
+                                </th>
+                                                            <th>
+                                    <div style="display:flex;align-items:center;gap:6px">
+                                        <span>대행사명</span>
+                                        <div style="display:flex;flex-direction:column;line-height:1;margin-left:4px">
+                                            <a href="#" class="sort sort-asc" data-ssort="g.USER_NAME" data-sorder="asc"
+                                                aria-label="오름차순"></a>
+                                            <a href="#" class="sort sort-desc" data-ssort="g.USER_NAME" data-sorder="desc"
+                                                aria-label="내림차순"></a>
+                                        </div>
+                                    </div>
+                                </th>
+                                                            <th>
+                                    <div style="display:flex;align-items:center;gap:6px">
+                                        <span>대행사메모</span>
+                                        <div style="display:flex;flex-direction:column;line-height:1;margin-left:4px">
+                                            <a href="#" class="sort sort-asc" data-ssort="g.MEMO" data-sorder="asc"
+                                                aria-label="오름차순"></a>
+                                            <a href="#" class="sort sort-desc" data-ssort="g.MEMO" data-sorder="desc"
+                                                aria-label="내림차순"></a>
+                                        </div>
+                                    </div>
+                                </th>
+                                                            <th>
+                                    <div style="display:flex;align-items:center;gap:6px">
+                                        <span>이름</span>
+                                        <div style="display:flex;flex-direction:column;line-height:1;margin-left:4px">
+                                            <a href="#" class="sort sort-asc" data-ssort="u.USER_NAME" data-sorder="asc"
+                                                aria-label="오름차순"></a>
+                                            <a href="#" class="sort sort-desc" data-ssort="u.USER_NAME" data-sorder="desc"
+                                                aria-label="내림차순"></a>
+                                        </div>
+                                    </div>
+                                </th>
+                                                            <th>
+                                    <div style="display:flex;align-items:center;gap:6px">
+                                        <span>아이디</span>
+                                        <div style="display:flex;flex-direction:column;line-height:1;margin-left:4px">
+                                            <a href="#" class="sort sort-asc" data-ssort="a.USER_NAME" data-sorder="asc"
+                                                aria-label="오름차순"></a>
+                                            <a href="#" class="sort sort-desc" data-ssort="a.USER_NAME" data-sorder="desc"
+                                                aria-label="내림차순"></a>
+                                        </div>
+                                    </div>
+                                </th>
+                                                            <th>
+                                    <div style="display:flex;align-items:center;gap:6px">
+                                        <span>코드</span>
+                                        <div style="display:flex;flex-direction:column;line-height:1;margin-left:4px">
+                                            <a href="#" class="sort sort-asc" data-ssort="a.KEYWORD_ID" data-sorder="asc"
+                                                aria-label="오름차순"></a>
+                                            <a href="#" class="sort sort-desc" data-ssort="a.KEYWORD_ID" data-sorder="desc"
+                                                aria-label="내림차순"></a>
+                                        </div>
+                                    </div>
+                                </th>
+                                                            <th>
+                                    <div style="display:flex;align-items:center;gap:6px">
+                                        <span>탭구분</span>
+                                        <div style="display:flex;flex-direction:column;line-height:1;margin-left:4px">
+                                            <a href="#" class="sort sort-asc" data-ssort="m.MENU_ORDER" data-sorder="asc"
+                                                aria-label="오름차순"></a>
+                                            <a href="#" class="sort sort-desc" data-ssort="m.MENU_ORDER" data-sorder="desc"
+                                                aria-label="내림차순"></a>
+                                        </div>
+                                    </div>
+                                </th>
+                                                            <th>
+                                    <div style="display:flex;align-items:center;gap:6px">
+                                        <span>회원메모</span>
+                                        <div style="display:flex;flex-direction:column;line-height:1;margin-left:4px">
+                                            <a href="#" class="sort sort-asc" data-ssort="u.MEMO" data-sorder="asc"
+                                                aria-label="오름차순"></a>
+                                            <a href="#" class="sort sort-desc" data-ssort="u.MEMO" data-sorder="desc"
+                                                aria-label="내림차순"></a>
+                                        </div>
+                                    </div>
+                                </th>
+                                                            <th>
+                                    <div style="display:flex;align-items:center;gap:6px">
+                                        <span>작업구분</span>
+                                        <div style="display:flex;flex-direction:column;line-height:1;margin-left:4px">
+                                            <a href="#" class="sort sort-asc" data-ssort="a.JOB_TYPE" data-sorder="asc"
+                                                aria-label="오름차순"></a>
+                                            <a href="#" class="sort sort-desc" data-ssort="a.JOB_TYPE" data-sorder="desc"
+                                                aria-label="내림차순"></a>
+                                        </div>
+                                    </div>
+                                </th>
+                                                            <th>
+                                    <div style="display:flex;align-items:center;gap:6px">
+                                        <span>일수</span>
+                                        <div style="display:flex;flex-direction:column;line-height:1;margin-left:4px">
+                                            <a href="#" class="sort sort-asc" data-ssort="a.DAYS" data-sorder="asc"
+                                                aria-label="오름차순"></a>
+                                            <a href="#" class="sort sort-desc" data-ssort="a.DAYS" data-sorder="desc"
+                                                aria-label="내림차순"></a>
+                                        </div>
+                                    </div>
+                                </th>
+                                                            <th>
+                                    <div style="display:flex;align-items:center;gap:6px">
+                                        <span>처리자</span>
+                                        <div style="display:flex;flex-direction:column;line-height:1;margin-left:4px">
+                                            <a href="#" class="sort sort-asc" data-ssort="tu.USER_NAME" data-sorder="asc"
+                                                aria-label="오름차순"></a>
+                                            <a href="#" class="sort sort-desc" data-ssort="tu.USER_NAME" data-sorder="desc"
+                                                aria-label="내림차순"></a>
+                                        </div>
+                                    </div>
+                                </th>
+                                                            <th>
+                                    <div style="display:flex;align-items:center;gap:6px">
+                                        <span>확인여부</span>
+                                        <div style="display:flex;flex-direction:column;line-height:1;margin-left:4px">
+                                            <a href="#" class="sort sort-asc" data-ssort="a.CHECK_STATUS" data-sorder="asc"
+                                                aria-label="오름차순"></a>
+                                            <a href="#" class="sort sort-desc" data-ssort="a.CHECK_STATUS" data-sorder="desc"
+                                                aria-label="내림차순"></a>
+                                        </div>
+                                    </div>
+                                </th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                                                    <tr>
+                                <td class="check">
+                                    <label><input type="checkbox" name="CHK_ID" value="738660"><span></span></label>
+                                </td>
+                                <td class="text-dark f-w-500">2025-10-24 15:43:30</td>
+                                <td class="text-dark f-w-500">런앤런</td>
+                                <td class="text-dark f-w-500">-</td>
+                                <td class="text-dark f-w-500">장부장님</td>
+                                <td class="text-dark f-w-500">pcsmkt7</td>
+                                <td class="text-dark f-w-500">739758</td>
+                                <td class="text-dark f-w-500">G자동완성</td>
+                                <td class="text-dark f-w-500"></td>
+                                <td class="text-dark f-w-500">
+                                     슬롯생성
+                                                                    </td>
+                                <td class="text-dark f-w-500">30</td>
+                                <td class="text-dark f-w-500">런앤런</td>
+                                <td class="text-dark f-w-500">미확인</td>
+                            </tr>
+                                                    <tr>
+                                <td class="check">
+                                    <label><input type="checkbox" name="CHK_ID" value="738659"><span></span></label>
+                                </td>
+                                <td class="text-dark f-w-500">2025-10-24 15:43:30</td>
+                                <td class="text-dark f-w-500">런앤런</td>
+                                <td class="text-dark f-w-500">-</td>
+                                <td class="text-dark f-w-500">장부장님</td>
+                                <td class="text-dark f-w-500">pcsmkt7</td>
+                                <td class="text-dark f-w-500">739757</td>
+                                <td class="text-dark f-w-500">G자동완성</td>
+                                <td class="text-dark f-w-500"></td>
+                                <td class="text-dark f-w-500">
+                                     슬롯생성
+                                                                    </td>
+                                <td class="text-dark f-w-500">30</td>
+                                <td class="text-dark f-w-500">런앤런</td>
+                                <td class="text-dark f-w-500">미확인</td>
+                            </tr>
+                                                    <tr>
+                                <td class="check">
+                                    <label><input type="checkbox" name="CHK_ID" value="738658"><span></span></label>
+                                </td>
+                                <td class="text-dark f-w-500">2025-10-24 15:43:30</td>
+                                <td class="text-dark f-w-500">런앤런</td>
+                                <td class="text-dark f-w-500">-</td>
+                                <td class="text-dark f-w-500">장부장님</td>
+                                <td class="text-dark f-w-500">pcsmkt7</td>
+                                <td class="text-dark f-w-500">739756</td>
+                                <td class="text-dark f-w-500">G자동완성</td>
+                                <td class="text-dark f-w-500"></td>
+                                <td class="text-dark f-w-500">
+                                     슬롯생성
+                                                                    </td>
+                                <td class="text-dark f-w-500">30</td>
+                                <td class="text-dark f-w-500">런앤런</td>
+                                <td class="text-dark f-w-500">미확인</td>
+                            </tr>
+                                                    <tr>
+                                <td class="check">
+                                    <label><input type="checkbox" name="CHK_ID" value="738657"><span></span></label>
+                                </td>
+                                <td class="text-dark f-w-500">2025-10-24 15:43:30</td>
+                                <td class="text-dark f-w-500">런앤런</td>
+                                <td class="text-dark f-w-500">-</td>
+                                <td class="text-dark f-w-500">장부장님</td>
+                                <td class="text-dark f-w-500">pcsmkt7</td>
+                                <td class="text-dark f-w-500">739755</td>
+                                <td class="text-dark f-w-500">G자동완성</td>
+                                <td class="text-dark f-w-500"></td>
+                                <td class="text-dark f-w-500">
+                                     슬롯생성
+                                                                    </td>
+                                <td class="text-dark f-w-500">30</td>
+                                <td class="text-dark f-w-500">런앤런</td>
+                                <td class="text-dark f-w-500">미확인</td>
+                            </tr>
+                                                    <tr>
+                                <td class="check">
+                                    <label><input type="checkbox" name="CHK_ID" value="738656"><span></span></label>
+                                </td>
+                                <td class="text-dark f-w-500">2025-10-24 15:43:30</td>
+                                <td class="text-dark f-w-500">런앤런</td>
+                                <td class="text-dark f-w-500">-</td>
+                                <td class="text-dark f-w-500">장부장님</td>
+                                <td class="text-dark f-w-500">pcsmkt7</td>
+                                <td class="text-dark f-w-500">739754</td>
+                                <td class="text-dark f-w-500">G자동완성</td>
+                                <td class="text-dark f-w-500"></td>
+                                <td class="text-dark f-w-500">
+                                     슬롯생성
+                                                                    </td>
+                                <td class="text-dark f-w-500">30</td>
+                                <td class="text-dark f-w-500">런앤런</td>
+                                <td class="text-dark f-w-500">미확인</td>
+                            </tr>
+                                            </tbody>
+                </table>
+            </div>
+
+            
+            <div class="history-cards">
+                <div class="agc-list">
+                                            <div class="agc-card">
+                            <span class="agc-card__check-wrap">
+                                <label><input type="checkbox" name="CHK_ID" value="738660"><span></span></label>
+                            </span>
+                            <div class="agc-card__body js-open-history" data-id="738660"
+                                data-date="2025-10-24 15:43:30" data-agency="런앤런" data-agencymemo="-"
+                                data-uname="장부장님" data-uid="pcsmkt7"
+                                data-keyid="739758" data-menu="G자동완성"
+                                data-memo="" data-job="N" data-days="30"
+                                data-task="런앤런"
+                                data-check="미확인">
+                                <div>
+                                    <div class="agc-title">장부장님 <small
+                                            class="text-muted">(pcsmkt7)</small></div>
+                                    <div class="agc-meta">2025-10-24 15:43:30</div>
+                                </div>
+                                <div class="agc-right">
+                                    <span class="agc-chip d-none d-md-inline">런앤런</span>
+                                    <span class="agc-chip agc-chip--uid">739758</span>
+                                    <span class="ti ti-chevron-right" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                                            <div class="agc-card">
+                            <span class="agc-card__check-wrap">
+                                <label><input type="checkbox" name="CHK_ID" value="738659"><span></span></label>
+                            </span>
+                            <div class="agc-card__body js-open-history" data-id="738659"
+                                data-date="2025-10-24 15:43:30" data-agency="런앤런" data-agencymemo="-"
+                                data-uname="장부장님" data-uid="pcsmkt7"
+                                data-keyid="739757" data-menu="G자동완성"
+                                data-memo="" data-job="N" data-days="30"
+                                data-task="런앤런"
+                                data-check="미확인">
+                                <div>
+                                    <div class="agc-title">장부장님 <small
+                                            class="text-muted">(pcsmkt7)</small></div>
+                                    <div class="agc-meta">2025-10-24 15:43:30</div>
+                                </div>
+                                <div class="agc-right">
+                                    <span class="agc-chip d-none d-md-inline">런앤런</span>
+                                    <span class="agc-chip agc-chip--uid">739757</span>
+                                    <span class="ti ti-chevron-right" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                                            <div class="agc-card">
+                            <span class="agc-card__check-wrap">
+                                <label><input type="checkbox" name="CHK_ID" value="738658"><span></span></label>
+                            </span>
+                            <div class="agc-card__body js-open-history" data-id="738658"
+                                data-date="2025-10-24 15:43:30" data-agency="런앤런" data-agencymemo="-"
+                                data-uname="장부장님" data-uid="pcsmkt7"
+                                data-keyid="739756" data-menu="G자동완성"
+                                data-memo="" data-job="N" data-days="30"
+                                data-task="런앤런"
+                                data-check="미확인">
+                                <div>
+                                    <div class="agc-title">장부장님 <small
+                                            class="text-muted">(pcsmkt7)</small></div>
+                                    <div class="agc-meta">2025-10-24 15:43:30</div>
+                                </div>
+                                <div class="agc-right">
+                                    <span class="agc-chip d-none d-md-inline">런앤런</span>
+                                    <span class="agc-chip agc-chip--uid">739756</span>
+                                    <span class="ti ti-chevron-right" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                                            <div class="agc-card">
+                            <span class="agc-card__check-wrap">
+                                <label><input type="checkbox" name="CHK_ID" value="738657"><span></span></label>
+                            </span>
+                            <div class="agc-card__body js-open-history" data-id="738657"
+                                data-date="2025-10-24 15:43:30" data-agency="런앤런" data-agencymemo="-"
+                                data-uname="장부장님" data-uid="pcsmkt7"
+                                data-keyid="739755" data-menu="G자동완성"
+                                data-memo="" data-job="N" data-days="30"
+                                data-task="런앤런"
+                                data-check="미확인">
+                                <div>
+                                    <div class="agc-title">장부장님 <small
+                                            class="text-muted">(pcsmkt7)</small></div>
+                                    <div class="agc-meta">2025-10-24 15:43:30</div>
+                                </div>
+                                <div class="agc-right">
+                                    <span class="agc-chip d-none d-md-inline">런앤런</span>
+                                    <span class="agc-chip agc-chip--uid">739755</span>
+                                    <span class="ti ti-chevron-right" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                                            <div class="agc-card">
+                            <span class="agc-card__check-wrap">
+                                <label><input type="checkbox" name="CHK_ID" value="738656"><span></span></label>
+                            </span>
+                            <div class="agc-card__body js-open-history" data-id="738656"
+                                data-date="2025-10-24 15:43:30" data-agency="런앤런" data-agencymemo="-"
+                                data-uname="장부장님" data-uid="pcsmkt7"
+                                data-keyid="739754" data-menu="G자동완성"
+                                data-memo="" data-job="N" data-days="30"
+                                data-task="런앤런"
+                                data-check="미확인">
+                                <div>
+                                    <div class="agc-title">장부장님 <small
+                                            class="text-muted">(pcsmkt7)</small></div>
+                                    <div class="agc-meta">2025-10-24 15:43:30</div>
+                                </div>
+                                <div class="agc-right">
+                                    <span class="agc-chip d-none d-md-inline">런앤런</span>
+                                    <span class="agc-chip agc-chip--uid">739754</span>
+                                    <span class="ti ti-chevron-right" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                                    </div>
+            </div>
+
+            <div class="table-footer">
+                
+            </div>
+
+        </div>
+    </main>
+
+    
+    <div id="sheetHistory" class="dht-sheet" aria-hidden="true">
+        <div class="dht-sheet__backdrop js-sheet-close"></div>
+        <div class="dht-sheet__panel" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+            <div class="dht-sheet__handle"></div>
+            <div class="dht-sheet__header">
+                <div id="sheetTitle" class="dht-sheet__title">이름</div>
+                <div id="sheetSub" class="dht-sheet__sub">아이디</div>
+            </div>
+            <div class="dht-sheet__body">
+                <div class="dht-kv">
+                    <div class="dht-kv__k">일시</div>
+                    <div class="dht-kv__v" id="kvDate"></div>
+                </div>
+                <div class="dht-kv">
+                    <div class="dht-kv__k">대행사명</div>
+                    <div class="dht-kv__v" id="kvAgency"></div>
+                </div>
+                <div class="dht-kv">
+                    <div class="dht-kv__k">대행사메모</div>
+                    <div class="dht-kv__v" id="kvAgencyMemo"></div>
+                </div>
+                <div class="dht-kv">
+                    <div class="dht-kv__k">코드</div>
+                    <div class="dht-kv__v" id="kvKey"></div>
+                </div>
+                <div class="dht-kv">
+                    <div class="dht-kv__k">탭구분</div>
+                    <div class="dht-kv__v" id="kvMenu"></div>
+                </div>
+                <div class="dht-kv">
+                    <div class="dht-kv__k">회원메모</div>
+                    <div class="dht-kv__v" id="kvMemo"></div>
+                </div>
+                <div class="dht-kv">
+                    <div class="dht-kv__k">작업구분</div>
+                    <div class="dht-kv__v" id="kvJob"></div>
+                </div>
+                <div class="dht-kv">
+                    <div class="dht-kv__k">일수</div>
+                    <div class="dht-kv__v" id="kvDays"></div>
+                </div>
+                <div class="dht-kv">
+                    <div class="dht-kv__k">처리자</div>
+                    <div class="dht-kv__v" id="kvTask"></div>
+                </div>
+                <div class="dht-kv">
+                    <div class="dht-kv__k">확인여부</div>
+                    <div class="dht-kv__v" id="kvCheck"></div>
+                </div>
+            </div>
+            <div class="dht-sheet__actions">
+                <button type="button" class="dht-btn js-sheet-close">닫기</button>
+            </div>
+        </div>
+    </div>
+
+                <footer class="app-footer">
+  <div class="container-fluid app-footer__wrap">
+    <div class="app-footer__left">
+      <span class="app-footer__copy">
+        Copyright © <span id="copyYear">2025</span> kimsangmin
+      </span>
+    </div>
+
+    <ul class="app-footer__links">
+      <li>
+        <a href="https://instagram.com/smwtb_h" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Z" fill="none" stroke="currentColor" stroke-width="1.6"/>
+            <circle cx="12" cy="12" r="3.6" fill="none" stroke="currentColor" stroke-width="1.6"/>
+            <circle cx="17.5" cy="6.5" r="1.1" fill="currentColor"/>
+          </svg>
+        </a>
+      </li>
+    </ul>
+  </div>
+</footer>
+            </div>
+        </div>
+    </div>
+
+    
+
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        function getLocalStorageItem(key) {
+            return window.localStorage.getItem(key);
+        }
+    </script>
+    <script src="/assets/vendor/simplebar/simplebar.js"></script>
+
+    <script src="/js/header.js"></script>
+
+    <script src="/assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/script.js?v=1"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const modal = document.getElementById('modalDeleteMember');
+            const host = document.getElementById('delAnim');
+
+            // 없으면 바로 종료
+            if (!modal || !host || !window.lottie) return;
+
+            const anim = lottie.loadAnimation({
+                container: host,
+                renderer: 'svg',
+                loop: false,
+                autoplay: false,
+                path: '/images/jKRVRZValr.json'
+            });
+
+            modal.addEventListener('shown.bs.modal', () => anim.goToAndPlay(0, true));
+            modal.addEventListener('hide.bs.modal', () => anim.stop());
+        });
+    </script>
+
+    
+
+
+
+
+    <script>
+                    </script>
+        <script src="https://npmcdn.com/flatpickr/dist/flatpickr.min.js"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/ko.js"></script>
+    <script>
+        $('.sort').on('click', function (e) {
+            e.preventDefault();
+            $('#ssort').val($(this).data('ssort'));
+            $('#sorder').val($(this).data('sorder'));
+            $('#form-search').submit();
+        });
+
+        $('#select-limit').on('change', function () {
+            $('#limit').val(this.value);
+            $('#form-search').submit();
+        });
+
+        flatpickr(".picker-range", { locale: "ko" });
+
+        function getRowChecks() { return $("input[name='CHK_ID']"); }
+        function syncSelectAll() {
+            const $rows = getRowChecks();
+            const sel = $rows.filter(':checked').length;
+            const all = $rows.length > 0 && sel === $rows.length;
+            $('#select-all,#select-all-m').prop('checked', all);
+        }
+        function setAll(checked) {
+            getRowChecks().prop('checked', checked);
+            $('#select-all,#select-all-m').prop('checked', checked);
+        }
+        $(document).on('change', "input[name='CHK_ID']", syncSelectAll);
+        $('#select-all').on('change', function () { setAll(this.checked); });
+        $('#select-all-m').on('change', function () { setAll(this.checked); });
+
+        function getCheckedIds() { return $("input[name='CHK_ID']:checked").map(function () { return this.value; }).get(); }
+
+        $('#btn-confirm').on('click', function () {
+            const ids = getCheckedIds();
+            if (ids.length < 1) { alert('처리할 내역을 선택해주세요.'); return; }
+            if (confirm('선택한 내역 ' + ids.length + '건을 확인 처리하겠습니까?')) {
+                $.ajax({
+                    headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                    url: '/slot/history/confirm', method: 'POST', dataType: 'JSON', data: { history_ids: ids },
+                    success: r => { alert(r.message); if (r.result === 'success') location.reload(); },
+                    error: x => { alert('실패했습니다'); console.log(x); }
+                });
+            }
+        });
+
+        $('#btn-confirm-cancel').on('click', function () {
+            const ids = getCheckedIds();
+            if (ids.length < 1) { alert('처리할 내역을 선택해주세요.'); return; }
+            if (confirm('선택한 내역 ' + ids.length + '건을 미확인 처리하겠습니까?')) {
+                $.ajax({
+                    headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                    url: '/slot/history/unconfirm', method: 'POST', dataType: 'JSON', data: { history_ids: ids },
+                    success: r => { alert(r.message); if (r.result === 'success') location.reload(); },
+                    error: x => { alert('실패했습니다'); console.log(x); }
+                });
+            }
+        });
+
+        $('#btn-confirm-delete').on('click', function () {
+            const ids = getCheckedIds();
+            if (ids.length < 1) { alert('처리할 내역을 선택해주세요.'); return; }
+            if (confirm('선택한 내역 ' + ids.length + '건을 삭제 처리하겠습니까?')) {
+                $.ajax({
+                    headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                    url: '/slot/history/delete', method: 'POST', dataType: 'JSON', data: { history_ids: ids },
+                    success: r => { alert(r.message); if (r.result === 'success') location.reload(); },
+                    error: x => { alert('실패했습니다'); console.log(x); }
+                });
+            }
+        });
+
+        /* ===== 바텀시트 ===== */
+        $(function () {
+            const $sheet = $('#sheetHistory');
+            const $panel = $sheet.find('.dht-sheet__panel');
+
+            function setText(id, v) { $('#' + id).text(v ?? '-'); }
+            function fill(d) {
+                setText('sheetTitle', d.uname || '-'); setText('sheetSub', d.uid || '-');
+                setText('kvDate', d.date || '-'); setText('kvAgency', d.agency || '-'); setText('kvAgencyMemo', d.agencymemo || '-');
+                setText('kvKey', d.keyid || '-'); setText('kvMenu', d.menu || '-'); setText('kvMemo', d.memo || '-');
+                setText('kvJob', d.job || '-'); setText('kvDays', d.days ?? '0'); setText('kvTask', d.task || '-'); setText('kvCheck', d.check || '-');
+                $sheet.data('id', d.id || '');
+            }
+            function openSheet(d) {
+                fill(d); $sheet.removeClass('is-closing').attr('aria-hidden', 'false');
+                requestAnimationFrame(() => { $sheet.addClass('is-open'); document.body.classList.add('sheet-open'); });
+            }
+            function closeSheet() {
+                if (!$sheet.hasClass('is-open') || $sheet.hasClass('is-closing')) return;
+                $sheet.addClass('is-closing').removeClass('is-open');
+                const finish = () => { $panel.off('.sheetEnd'); $sheet.removeClass('is-closing').attr('aria-hidden', 'true'); document.body.classList.remove('sheet-open'); };
+                $panel.one('transitionend.sheetEnd webkitTransitionEnd.sheetEnd', e => { if (e.target === $panel[0]) finish(); });
+                setTimeout(finish, 450);
+            }
+
+            // 카드 본문 클릭 → 상세. 체크박스 클릭은 그대로 유지.
+            $(document).on('click', '.agc-card__body', function (e) {
+                if ($(e.target).closest('.agc-card__check-wrap').length) return;
+                const $t = $(this);
+                openSheet({
+                    id: $t.data('id'), uname: $t.data('uname'), uid: $t.data('uid'),
+                    date: $t.data('date'), agency: $t.data('agency'), agencymemo: $t.data('agencymemo'),
+                    keyid: $t.data('keyid'), menu: $t.data('menu'), memo: $t.data('memo'),
+                    job: ($t.data('job') === 'N' ? '슬롯생성' : $t.data('job') === 'E' ? '기간연장' : $t.data('job') === 'W' ? '슬롯철회' : $t.data('job')),
+                    days: $t.data('days'), task: $t.data('task'), check: $t.data('check')
+                });
+            });
+            $(document).on('click', '.js-sheet-close', closeSheet);
+            $sheet.on('click', e => { if ($(e.target).is('.dht-sheet__backdrop')) closeSheet(); });
+            $(document).on('keydown', e => { if (e.key === 'Escape' && $sheet.hasClass('is-open')) closeSheet(); });
+
+            // 드래그로 닫기
+            let dragging = false, startY = 0, curY = 0;
+            function onStart(e) { dragging = true; startY = (e.touches ? e.touches[0].clientY : e.clientY); curY = 0; $panel.css('transition', 'none'); $('html').addClass('no-select'); }
+            function onMove(e) { if (!dragging) return; const y = (e.touches ? e.touches[0].clientY : e.clientY) - startY; if (y > 0) { curY = y; $panel.css('transform', `translateY(${y}px)`); } }
+            function onEnd() { if (!dragging) return; dragging = false; const h = $panel.outerHeight(); if (curY > h * 0.2 || curY > 100) { $panel.attr('style', ''); closeSheet(); } else { $panel.css('transition', 'transform .2s ease').css('transform', 'translateY(0)'); setTimeout(() => { $panel.attr('style', '') }, 220); } $('html').removeClass('no-select'); }
+            $panel.on('mousedown touchstart', onStart); $(window).on('mousemove touchmove', onMove); $(window).on('mouseup touchend', onEnd);
+        });
+
+        // 모달 닫힘시 포커스 blur(다른 페이지 공용 스크립트와 합치기 안전용)
+        document.addEventListener('hide.bs.modal', function () {
+            const ae = document.activeElement; if (ae && typeof ae.blur === 'function') ae.blur();
+        });
+    </script>
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const ul = document.querySelector('.table-footer .pagination');
+            if (!ul) return;
+
+            // 숫자 li에 표준 클래스/데이터 부여
+            [...ul.querySelectorAll('li')].forEach(li => {
+                const a = li.querySelector('.page-link');
+                const t = a ? a.textContent.trim() : '';
+                if (/^\d+$/.test(t)) { li.classList.add('page-number'); li.dataset.page = t; }
+                if (li.classList.contains('disabled') && t === '...') li.classList.add('page-ellipsis');
+            });
+
+            // 모바일 축약 로직
+            if (matchMedia('(max-width: 575.98px)').matches) {
+                const nums = [...ul.querySelectorAll('.page-number')];
+                if (nums.length) {
+                    const active = ul.querySelector('.page-item.active .page-link');
+                    const cur = active ? parseInt(active.textContent, 10) : NaN;
+                    const max = Math.max(...nums.map(li => +li.dataset.page));
+                    const keep = new Set([1, max, cur - 1, cur, cur + 1].filter(n => n >= 1 && n <= max));
+
+                    nums.forEach(li => {
+                        if (!keep.has(+li.dataset.page)) li.classList.add('is-hide-mobile');
+                    });
+
+                    // … 표시 두 군데만 노출
+                    ul.querySelectorAll('.page-ellipsis').forEach(el => el.classList.add('is-hide-mobile'));
+                    if (Math.min(...keep) > 2) {
+                        const firstEllip = ul.querySelector('.page-ellipsis'); if (firstEllip) firstEllip.classList.remove('is-hide-mobile');
+                    }
+                    if (Math.max(...keep) < max - 1) {
+                        const all = ul.querySelectorAll('.page-ellipsis');
+                        const lastEllip = all[all.length - 1]; if (lastEllip) lastEllip.classList.remove('is-hide-mobile');
+                    }
+                }
+            }
+        });
+    </script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // ▼ 페이지/컨테이너 스크롤 시 닫고, 드롭다운 내부 스크롤은 유지
+            function getScrollParents(el) {
+                const out = []; let p = el.parentNode;
+                while (p && p !== document.body && p !== document.documentElement) {
+                    const s = getComputedStyle(p);
+                    if (/(auto|scroll)/.test(s.overflowY) && p.scrollHeight > p.clientHeight) out.push(p);
+                    p = p.parentNode;
+                }
+                out.push(window);
+                return out;
+            }
+
+            ['sjtype', 'sagency', 'select-limit'].forEach(function (id) {
+                var el = document.getElementById(id);
+                if (!el) return;
+
+                // 기존 유틸 우선 사용
+                if (window.buildCustomSelect) { buildCustomSelect(el); return; }
+
+                var host = document.querySelector('.dht-select[data-target="' + id + '"]');
+                if (!host || host.dataset.ready === '1') return;
+
+                el.hidden = true;
+
+                var btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'dht-select__btn';
+                btn.innerHTML = '<span class="dht-select__label"></span><i class="dht-select__caret" aria-hidden="true"></i>';
+                host.appendChild(btn);
+
+                var portal = document.createElement('div');
+                portal.className = 'dht-sel-portal';
+                portal.setAttribute('role', 'listbox');
+                document.body.appendChild(portal);
+
+                function render() {
+                    portal.innerHTML = '';
+                    Array.from(el.options).forEach(function (opt) {
+                        var div = document.createElement('div');
+                        div.className = 'dht-select__opt';
+                        div.textContent = opt.text;
+                        div.dataset.value = opt.value;
+                        div.setAttribute('role', 'option');
+                        if (opt.selected) div.setAttribute('aria-selected', 'true');
+                        div.onclick = function () {
+                            el.value = opt.value;
+                            el.dispatchEvent(new Event('change', { bubbles: true }));
+                            sync();
+                            closePortal();
+                        };
+                        portal.appendChild(div);
+                    });
+                }
+
+                function sync() {
+                    var cur = el.selectedOptions[0];
+                    btn.querySelector('.dht-select__label').textContent = cur ? cur.text : '선택';
+                    portal.querySelectorAll('[aria-selected]').forEach(function (n) { n.removeAttribute('aria-selected'); });
+                    var sel = portal.querySelector('.dht-select__opt[data-value="' + el.value + '"]');
+                    if (sel) sel.setAttribute('aria-selected', 'true');
+                }
+
+                function compute() {
+                    var r = btn.getBoundingClientRect(), pad = 8, gap = 6, vw = innerWidth, vh = innerHeight;
+
+                    var width = Math.min(Math.max(r.width, 160), vw - pad * 2);
+                    var left = Math.min(Math.max(r.left, pad), vw - pad - width);
+
+                    portal.classList.remove('dir-up');
+                    var top = r.bottom + gap;
+
+                    portal.style.width = width + 'px';
+                    portal.style.left = left + 'px';
+                    portal.style.top = Math.max(pad, top) + 'px';
+                    portal.style.maxHeight = '';
+                }
+
+
+
+                function openPortal() {
+                    compute();
+                    portal.classList.add('is-open');
+                    requestAnimationFrame(() => portal.classList.add('anim'));
+                    host.classList.add('is-open');
+
+                    const h = {};
+                    h.onDoc = (e) => { if (!portal.contains(e.target) && !btn.contains(e.target)) closePortal(); };
+                    h.onKey = (e) => { if (e.key === 'Escape') closePortal(); };
+                    h.onResize = () => { if (portal.classList.contains('is-open')) compute(); };
+
+                    h.scrollParents = getScrollParents(btn);
+                    h.onParentScroll = (e) => { if (portal.contains(e.target)) return; closePortal(); };
+
+                    portal.addEventListener('scroll', e => e.stopPropagation(), { passive: true });
+                    portal.addEventListener('wheel', e => e.stopPropagation(), { passive: true });
+                    portal.addEventListener('touchmove', e => e.stopPropagation(), { passive: true });
+
+                    document.addEventListener('click', h.onDoc, true);
+                    document.addEventListener('keydown', h.onKey);
+                    window.addEventListener('resize', h.onResize);
+                    h.scrollParents.forEach(n => n.addEventListener('scroll', h.onParentScroll, { capture: true, passive: true }));
+
+                    portal._h = h;
+                }
+
+                function closePortal() {
+                    if (!portal.classList.contains('is-open')) return;
+                    portal.classList.remove('anim');
+                    portal.addEventListener('transitionend', () => portal.classList.remove('is-open'), { once: true });
+                    host.classList.remove('is-open');
+
+                    const h = portal._h || {};
+                    document.removeEventListener('click', h.onDoc, true);
+                    document.removeEventListener('keydown', h.onKey);
+                    window.removeEventListener('resize', h.onResize);
+                    (h.scrollParents || []).forEach(n => n.removeEventListener('scroll', h.onParentScroll, { capture: true }));
+
+                    portal._h = null;
+                }
+
+                btn.onclick = function (e) {
+                    e.stopPropagation();
+                    if (portal.classList.contains('is-open')) closePortal();
+                    else openPortal();
+                };
+
+                el.addEventListener('change', sync);
+                render(); sync(); host.dataset.ready = '1';
+            });
+        });
+    </script>
+
+
+
+
+
+
+    <script>
+        (function () {
+            function collapse() {
+                const pager = document.getElementById('pager');
+                if (!pager) return;
+
+                const isMobile = window.matchMedia('(max-width: 575.98px)').matches;
+                const items = pager.querySelectorAll('.page-item');
+                items.forEach(li => li.classList.remove('is-hidden'));
+
+                if (!isMobile) return; 
+
+                const pages = [...pager.querySelectorAll('.page-number')];
+                if (pages.length === 0) return;
+
+                const active = pager.querySelector('.page-number.active');
+                const cur = active ? Number(active.dataset.page) : NaN;
+                const first = pages[0], last = pages[pages.length - 1];
+
+                const mustShow = new Set([first, last, active]);
+                const next = pager.querySelector(`.page-number[data-page="${cur + 1}"]`);
+                if (next) mustShow.add(next);
+
+                pages.forEach(li => { if (!mustShow.has(li)) li.classList.add('is-hidden'); });
+
+                const all = [...pager.children];
+                let hiddenRun = [];
+                all.forEach((li, i) => {
+                    const isNum = li.classList.contains('page-number');
+                    const hidden = isNum && li.classList.contains('is-hidden');
+                    if (hidden) hiddenRun.push(li);
+                    if (!hidden || i === all.length - 1) {
+                        if (hiddenRun.length) {
+                            hiddenRun.forEach(h => h.style.display = 'none');
+                            const ell = document.createElement('li');
+                            ell.className = 'page-item page-ellipsis';
+                            ell.innerHTML = '<span class="page-link">…</span>';
+                            hiddenRun[0].before(ell);
+                            hiddenRun = [];
+                        }
+                    }
+                });
+            }
+
+            window.addEventListener('load', collapse);
+            window.addEventListener('resize', () => {
+                const pager = document.getElementById('pager');
+                if (pager) {
+                    pager.querySelectorAll('.is-hidden').forEach(n => n.classList.remove('is-hidden'));
+                    pager.querySelectorAll('.page-ellipsis').forEach(n => n.remove());
+                    pager.querySelectorAll('.page-number').forEach(n => n.style.removeProperty('display'));
+                }
+                collapse();
+            });
+        })();
+    </script>
+
+
+    <script>
+        document.getElementById('select-limit')?.addEventListener('change', function () {
+            document.getElementById('limit').value = this.value;
+            document.getElementById('form-search').submit();
+        });
+    </script>
+
+
+
+
+</body>
+
+</html>

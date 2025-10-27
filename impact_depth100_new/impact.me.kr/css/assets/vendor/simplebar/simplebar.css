@@ -1,0 +1,437 @@
+html,
+body {
+  font-family: 'Noto Sans KR', system-ui, -apple-system, 'Segoe UI', Roboto, 'Apple SD Gothic Neo', 'Noto Sans', sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+
+
+
+
+
+html,
+body {
+  margin: 0;
+  background: #f2f6ff;
+  color: #222;
+  font-family: 'Noto Sans KR', system-ui, -apple-system, 'Segoe UI', Roboto, 'Apple SD Gothic Neo', 'Noto Sans', sans-serif;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+
+
+/* ===================== 기본 레이아웃(데스크톱) ===================== */
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+.nav-open {
+  display: none !important;
+}
+
+nav {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 272px;
+  background: #fff;
+  border-right: 1px solid #e6e9ef;
+  z-index: 9999;
+  transform: translateX(0);
+  transition: transform .22s ease;
+}
+
+.app-nav {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-scroll {
+  flex: 1 1 auto;
+  overflow: auto;
+}
+
+.app-wrapper {
+  padding-left: 272px;
+}
+
+/* ===================== 브랜드 헤더 ===================== */
+.nav-brand {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70px;
+  padding: 12px 16px;
+  background: #fff;
+  border-bottom: 1px solid #eef1f6;
+}
+
+.nav-brand__img {
+  max-width: 100px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.nav-close {
+  display: none;
+}
+
+/* ===================== 리스트/그룹 ===================== */
+.main-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0px 12px 15px 12px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  gap: 6px;
+}
+
+.main-nav>li {
+  margin: 0;
+}
+
+.main-nav>li.mt-auto {
+  margin-top: auto;
+}
+
+.group-hd {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 10px 6px;
+  color: #222;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: .02em;
+}
+
+.brand-ico {
+  width: 23px;
+  height: 23px;
+  object-fit: contain;
+}
+
+.brand-txt {
+  line-height: 1;
+}
+
+.divider {
+  height: 1px;
+  background: #eef1f6;
+  margin: 10px 8px;
+}
+
+/* ===================== 항목 ===================== */
+.main-nav a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 48px;
+  padding: 12px 16px;
+  border-radius: 14px;
+  color: #222;
+  text-decoration: none;
+  font-size: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: background-color .18s ease, box-shadow .18s ease, color .18s ease, transform .18s ease;
+}
+
+.main-nav a:hover {
+  background: #f3f7ff;
+}
+
+.main-nav a:focus-visible {
+  outline: 2px solid #41a7f2;
+  outline-offset: 2px;
+}
+
+.main-nav a[aria-current="page"] {
+  background: #eaf2ff;
+  box-shadow: inset 0 0 0 1px #d4e6ff;
+}
+
+
+
+/* 상세 메뉴용 원형 도트 */
+.bullet {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #c9d4e5;
+  flex: 0 0 8px;
+  transition: transform .16s ease, background-color .16s ease;
+}
+
+.main-nav a:hover .bullet {
+  background: #9fb7dd;
+}
+
+.main-nav a[aria-current="page"] .bullet {
+  background: #41a7f2;
+  transform: scale(1.15);
+}
+
+
+.main-nav>li.mt-auto a {
+  gap: 20px;
+}
+
+/* 로그아웃 PNG + 애니메이션 */
+.item-ico {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  object-fit: contain;
+  transition: transform .18s ease;
+}
+
+.main-nav a.logout:hover .item-ico {
+  transform: translateX(4px);
+}
+
+.main-nav a.logout:active .item-ico {
+  transform: translateX(6px);
+}
+
+
+
+/* ===================== 모바일/태블릿(오프캔버스) ===================== */
+@media (max-width:991px) {
+  nav {
+    width: min(86vw, 320px);
+    transform: translateX(-100%);
+    box-shadow: none;
+  }
+
+  .nav-open{ display:inline-flex !important; }
+
+  /* 패널이 열린 상태(nav.is-open)에서는 숨김 */
+  nav.is-open + .nav-open,
+  nav.is-open ~ .nav-open{
+    display:none !important;
+  }
+
+  nav.is-open {
+    transform: translateX(0);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, .18);
+  }
+
+  .app-wrapper {
+    padding-left: 0;
+  }
+
+  .nav-open {
+    position: fixed;
+    left: 12px;
+    top: 12px;
+    z-index: 1100;
+    width: 45px;
+    height: 45px;
+    border: 1px solid #d8dee9;
+    border-radius: 14px;
+    background: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .nav-open[hidden] {
+    display: none;
+  }
+
+  .nav-close {
+    display: inline-flex;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45px;
+    height: 45px;
+    border: 1px solid #d8dee9;
+    border-radius: 12px;
+    background: #fff;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .nav-backdrop[hidden] {
+    display: none;
+  }
+
+  .nav-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background: rgba(0, 0, 0, .36);
+    backdrop-filter: blur(2px);
+  }
+
+  .nav-brand {
+    height: 75px;
+    padding: 10px 14px;
+  }
+
+  .nav-brand__img {
+    max-width: 90px;
+  }
+
+  .main-nav {
+    padding: 16px 12px !important;
+    gap: 8px;
+  }
+
+  .group-hd {
+    padding: 14px 20px 8px;
+  }
+
+  .divider {
+    margin: 12px 10px;
+  }
+
+  .main-nav a {
+    min-height: 56px;
+    padding: 14px 16px;
+    font-size: 16px;
+    border-radius: 16px;
+    margin: 8px 0px;
+  }
+
+  .main-nav a[aria-current="page"]::before {
+    left: 10px;
+    top: 14px;
+    bottom: 14px;
+    width: 4px;
+  }
+
+  .nav-scroll {
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* ===================== Mobile Accordion (dropdown) ===================== */
+@media (max-width:991px) {
+  .group-hd {
+    cursor: pointer;
+    user-select: none;
+    border-radius: 12px;
+    position: relative;
+    padding-right: 34px;
+  }
+
+  .group-hd::after{
+  content:"";
+  position:absolute; right:12px; top:50%;
+  width:22px; height:22px;
+  transform:translateY(-50%) rotate(0);
+  background-image:url("/images/chevron-down.png"); /* 당신의 PNG 경로 */
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:22px 22px;   /* @2x(32px) PNG여도 이렇게 축소 렌더 */
+  opacity:.6;                 /* 필요 없으면 제거 */
+}
+
+/* 펼침 상태 회전 */
+.group-hd[aria-expanded="true"]::after{
+  transform:translateY(-50%) rotate(180deg);
+  opacity:.9;
+}
+
+  .group-panel {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height .24s ease;
+    will-change: max-height;
+  }
+}
+
+/* ===================== 보호 스코프(외부 축소 차단) ===================== */
+@media (max-width:991px) {
+  .app-nav {
+    font-size: 16px !important;
+    transform: none !important;
+    zoom: 1 !important;
+  }
+
+  .app-nav * {
+    font-size: inherit !important;
+    line-height: 1.45 !important;
+    letter-spacing: normal !important;
+  }
+
+  .app-wrapper {
+    transform: none !important;
+  }
+}
+
+/* ===================== 접근성/모션 ===================== */
+.nav-open:focus-visible,
+.nav-close:focus-visible {
+  outline: 2px solid #41a7f2;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  nav {
+    transition: none;
+  }
+}
+
+
+@media (max-width:991px){
+  nav{ z-index:1300; top:0 !important; height:100vh !important; }
+  .nav-backdrop{
+    position:fixed; left:0; right:0; top:0 !important; height:100vh !important;
+    z-index:1205;
+    background:rgba(17,24,39,.42);     /* 전체 흐림/딤 */
+    backdrop-filter:blur(2px);          /* 지원 브라우저에서만 블러 */
+  }
+  /* 헤더는 클릭만 막고, 투명/블러는 주지 않음 */
+  body.nav-open .header-main{ pointer-events:none; }
+}
+
+
+
+
+
+/* ---- NAV 보호 스코프 ---- 
+@media (max-width: 991px){
+  .app-nav{
+    font-size:16px !important;
+    transform:none !important;
+    zoom:1 !important;
+  }
+  .app-nav *{
+    font-size:inherit !important;
+    line-height:1.45 !important;
+    letter-spacing:normal !important;
+  }
+  .app-wrapper{ transform:none !important; }
+  html{-webkit-text-size-adjust:100% !important;}
+}
+*/

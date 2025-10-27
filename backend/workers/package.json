@@ -1,0 +1,40 @@
+{
+  "name": "impact-bot-workers",
+  "version": "1.0.0",
+  "description": "Impact Slot System - Traffic Generation Bot Workers",
+  "main": "naver-bot.js",
+  "scripts": {
+    "start": "node scheduler.js",
+    "naver": "node naver-bot.js",
+    "google": "node google-bot.js",
+    "youtube": "node youtube-bot.js",
+    "website": "node website-bot.js",
+    "cafe": "node cafe-blog-bot.js",
+    "shopping": "node naver-shopping-bot.js",
+    "test": "node test-bot.js",
+    "test:simple": "node test-bot.js --simple",
+    "test:slot": "node test-bot.js --slot"
+  },
+  "keywords": [
+    "seo",
+    "traffic",
+    "bot",
+    "automation",
+    "naver",
+    "google"
+  ],
+  "author": "Impact System",
+  "license": "PRIVATE",
+  "dependencies": {
+    "selenium-webdriver": "^4.16.0",
+    "chromedriver": "^120.0.1",
+    "puppeteer": "^21.7.0",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
+    "proxy-chain": "^2.4.0",
+    "node-cron": "^3.0.3",
+    "better-sqlite3": "^12.4.1",
+    "axios": "^1.6.0",
+    "dotenv": "^16.3.1"
+  }
+}

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="csrf-token" content="PgmmNcIXCWYaMPPQyQsqUtrTziaO8OyuGqZNIbQ9">
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>IMPACT</title>
+
+    <!--font-awesome-css-->
+    <link href="/assets/vendor/fontawesome/css/all.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- iconoir icon css  -->
+    <link href="/assets/vendor/ionio-icon/css/iconoir.css" rel="stylesheet">
+
+    <!-- tabler icons-->
+    <link href="/assets/vendor/tabler-icons/tabler-icons.css" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap css-->
+    <link href="/assets/vendor/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+    <!-- App css-->
+    <link href="/assets/css/style.css" rel="stylesheet" type="text/css">
+
+    <!-- Responsive css-->
+    <link href="/assets/css/responsive.css" rel="stylesheet" type="text/css">
+
+    <!-- Modify css-->
+    <link href="/assets/css/modify.css?v=1761600452" rel="stylesheet" type="text/css">
+
+
+    <script src="/js/favicon.js" defer></script>
+    <style>
+        body {
+            background: #f2f6ff;
+        }
+
+        .app-wrapper {
+            padding: 0 !important;
+        }
+
+        main {
+            padding: 0 !important;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="app-wrapper d-block">
+        <div class="">
+            <!-- Body main section starts -->
+            <main class="w-100 p-0">
+                <!-- Login to your Account start -->
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 p-0">
+                            <div class="login-form-container">
+                                <div class="form_container">
+
+                                    <div class="login-brand" aria-hidden="false">
+                                        <img src="/images/impact_logo.png" class="login-brand__img" loading="lazy"
+                                            decoding="async">
+                                    </div>
+
+                                    <form id="formLogin" class="app-form rounded-control" action="/auth/login"
+                                        method="post" autocomplete="off" novalidate>
+                                        <input type="hidden" name="_token" value="PgmmNcIXCWYaMPPQyQsqUtrTziaO8OyuGqZNIbQ9" autocomplete="off">                                        <div class="mb-3">
+                                            <label class="form-label">아이디</label>
+                                            <input class="form-control" type="text" id="user_id" name="user_id">
+                                        </div>
+                                        <div class="mb-3" style="position:relative">
+                                            <label class="form-label">비밀번호</label>
+                                            <input class="form-control" type="password" id="user_pw" name="user_pw"
+                                                autocomplete="current-password">
+                                            <button type="button" class="pw-toggle" aria-label="비밀번호 표시 전환"
+                                                aria-pressed="false">
+                                                <img class="pw-icon" src="/images/login_toggle.png" alt="">
+                                            </button>
+                                        </div>
+                                        <div class="mb-3 form-check">
+                                            <input class="form-check-input" id="formCheck1" type="checkbox">
+                                            <label class="form-check-label" for="formCheck1">자동 로그인</label>
+                                        </div>
+                                        <div>
+                                            <a class="btn btn-light-primary w-100" id="btn_login" role="button">로그인</a>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Login to your Account end -->
+            </main>
+            <!-- Body main section ends -->
+        </div>
+    </div>
+    <!-- latest jquery-->
+    <script src="/assets/js/jquery-3.6.3.min.js"></script>
+
+    <!-- Bootstrap js-->
+    <script src="/assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+
+    <script>
+        (function ($) {
+            "use strict";
+
+            $("#btn_login").on('click', function () {
+                $('#formLogin').submit();
+            });
+
+        }(jQuery));
+    </script>
+
+    <!--비밀번호 토글-->
+    <script>
+        (function () {
+            const input = document.getElementById('user_pw');
+            const btn = document.querySelector('.pw-toggle');
+            if (!input || !btn) return;
+
+            btn.addEventListener('mousedown', e => e.preventDefault());
+            btn.addEventListener('click', () => {
+                const show = input.type === 'password';
+                const pos = input.selectionStart;
+                input.type = show ? 'text' : 'password';    // 아이콘은 그대로
+                btn.setAttribute('aria-pressed', String(show));
+                try { input.setSelectionRange(pos, pos); } catch (_) { }
+                input.focus();
+            });
+        })();
+    </script>
+
+
+
+    <script>
+                    </script>
+
+</body>
+
+</html>
