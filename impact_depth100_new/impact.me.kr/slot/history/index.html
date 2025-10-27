@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="kr"><head>
+<meta charset="utf-8"/>
+<meta content="LvTXFX3Oa5Mc04JkYh75fHwNnziB1WL5Qu7qcPC3" name="csrf-token"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>IMPACT</title>
+<link href="../../css/assets/vendor/fontawesome/css/all.css" rel="stylesheet"/>
+<link href="../../css/cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="../../assets/fonts.googleapis.com/css2" rel="stylesheet"/>
+<link as="style" crossorigin="" href="../../css/cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" rel="stylesheet"/>
+<link href="../../css/assets/vendor/ionio-icon/css/iconoir.css" rel="stylesheet"/>
+<link href="../../css/assets/vendor/tabler-icons/tabler-icons.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/assets/vendor/animation/animate.min.css" rel="stylesheet"/>
+<link href="../../css/assets/vendor/flag-icons-master/flag-icon.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/assets/vendor/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/assets/vendor/datatable/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/assets/vendor/simplebar/simplebar.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/assets/css/style.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/assets/css/responsive.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/assets/css/modify.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/assets/vendor/datepikar/flatpickr.min.css" rel="stylesheet" type="text/css"/>
+<link href="../../css/code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" rel="stylesheet"/>
+<link href="../../css/cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
+<style>
+        .ui-autocomplete {
+            z-index: 9999 !important
+        }
+
+        .edit_bx {
+            display: none
+        }
+
+        .btn-modal-confirm,
+        .btn-modal-cancel {
+            display: none
+        }
+
+        /* 레이아웃 */
+        main {
+            padding: 20px
+        }
+
+        .history-cards {
+            display: none
+        }
+
+        @media (max-width:991.98px) {
+            .table-wrap {
+                display: none
+            }
+
+            .history-cards {
+                display: block
+            }
+        }
+
+        /* 모바일 카드 */
+        .agc-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px
+        }
+
+        .agc-card {
+            display: flex;
+            gap: 10px;
+            align-items: stretch;
+            padding: 14px;
+            border: 1px solid #e7eaf0;
+            border-radius: 14px;
+            background: #fff
+        }
+
+        .agc-card__check-wrap {
+            flex: none;
+            display: flex;
+            align-items: center
+        }
+
+        .agc-card__body {
+            flex: 1;
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+            cursor: pointer
+        }
+
+        .agc-title {
+            font-weight: 700
+        }
+
+        .agc-meta {
+            font-size: 12px;
+            color: #6b7280
+        }
+
+        .agc-right {
+            display: flex;
+            align-items: center;
+            gap: 8px
+        }
+
+        .agc-chip {
+            font-size: 12px;
+            line-height: 20px;
+            padding: 0 8px;
+            border-radius: 10px;
+            background: #eef3f9;
+            color: #4a5568
+        }
+
+        .table input[type="checkbox"]#select-all,
+        .table input[type="checkbox"][name="CHK_ID"] {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 9999px;
+            border: 2px solid #cfd6e4;
+            background: #fff;
+            cursor: pointer;
+            position: relative;
+            margin: 0;
+            transition: border-color .18s, box-shadow .18s, transform .18s
+        }
+
+        .table input[type="checkbox"]#select-all::before,
+        .table input[type="checkbox"][name="CHK_ID"]::before {
+            content: "";
+            position: absolute;
+            inset: -2px;
+            border-radius: 9999px;
+            border: 2px solid #41a7f2;
+            opacity: 0;
+            transform: scale(.9);
+            transition: opacity .2s, transform .2s
+        }
+
+        .table input[type="checkbox"]#select-all::after,
+        .table input[type="checkbox"][name="CHK_ID"]::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 8px;
+            height: 8px;
+            border-radius: 9999px;
+            background: #41a7f2;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform .22s cubic-bezier(.2, .7, .2, 1)
+        }
+
+        .table input[type="checkbox"]#select-all:checked,
+        .table input[type="checkbox"][name="CHK_ID"]:checked {
+            border-color: transparent;
+            box-shadow: 0 0 0 6px rgba(65, 167, 242, .08), 0 2px 8px rgba(17, 24, 39, .08);
+            transform: translateY(-.2px)
+        }
+
+        .table input[type="checkbox"]#select-all:checked::before,
+        .table input[type="checkbox"][name="CHK_ID"]:checked::before {
+            opacity: 1;
+            transform: scale(1)
+        }
+
+        .table input[type="checkbox"]#select-all:checked::after,
+        .table input[type="checkbox"][name="CHK_ID"]:checked::after {
+            transform: translate(-50%, -50%) scale(1)
+        }
+
+        .table input[type="checkbox"]#select-all:hover,
+        .table input[type="checkbox"][name="CHK_ID"]:hover {
+            box-shadow: 0 0 0 6px rgba(65, 167, 242, .06)
+        }
+
+        .table input[type="checkbox"]#select-all:focus-visible,
+        .table input[type="checkbox"][name="CHK_ID"]:focus-visible {
+            outline: 0;
+            box-shadow: 0 0 0 3px rgba(65, 167, 242, .24)
+        }
+
+        .table input[type="checkbox"]#select-all:indeterminate {
+            border-color: #41a7f2;
+            box-shadow: 0 0 0 6px rgba(65, 167, 242, .06)
+        }
+
+        .table input[type="checkbox"]#select-all:indeterminate::before {
+            opacity: 1;
+            transform: scale(1)
+        }
+
+        .table input[type="checkbox"]#select-all:indeterminate::after {
+            width: 10px;
+            height: 2px;
+            background: #41a7f2;
+            transform: translate(-50%, -50%) scale(1)
+        }
+
+        /* 모바일 카드 체크박스도 원형으로 */
+        .history-cards .agc-card__check-wrap input[type="checkbox"] {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 9999px;
+            border: 2px solid #cfd6e4;
+            background: #fff;
+            cursor: pointer;
+            position: relative;
+            margin: 0
+        }
+
+        .history-cards .agc-card__check-wrap input[type="checkbox"]::before {
+            content: "";
+            position: absolute;
+            inset: -2px;
+            border-radius: 9999px;
+            border: 2px solid #41a7f2;
+            opacity: 0;
+            transform: scale(.9);
+            transition: opacity .2s, transform .2s
+        }
+
+        .history-cards .agc-card__check-wrap input[type="checkbox"]::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 8px;
+            height: 8px;
+            border-radius: 9999px;
+            background: #41a7f2;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform .22s cubic-bezier(.2, .7, .2, 1)
+        }
+
+        .history-cards .agc-card__check-wrap input[type="checkbox"]:checked {
+            border-color: transparent;
+            box-shadow: 0 0 0 6px rgba(65, 167, 242, .08), 0 2px 8px rgba(17, 24, 39, .08)
+        }
+
+        .history-cards .agc-card__check-wrap input[type="checkbox"]:checked::before {
+            opacity: 1;
+            transform: scale(1)
+        }
+
+        .history-cards .agc-card__check-wrap input[type="checkbox"]:checked::after {
+            transform: translate(-50%, -50%) scale(1)
+        }
+
+
+
+
+        .ui-searchbar__grid {
+            display: grid;
+            gap: 10px;
+            align-items: start;
+            margin: 12px 0;
+            grid-template-columns: 1fr 220px;
+            grid-template-areas:
+                "search  search"
+                "actions limit";
+        }
+
+        .ui-search {
+            grid-area: search;
+            min-width: 0;
+        }
+
+        .ui-actions {
+            grid-area: actions;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .ui-limit {
+            grid-area: limit;
+            justify-self: end;
+            align-self: start;
+        }
+
+
+        .ui-search {
+            display: grid;
+            gap: 8px;
+            align-items: center;
+            min-width: 0;
+            grid-template-columns: 220px 220px 220px 220px 1fr max-content;
+        }
+
+        @media (max-width:1199.98px) {
+            .ui-search {
+                grid-template-columns: 220px 220px 220px 1fr max-content;
+            }
+        }
+
+        .ui-search .dht-select[data-target="sjtype"] {
+            grid-column: 1;
+        }
+
+        .ui-search .dht-select[data-target="sagency"] {
+            grid-column: 2;
+        }
+
+        .ui-search .ipt.picker-range[name="sstart"] {
+            grid-column: 3;
+        }
+
+        .ui-search .ipt.picker-range[name="send"] {
+            grid-column: 4;
+        }
+
+        .ui-search .ipt[name="sval"] {
+            grid-column: 5;
+        }
+
+        .ui-search #button-search {
+            grid-column: 6;
+            justify-self: end;
+            width: auto;
+        }
+
+        .ui-search .dht-select,
+        .ui-search .ipt {
+            width: 100%;
+        }
+
+        @media (max-width:991.98px) {
+            .ui-searchbar__grid {
+                grid-template-columns: 1fr;
+                grid-template-areas:
+                    "search"
+                    "actions"
+                    "limit";
+                gap: 8px;
+            }
+
+            .ui-search {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .ui-search .dht-select[data-target="sjtype"],
+            .ui-search .dht-select[data-target="sagency"],
+            .ui-search .ipt.picker-range[name="sstart"],
+            .ui-search .ipt.picker-range[name="send"],
+            .ui-search .ipt[name="sval"],
+            .ui-search #button-search {
+                grid-column: 1;
+            }
+
+            .ui-search #button-search {
+                justify-self: stretch;
+                width: 100%;
+            }
+
+            .ui-actions {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 8px;
+            }
+
+            .ui-actions>* {
+                width: 100%;
+            }
+
+            .ui-limit {
+                justify-self: stretch;
+            }
+
+            .ui-search .dht-select {
+                min-width: 0;
+            }
+
+            .ui-search .dht-select .dht-select__btn {
+                width: 100%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+
+
+
+        .ui-search #button-search {
+            height: 40px;
+        }
+
+        .dht-sel-portal {
+            position: fixed;
+            z-index: 9999;
+            overflow: auto;
+            /* min-height: 없음 */
+        }
+    </style>
+<script defer="" src="../../js/js/favicon.js"></script>
+<link href="../../img/images/impact_logo2.png" rel="icon" type="image/png"/></head>
+<body>
+<div class="app-wrapper">
+<div class="loader-wrapper">
+<div class="app-loader">
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<!-- Menu Navigation starts -->
+<nav aria-label="주요 메뉴">
+<div class="app-nav" id="app-simple-bar">
+<!-- 브랜드(모바일에서 닫기 버튼 노출) -->
+<div class="nav-brand">
+<img class="nav-brand__img" decoding="async" loading="lazy" src="../../img/images/impact_logo.png"/>
+<button aria-label="메뉴 닫기" class="nav-close" type="button">
+<svg aria-hidden="true" height="18" viewbox="0 0 24 24" width="18">
+<path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+<div class="nav-scroll">
+<ul class="main-nav px-3 mt-4">
+<!-- ===== 관리 그룹 ===== -->
+<!-- ===== 슬롯 그룹(N/C/G/Y) ===== -->
+<li class="group-hd">
+<img alt="네이버 로고" class="brand-ico" height="16" onerror="this.style.display='none'" src="../../img/images/n.png" width="16"/>
+<span class="brand-txt">네이버</span>
+</li>
+<li class="no-sub">
+<a aria-current="false" href="../NA/index.html">
+<span aria-hidden="true" class="bullet"></span><span>N자동완성</span>
+</a>
+</li>
+<li class="no-sub">
+<a aria-current="false" href="../WS/index.html">
+<span aria-hidden="true" class="bullet"></span><span>N웹트래픽</span>
+</a>
+</li>
+<li class="no-sub">
+<a aria-current="false" href="../NS/index.html">
+<span aria-hidden="true" class="bullet"></span><span>N쇼핑</span>
+</a>
+</li>
+<li aria-hidden="true" class="divider"></li>
+<li class="group-hd">
+<img alt="쿠팡 로고" class="brand-ico" height="16" onerror="this.style.display='none'" src="../../img/images/c.png" width="16"/>
+<span class="brand-txt">쿠팡</span>
+</li>
+<li class="no-sub">
+<a aria-current="false" href="../CP/index.html">
+<span aria-hidden="true" class="bullet"></span><span>C쇼핑</span>
+</a>
+</li>
+<li aria-hidden="true" class="divider"></li>
+<li class="group-hd">
+<img alt="구글 로고" class="brand-ico" height="16" onerror="this.style.display='none'" src="../../img/images/g.png" width="16"/>
+<span class="brand-txt">구글</span>
+</li>
+<li class="no-sub">
+<a aria-current="false" href="../GA/index.html">
+<span aria-hidden="true" class="bullet"></span><span>G자동완성</span>
+</a>
+</li>
+<li class="no-sub">
+<a aria-current="false" href="../YA/index.html">
+<span aria-hidden="true" class="bullet"></span><span>Y자동완성</span>
+</a>
+</li>
+<li aria-hidden="true" class="divider"></li>
+<!-- ===== 시스템 그룹 ===== -->
+<li class="group-hd">
+<img alt="시스템 로고" class="brand-ico" height="16" onerror="this.style.display='none'" src="../../assets/slot/history" style="display: none;" width="16"/>
+<span class="brand-txt">시스템</span>
+</li>
+<li class="no-sub">
+<a aria-current="page" href="index.html">
+<span aria-hidden="true" class="bullet"></span><span>정산</span>
+</a>
+</li>
+<li aria-hidden="true" class="divider"></li>
+<!-- 로그아웃: PNG + 호버 애니메이션(유지) -->
+<li class="no-sub mt-auto">
+<a class="logout" href="../../auth/logout/index.html">
+<img alt="" class="item-ico" height="20" onerror="this.style.display='none'" src="../../img/images/sidenav_logout_icon.png" width="20"/>
+<span>로그아웃</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<!-- Menu Navigation ends -->
+<!-- 오프캔버스 백드롭 -->
+<div class="nav-backdrop" hidden=""></div>
+<div class="app-content">
+<div class="">
+<!-- Header Section -->
+<header class="header-main" role="banner">
+<div class="header-inner">
+<div class="header-left">
+<!-- 모바일 전용 햄버거 -->
+<button aria-controls="app-simple-bar" aria-label="메뉴 열기/닫기" class="header-toggle" type="button">
+<svg aria-hidden="true" height="20" viewbox="0 0 24 24" width="20">
+<rect height="2" rx="1" width="18" x="3" y="6"></rect>
+<rect height="2" rx="1" width="18" x="3" y="11"></rect>
+<rect height="2" rx="1" width="18" x="3" y="16"></rect>
+</svg>
+</button>
+<h1 class="main-title">
+        정산
+      </h1>
+</div>
+<div class="header-right">
+<div class="profile-chip" title="pcsmkt7 (장부장님)">
+<span aria-hidden="true" class="profile-avatar">P</span>
+<span class="profile-text">
+<span class="profile-id">pcsmkt7</span>
+<span class="profile-name">(장부장님)</span>
+</span>
+</div>
+</div>
+</div>
+</header>
+<main>
+<div class="container-fluid">
+<div class="ui-toolbar">
+<div class="ui-toolbar__row">
+<div class="ui-chips">
+<a class="chip is-active" href="index.html">
+                                전체 <span class="chip__badge">5</span>
+</a>
+<a class="chip" href="index.html">
+                                확인 <span class="chip__badge">0</span>
+</a>
+<a class="chip" href="index.html">
+                                미확인 <span class="chip__badge">5</span>
+</a>
+<a class="chip" href="index.html">
+                                최근삭제 <span class="chip__badge">0</span>
+</a>
+</div>
+</div>
+</div>
+<form class="ui-searchbar histbar" id="form-search" method="GET">
+<input id="ssort" name="ssort" type="hidden" value="a.ID"/>
+<input id="sorder" name="sorder" type="hidden" value="desc"/>
+<input id="type" name="type" type="hidden" value="ALL"/>
+<input id="limit" name="limit" type="hidden" value="100"/>
+<div class="ui-searchbar__grid">
+<div class="ui-actions">
+</div>
+<div class="ui-search">
+<select class="native-select" hidden="" id="sjtype" name="sjtype">
+<option selected="" value="">전체</option>
+<option value="N">슬롯생성</option>
+<option value="E">기간연장</option>
+<option value="W">슬롯철회</option>
+</select>
+<div class="dht-select" data-ready="1" data-target="sjtype"><button class="dht-select__btn" type="button"><span class="dht-select__label">전체</span><i aria-hidden="true" class="dht-select__caret"></i></button></div>
+<select class="native-select" hidden="" id="sagency" name="sagency">
+<option selected="" value="">전체 대행사</option>
+</select>
+<div class="dht-select" data-ready="1" data-target="sagency"><button class="dht-select__btn" type="button"><span class="dht-select__label">전체 대행사</span><i aria-hidden="true" class="dht-select__caret"></i></button></div>
+<input class="ipt picker-range flatpickr-input" name="sstart" placeholder="시작일" readonly="readonly" type="text" value=""/>
+<input class="ipt picker-range flatpickr-input" name="send" placeholder="종료일" readonly="readonly" type="text" value=""/>
+<input class="ipt" name="sval" placeholder="코드, 키워드, 아이디, 대행사명…" type="text" value=""/>
+<button class="btn-primary" id="button-search" type="submit">검색</button>
+</div>
+<div class="ui-limit">
+<select class="native-select" hidden="" id="select-limit" name="limit">
+<option selected="" value="100">100개씩 보기</option>
+<option value="300">300개씩 보기</option>
+<option value="500">500개씩 보기</option>
+<option value="1000">1000개씩 보기</option>
+</select>
+<div class="dht-select" data-ready="1" data-target="select-limit"><button class="dht-select__btn" type="button"><span class="dht-select__label">100개씩 보기</span><i aria-hidden="true" class="dht-select__caret"></i></button></div>
+</div>
+</div>
+</form>
+<div class="table agency-table">
+<table class="table table-bottom-border table-hover table-striped align-middle mb-0">
+<thead>
+<tr>
+<th>
+<label class="check-box">
+<input id="select-all" type="checkbox"/><span class="checkmark outline-light ms-2"></span>
+</label>
+</th>
+<th>
+<div style="display:flex;align-items:center;gap:6px">
+<span>일시</span>
+<div style="display:flex;flex-direction:column;line-height:1;margin-left:4px">
+<a aria-label="오름차순" class="sort sort-asc" data-sorder="asc" data-ssort="a.CREATEDATE" href="#"></a>
+<a aria-label="내림차순" class="sort sort-desc" data-sorder="desc" data-ssort="a.CREATEDATE" href="#"></a>
+</div>
+</div>
+</th>
+<th>
+<div style="display:flex;align-items:center;gap:6px">
+<span>대행사명</span>
+<div style="display:flex;flex-direction:column;line-height:1;margin-left:4px">
+<a aria-label="오름차순" class="sort sort-asc" data-sorder="asc" data-ssort="g.USER_NAME" href="#"></a>
+<a aria-label="내림차순" class="sort sort-desc" data-sorder="desc" data-ssort="g.USER_NAME" href="#"></a>
+</div>
+</div>
+</th>
+<th>
+<div style="display:flex;align-items:center;gap:6px">
+<span>대행사메모</span>
+<div style="display:flex;flex-direction:column;line-height:1;margin-left:4px">
+<a aria-label="오름차순" class="sort sort-asc" data-sorder="asc" data-ssort="g.MEMO" href="#"></a>
+<a aria-label="내림차순" class="sort sort-desc" data-sorder="desc" data-ssort="g.MEMO" href="#"></a>
+</div>
+</div>
+</th>
+<th>
+<div style="display:flex;align-items:center;gap:6px">
+<span>이름</span>
+<div style="display:flex;flex-direction:column;line-height:1;margin-left:4px">
+<a aria-label="오름차순" class="sort sort-asc" data-sorder="asc" data-ssort="u.USER_NAME" href="#"></a>
+<a aria-label="내림차순" class="sort sort-desc" data-sorder="desc" data-ssort="u.USER_NAME" href="#"></a>
+</div>
+</div>
+</th>
+<th>
+<div style="display:flex;align-items:center;gap:6px">
+<span>아이디</span>
+<div style="display:flex;flex-direction:column;line-height:1;margin-left:4px">
+<a aria-label="오름차순" class="sort sort-asc" data-sorder="asc" data-ssort="a.USER_NAME" href="#"></a>
+<a aria-label="내림차순" class="sort sort-desc" data-sorder="desc" data-ssort="a.USER_NAME" href="#"></a>
+</div>
+</div>
+</th>
+<th>
+<div style="display:flex;align-items:center;gap:6px">
+<span>코드</span>
+<div style="display:flex;flex-direction:column;line-height:1;margin-left:4px">
+<a aria-label="오름차순" class="sort sort-asc" data-sorder="asc" data-ssort="a.KEYWORD_ID" href="#"></a>
+<a aria-label="내림차순" class="sort sort-desc" data-sorder="desc" data-ssort="a.KEYWORD_ID" href="#"></a>
+</div>
+</div>
+</th>
+<th>
+<div style="display:flex;align-items:center;gap:6px">
+<span>탭구분</span>
+<div style="display:flex;flex-direction:column;line-height:1;margin-left:4px">
+<a aria-label="오름차순" class="sort sort-asc" data-sorder="asc" data-ssort="m.MENU_ORDER" href="#"></a>
+<a aria-label="내림차순" class="sort sort-desc" data-sorder="desc" data-ssort="m.MENU_ORDER" href="#"></a>
+</div>
+</div>
+</th>
+<th>
+<div style="display:flex;align-items:center;gap:6px">
+<span>회원메모</span>
+<div style="display:flex;flex-direction:column;line-height:1;margin-left:4px">
+<a aria-label="오름차순" class="sort sort-asc" data-sorder="asc" data-ssort="u.MEMO" href="#"></a>
+<a aria-label="내림차순" class="sort sort-desc" data-sorder="desc" data-ssort="u.MEMO" href="#"></a>
+</div>
+</div>
+</th>
+<th>
+<div style="display:flex;align-items:center;gap:6px">
+<span>작업구분</span>
+<div style="display:flex;flex-direction:column;line-height:1;margin-left:4px">
+<a aria-label="오름차순" class="sort sort-asc" data-sorder="asc" data-ssort="a.JOB_TYPE" href="#"></a>
+<a aria-label="내림차순" class="sort sort-desc" data-sorder="desc" data-ssort="a.JOB_TYPE" href="#"></a>
+</div>
+</div>
+</th>
+<th>
+<div style="display:flex;align-items:center;gap:6px">
+<span>일수</span>
+<div style="display:flex;flex-direction:column;line-height:1;margin-left:4px">
+<a aria-label="오름차순" class="sort sort-asc" data-sorder="asc" data-ssort="a.DAYS" href="#"></a>
+<a aria-label="내림차순" class="sort sort-desc" data-sorder="desc" data-ssort="a.DAYS" href="#"></a>
+</div>
+</div>
+</th>
+<th>
+<div style="display:flex;align-items:center;gap:6px">
+<span>처리자</span>
+<div style="display:flex;flex-direction:column;line-height:1;margin-left:4px">
+<a aria-label="오름차순" class="sort sort-asc" data-sorder="asc" data-ssort="tu.USER_NAME" href="#"></a>
+<a aria-label="내림차순" class="sort sort-desc" data-sorder="desc" data-ssort="tu.USER_NAME" href="#"></a>
+</div>
+</div>
+</th>
+<th>
+<div style="display:flex;align-items:center;gap:6px">
+<span>확인여부</span>
+<div style="display:flex;flex-direction:column;line-height:1;margin-left:4px">
+<a aria-label="오름차순" class="sort sort-asc" data-sorder="asc" data-ssort="a.CHECK_STATUS" href="#"></a>
+<a aria-label="내림차순" class="sort sort-desc" data-sorder="desc" data-ssort="a.CHECK_STATUS" href="#"></a>
+</div>
+</div>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="check">
+<label><input name="CHK_ID" type="checkbox" value="738660"/><span></span></label>
+</td>
+<td class="text-dark f-w-500">2025-10-24 15:43:30</td>
+<td class="text-dark f-w-500">런앤런</td>
+<td class="text-dark f-w-500">-</td>
+<td class="text-dark f-w-500">장부장님</td>
+<td class="text-dark f-w-500">pcsmkt7</td>
+<td class="text-dark f-w-500">739758</td>
+<td class="text-dark f-w-500">G자동완성</td>
+<td class="text-dark f-w-500"></td>
+<td class="text-dark f-w-500">
+                                     슬롯생성
+                                                                    </td>
+<td class="text-dark f-w-500">30</td>
+<td class="text-dark f-w-500">런앤런</td>
+<td class="text-dark f-w-500">미확인</td>
+</tr>
+<tr>
+<td class="check">
+<label><input name="CHK_ID" type="checkbox" value="738659"/><span></span></label>
+</td>
+<td class="text-dark f-w-500">2025-10-24 15:43:30</td>
+<td class="text-dark f-w-500">런앤런</td>
+<td class="text-dark f-w-500">-</td>
+<td class="text-dark f-w-500">장부장님</td>
+<td class="text-dark f-w-500">pcsmkt7</td>
+<td class="text-dark f-w-500">739757</td>
+<td class="text-dark f-w-500">G자동완성</td>
+<td class="text-dark f-w-500"></td>
+<td class="text-dark f-w-500">
+                                     슬롯생성
+                                                                    </td>
+<td class="text-dark f-w-500">30</td>
+<td class="text-dark f-w-500">런앤런</td>
+<td class="text-dark f-w-500">미확인</td>
+</tr>
+<tr>
+<td class="check">
+<label><input name="CHK_ID" type="checkbox" value="738658"/><span></span></label>
+</td>
+<td class="text-dark f-w-500">2025-10-24 15:43:30</td>
+<td class="text-dark f-w-500">런앤런</td>
+<td class="text-dark f-w-500">-</td>
+<td class="text-dark f-w-500">장부장님</td>
+<td class="text-dark f-w-500">pcsmkt7</td>
+<td class="text-dark f-w-500">739756</td>
+<td class="text-dark f-w-500">G자동완성</td>
+<td class="text-dark f-w-500"></td>
+<td class="text-dark f-w-500">
+                                     슬롯생성
+                                                                    </td>
+<td class="text-dark f-w-500">30</td>
+<td class="text-dark f-w-500">런앤런</td>
+<td class="text-dark f-w-500">미확인</td>
+</tr>
+<tr>
+<td class="check">
+<label><input name="CHK_ID" type="checkbox" value="738657"/><span></span></label>
+</td>
+<td class="text-dark f-w-500">2025-10-24 15:43:30</td>
+<td class="text-dark f-w-500">런앤런</td>
+<td class="text-dark f-w-500">-</td>
+<td class="text-dark f-w-500">장부장님</td>
+<td class="text-dark f-w-500">pcsmkt7</td>
+<td class="text-dark f-w-500">739755</td>
+<td class="text-dark f-w-500">G자동완성</td>
+<td class="text-dark f-w-500"></td>
+<td class="text-dark f-w-500">
+                                     슬롯생성
+                                                                    </td>
+<td class="text-dark f-w-500">30</td>
+<td class="text-dark f-w-500">런앤런</td>
+<td class="text-dark f-w-500">미확인</td>
+</tr>
+<tr>
+<td class="check">
+<label><input name="CHK_ID" type="checkbox" value="738656"/><span></span></label>
+</td>
+<td class="text-dark f-w-500">2025-10-24 15:43:30</td>
+<td class="text-dark f-w-500">런앤런</td>
+<td class="text-dark f-w-500">-</td>
+<td class="text-dark f-w-500">장부장님</td>
+<td class="text-dark f-w-500">pcsmkt7</td>
+<td class="text-dark f-w-500">739754</td>
+<td class="text-dark f-w-500">G자동완성</td>
+<td class="text-dark f-w-500"></td>
+<td class="text-dark f-w-500">
+                                     슬롯생성
+                                                                    </td>
+<td class="text-dark f-w-500">30</td>
+<td class="text-dark f-w-500">런앤런</td>
+<td class="text-dark f-w-500">미확인</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="history-cards">
+<div class="agc-list">
+<div class="agc-card">
+<span class="agc-card__check-wrap">
+<label><input name="CHK_ID" type="checkbox" value="738660"/><span></span></label>
+</span>
+<div class="agc-card__body js-open-history" data-agency="런앤런" data-agencymemo="-" data-check="미확인" data-date="2025-10-24 15:43:30" data-days="30" data-id="738660" data-job="N" data-keyid="739758" data-memo="" data-menu="G자동완성" data-task="런앤런" data-uid="pcsmkt7" data-uname="장부장님">
+<div>
+<div class="agc-title">장부장님 <small class="text-muted">(pcsmkt7)</small></div>
+<div class="agc-meta">2025-10-24 15:43:30</div>
+</div>
+<div class="agc-right">
+<span class="agc-chip d-none d-md-inline">런앤런</span>
+<span class="agc-chip agc-chip--uid">739758</span>
+<span aria-hidden="true" class="ti ti-chevron-right"></span>
+</div>
+</div>
+</div>
+<div class="agc-card">
+<span class="agc-card__check-wrap">
+<label><input name="CHK_ID" type="checkbox" value="738659"/><span></span></label>
+</span>
+<div class="agc-card__body js-open-history" data-agency="런앤런" data-agencymemo="-" data-check="미확인" data-date="2025-10-24 15:43:30" data-days="30" data-id="738659" data-job="N" data-keyid="739757" data-memo="" data-menu="G자동완성" data-task="런앤런" data-uid="pcsmkt7" data-uname="장부장님">
+<div>
+<div class="agc-title">장부장님 <small class="text-muted">(pcsmkt7)</small></div>
+<div class="agc-meta">2025-10-24 15:43:30</div>
+</div>
+<div class="agc-right">
+<span class="agc-chip d-none d-md-inline">런앤런</span>
+<span class="agc-chip agc-chip--uid">739757</span>
+<span aria-hidden="true" class="ti ti-chevron-right"></span>
+</div>
+</div>
+</div>
+<div class="agc-card">
+<span class="agc-card__check-wrap">
+<label><input name="CHK_ID" type="checkbox" value="738658"/><span></span></label>
+</span>
+<div class="agc-card__body js-open-history" data-agency="런앤런" data-agencymemo="-" data-check="미확인" data-date="2025-10-24 15:43:30" data-days="30" data-id="738658" data-job="N" data-keyid="739756" data-memo="" data-menu="G자동완성" data-task="런앤런" data-uid="pcsmkt7" data-uname="장부장님">
+<div>
+<div class="agc-title">장부장님 <small class="text-muted">(pcsmkt7)</small></div>
+<div class="agc-meta">2025-10-24 15:43:30</div>
+</div>
+<div class="agc-right">
+<span class="agc-chip d-none d-md-inline">런앤런</span>
+<span class="agc-chip agc-chip--uid">739756</span>
+<span aria-hidden="true" class="ti ti-chevron-right"></span>
+</div>
+</div>
+</div>
+<div class="agc-card">
+<span class="agc-card__check-wrap">
+<label><input name="CHK_ID" type="checkbox" value="738657"/><span></span></label>
+</span>
+<div class="agc-card__body js-open-history" data-agency="런앤런" data-agencymemo="-" data-check="미확인" data-date="2025-10-24 15:43:30" data-days="30" data-id="738657" data-job="N" data-keyid="739755" data-memo="" data-menu="G자동완성" data-task="런앤런" data-uid="pcsmkt7" data-uname="장부장님">
+<div>
+<div class="agc-title">장부장님 <small class="text-muted">(pcsmkt7)</small></div>
+<div class="agc-meta">2025-10-24 15:43:30</div>
+</div>
+<div class="agc-right">
+<span class="agc-chip d-none d-md-inline">런앤런</span>
+<span class="agc-chip agc-chip--uid">739755</span>
+<span aria-hidden="true" class="ti ti-chevron-right"></span>
+</div>
+</div>
+</div>
+<div class="agc-card">
+<span class="agc-card__check-wrap">
+<label><input name="CHK_ID" type="checkbox" value="738656"/><span></span></label>
+</span>
+<div class="agc-card__body js-open-history" data-agency="런앤런" data-agencymemo="-" data-check="미확인" data-date="2025-10-24 15:43:30" data-days="30" data-id="738656" data-job="N" data-keyid="739754" data-memo="" data-menu="G자동완성" data-task="런앤런" data-uid="pcsmkt7" data-uname="장부장님">
+<div>
+<div class="agc-title">장부장님 <small class="text-muted">(pcsmkt7)</small></div>
+<div class="agc-meta">2025-10-24 15:43:30</div>
+</div>
+<div class="agc-right">
+<span class="agc-chip d-none d-md-inline">런앤런</span>
+<span class="agc-chip agc-chip--uid">739754</span>
+<span aria-hidden="true" class="ti ti-chevron-right"></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="table-footer">
+</div>
+</div>
+</main>
+<div aria-hidden="true" class="dht-sheet" id="sheetHistory">
+<div class="dht-sheet__backdrop js-sheet-close"></div>
+<div aria-labelledby="sheetTitle" aria-modal="true" class="dht-sheet__panel" role="dialog">
+<div class="dht-sheet__handle"></div>
+<div class="dht-sheet__header">
+<div class="dht-sheet__title" id="sheetTitle">이름</div>
+<div class="dht-sheet__sub" id="sheetSub">아이디</div>
+</div>
+<div class="dht-sheet__body">
+<div class="dht-kv">
+<div class="dht-kv__k">일시</div>
+<div class="dht-kv__v" id="kvDate"></div>
+</div>
+<div class="dht-kv">
+<div class="dht-kv__k">대행사명</div>
+<div class="dht-kv__v" id="kvAgency"></div>
+</div>
+<div class="dht-kv">
+<div class="dht-kv__k">대행사메모</div>
+<div class="dht-kv__v" id="kvAgencyMemo"></div>
+</div>
+<div class="dht-kv">
+<div class="dht-kv__k">코드</div>
+<div class="dht-kv__v" id="kvKey"></div>
+</div>
+<div class="dht-kv">
+<div class="dht-kv__k">탭구분</div>
+<div class="dht-kv__v" id="kvMenu"></div>
+</div>
+<div class="dht-kv">
+<div class="dht-kv__k">회원메모</div>
+<div class="dht-kv__v" id="kvMemo"></div>
+</div>
+<div class="dht-kv">
+<div class="dht-kv__k">작업구분</div>
+<div class="dht-kv__v" id="kvJob"></div>
+</div>
+<div class="dht-kv">
+<div class="dht-kv__k">일수</div>
+<div class="dht-kv__v" id="kvDays"></div>
+</div>
+<div class="dht-kv">
+<div class="dht-kv__k">처리자</div>
+<div class="dht-kv__v" id="kvTask"></div>
+</div>
+<div class="dht-kv">
+<div class="dht-kv__k">확인여부</div>
+<div class="dht-kv__v" id="kvCheck"></div>
+</div>
+</div>
+<div class="dht-sheet__actions">
+<button class="dht-btn js-sheet-close" type="button">닫기</button>
+</div>
+</div>
+</div>
+<footer class="app-footer">
+<div class="container-fluid app-footer__wrap">
+<div class="app-footer__left">
+<span class="app-footer__copy">
+        Copyright © <span id="copyYear">2025</span> kimsangmin
+      </span>
+</div>
+<ul class="app-footer__links">
+<li>
+<a aria-label="Instagram" href="https://instagram.com/smwtb_h" rel="noopener" target="_blank">
+<svg aria-hidden="true" height="18" viewbox="0 0 24 24" width="18">
+<path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Z" fill="none" stroke="currentColor" stroke-width="1.6"></path>
+<circle cx="12" cy="12" fill="none" r="3.6" stroke="currentColor" stroke-width="1.6"></circle>
+<circle cx="17.5" cy="6.5" fill="currentColor" r="1.1"></circle>
+</svg>
+</a>
+</li>
+</ul>
+</div>
+</footer>
+</div>
+</div>
+</div>
+<script crossorigin="anonymous" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" src="../../js/code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+        function getLocalStorageItem(key) {
+            return window.localStorage.getItem(key);
+        }
+    </script>
+<script src="../../js/assets/vendor/simplebar/simplebar.js"></script>
+<script src="../../js/js/header.js"></script>
+<script src="../../js/assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="../../js/assets/js/script.js"></script>
+<script src="../../js/cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+<script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const modal = document.getElementById('modalDeleteMember');
+            const host = document.getElementById('delAnim');
+
+            // 없으면 바로 종료
+            if (!modal || !host || !window.lottie) return;
+
+            const anim = lottie.loadAnimation({
+                container: host,
+                renderer: 'svg',
+                loop: false,
+                autoplay: false,
+                path: '/images/jKRVRZValr.json'
+            });
+
+            modal.addEventListener('shown.bs.modal', () => anim.goToAndPlay(0, true));
+            modal.addEventListener('hide.bs.modal', () => anim.stop());
+        });
+    </script>
+<script>
+</script>
+<script src="../../js/npmcdn.com/flatpickr/dist/flatpickr.min.js"></script>
+<script src="../../js/npmcdn.com/flatpickr/dist/l10n/ko.js"></script>
+<script>
+        $('.sort').on('click', function (e) {
+            e.preventDefault();
+            $('#ssort').val($(this).data('ssort'));
+            $('#sorder').val($(this).data('sorder'));
+            $('#form-search').submit();
+        });
+
+        $('#select-limit').on('change', function () {
+            $('#limit').val(this.value);
+            $('#form-search').submit();
+        });
+
+        flatpickr(".picker-range", { locale: "ko" });
+
+        function getRowChecks() { return $("input[name='CHK_ID']"); }
+        function syncSelectAll() {
+            const $rows = getRowChecks();
+            const sel = $rows.filter(':checked').length;
+            const all = $rows.length > 0 && sel === $rows.length;
+            $('#select-all,#select-all-m').prop('checked', all);
+        }
+        function setAll(checked) {
+            getRowChecks().prop('checked', checked);
+            $('#select-all,#select-all-m').prop('checked', checked);
+        }
+        $(document).on('change', "input[name='CHK_ID']", syncSelectAll);
+        $('#select-all').on('change', function () { setAll(this.checked); });
+        $('#select-all-m').on('change', function () { setAll(this.checked); });
+
+        function getCheckedIds() { return $("input[name='CHK_ID']:checked").map(function () { return this.value; }).get(); }
+
+        $('#btn-confirm').on('click', function () {
+            const ids = getCheckedIds();
+            if (ids.length < 1) { alert('처리할 내역을 선택해주세요.'); return; }
+            if (confirm('선택한 내역 ' + ids.length + '건을 확인 처리하겠습니까?')) {
+                $.ajax({
+                    headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                    url: '/slot/history/confirm', method: 'POST', dataType: 'JSON', data: { history_ids: ids },
+                    success: r => { alert(r.message); if (r.result === 'success') location.reload(); },
+                    error: x => { alert('실패했습니다'); console.log(x); }
+                });
+            }
+        });
+
+        $('#btn-confirm-cancel').on('click', function () {
+            const ids = getCheckedIds();
+            if (ids.length < 1) { alert('처리할 내역을 선택해주세요.'); return; }
+            if (confirm('선택한 내역 ' + ids.length + '건을 미확인 처리하겠습니까?')) {
+                $.ajax({
+                    headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                    url: '/slot/history/unconfirm', method: 'POST', dataType: 'JSON', data: { history_ids: ids },
+                    success: r => { alert(r.message); if (r.result === 'success') location.reload(); },
+                    error: x => { alert('실패했습니다'); console.log(x); }
+                });
+            }
+        });
+
+        $('#btn-confirm-delete').on('click', function () {
+            const ids = getCheckedIds();
+            if (ids.length < 1) { alert('처리할 내역을 선택해주세요.'); return; }
+            if (confirm('선택한 내역 ' + ids.length + '건을 삭제 처리하겠습니까?')) {
+                $.ajax({
+                    headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                    url: '/slot/history/delete', method: 'POST', dataType: 'JSON', data: { history_ids: ids },
+                    success: r => { alert(r.message); if (r.result === 'success') location.reload(); },
+                    error: x => { alert('실패했습니다'); console.log(x); }
+                });
+            }
+        });
+
+        /* ===== 바텀시트 ===== */
+        $(function () {
+            const $sheet = $('#sheetHistory');
+            const $panel = $sheet.find('.dht-sheet__panel');
+
+            function setText(id, v) { $('#' + id).text(v ?? '-'); }
+            function fill(d) {
+                setText('sheetTitle', d.uname || '-'); setText('sheetSub', d.uid || '-');
+                setText('kvDate', d.date || '-'); setText('kvAgency', d.agency || '-'); setText('kvAgencyMemo', d.agencymemo || '-');
+                setText('kvKey', d.keyid || '-'); setText('kvMenu', d.menu || '-'); setText('kvMemo', d.memo || '-');
+                setText('kvJob', d.job || '-'); setText('kvDays', d.days ?? '0'); setText('kvTask', d.task || '-'); setText('kvCheck', d.check || '-');
+                $sheet.data('id', d.id || '');
+            }
+            function openSheet(d) {
+                fill(d); $sheet.removeClass('is-closing').attr('aria-hidden', 'false');
+                requestAnimationFrame(() => { $sheet.addClass('is-open'); document.body.classList.add('sheet-open'); });
+            }
+            function closeSheet() {
+                if (!$sheet.hasClass('is-open') || $sheet.hasClass('is-closing')) return;
+                $sheet.addClass('is-closing').removeClass('is-open');
+                const finish = () => { $panel.off('.sheetEnd'); $sheet.removeClass('is-closing').attr('aria-hidden', 'true'); document.body.classList.remove('sheet-open'); };
+                $panel.one('transitionend.sheetEnd webkitTransitionEnd.sheetEnd', e => { if (e.target === $panel[0]) finish(); });
+                setTimeout(finish, 450);
+            }
+
+            // 카드 본문 클릭 → 상세. 체크박스 클릭은 그대로 유지.
+            $(document).on('click', '.agc-card__body', function (e) {
+                if ($(e.target).closest('.agc-card__check-wrap').length) return;
+                const $t = $(this);
+                openSheet({
+                    id: $t.data('id'), uname: $t.data('uname'), uid: $t.data('uid'),
+                    date: $t.data('date'), agency: $t.data('agency'), agencymemo: $t.data('agencymemo'),
+                    keyid: $t.data('keyid'), menu: $t.data('menu'), memo: $t.data('memo'),
+                    job: ($t.data('job') === 'N' ? '슬롯생성' : $t.data('job') === 'E' ? '기간연장' : $t.data('job') === 'W' ? '슬롯철회' : $t.data('job')),
+                    days: $t.data('days'), task: $t.data('task'), check: $t.data('check')
+                });
+            });
+            $(document).on('click', '.js-sheet-close', closeSheet);
+            $sheet.on('click', e => { if ($(e.target).is('.dht-sheet__backdrop')) closeSheet(); });
+            $(document).on('keydown', e => { if (e.key === 'Escape' && $sheet.hasClass('is-open')) closeSheet(); });
+
+            // 드래그로 닫기
+            let dragging = false, startY = 0, curY = 0;
+            function onStart(e) { dragging = true; startY = (e.touches ? e.touches[0].clientY : e.clientY); curY = 0; $panel.css('transition', 'none'); $('html').addClass('no-select'); }
+            function onMove(e) { if (!dragging) return; const y = (e.touches ? e.touches[0].clientY : e.clientY) - startY; if (y > 0) { curY = y; $panel.css('transform', `translateY(${y}px)`); } }
+            function onEnd() { if (!dragging) return; dragging = false; const h = $panel.outerHeight(); if (curY > h * 0.2 || curY > 100) { $panel.attr('style', ''); closeSheet(); } else { $panel.css('transition', 'transform .2s ease').css('transform', 'translateY(0)'); setTimeout(() => { $panel.attr('style', '') }, 220); } $('html').removeClass('no-select'); }
+            $panel.on('mousedown touchstart', onStart); $(window).on('mousemove touchmove', onMove); $(window).on('mouseup touchend', onEnd);
+        });
+
+        // 모달 닫힘시 포커스 blur(다른 페이지 공용 스크립트와 합치기 안전용)
+        document.addEventListener('hide.bs.modal', function () {
+            const ae = document.activeElement; if (ae && typeof ae.blur === 'function') ae.blur();
+        });
+    </script><div class="flatpickr-calendar animate" tabindex="-1"><div class="flatpickr-months"><span class="flatpickr-prev-month"><svg version="1.1" viewbox="0 0 17 17" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g></g><path d="M5.207 8.471l7.146 7.147-0.707 0.707-7.853-7.854 7.854-7.853 0.707 0.707-7.147 7.146z"></path></svg></span><div class="flatpickr-month"><div class="flatpickr-current-month"><select aria-label="Month" class="flatpickr-monthDropdown-months" tabindex="-1"><option class="flatpickr-monthDropdown-month" tabindex="-1" value="0">1월</option><option class="flatpickr-monthDropdown-month" tabindex="-1" value="1">2월</option><option class="flatpickr-monthDropdown-month" tabindex="-1" value="2">3월</option><option class="flatpickr-monthDropdown-month" tabindex="-1" value="3">4월</option><option class="flatpickr-monthDropdown-month" tabindex="-1" value="4">5월</option><option class="flatpickr-monthDropdown-month" tabindex="-1" value="5">6월</option><option class="flatpickr-monthDropdown-month" tabindex="-1" value="6">7월</option><option class="flatpickr-monthDropdown-month" tabindex="-1" value="7">8월</option><option class="flatpickr-monthDropdown-month" tabindex="-1" value="8">9월</option><option class="flatpickr-monthDropdown-month" tabindex="-1" value="9">10월</option><option class="flatpickr-monthDropdown-month" tabindex="-1" value="10">11월</option><option class="flatpickr-monthDropdown-month" tabindex="-1" value="11">12월</option></select><div class="numInputWrapper"><input aria-label="Year" class="numInput cur-year" tabindex="-1" type="number"/><span class="arrowUp"></span><span class="arrowDown"></span></div></div></div><span class="flatpickr-next-month"><svg version="1.1" viewbox="0 0 17 17" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g></g><path d="M13.207 8.472l-7.854 7.854-0.707-0.707 7.146-7.146-7.146-7.148 0.707-0.707 7.854 7.854z"></path></svg></span></div><div class="flatpickr-innerContainer"><div class="flatpickr-rContainer"><div class="flatpickr-weekdays"><div class="flatpickr-weekdaycontainer">
+<span class="flatpickr-weekday">
+        일</span><span class="flatpickr-weekday">월</span><span class="flatpickr-weekday">화</span><span class="flatpickr-weekday">수</span><span class="flatpickr-weekday">목</span><span class="flatpickr-weekday">금</span><span class="flatpickr-weekday">토
+      </span>
+</div></div><div class="flatpickr-days" tabindex="-1"><div class="dayContainer"><span aria-label="9월 28, 2025" class="flatpickr-day prevMonthDay" tabindex="-1">28</span><span aria-label="9월 29, 2025" class="flatpickr-day prevMonthDay" tabindex="-1">29</span><span aria-label="9월 30, 2025" class="flatpickr-day prevMonthDay" tabindex="-1">30</span><span aria-label="10월 1, 2025" class="flatpickr-day" tabindex="-1">1</span><span aria-label="10월 2, 2025" class="flatpickr-day" tabindex="-1">2</span><span aria-label="10월 3, 2025" class="flatpickr-day" tabindex="-1">3</span><span aria-label="10월 4, 2025" class="flatpickr-day" tabindex="-1">4</span><span aria-label="10월 5, 2025" class="flatpickr-day" tabindex="-1">5</span><span aria-label="10월 6, 2025" class="flatpickr-day" tabindex="-1">6</span><span aria-label="10월 7, 2025" class="flatpickr-day" tabindex="-1">7</span><span aria-label="10월 8, 2025" class="flatpickr-day" tabindex="-1">8</span><span aria-label="10월 9, 2025" class="flatpickr-day" tabindex="-1">9</span><span aria-label="10월 10, 2025" class="flatpickr-day" tabindex="-1">10</span><span aria-label="10월 11, 2025" class="flatpickr-day" tabindex="-1">11</span><span aria-label="10월 12, 2025" class="flatpickr-day" tabindex="-1">12</span><span aria-label="10월 13, 2025" class="flatpickr-day" tabindex="-1">13</span><span aria-label="10월 14, 2025" class="flatpickr-day" tabindex="-1">14</span><span aria-label="10월 15, 2025" class="flatpickr-day" tabindex="-1">15</span><span aria-label="10월 16, 2025" class="flatpickr-day" tabindex="-1">16</span><span aria-label="10월 17, 2025" class="flatpickr-day" tabindex="-1">17</span><span aria-label="10월 18, 2025" class="flatpickr-day" tabindex="-1">18</span><span aria-label="10월 19, 2025" class="flatpickr-day" tabindex="-1">19</span><span aria-label="10월 20, 2025" class="flatpickr-day" tabindex="-1">20</span><span aria-label="10월 21, 2025" class="flatpickr-day" tabindex="-1">21</span><span aria-label="10월 22, 2025" class="flatpickr-day" tabindex="-1">22</span><span aria-label="10월 23, 2025" class="flatpickr-day" tabindex="-1">23</span><span aria-label="10월 24, 2025" class="flatpickr-day" tabindex="-1">24</span><span aria-label="10월 25, 2025" class="flatpickr-day" tabindex="-1">25</span><span aria-label="10월 26, 2025" class="flatpickr-day" tabindex="-1">26</span><span aria-current="date" aria-label="10월 27, 2025" class="flatpickr-day today" tabindex="-1">27</span><span aria-label="10월 28, 2025" class="flatpickr-day" tabindex="-1">28</span><span aria-label="10월 29, 2025" class="flatpickr-day" tabindex="-1">29</span><span aria-label="10월 30, 2025" class="flatpickr-day" tabindex="-1">30</span><span aria-label="10월 31, 2025" class="flatpickr-day" tabindex="-1">31</span><span aria-label="11월 1, 2025" class="flatpickr-day nextMonthDay" tabindex="-1">1</span><span aria-label="11월 2, 2025" class="flatpickr-day nextMonthDay" tabindex="-1">2</span><span aria-label="11월 3, 2025" class="flatpickr-day nextMonthDay" tabindex="-1">3</span><span aria-label="11월 4, 2025" class="flatpickr-day nextMonthDay" tabindex="-1">4</span><span aria-label="11월 5, 2025" class="flatpickr-day nextMonthDay" tabindex="-1">5</span><span aria-label="11월 6, 2025" class="flatpickr-day nextMonthDay" tabindex="-1">6</span><span aria-label="11월 7, 2025" class="flatpickr-day nextMonthDay" tabindex="-1">7</span><span aria-label="11월 8, 2025" class="flatpickr-day nextMonthDay" tabindex="-1">8</span></div></div></div></div></div><div class="flatpickr-calendar animate" tabindex="-1"><div class="flatpickr-months"><span class="flatpickr-prev-month"><svg version="1.1" viewbox="0 0 17 17" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g></g><path d="M5.207 8.471l7.146 7.147-0.707 0.707-7.853-7.854 7.854-7.853 0.707 0.707-7.147 7.146z"></path></svg></span><div class="flatpickr-month"><div class="flatpickr-current-month"><select aria-label="Month" class="flatpickr-monthDropdown-months" tabindex="-1"><option class="flatpickr-monthDropdown-month" tabindex="-1" value="0">1월</option><option class="flatpickr-monthDropdown-month" tabindex="-1" value="1">2월</option><option class="flatpickr-monthDropdown-month" tabindex="-1" value="2">3월</option><option class="flatpickr-monthDropdown-month" tabindex="-1" value="3">4월</option><option class="flatpickr-monthDropdown-month" tabindex="-1" value="4">5월</option><option class="flatpickr-monthDropdown-month" tabindex="-1" value="5">6월</option><option class="flatpickr-monthDropdown-month" tabindex="-1" value="6">7월</option><option class="flatpickr-monthDropdown-month" tabindex="-1" value="7">8월</option><option class="flatpickr-monthDropdown-month" tabindex="-1" value="8">9월</option><option class="flatpickr-monthDropdown-month" tabindex="-1" value="9">10월</option><option class="flatpickr-monthDropdown-month" tabindex="-1" value="10">11월</option><option class="flatpickr-monthDropdown-month" tabindex="-1" value="11">12월</option></select><div class="numInputWrapper"><input aria-label="Year" class="numInput cur-year" tabindex="-1" type="number"/><span class="arrowUp"></span><span class="arrowDown"></span></div></div></div><span class="flatpickr-next-month"><svg version="1.1" viewbox="0 0 17 17" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g></g><path d="M13.207 8.472l-7.854 7.854-0.707-0.707 7.146-7.146-7.146-7.148 0.707-0.707 7.854 7.854z"></path></svg></span></div><div class="flatpickr-innerContainer"><div class="flatpickr-rContainer"><div class="flatpickr-weekdays"><div class="flatpickr-weekdaycontainer">
+<span class="flatpickr-weekday">
+        일</span><span class="flatpickr-weekday">월</span><span class="flatpickr-weekday">화</span><span class="flatpickr-weekday">수</span><span class="flatpickr-weekday">목</span><span class="flatpickr-weekday">금</span><span class="flatpickr-weekday">토
+      </span>
+</div></div><div class="flatpickr-days" tabindex="-1"><div class="dayContainer"><span aria-label="9월 28, 2025" class="flatpickr-day prevMonthDay" tabindex="-1">28</span><span aria-label="9월 29, 2025" class="flatpickr-day prevMonthDay" tabindex="-1">29</span><span aria-label="9월 30, 2025" class="flatpickr-day prevMonthDay" tabindex="-1">30</span><span aria-label="10월 1, 2025" class="flatpickr-day" tabindex="-1">1</span><span aria-label="10월 2, 2025" class="flatpickr-day" tabindex="-1">2</span><span aria-label="10월 3, 2025" class="flatpickr-day" tabindex="-1">3</span><span aria-label="10월 4, 2025" class="flatpickr-day" tabindex="-1">4</span><span aria-label="10월 5, 2025" class="flatpickr-day" tabindex="-1">5</span><span aria-label="10월 6, 2025" class="flatpickr-day" tabindex="-1">6</span><span aria-label="10월 7, 2025" class="flatpickr-day" tabindex="-1">7</span><span aria-label="10월 8, 2025" class="flatpickr-day" tabindex="-1">8</span><span aria-label="10월 9, 2025" class="flatpickr-day" tabindex="-1">9</span><span aria-label="10월 10, 2025" class="flatpickr-day" tabindex="-1">10</span><span aria-label="10월 11, 2025" class="flatpickr-day" tabindex="-1">11</span><span aria-label="10월 12, 2025" class="flatpickr-day" tabindex="-1">12</span><span aria-label="10월 13, 2025" class="flatpickr-day" tabindex="-1">13</span><span aria-label="10월 14, 2025" class="flatpickr-day" tabindex="-1">14</span><span aria-label="10월 15, 2025" class="flatpickr-day" tabindex="-1">15</span><span aria-label="10월 16, 2025" class="flatpickr-day" tabindex="-1">16</span><span aria-label="10월 17, 2025" class="flatpickr-day" tabindex="-1">17</span><span aria-label="10월 18, 2025" class="flatpickr-day" tabindex="-1">18</span><span aria-label="10월 19, 2025" class="flatpickr-day" tabindex="-1">19</span><span aria-label="10월 20, 2025" class="flatpickr-day" tabindex="-1">20</span><span aria-label="10월 21, 2025" class="flatpickr-day" tabindex="-1">21</span><span aria-label="10월 22, 2025" class="flatpickr-day" tabindex="-1">22</span><span aria-label="10월 23, 2025" class="flatpickr-day" tabindex="-1">23</span><span aria-label="10월 24, 2025" class="flatpickr-day" tabindex="-1">24</span><span aria-label="10월 25, 2025" class="flatpickr-day" tabindex="-1">25</span><span aria-label="10월 26, 2025" class="flatpickr-day" tabindex="-1">26</span><span aria-current="date" aria-label="10월 27, 2025" class="flatpickr-day today" tabindex="-1">27</span><span aria-label="10월 28, 2025" class="flatpickr-day" tabindex="-1">28</span><span aria-label="10월 29, 2025" class="flatpickr-day" tabindex="-1">29</span><span aria-label="10월 30, 2025" class="flatpickr-day" tabindex="-1">30</span><span aria-label="10월 31, 2025" class="flatpickr-day" tabindex="-1">31</span><span aria-label="11월 1, 2025" class="flatpickr-day nextMonthDay" tabindex="-1">1</span><span aria-label="11월 2, 2025" class="flatpickr-day nextMonthDay" tabindex="-1">2</span><span aria-label="11월 3, 2025" class="flatpickr-day nextMonthDay" tabindex="-1">3</span><span aria-label="11월 4, 2025" class="flatpickr-day nextMonthDay" tabindex="-1">4</span><span aria-label="11월 5, 2025" class="flatpickr-day nextMonthDay" tabindex="-1">5</span><span aria-label="11월 6, 2025" class="flatpickr-day nextMonthDay" tabindex="-1">6</span><span aria-label="11월 7, 2025" class="flatpickr-day nextMonthDay" tabindex="-1">7</span><span aria-label="11월 8, 2025" class="flatpickr-day nextMonthDay" tabindex="-1">8</span></div></div></div></div></div>
+<script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const ul = document.querySelector('.table-footer .pagination');
+            if (!ul) return;
+
+            // 숫자 li에 표준 클래스/데이터 부여
+            [...ul.querySelectorAll('li')].forEach(li => {
+                const a = li.querySelector('.page-link');
+                const t = a ? a.textContent.trim() : '';
+                if (/^\d+$/.test(t)) { li.classList.add('page-number'); li.dataset.page = t; }
+                if (li.classList.contains('disabled') && t === '...') li.classList.add('page-ellipsis');
+            });
+
+            // 모바일 축약 로직
+            if (matchMedia('(max-width: 575.98px)').matches) {
+                const nums = [...ul.querySelectorAll('.page-number')];
+                if (nums.length) {
+                    const active = ul.querySelector('.page-item.active .page-link');
+                    const cur = active ? parseInt(active.textContent, 10) : NaN;
+                    const max = Math.max(...nums.map(li => +li.dataset.page));
+                    const keep = new Set([1, max, cur - 1, cur, cur + 1].filter(n => n >= 1 && n <= max));
+
+                    nums.forEach(li => {
+                        if (!keep.has(+li.dataset.page)) li.classList.add('is-hide-mobile');
+                    });
+
+                    // … 표시 두 군데만 노출
+                    ul.querySelectorAll('.page-ellipsis').forEach(el => el.classList.add('is-hide-mobile'));
+                    if (Math.min(...keep) > 2) {
+                        const firstEllip = ul.querySelector('.page-ellipsis'); if (firstEllip) firstEllip.classList.remove('is-hide-mobile');
+                    }
+                    if (Math.max(...keep) < max - 1) {
+                        const all = ul.querySelectorAll('.page-ellipsis');
+                        const lastEllip = all[all.length - 1]; if (lastEllip) lastEllip.classList.remove('is-hide-mobile');
+                    }
+                }
+            }
+        });
+    </script>
+<script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // ▼ 페이지/컨테이너 스크롤 시 닫고, 드롭다운 내부 스크롤은 유지
+            function getScrollParents(el) {
+                const out = []; let p = el.parentNode;
+                while (p && p !== document.body && p !== document.documentElement) {
+                    const s = getComputedStyle(p);
+                    if (/(auto|scroll)/.test(s.overflowY) && p.scrollHeight > p.clientHeight) out.push(p);
+                    p = p.parentNode;
+                }
+                out.push(window);
+                return out;
+            }
+
+            ['sjtype', 'sagency', 'select-limit'].forEach(function (id) {
+                var el = document.getElementById(id);
+                if (!el) return;
+
+                // 기존 유틸 우선 사용
+                if (window.buildCustomSelect) { buildCustomSelect(el); return; }
+
+                var host = document.querySelector('.dht-select[data-target="' + id + '"]');
+                if (!host || host.dataset.ready === '1') return;
+
+                el.hidden = true;
+
+                var btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'dht-select__btn';
+                btn.innerHTML = '<span class="dht-select__label"></span><i class="dht-select__caret" aria-hidden="true"></i>';
+                host.appendChild(btn);
+
+                var portal = document.createElement('div');
+                portal.className = 'dht-sel-portal';
+                portal.setAttribute('role', 'listbox');
+                document.body.appendChild(portal);
+
+                function render() {
+                    portal.innerHTML = '';
+                    Array.from(el.options).forEach(function (opt) {
+                        var div = document.createElement('div');
+                        div.className = 'dht-select__opt';
+                        div.textContent = opt.text;
+                        div.dataset.value = opt.value;
+                        div.setAttribute('role', 'option');
+                        if (opt.selected) div.setAttribute('aria-selected', 'true');
+                        div.onclick = function () {
+                            el.value = opt.value;
+                            el.dispatchEvent(new Event('change', { bubbles: true }));
+                            sync();
+                            closePortal();
+                        };
+                        portal.appendChild(div);
+                    });
+                }
+
+                function sync() {
+                    var cur = el.selectedOptions[0];
+                    btn.querySelector('.dht-select__label').textContent = cur ? cur.text : '선택';
+                    portal.querySelectorAll('[aria-selected]').forEach(function (n) { n.removeAttribute('aria-selected'); });
+                    var sel = portal.querySelector('.dht-select__opt[data-value="' + el.value + '"]');
+                    if (sel) sel.setAttribute('aria-selected', 'true');
+                }
+
+                function compute() {
+                    var r = btn.getBoundingClientRect(), pad = 8, gap = 6, vw = innerWidth, vh = innerHeight;
+
+                    var width = Math.min(Math.max(r.width, 160), vw - pad * 2);
+                    var left = Math.min(Math.max(r.left, pad), vw - pad - width);
+
+                    portal.classList.remove('dir-up');
+                    var top = r.bottom + gap;
+
+                    portal.style.width = width + 'px';
+                    portal.style.left = left + 'px';
+                    portal.style.top = Math.max(pad, top) + 'px';
+                    portal.style.maxHeight = '';
+                }
+
+
+
+                function openPortal() {
+                    compute();
+                    portal.classList.add('is-open');
+                    requestAnimationFrame(() => portal.classList.add('anim'));
+                    host.classList.add('is-open');
+
+                    const h = {};
+                    h.onDoc = (e) => { if (!portal.contains(e.target) && !btn.contains(e.target)) closePortal(); };
+                    h.onKey = (e) => { if (e.key === 'Escape') closePortal(); };
+                    h.onResize = () => { if (portal.classList.contains('is-open')) compute(); };
+
+                    h.scrollParents = getScrollParents(btn);
+                    h.onParentScroll = (e) => { if (portal.contains(e.target)) return; closePortal(); };
+
+                    portal.addEventListener('scroll', e => e.stopPropagation(), { passive: true });
+                    portal.addEventListener('wheel', e => e.stopPropagation(), { passive: true });
+                    portal.addEventListener('touchmove', e => e.stopPropagation(), { passive: true });
+
+                    document.addEventListener('click', h.onDoc, true);
+                    document.addEventListener('keydown', h.onKey);
+                    window.addEventListener('resize', h.onResize);
+                    h.scrollParents.forEach(n => n.addEventListener('scroll', h.onParentScroll, { capture: true, passive: true }));
+
+                    portal._h = h;
+                }
+
+                function closePortal() {
+                    if (!portal.classList.contains('is-open')) return;
+                    portal.classList.remove('anim');
+                    portal.addEventListener('transitionend', () => portal.classList.remove('is-open'), { once: true });
+                    host.classList.remove('is-open');
+
+                    const h = portal._h || {};
+                    document.removeEventListener('click', h.onDoc, true);
+                    document.removeEventListener('keydown', h.onKey);
+                    window.removeEventListener('resize', h.onResize);
+                    (h.scrollParents || []).forEach(n => n.removeEventListener('scroll', h.onParentScroll, { capture: true }));
+
+                    portal._h = null;
+                }
+
+                btn.onclick = function (e) {
+                    e.stopPropagation();
+                    if (portal.classList.contains('is-open')) closePortal();
+                    else openPortal();
+                };
+
+                el.addEventListener('change', sync);
+                render(); sync(); host.dataset.ready = '1';
+            });
+        });
+    </script>
+<script>
+        (function () {
+            function collapse() {
+                const pager = document.getElementById('pager');
+                if (!pager) return;
+
+                const isMobile = window.matchMedia('(max-width: 575.98px)').matches;
+                const items = pager.querySelectorAll('.page-item');
+                items.forEach(li => li.classList.remove('is-hidden'));
+
+                if (!isMobile) return; 
+
+                const pages = [...pager.querySelectorAll('.page-number')];
+                if (pages.length === 0) return;
+
+                const active = pager.querySelector('.page-number.active');
+                const cur = active ? Number(active.dataset.page) : NaN;
+                const first = pages[0], last = pages[pages.length - 1];
+
+                const mustShow = new Set([first, last, active]);
+                const next = pager.querySelector(`.page-number[data-page="${cur + 1}"]`);
+                if (next) mustShow.add(next);
+
+                pages.forEach(li => { if (!mustShow.has(li)) li.classList.add('is-hidden'); });
+
+                const all = [...pager.children];
+                let hiddenRun = [];
+                all.forEach((li, i) => {
+                    const isNum = li.classList.contains('page-number');
+                    const hidden = isNum && li.classList.contains('is-hidden');
+                    if (hidden) hiddenRun.push(li);
+                    if (!hidden || i === all.length - 1) {
+                        if (hiddenRun.length) {
+                            hiddenRun.forEach(h => h.style.display = 'none');
+                            const ell = document.createElement('li');
+                            ell.className = 'page-item page-ellipsis';
+                            ell.innerHTML = '<span class="page-link">…</span>';
+                            hiddenRun[0].before(ell);
+                            hiddenRun = [];
+                        }
+                    }
+                });
+            }
+
+            window.addEventListener('load', collapse);
+            window.addEventListener('resize', () => {
+                const pager = document.getElementById('pager');
+                if (pager) {
+                    pager.querySelectorAll('.is-hidden').forEach(n => n.classList.remove('is-hidden'));
+                    pager.querySelectorAll('.page-ellipsis').forEach(n => n.remove());
+                    pager.querySelectorAll('.page-number').forEach(n => n.style.removeProperty('display'));
+                }
+                collapse();
+            });
+        })();
+    </script>
+<script>
+        document.getElementById('select-limit')?.addEventListener('change', function () {
+            document.getElementById('limit').value = this.value;
+            document.getElementById('form-search').submit();
+        });
+    </script>
+<script crossorigin="anonymous" data-cf-beacon='{"version":"2024.11.0","token":"78875702600644769663a42388ecf5c2","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' defer="" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" src="../../assets/static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015"></script>
+<div class="dht-sel-portal" role="listbox"><div aria-selected="true" class="dht-select__opt" data-value="" role="option">전체</div><div class="dht-select__opt" data-value="N" role="option">슬롯생성</div><div class="dht-select__opt" data-value="E" role="option">기간연장</div><div class="dht-select__opt" data-value="W" role="option">슬롯철회</div></div><div class="dht-sel-portal" role="listbox"><div aria-selected="true" class="dht-select__opt" data-value="" role="option">전체 대행사</div></div><div class="dht-sel-portal" role="listbox"><div aria-selected="true" class="dht-select__opt" data-value="100" role="option">100개씩 보기</div><div class="dht-select__opt" data-value="300" role="option">300개씩 보기</div><div class="dht-select__opt" data-value="500" role="option">500개씩 보기</div><div class="dht-select__opt" data-value="1000" role="option">1000개씩 보기</div></div></body></html>
